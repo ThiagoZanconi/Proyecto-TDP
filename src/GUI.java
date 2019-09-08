@@ -1,3 +1,4 @@
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,15 +14,37 @@ public class GUI extends JFrame {
 	protected Mapa mapa;
 	
 	public static void main(String[] args) {
-		GUI iniciar=new GUI();
+		new GUI();
 	}
 	
 	public GUI() {
 		menu=new JFrame("Epic Tower Defense");
 		menu.setVisible(true);
 		menu.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		menu.setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(null);
+		botonJugar=new JButton("Jugar");
+		botonJugar.setBounds(135,150,130,50);
+		menu.add(botonJugar);
+		
+		OyenteBotonJugar oyente=new OyenteBotonJugar();
+		botonJugar.addActionListener(oyente);
+		
+		
+	}
+	
+	class OyenteBotonJugar implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			juego=new JFrame("Epic Tower Defense");
+			juego.setExtendedState(JFrame.MAXIMIZED_BOTH);
+			JLabel mapaImagen=new JLabel();
+			mapaImagen.setIcon(new ImageIcon("D:\\Mis Documentos\\Repositorios GitHub\\Proyecto-TDP\\Sprites\\Mapas\\MapaModificado.png"));
+			juego.add(mapaImagen);
+			juego.setVisible(true);
+			menu.setVisible(false);
+			
+			mapa=new Mapa();
+		}
 	}
 
 
