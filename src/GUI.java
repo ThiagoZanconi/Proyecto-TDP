@@ -13,8 +13,8 @@ public class GUI extends JFrame {
 	protected JLabel nombre;
 	protected Mapa mapa;
 	
-	public static void main(String[] args) {
-		new GUI();
+	public static void main(String[] args) { //tienda: 1-> otra clase que herede de jbutton que sea el encargado de ser el boton de las entidades. con un metodo que sea proximaAAñadir(new personajeACrear)
+		new GUI();                           //        2-> 
 	}
 	
 	public GUI() {
