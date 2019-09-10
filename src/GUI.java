@@ -38,7 +38,7 @@ public class GUI extends JFrame {
 			juego=new JFrame("Epic Tower Defense");
 			juego.setExtendedState(JFrame.MAXIMIZED_BOTH);
 			JLabel mapaImagen=new JLabel();
-			mapaImagen.setIcon(new ImageIcon("D:\\Mis Documentos\\Repositorios GitHub\\Proyecto-TDP\\Sprites\\Mapas\\MapaModificado.png"));
+			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\MapaModificado.png"));
 			juego.add(mapaImagen);
 			juego.setVisible(true);
 			menu.setVisible(false);
