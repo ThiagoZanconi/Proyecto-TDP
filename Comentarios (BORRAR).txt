@@ -1,0 +1,2 @@
+//tienda: 1-> otra clase que herede de jbutton que sea el encargado de ser el boton de las entidades. con un metodo que sea proximaAAñadir(new personajeACrear)
+//        2-> AbsolutLayout		
