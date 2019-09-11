@@ -1,3 +1,4 @@
+package juego;
 
 public class Celda {
 	protected Elemento elemento; 

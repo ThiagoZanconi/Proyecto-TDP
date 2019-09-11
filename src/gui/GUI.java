@@ -1,3 +1,4 @@
+package gui;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -6,7 +7,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.*;
-
+import juego.*;
 public class GUI extends JFrame {
 	protected JFrame menu,juego;
 	protected JButton botonJugar;

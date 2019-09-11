@@ -1,3 +1,4 @@
+package juego;
 
 public class Mapa {
 	protected Celda[][] mapa;
