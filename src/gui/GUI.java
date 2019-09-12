@@ -1,56 +1,113 @@
 package gui;
-import javax.swing.ImageIcon;
+
+import java.awt.EventQueue;
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
-import java.awt.event.*;
-import juego.*;
+import juego.Juego;
+import juego.Tienda;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 public class GUI extends JFrame {
-	protected JFrame menu,juego;
-	protected JButton botonJugar;
-	protected JLabel nombre;
-	protected Mapa mapa;
-	
-	public static void main(String[] args) { //tienda: 1-> otra clase que herede de jbutton que sea el encargado de ser el boton de las entidades. con un metodo que sea proximaAAñadir(new personajeACrear)
-		new GUI();                           //        2-> 
+	private static final long serialVersionUID = 1L;
+	private JButton btnJugar;
+	private JButton btnComprarGuerrero;
+	private JFrame ventanaJuego;
+	private JPanel panelJuego;
+	private JPanel contentPane;
+	private Juego j;
+	private Tienda t;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI frame = new GUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
-	
+
+	/**
+	 * Create the frame.
+	 */
 	public GUI() {
-		menu=new JFrame("Epic Tower Defense");
-		menu.setVisible(true);
-		menu.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		menu.setLayout(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		botonJugar=new JButton("Jugar");
-		botonJugar.setBounds(135,150,130,50);
-		menu.add(botonJugar);
+		addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				//mover(arg0);
+			}
+		});
+		getContentPane().setLayout(null);
 		
-		OyenteBotonJugar oyente=new OyenteBotonJugar();
-		botonJugar.addActionListener(oyente);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setExtendedState(MAXIMIZED_BOTH);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		j = new Juego(this);
+		
+		btnJugar=new JButton("Jugar");
+		oyenteJugar oyenteJugar=new oyenteJugar();
+		btnJugar.addActionListener(oyenteJugar);
+		btnJugar.setBounds(222, 10, 100, 23);
+		contentPane.add(btnJugar);
+		
+		
+		ventanaJuego=new JFrame();
+		ventanaJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ventanaJuego.setExtendedState(MAXIMIZED_BOTH);
+		
+		panelJuego=new JPanel();
+		panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
+		ventanaJuego.setContentPane(panelJuego);
+		panelJuego.setLayout(null);
+		
+		
+		
+		btnComprarGuerrero=new JButton("Comprar Guerrero");
+		oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
+		btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
+		btnComprarGuerrero.setBounds(300, 800, 150, 23);
+		panelJuego.add(btnComprarGuerrero);
+				
+		
+		
+		
+		
 		
 		
 	}
 	
-	class OyenteBotonJugar implements ActionListener{
+	class oyenteJugar implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-			juego=new JFrame("Epic Tower Defense");
-			juego.setExtendedState(JFrame.MAXIMIZED_BOTH);
-			JLabel mapaImagen=new JLabel();
-			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\MapaModificado.png"));
-			juego.add(mapaImagen);
-			juego.setVisible(true);
-			menu.setVisible(false);
-			
-			mapa=new Mapa();
+			ventanaJuego.setVisible(true);
+			setVisible(false);
+		}
+		
+	}
+	
+	class oyenteComprarGuerrero implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			panelJuego.add(t.crearGuerrero());
 		}
 	}
-
-
 	
 	
-	
-
 }

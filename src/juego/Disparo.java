@@ -8,6 +8,7 @@ public class Disparo extends Elemento {
 	
 	
 	public Disparo(int daño, int velocidad) {
+		super(-1);
 		this.daño=daño;
 		this.velocidad=velocidad;
 		
