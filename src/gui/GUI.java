@@ -109,12 +109,20 @@ public class GUI extends JFrame {
 			
 			
 			JLabel guerreroImagen=new JLabel();
-			guerreroImagen.setIcon(new ImageIcon("Sprites\\GuerreroCaminando.gif"));
-			guerreroImagen.setBounds(150,0,1920,1080);
+			guerreroImagen.setIcon(new ImageIcon("Sprites\\GuerreroAtacando.gif"));
+			guerreroImagen.setBounds(1500,0,1920,1080);
 			ventanaJuego.add(guerreroImagen);
+			
+			JLabel EnemigoImagen=new JLabel();
+			EnemigoImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
+			EnemigoImagen.setBounds(150,8,1920,1080);
+			//EnemigoImagen.setBounds(1420,8,1920,1080); //cagandose a palos
+			ventanaJuego.add(EnemigoImagen);
 						
 			mapaImagen=new JLabel();
+			//mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
 			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkLavaM.png"));
+			
 			mapaImagen.setBounds(0,0,1920,1080);
 			ventanaJuego.add(mapaImagen);
 			ventanaJuego.setVisible(true);
