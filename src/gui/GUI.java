@@ -68,10 +68,10 @@ public class GUI extends JFrame {
 		j = new Juego(this);
 		t = new Tienda();
 		
-		btnJugar=new JButton("Jugar");
+		btnJugar=new JButton(new ImageIcon("Sprites\\play.gif"));
 		oyenteJugar oyenteJugar=new oyenteJugar();
 		btnJugar.addActionListener(oyenteJugar);
-		btnJugar.setBounds(222, 10, 100, 23);
+		btnJugar.setBounds(850, 1080/2, 220, 168);
 		contentPane.add(btnJugar);
 		
 		
@@ -112,10 +112,10 @@ public class GUI extends JFrame {
 			guerreroImagen.setIcon(new ImageIcon("Sprites\\GuerreroCaminando.gif"));
 			guerreroImagen.setBounds(150,0,1920,1080);
 			ventanaJuego.add(guerreroImagen);
-			
+						
 			mapaImagen=new JLabel();
-			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\MapaModificado.png"));
-			mapaImagen.setBounds(150,0,1920,1080);
+			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkLavaM.png"));
+			mapaImagen.setBounds(0,0,1920,1080);
 			ventanaJuego.add(mapaImagen);
 			ventanaJuego.setVisible(true);
 			setVisible(false);
