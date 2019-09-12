@@ -8,7 +8,10 @@ public class Celda {
 	public Celda(int x,int y) {
 		this.x=x;
 		this.y=y;
+		elemento=null;
 	}
 	
-
+	public void vaciar() {
+		elemento=null;
+	}
 }

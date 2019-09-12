@@ -9,5 +9,13 @@ public abstract class Personaje extends Elemento{
 		fuerzaDeImpacto=f;
 		alcance=a;
 	}
+	
+	public void recibirDanio(int fuerzaImpacto) {
+		
+		this.vida-=fuerzaImpacto;
+		if(this.vida<=0) {
+			//matar(); 
+		}
+	}
 
 }

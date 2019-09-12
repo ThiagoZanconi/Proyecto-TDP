@@ -120,8 +120,8 @@ public class GUI extends JFrame {
 			ventanaJuego.add(EnemigoImagen);
 						
 			mapaImagen=new JLabel();
-			//mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
-			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkLavaM.png"));
+			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
+			//mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkLavaM.png"));
 			
 			mapaImagen.setBounds(0,0,1920,1080);
 			ventanaJuego.add(mapaImagen);

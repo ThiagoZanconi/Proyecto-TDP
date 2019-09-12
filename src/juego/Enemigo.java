@@ -6,5 +6,6 @@ public class Enemigo extends Personaje {
 		super(f, a, v);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	
 }
