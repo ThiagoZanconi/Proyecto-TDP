@@ -5,10 +5,8 @@ import javax.swing.JLabel;
 import juego.*;
 public class Guerrero extends Aliado {
 	public Guerrero() {
-		super(40,1,500);
-		
+		super(100,100,100,100);
 		this.imagenes[0] = new ImageIcon("//Sprites//Guerrero.png");
-		
 		this.grafico = new JLabel(imagenes[0]);
 		this.grafico.setIcon(imagenes[0]);
 		this.grafico.setBounds(100, 100, tamañoAncho, tamañoLargo);

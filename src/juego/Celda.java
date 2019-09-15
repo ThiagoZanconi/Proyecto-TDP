@@ -1,17 +1,17 @@
 package juego;
 
 public class Celda {
-	protected Elemento elemento; 
+	protected Aliado aliado; 
 	protected int x;
 	protected int y;
 	
 	public Celda(int x,int y) {
 		this.x=x;
 		this.y=y;
-		elemento=null;
+		aliado=null;
 	}
 	
 	public void vaciar() {
-		elemento=null;
+		aliado=null;
 	}
 }
