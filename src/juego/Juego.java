@@ -8,7 +8,6 @@ public class Juego {
 	public Juego(GUI gui) {
 		this.gui=gui;
 		
-		
 	}
 
 }
