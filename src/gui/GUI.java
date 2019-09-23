@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import juego.Juego;
+import juego.Mapa;
 import juego.Tienda;
 
 import java.awt.event.ActionEvent;
@@ -27,6 +28,7 @@ public class GUI extends JFrame {
 	private JPanel contentPane;
 	private Juego j;
 	private Tienda t;
+	private Mapa mapa;
 	
 	private JLabel mapaImagen;
 
@@ -65,8 +67,10 @@ public class GUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		j = new Juego(this);
-		t = new Tienda();
+		t = t.getTienda();
+		mapa=mapa.getMapa();
+		j = j.getJuego(t, this, mapa);
+		
 		
 		btnJugar=new JButton(new ImageIcon("Sprites\\play.gif"));
 		oyenteJugar oyenteJugar=new oyenteJugar();

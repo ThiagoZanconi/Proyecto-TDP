@@ -5,10 +5,13 @@ import javax.swing.JPanel;
 
 import aliados.*;
 
-public class Tienda {
+public final class Tienda {
+	private static final Tienda tienda =new Tienda();
 	
-	public Tienda() {
-		
+	private  Tienda() {}
+	
+	public static Tienda getTienda() {
+		return tienda;
 	}
 	
 	public ImageIcon crearGuerrero() {
