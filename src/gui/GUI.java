@@ -23,6 +23,7 @@ public class GUI extends JFrame {
 	
 	private JButton btnJugar;
 	private JButton btnComprarGuerrero;
+	private JButton btnEliminarEnemigo;
 	
 	private JFrame ventanaJuego;
 	
@@ -36,7 +37,11 @@ public class GUI extends JFrame {
 	private boolean veredicto;
 	
 	private JLabel mapaImagen;
-
+	private JLabel guerreroImagen;
+	
+	private Hilo hilo;
+	private GUI gui;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -74,10 +79,14 @@ public class GUI extends JFrame {
 		btnJugar.addActionListener(oyenteJugar);
 		btnJugar.setBounds(850, 1080/2, 220, 168);
 		contentPane.add(btnJugar);
-		
+		gui=this;
 		
 	}
 	
+	public void mover() {
+		guerreroImagen.setBounds(guerreroImagen.getBounds().x+10, guerreroImagen.getBounds().y, guerreroImagen.getBounds().width, guerreroImagen.getBounds().height);
+		
+	}
 	class oyenteJugar implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 					
@@ -92,6 +101,14 @@ public class GUI extends JFrame {
 			panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
 			ventanaJuego.setContentPane(panelJuego);
 			panelJuego.setLayout(null);
+			
+			//Creo boton eliminar enemigo y lo agrego a la ventana
+            btnEliminarEnemigo=new JButton("Eliminar Enemigo");
+            oyenteEliminarEnemigo oyenteEliminarEnemigo= new oyenteEliminarEnemigo();
+            btnEliminarEnemigo.addActionListener(oyenteEliminarEnemigo);
+            btnEliminarEnemigo.setBounds(100, 0, 200, 100);
+            ventanaJuego.add(btnEliminarEnemigo);
+            btnEliminarEnemigo.setVisible(true);
 
 			//Creo el boton comprar guerrero y lo agrego a la ventana
 			btnComprarGuerrero=new JButton("Guerrero");
@@ -104,7 +121,7 @@ public class GUI extends JFrame {
 			//Inicio variables varias
 			veredicto=false;
 			
-			JLabel guerreroImagen=new JLabel();
+			guerreroImagen=new JLabel();
 			guerreroImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
 			guerreroImagen.setBounds(200,0,1920,1080);
 			ventanaJuego.add(guerreroImagen);
@@ -118,9 +135,20 @@ public class GUI extends JFrame {
 			ventanaJuego.setVisible(true);
 			setVisible(false);
 			
+			hilo=new Hilo(gui);
+			hilo.start();
+			
 		}
 		
 	}
+	
+	class oyenteEliminarEnemigo implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+
+            guerreroImagen.setVisible(false);
+
+        }
+    }
 	
 	class oyenteComprarGuerrero implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
