@@ -2,14 +2,11 @@ package juego;
 
 public final class Mapa {
 	protected Celda[][] cuadrilla;
-	protected final int largo=10;
-	protected final int ancho=6;
-	private static final Mapa mapa=new Mapa();
 	
-	private Mapa() {
-		cuadrilla=(Celda[][])new Celda[largo][ancho];
-		for(int i=0;i<largo;i++) {
-			for(int j=0;j<ancho;j++) {
+	public Mapa() {
+		cuadrilla=(Celda[][])new Celda[6][10];  //Arreglo[filas][columnas]
+		for(int i=0;i<6;i++) {
+			for(int j=0;j<10;j++) {
 				cuadrilla[i][j]=new Celda(i,j);
 			}
 				
@@ -17,7 +14,8 @@ public final class Mapa {
 		
 	}
 	
-	public static Mapa getMapa() {
-		return mapa;
+	public Celda obtenerCelda(int x, int y) {
+		return cuadrilla[x][y];
 	}
+	
 }

@@ -14,4 +14,28 @@ public class Celda {
 	public void vaciar() {
 		aliado=null;
 	}
+	
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
+	}
+	
+	public Aliado getAliado() {
+		return aliado;
+	}
+	
+	public void setX(int x) {
+		this.x=x;
+	}
+	
+	public void setY(int y) {
+		this.y=y;
+	}
+	
+	public void setAliado(Aliado a) {
+		aliado=a;
+	}
 }

@@ -68,7 +68,7 @@ public class GUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		t = t.getTienda();
-		mapa=mapa.getMapa();
+		mapa=new Mapa();
 		j = j.getJuego(t, this, mapa);
 		
 		
@@ -119,8 +119,8 @@ public class GUI extends JFrame {
 			
 			JLabel EnemigoImagen=new JLabel();
 			EnemigoImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
-			EnemigoImagen.setBounds(150,8,1920,1080);
-			//EnemigoImagen.setBounds(1420,8,1920,1080); //cagandose a palos
+			//EnemigoImagen.setBounds(150,8,1920,1080);
+			EnemigoImagen.setBounds(1420,8,1920,1080); //cagandose a palos
 			ventanaJuego.add(EnemigoImagen);
 						
 			mapaImagen=new JLabel();
