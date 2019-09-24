@@ -1,19 +1,15 @@
 package gui;
-
 import java.awt.EventQueue;
 import java.awt.GridLayout;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import juego.Juego;
 import juego.Mapa;
 import juego.Tienda;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -66,33 +62,22 @@ public class GUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
 		t = t.getTienda();
 		mapa=new Mapa();
 		j = j.getJuego(t, this, mapa);
-		
-		
 		btnJugar=new JButton(new ImageIcon("Sprites\\play.gif"));
 		oyenteJugar oyenteJugar=new oyenteJugar();
 		btnJugar.addActionListener(oyenteJugar);
 		btnJugar.setBounds(850, 1080/2, 220, 168);
 		contentPane.add(btnJugar);
-		
-		
 		ventanaJuego=new JFrame("ventanaJuego");
 		ventanaJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ventanaJuego.setExtendedState(MAXIMIZED_BOTH);
-		
 		panelJuego=new JPanel();
 		panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
 		ventanaJuego.setContentPane(panelJuego);
 		panelJuego.setLayout(null);
-		
-		
 		//contentPane.setVisible(true);
-		
-		
-		
 		btnComprarGuerrero=new JButton("Comprar Guerrero");
 		oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
 		btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
@@ -120,7 +105,7 @@ public class GUI extends JFrame {
 			JLabel EnemigoImagen=new JLabel();
 			EnemigoImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
 			//EnemigoImagen.setBounds(150,8,1920,1080);
-			EnemigoImagen.setBounds(1420,8,1920,1080); //cagandose a palos
+			EnemigoImagen.setBounds(150,8,1500,1080); //cagandose a palos
 			ventanaJuego.add(EnemigoImagen);
 						
 			mapaImagen=new JLabel();

@@ -9,7 +9,6 @@ public final class Juego {
 	
 	private Juego(GUI gui) {
 		this.gui=gui;
-		
 	}
 	
 	public static Juego getJuego(Tienda t,GUI g,Mapa m) {
