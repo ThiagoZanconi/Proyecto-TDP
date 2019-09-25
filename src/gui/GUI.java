@@ -90,7 +90,10 @@ public class GUI extends JFrame {
 	}
 	
 	public void mover() {
-		EnemigoImagen.setBounds(EnemigoImagen.getBounds().x+10, EnemigoImagen.getBounds().y, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
+		int aumento=EnemigoImagen.getBounds().x+15;
+		if(aumento>1500)
+			aumento=0;
+		EnemigoImagen.setBounds(aumento, EnemigoImagen.getBounds().y, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
 		
 	}
 	class oyenteJugar implements ActionListener{
@@ -139,7 +142,7 @@ public class GUI extends JFrame {
 			
 			EnemigoImagen=new JLabel();
 			EnemigoImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
-			EnemigoImagen.setBounds(200,0,1920,1080);
+			EnemigoImagen.setBounds(0,0,1920,1080);
 			ventanaJuego.add(EnemigoImagen);
 						
 			//Creo el mapa y lo agrego a la ventana
