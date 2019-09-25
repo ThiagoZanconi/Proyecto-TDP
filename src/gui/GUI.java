@@ -90,12 +90,36 @@ public class GUI extends JFrame {
 	}
 	
 	public void mover() {
-		int aumento=EnemigoImagen.getBounds().x+15;
-		if(aumento>1500)
-			aumento=0;
-		EnemigoImagen.setBounds(aumento, EnemigoImagen.getBounds().y, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
 		
+		int aumentoX=EnemigoImagen.getBounds().x;
+		int aumentoY=EnemigoImagen.getBounds().x;
+		
+		int y=(int) (Math.random() * 2);
+		int x=(int) (Math.random() * 2);
+		
+		switch (y) {
+		case 0:
+			aumentoY=EnemigoImagen.getBounds().y+15;
+			break;
+		case 1:
+			aumentoY=EnemigoImagen.getBounds().y-15;
+		}
+		switch (x) {
+		case 0:
+			aumentoX=EnemigoImagen.getBounds().x+15;
+			break;
+		case 1:
+			aumentoX=EnemigoImagen.getBounds().x-15;		
+		}
+		
+		if(aumentoX>1500 || aumentoX<0)
+			aumentoX=0;
+		if(aumentoY>1000 || aumentoY<0)
+			aumentoY=0;
+		
+		EnemigoImagen.setBounds(aumentoX, aumentoY, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
 	}
+	
 	class oyenteJugar implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 					
