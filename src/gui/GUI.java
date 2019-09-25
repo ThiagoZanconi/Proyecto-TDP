@@ -1,6 +1,9 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -36,8 +39,11 @@ public class GUI extends JFrame {
 	
 	private boolean veredicto;
 	
+	private int puntaje;
+	
 	private JLabel mapaImagen;
-	private JLabel guerreroImagen;
+	private JLabel EnemigoImagen;
+	private JLabel labelPuntaje;
 	
 	private Hilo hilo;
 	private GUI gui;
@@ -84,7 +90,7 @@ public class GUI extends JFrame {
 	}
 	
 	public void mover() {
-		guerreroImagen.setBounds(guerreroImagen.getBounds().x+10, guerreroImagen.getBounds().y, guerreroImagen.getBounds().width, guerreroImagen.getBounds().height);
+		EnemigoImagen.setBounds(EnemigoImagen.getBounds().x+10, EnemigoImagen.getBounds().y, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
 		
 	}
 	class oyenteJugar implements ActionListener{
@@ -121,10 +127,20 @@ public class GUI extends JFrame {
 			//Inicio variables varias
 			veredicto=false;
 			
-			guerreroImagen=new JLabel();
-			guerreroImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
-			guerreroImagen.setBounds(200,0,1920,1080);
-			ventanaJuego.add(guerreroImagen);
+			//Creo el label puntaje y lo inicio en 0
+			labelPuntaje= new JLabel();
+			puntaje= 0;
+			labelPuntaje.setText(String.valueOf(puntaje));
+			labelPuntaje.setBounds(400,30,40,30);
+			labelPuntaje.setBorder(BorderFactory.createLineBorder(Color.black));
+			labelPuntaje.setBackground(Color.green);
+			labelPuntaje.setOpaque(true);
+			ventanaJuego.add(labelPuntaje);
+			
+			EnemigoImagen=new JLabel();
+			EnemigoImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
+			EnemigoImagen.setBounds(200,0,1920,1080);
+			ventanaJuego.add(EnemigoImagen);
 						
 			//Creo el mapa y lo agrego a la ventana
 			mapaImagen=new JLabel();
@@ -145,7 +161,9 @@ public class GUI extends JFrame {
 	class oyenteEliminarEnemigo implements ActionListener{
         public void actionPerformed(ActionEvent e) {
 
-            guerreroImagen.setVisible(false);
+        	EnemigoImagen.setVisible(false);
+            puntaje+=100;
+            labelPuntaje.setText(String.valueOf(puntaje));
 
         }
     }
@@ -163,10 +181,10 @@ public class GUI extends JFrame {
 		public void mousePressed(MouseEvent evento) {
 			
 			if(veredicto) {
-				JLabel EnemigoImagen=new JLabel();
-				EnemigoImagen.setIcon(new ImageIcon("Sprites\\GuerreroAtacando.gif"));
-				EnemigoImagen.setBounds(evento.getX(),evento.getY()-500,1000,1000);
-				ventanaJuego.add(EnemigoImagen);
+				JLabel guerreroImagen=new JLabel();
+				guerreroImagen.setIcon(new ImageIcon("Sprites\\GuerreroAtacando.gif"));
+				guerreroImagen.setBounds(evento.getX(),evento.getY()-500,1000,1000);
+				ventanaJuego.add(guerreroImagen);
 				ventanaJuego.add(mapaImagen);
 				veredicto=false;
 			}
