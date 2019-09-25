@@ -114,8 +114,11 @@ public class GUI extends JFrame {
 		
 		if(aumentoX>1500 || aumentoX<0)
 			aumentoX=0;
-		if(aumentoY>1000 || aumentoY<0)
-			aumentoY=0;
+		
+		if(aumentoY>250)
+			aumentoY=249;
+		else if(aumentoY<-300)
+			aumentoY=-299;
 		
 		EnemigoImagen.setBounds(aumentoX, aumentoY, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
 	}
