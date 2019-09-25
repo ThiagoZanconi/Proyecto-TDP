@@ -183,7 +183,7 @@ public class GUI extends JFrame {
 			if(veredicto) {
 				JLabel guerreroImagen=new JLabel();
 				guerreroImagen.setIcon(new ImageIcon("Sprites\\GuerreroAtacando.gif"));
-				guerreroImagen.setBounds(evento.getX(),evento.getY()-500,1000,1000);
+				guerreroImagen.setBounds(evento.getX()-65,evento.getY()-550,1000,1000);
 				ventanaJuego.add(guerreroImagen);
 				ventanaJuego.add(mapaImagen);
 				veredicto=false;
