@@ -1,12 +1,22 @@
 package juego;
 import gui.*;
-public class Juego {
-	protected Tienda t;
-	protected GUI gui;
-	protected Mapa mapa;
+public final class Juego {
 	
-	public Juego(GUI gui) {
+	protected static Tienda tienda;
+	protected static GUI gui;
+	protected static Mapa mapa;
+	private static final Juego juego=new Juego(gui);
+	
+	private Juego(GUI gui) {
 		this.gui=gui;
+		
+	}
+	
+	public static Juego getJuego(Tienda t,GUI g,Mapa m) {
+		tienda=t;
+		gui=g;
+		mapa=m;
+		return juego;
 		
 	}
 
