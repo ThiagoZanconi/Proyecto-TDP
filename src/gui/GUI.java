@@ -122,13 +122,6 @@ public class GUI extends JFrame {
 		if(aumentoX>1500 || aumentoX<0)
 			aumentoX=0;
 		EnemigoImagen.setBounds(aumentoX,aumentoY, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
-
-		
-		int aumentoX=EnemigoImagen.getBounds().x;
-		int aumentoY=EnemigoImagen.getBounds().x;
-		
-		int y=(int) (Math.random() * 2);
-		int x=(int) (Math.random() * 2);
 		
 		switch (y) {
 		case 0:
