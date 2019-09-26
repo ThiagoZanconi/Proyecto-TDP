@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -32,6 +33,7 @@ public class GUI extends JFrame {
 	
 	private JPanel panelJuego;
 	private JPanel contentPane;
+	private JPanel cuadrilla;
 	
 	private Juego j;
 	private Tienda t;
@@ -44,6 +46,7 @@ public class GUI extends JFrame {
 	private JLabel mapaImagen;
 	private JLabel EnemigoImagen;
 	private JLabel labelPuntaje;
+	private JLabel labelCoordenadas;
 	
 	private Hilo hilo;
 	private GUI gui;
@@ -90,6 +93,36 @@ public class GUI extends JFrame {
 	}
 	
 	public void mover() {
+
+		
+		int x=(int) (Math.random() * 2);
+		int y=(int) (Math.random() * 2);
+		
+		int aumentoY=EnemigoImagen.getBounds().y;
+		int aumentoX=EnemigoImagen.getBounds().x;
+		
+		switch(x) {
+		case 0:
+			aumentoX+=15;
+			break;
+		case 1:
+			aumentoX-=15;
+		}
+		switch(y) {
+		case 0:
+			aumentoY+=15;
+			break;
+		case 1:
+			aumentoY-=15;
+		}
+		
+		if(aumentoY<-300) {
+			aumentoY=-299;
+		}
+		if(aumentoX>1500 || aumentoX<0)
+			aumentoX=0;
+		EnemigoImagen.setBounds(aumentoX,aumentoY, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
+
 		
 		int aumentoX=EnemigoImagen.getBounds().x;
 		int aumentoY=EnemigoImagen.getBounds().x;
@@ -167,11 +200,28 @@ public class GUI extends JFrame {
 			labelPuntaje.setOpaque(true);
 			ventanaJuego.add(labelPuntaje);
 			
+			labelCoordenadas=new JLabel();
+			labelCoordenadas.setText("");
+			labelCoordenadas.setBounds(500, 30, 100, 30);
+			labelCoordenadas.setBorder(BorderFactory.createLineBorder(Color.black));
+			labelCoordenadas.setBackground(Color.green);
+			labelCoordenadas.setOpaque(true);
+			ventanaJuego.add(labelCoordenadas);
+			
+			
 			EnemigoImagen=new JLabel();
 			EnemigoImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
 			EnemigoImagen.setBounds(0,0,1920,1080);
 			ventanaJuego.add(EnemigoImagen);
-						
+					
+			cuadrilla=new JPanel();
+			cuadrilla.setLayout(new GridLayout(6,10));
+			llenarCuadrilla();
+			cuadrilla.setBounds(20,200,1890,700);
+			cuadrilla.setOpaque(false);
+			ventanaJuego.add(cuadrilla);
+			cuadrilla.setVisible(false);
+			
 			//Creo el mapa y lo agrego a la ventana
 			mapaImagen=new JLabel();
 			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
@@ -181,11 +231,21 @@ public class GUI extends JFrame {
 			ventanaJuego.setVisible(true);
 			setVisible(false);
 			
+			
+			
 			hilo=new Hilo(gui);
 			hilo.start();
 			
 		}
 		
+	}
+	
+	private void llenarCuadrilla() {
+		for(int i=0;i<60;i++) {
+			JLabel labelAuxiliar=new JLabel();
+			labelAuxiliar.setBorder(BorderFactory.createLineBorder(Color.black));
+			cuadrilla.add(labelAuxiliar);
+		}
 	}
 	
 	class oyenteEliminarEnemigo implements ActionListener{
@@ -202,6 +262,7 @@ public class GUI extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			
 			veredicto=true;
+			cuadrilla.setVisible(true);
 			
 		}
 	}
@@ -209,6 +270,7 @@ public class GUI extends JFrame {
 	MouseListener click=new MouseListener() {
 		@Override
 		public void mousePressed(MouseEvent evento) {
+			labelCoordenadas.setText("X: "+evento.getX()+" Y: "+evento.getY());
 			
 			if(veredicto) {
 				JLabel guerreroImagen=new JLabel();
@@ -216,6 +278,9 @@ public class GUI extends JFrame {
 				guerreroImagen.setBounds(evento.getX()-65,evento.getY()-550,1000,1000);
 				ventanaJuego.add(guerreroImagen);
 				ventanaJuego.add(mapaImagen);
+				
+				cuadrilla.setVisible(false);
+				
 				veredicto=false;
 			}
 			
@@ -223,6 +288,8 @@ public class GUI extends JFrame {
 		@Override
 		public void mouseReleased(MouseEvent evento) {
 
+				
+			
 		}
 		@Override
 		public void mouseEntered(MouseEvent evento) {
