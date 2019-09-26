@@ -4,6 +4,11 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,6 +25,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 
 public class GUI extends JFrame {
 	
@@ -28,6 +35,9 @@ public class GUI extends JFrame {
 	private JButton btnJugar;
 	private JButton btnComprarGuerrero;
 	private JButton btnEliminarEnemigo;
+	private JButton btnMusica;
+	
+	private Clip musica;
 	
 	private JFrame ventanaJuego;
 	
@@ -39,7 +49,7 @@ public class GUI extends JFrame {
 	private Tienda t;
 	private Mapa mapa;
 	
-	private boolean veredicto;
+	private boolean veredicto,reproduciendo;
 	
 	private int puntaje;
 	
@@ -122,38 +132,6 @@ public class GUI extends JFrame {
 		if(aumentoX>1500 || aumentoX<0)
 			aumentoX=0;
 		EnemigoImagen.setBounds(aumentoX,aumentoY, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
-
-		
-		int aumentoX=EnemigoImagen.getBounds().x;
-		int aumentoY=EnemigoImagen.getBounds().x;
-		
-		int y=(int) (Math.random() * 2);
-		int x=(int) (Math.random() * 2);
-		
-		switch (y) {
-		case 0:
-			aumentoY=EnemigoImagen.getBounds().y+15;
-			break;
-		case 1:
-			aumentoY=EnemigoImagen.getBounds().y-15;
-		}
-		switch (x) {
-		case 0:
-			aumentoX=EnemigoImagen.getBounds().x+15;
-			break;
-		case 1:
-			aumentoX=EnemigoImagen.getBounds().x-15;		
-		}
-		
-		if(aumentoX>1500 || aumentoX<0)
-			aumentoX=0;
-		
-		if(aumentoY>250)
-			aumentoY=249;
-		else if(aumentoY<-300)
-			aumentoY=-299;
-		
-		EnemigoImagen.setBounds(aumentoX, aumentoY, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
 	}
 	
 	class oyenteJugar implements ActionListener{
@@ -179,13 +157,30 @@ public class GUI extends JFrame {
             ventanaJuego.add(btnEliminarEnemigo);
             btnEliminarEnemigo.setVisible(true);
 
+			//Creo el boton para reproducir musica
+            btnMusica=new JButton("Musica");
+			oyenteBotonMusica oyenteMusica =new oyenteBotonMusica();
+			btnMusica.addActionListener(oyenteMusica);
+			btnMusica.setBounds(1000, 0, 100, 100);
+			ventanaJuego.add(btnMusica);
+			btnMusica.setVisible(true);	
+			reproduciendo=false;
+			
+			//Le relaciono el archivo .wav a la variable musica
+			try {
+				musica = crearClip("C:\\Users\\Matias\\Documents\\GitHub\\Proyecto-TDP\\Canciones\\cancion1.wav");
+			} catch (LineUnavailableException | UnsupportedAudioFileException | IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			//Creo el boton comprar guerrero y lo agrego a la ventana
 			btnComprarGuerrero=new JButton("Guerrero");
 			oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
 			btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
 			btnComprarGuerrero.setBounds(0, 0, 100, 100);
 			ventanaJuego.add(btnComprarGuerrero);
-			btnComprarGuerrero.setVisible(true);		
+			btnComprarGuerrero.setVisible(true);
 			
 			//Inicio variables varias
 			veredicto=false;
@@ -238,6 +233,31 @@ public class GUI extends JFrame {
 			
 		}
 		
+	}
+	
+	private Clip crearClip(String str) throws LineUnavailableException,UnsupportedAudioFileException,IOException{
+		
+		Clip clip;
+		AudioInputStream inputStream;
+		clip = AudioSystem.getClip();
+		inputStream = AudioSystem.getAudioInputStream(new File(str));
+		clip.open (inputStream);
+		return clip;
+		
+	}
+	
+	class oyenteBotonMusica implements ActionListener{
+		public void actionPerformed(ActionEvent evento) {
+			
+			if(!reproduciendo) {
+				musica.start();
+				reproduciendo = true;
+			}else {
+				musica.stop();
+				reproduciendo = false;
+			}
+			
+		}
 	}
 	
 	private void llenarCuadrilla() {

@@ -19,7 +19,8 @@ public final class Tienda {
 		Guerrero guerrero=new Guerrero();
 		//ImageIcon grafico=guerrero.getImage();
 		//grafico.setBounds(50, 50,guerrero.getAncho()+500 ,guerrero.getLargo()+500);
-		return grafico;
+		//return grafico;
+		return null;
 	}
 	
 	
