@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import TDALista.DoubleLinkedList;
 import juego.Juego;
 import juego.Mapa;
 import juego.Tienda;
@@ -36,6 +37,7 @@ public class GUI extends JFrame {
 	private JButton btnComprarGuerrero;
 	private JButton btnEliminarEnemigo;
 	private JButton btnMusica;
+	private JButton enemigos[];
 	
 	private Clip musica;
 	
@@ -52,11 +54,12 @@ public class GUI extends JFrame {
 	private boolean veredicto,reproduciendo;
 	
 	private int puntaje;
+	private int posicionArregloEnemigos;
 	
 	private JLabel mapaImagen;
-	private JLabel EnemigoImagen;
 	private JLabel labelPuntaje;
 	private JLabel labelCoordenadas;
+	private JLabel arregloEnemigos[];
 	
 	private Hilo hilo;
 	private GUI gui;
@@ -84,7 +87,7 @@ public class GUI extends JFrame {
 		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setExtendedState(MAXIMIZED_BOTH);
+		this.setBounds(0, 0, 1200, 800);
 		
 		//Creo el panel de inicio
 		contentPane = new JPanel();
@@ -96,51 +99,29 @@ public class GUI extends JFrame {
 		btnJugar=new JButton(new ImageIcon("Sprites\\play.gif"));
 		oyenteJugar oyenteJugar=new oyenteJugar();
 		btnJugar.addActionListener(oyenteJugar);
-		btnJugar.setBounds(850, 1080/2, 220, 168);
+		btnJugar.setBounds(this.getWidth()/2,this.getHeight()/2, 220, 168);
 		contentPane.add(btnJugar);
 		gui=this;
 		
 	}
 	
 	public void mover() {
-
 		
-		int x=(int) (Math.random() * 2);
-		int y=(int) (Math.random() * 2);
+		int aumentoX=arregloEnemigos[posicionArregloEnemigos].getX()+15;
 		
-		int aumentoY=EnemigoImagen.getBounds().y;
-		int aumentoX=EnemigoImagen.getBounds().x;
-		
-		switch(x) {
-		case 0:
-			aumentoX+=15;
-			break;
-		case 1:
-			aumentoX-=15;
-		}
-		switch(y) {
-		case 0:
-			aumentoY+=15;
-			break;
-		case 1:
-			aumentoY-=15;
-		}
-		
-		if(aumentoY<-300) {
-			aumentoY=-299;
-		}
-		if(aumentoX>1500 || aumentoX<0)
-			aumentoX=0;
-		EnemigoImagen.setBounds(aumentoX,aumentoY, EnemigoImagen.getBounds().width, EnemigoImagen.getBounds().height);
+		arregloEnemigos[posicionArregloEnemigos].setBounds(aumentoX,arregloEnemigos[posicionArregloEnemigos].getY(), arregloEnemigos[posicionArregloEnemigos].getBounds().width, arregloEnemigos[posicionArregloEnemigos].getBounds().height);
+	
 	}
 	
 	class oyenteJugar implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-					
+			
+			posicionArregloEnemigos=0;
+			
 			//Creo la ventana del juego
 			ventanaJuego=new JFrame("ventanaJuego");
 			ventanaJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			ventanaJuego.setExtendedState(MAXIMIZED_BOTH);
+			ventanaJuego.setBounds(0, 0, 1200, 800);
 			ventanaJuego.addMouseListener(click);
 			
 			//Creo el panel del juego y le agrego la ventana
@@ -151,12 +132,13 @@ public class GUI extends JFrame {
 			
 			//Creo boton eliminar enemigo y lo agrego a la ventana
             btnEliminarEnemigo=new JButton("Eliminar Enemigo");
-            oyenteEliminarEnemigo oyenteEliminarEnemigo= new oyenteEliminarEnemigo();
-            btnEliminarEnemigo.addActionListener(oyenteEliminarEnemigo);
             btnEliminarEnemigo.setBounds(100, 0, 200, 100);
             ventanaJuego.add(btnEliminarEnemigo);
             btnEliminarEnemigo.setVisible(true);
 
+            iniciarBotonEnemigos();
+            arregloEnemigos=(JLabel[]) new JLabel[100];
+            
 			//Creo el boton para reproducir musica
             btnMusica=new JButton("Musica");
 			oyenteBotonMusica oyenteMusica =new oyenteBotonMusica();
@@ -202,17 +184,11 @@ public class GUI extends JFrame {
 			labelCoordenadas.setBackground(Color.green);
 			labelCoordenadas.setOpaque(true);
 			ventanaJuego.add(labelCoordenadas);
-			
-			
-			EnemigoImagen=new JLabel();
-			EnemigoImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
-			EnemigoImagen.setBounds(0,0,1920,1080);
-			ventanaJuego.add(EnemigoImagen);
 					
 			cuadrilla=new JPanel();
 			cuadrilla.setLayout(new GridLayout(6,10));
 			llenarCuadrilla();
-			cuadrilla.setBounds(20,200,1890,700);
+			cuadrilla.setBounds(20,200,1150,560);
 			cuadrilla.setOpaque(false);
 			ventanaJuego.add(cuadrilla);
 			cuadrilla.setVisible(false);
@@ -221,7 +197,7 @@ public class GUI extends JFrame {
 			mapaImagen=new JLabel();
 			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
 			//mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkLavaM.png"));
-			mapaImagen.setBounds(0,0,1920,1080);
+			mapaImagen.setBounds(0, 0, 1200, 800);
 			ventanaJuego.add(mapaImagen);
 			ventanaJuego.setVisible(true);
 			setVisible(false);
@@ -229,8 +205,42 @@ public class GUI extends JFrame {
 			
 			
 			hilo=new Hilo(gui);
+			
+			
+		}
+		
+	}
+	
+	class oyenteBotonEnemigos implements ActionListener{
+		public void actionPerformed(ActionEvent evento) {
+			
+			JButton boton=(JButton) evento.getSource();
+			
+			JLabel EnemigoImagen=new JLabel();
+			EnemigoImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
+			EnemigoImagen.setBounds(20,boton.getY()-80,100,100);
+			ventanaJuego.add(EnemigoImagen);
+			ventanaJuego.add(mapaImagen);
+			arregloEnemigos[posicionArregloEnemigos]=EnemigoImagen;
+			
 			hilo.start();
 			
+		}
+	}
+	
+	private void iniciarBotonEnemigos() {
+		
+		enemigos=new JButton[6];
+		int y=240;
+		oyenteBotonEnemigos oyenteEnemigos=new oyenteBotonEnemigos();
+		
+		for(int i=0;i<6;i++) {
+			enemigos[i]=new JButton();
+			enemigos[i].setBounds(20, y, 20, 20);
+			enemigos[i].setText(".");
+			enemigos[i].addActionListener(oyenteEnemigos);
+			ventanaJuego.add(enemigos[i]);
+			y+=93;
 		}
 		
 	}
@@ -267,16 +277,6 @@ public class GUI extends JFrame {
 			cuadrilla.add(labelAuxiliar);
 		}
 	}
-	
-	class oyenteEliminarEnemigo implements ActionListener{
-        public void actionPerformed(ActionEvent e) {
-
-        	EnemigoImagen.setVisible(false);
-            puntaje+=100;
-            labelPuntaje.setText(String.valueOf(puntaje));
-
-        }
-    }
 	
 	class oyenteComprarGuerrero implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
