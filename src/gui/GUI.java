@@ -35,7 +35,6 @@ public class GUI extends JFrame {
 	
 	private JButton btnJugar;
 	private JButton btnComprarGuerrero;
-	private JButton btnEliminarEnemigo;
 	private JButton btnMusica;
 	private JButton enemigos[];
 	
@@ -111,6 +110,16 @@ public class GUI extends JFrame {
 		
 		arregloEnemigos[posicionArregloEnemigos].setBounds(aumentoX,arregloEnemigos[posicionArregloEnemigos].getY(), arregloEnemigos[posicionArregloEnemigos].getBounds().width, arregloEnemigos[posicionArregloEnemigos].getBounds().height);
 	
+		if(aumentoX>1100) {
+
+			arregloEnemigos[posicionArregloEnemigos].setVisible(false);;
+			
+			for(int i=0;i<6;i++) {
+				enemigos[i].setVisible(true);	
+			}
+			
+		}
+		
 	}
 	
 	class oyenteJugar implements ActionListener{
@@ -129,12 +138,6 @@ public class GUI extends JFrame {
 			panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
 			ventanaJuego.setContentPane(panelJuego);
 			panelJuego.setLayout(null);
-			
-			//Creo boton eliminar enemigo y lo agrego a la ventana
-            btnEliminarEnemigo=new JButton("Eliminar Enemigo");
-            btnEliminarEnemigo.setBounds(100, 0, 200, 100);
-            ventanaJuego.add(btnEliminarEnemigo);
-            btnEliminarEnemigo.setVisible(true);
 
             iniciarBotonEnemigos();
             arregloEnemigos=(JLabel[]) new JLabel[100];
@@ -184,7 +187,8 @@ public class GUI extends JFrame {
 			labelCoordenadas.setBackground(Color.green);
 			labelCoordenadas.setOpaque(true);
 			ventanaJuego.add(labelCoordenadas);
-					
+				
+			//Crea la cuadrilla
 			cuadrilla=new JPanel();
 			cuadrilla.setLayout(new GridLayout(6,10));
 			llenarCuadrilla();
@@ -213,8 +217,6 @@ public class GUI extends JFrame {
 	
 	class oyenteBotonEnemigos implements ActionListener{
 		public void actionPerformed(ActionEvent evento) {
-			
-			
 			
 			JButton boton=(JButton) evento.getSource();
 			
