@@ -214,6 +214,8 @@ public class GUI extends JFrame {
 	class oyenteBotonEnemigos implements ActionListener{
 		public void actionPerformed(ActionEvent evento) {
 			
+			
+			
 			JButton boton=(JButton) evento.getSource();
 			
 			JLabel EnemigoImagen=new JLabel();
@@ -225,6 +227,9 @@ public class GUI extends JFrame {
 			
 			hilo.start();
 			
+			for(int i=0;i<6;i++) {
+				enemigos[i].setVisible(false);
+			}
 		}
 	}
 	
