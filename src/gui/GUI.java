@@ -31,6 +31,8 @@ public class GUI extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
+	private String aliadoComprado;
+	
 	private JButton btnJugar;
 	private JButton btnComprarGuerrero;
 	private JButton btnMusica;
@@ -57,6 +59,7 @@ public class GUI extends JFrame {
 	private JLabel labelPuntaje;
 	private JLabel labelCoordenadas;
 	private JLabel arregloEnemigos[];
+	private JLabel arregloAliados[][];
 	
 	private Hilo hilo;
 	private GUI gui;
@@ -123,7 +126,9 @@ public class GUI extends JFrame {
 	class oyenteJugar implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			
+			aliadoComprado="";
 			posicionArregloEnemigos=0;
+			arregloAliados=(JLabel[][]) new JLabel[6][10]; 
 			
 			//Creo la ventana del juego
 			ventanaJuego=new JFrame("ventanaJuego");
@@ -186,6 +191,8 @@ public class GUI extends JFrame {
 			labelCoordenadas.setOpaque(true);
 			ventanaJuego.add(labelCoordenadas);
 				
+			
+			
 			//Crea la cuadrilla
 			cuadrilla=new JPanel();
 			cuadrilla.setLayout(new GridLayout(6,10));
@@ -287,9 +294,93 @@ public class GUI extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			
 			veredicto=true;
+			aliadoComprado="Guerrero";
 			cuadrilla.setVisible(true);
 			
 		}
+	}
+	
+	private int[] traducirCoordenadas(int x, int y) {
+		int[] arregloDevolver=new int[4];
+		//[0] = x en la matriz
+		//[1] = coordenadas x para el pj
+		//[2] = y en la matriz
+		//[3] = coordenadas y para el pj
+		
+		if(y>233 && y<325) {
+			arregloDevolver[2]=1;
+			arregloDevolver[3]=279;
+		}else if(y>=325 && y<420) {
+			arregloDevolver[2]=2;
+			arregloDevolver[3]=372;
+		}else if(y>=420 && y<511) {
+			arregloDevolver[2]=3;
+			arregloDevolver[3]=465;
+		}else if(y>=511 && y<603) {
+			arregloDevolver[2]=4;
+			arregloDevolver[3]=557;
+		}else if(y>=601 && y<697) {
+			arregloDevolver[2]=5;
+			arregloDevolver[3]=649;
+		}else if(y>=697 && y<790) {
+			arregloDevolver[2]=6;
+			arregloDevolver[3]=743;
+		}else {
+			arregloDevolver[2]=0;
+			arregloDevolver[3]=0;
+		}
+		if(x>=28 && x<142) {
+			arregloDevolver[0]=1;
+			arregloDevolver[1]=85;
+		}else if(x>=142 && x<255) {
+			arregloDevolver[0]=2;
+			arregloDevolver[1]=198;
+		}else if(x>=255 && x<372) {
+			arregloDevolver[0]=3;
+			arregloDevolver[1]=313;
+		}else if(x>=372 && x<486) {
+			arregloDevolver[0]=4;
+			arregloDevolver[1]=429;
+		}else if(x>=486 && x<602) {
+			arregloDevolver[0]=5;
+			arregloDevolver[1]=544;
+		}else if(x>=602 && x<716) {
+			arregloDevolver[0]=6;
+			arregloDevolver[1]=659;
+		}else if(x>=716 && x<832) {
+			arregloDevolver[0]=7;
+			arregloDevolver[1]=774;
+		}else if(x>=832 && x<946) {
+			arregloDevolver[0]=8;
+			arregloDevolver[1]=889;
+		}else if(x>=946 && x<1062) {
+			arregloDevolver[0]=9;
+			arregloDevolver[1]=1004;
+		}else if(x>=1062 && x<1177) {
+			arregloDevolver[0]=10;
+			arregloDevolver[1]=1119;
+		}else {
+			arregloDevolver[0]=0;
+			arregloDevolver[1]=0;
+		}
+		return arregloDevolver;
+	}
+	
+	private void generarGuerrero(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			JLabel guerreroImagen=new JLabel();
+			arregloAliados[arregloAuxiliar[2]][arregloAuxiliar[0]]=guerreroImagen;
+			guerreroImagen.setIcon(new ImageIcon("Sprites\\GuerreroAtacando.gif"));
+			guerreroImagen.setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
+			ventanaJuego.add(guerreroImagen);
+			ventanaJuego.add(mapaImagen);
+		}
+		
+		cuadrilla.setVisible(false);
+		
+		veredicto=false;
 	}
 	
 	MouseListener click=new MouseListener() {
@@ -298,15 +389,12 @@ public class GUI extends JFrame {
 			labelCoordenadas.setText("X: "+evento.getX()+" Y: "+evento.getY());
 			
 			if(veredicto) {
-				JLabel guerreroImagen=new JLabel();
-				guerreroImagen.setIcon(new ImageIcon("Sprites\\GuerreroAtacando.gif"));
-				guerreroImagen.setBounds(evento.getX()-65,evento.getY()-550,1000,1000);
-				ventanaJuego.add(guerreroImagen);
-				ventanaJuego.add(mapaImagen);
+				switch (aliadoComprado) {
+					case "Guerrero":
+						generarGuerrero(evento.getX(), evento.getY());
+				}
 				
-				cuadrilla.setVisible(false);
 				
-				veredicto=false;
 			}
 			
 		}
