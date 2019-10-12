@@ -4,7 +4,7 @@ public final class Juego {
 	
 	protected static Tienda tienda;
 	protected static GUI gui;
-	protected static Mapa mapa;
+	protected static Elementos elementos;
 	private static final Juego juego=new Juego(gui);
 	
 	private Juego(GUI gui) {
@@ -12,10 +12,10 @@ public final class Juego {
 		
 	}
 	
-	public static Juego getJuego(Tienda t,GUI g,Mapa m) {
+	public static Juego getJuego(Tienda t,GUI g) {
 		tienda=t;
 		gui=g;
-		mapa=m;
+		elementos=new Elementos();
 		return juego;
 		
 	}

@@ -17,7 +17,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import juego.Juego;
-import juego.Mapa;
 import juego.Tienda;
 
 import java.awt.event.ActionEvent;
@@ -48,7 +47,6 @@ public class GUI extends JFrame {
 	
 	private Juego j;
 	private Tienda t;
-	private Mapa mapa;
 	
 	private boolean veredicto,reproduciendo;
 	
