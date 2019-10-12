@@ -16,8 +16,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import TDALista.DoubleLinkedList;
 import juego.Juego;
 import juego.Mapa;
 import juego.Tienda;
