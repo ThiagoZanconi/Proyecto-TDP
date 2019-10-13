@@ -16,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import juego.Aliado;
 import juego.Juego;
 import juego.Tienda;
 
@@ -26,6 +28,7 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 
+import aliados.*;
 public class GUI extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -370,6 +373,7 @@ public class GUI extends JFrame {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			
 			JLabel guerreroImagen=new JLabel();
 			arregloAliados[arregloAuxiliar[2]][arregloAuxiliar[0]]=guerreroImagen;
 			guerreroImagen.setIcon(new ImageIcon("Sprites\\GuerreroAtacando.gif"));

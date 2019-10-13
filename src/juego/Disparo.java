@@ -1,5 +1,7 @@
 package juego;
 
+import visitor.Visitor;
+
 public class Disparo extends Elemento {
 	
 	
@@ -12,6 +14,10 @@ public class Disparo extends Elemento {
 		this.daño=daño;
 		this.velocidad=velocidad;
 		
+	}
+	
+	public void aceptar(Visitor v) {
+		v.visitarDisparo(this);
 	}
 	
 	
