@@ -164,7 +164,6 @@ public class GUI extends JFrame {
 			
 			
 			hilo=new Hilo(gui);
-			hilo.run();
 			
 			
 		}
