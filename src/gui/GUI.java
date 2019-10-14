@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import aliados.Ballesta;
 import aliados.Guerrero;
 import enemigos.Normal;
 import juego.Aliado;
@@ -31,6 +32,7 @@ public class GUI extends JFrame {
 	
 	private JButton btnJugar;
 	private JButton btnComprarGuerrero;
+	private JButton btnComprarBallesta;
 	
 	private JFrame ventanaJuego;
 	
@@ -142,6 +144,14 @@ public class GUI extends JFrame {
 			ventanaJuego.add(btnComprarGuerrero);
 			btnComprarGuerrero.setVisible(true);
 			
+			//Creo el boton comprar Ballesta y lo agrego a la ventana
+			btnComprarBallesta=new JButton("Ballesta");
+			oyenteComprarBallesta oyenteComprarBallesta =new oyenteComprarBallesta();
+			btnComprarBallesta.addActionListener(oyenteComprarBallesta);
+			btnComprarBallesta.setBounds(100, 0, 100, 100);
+			ventanaJuego.add(btnComprarBallesta);
+			btnComprarBallesta.setVisible(true);
+			
 			//Inicio variables varias
 			veredicto=false;
 			
@@ -213,6 +223,16 @@ public class GUI extends JFrame {
 			
 			veredicto=true;
 			aliadoComprado="Guerrero";
+			cuadrilla.setVisible(true);
+			
+		}
+	}
+	
+	class oyenteComprarBallesta implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			
+			veredicto=true;
+			aliadoComprado="Ballesta";
 			cuadrilla.setVisible(true);
 			
 		}
@@ -305,6 +325,26 @@ public class GUI extends JFrame {
 		veredicto=false;
 	}
 	
+	private void generarBallesta(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Ballesta ballesta=new Ballesta(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		elementos.añadirAliado(ballesta);
+		
+		
+		
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			
+			
+			ballesta.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
+			ventanaJuego.add(ballesta.getGrafico());
+			ventanaJuego.add(mapaImagen);
+		}
+		
+		cuadrilla.setVisible(false);
+		
+		veredicto=false;
+	}
+	
 	MouseListener click=new MouseListener() {
 		@Override
 		public void mousePressed(MouseEvent evento) {
@@ -314,6 +354,10 @@ public class GUI extends JFrame {
 				switch (aliadoComprado) {
 					case "Guerrero":
 						generarGuerrero(evento.getX(), evento.getY());
+						break;
+					case "Ballesta":
+						generarBallesta(evento.getX(), evento.getY());
+						break;
 				}
 				
 				
