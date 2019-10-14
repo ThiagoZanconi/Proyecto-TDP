@@ -4,11 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,18 +13,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import juego.Aliado;
-import juego.Juego;
-import juego.Tienda;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.io.IOException;
 
-import aliados.*;
 public class GUI extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -37,10 +26,6 @@ public class GUI extends JFrame {
 	
 	private JButton btnJugar;
 	private JButton btnComprarGuerrero;
-	private JButton btnMusica;
-	private JButton enemigos[];
-	
-	private Clip musica;
 	
 	private JFrame ventanaJuego;
 	
@@ -48,19 +33,15 @@ public class GUI extends JFrame {
 	private JPanel contentPane;
 	private JPanel cuadrilla;
 	
-	private Juego j;
-	private Tienda t;
 	
-	private boolean veredicto,reproduciendo;
+	private boolean veredicto;
 	
 	private int puntaje;
-	private int posicionArregloEnemigos;
+
 	
 	private JLabel mapaImagen;
 	private JLabel labelPuntaje;
 	private JLabel labelCoordenadas;
-	private JLabel arregloEnemigos[];
-	private JLabel arregloAliados[][];
 	
 	private Hilo hilo;
 	private GUI gui;
@@ -85,8 +66,6 @@ public class GUI extends JFrame {
 	 * Create the frame.
 	 */
 	public GUI() {
-		t=t.getTienda();
-		j=j.getJuego(t,this);
 		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -110,19 +89,7 @@ public class GUI extends JFrame {
 	
 	public void mover() {
 		
-		int aumentoX=arregloEnemigos[posicionArregloEnemigos].getX()+15;
 		
-		arregloEnemigos[posicionArregloEnemigos].setBounds(aumentoX,arregloEnemigos[posicionArregloEnemigos].getY(), arregloEnemigos[posicionArregloEnemigos].getBounds().width, arregloEnemigos[posicionArregloEnemigos].getBounds().height);
-	
-		if(aumentoX>1100) {
-
-			arregloEnemigos[posicionArregloEnemigos].setVisible(false);;
-			
-			for(int i=0;i<6;i++) {
-				enemigos[i].setVisible(true);	
-			}
-			
-		}
 		
 	}
 	
@@ -130,8 +97,7 @@ public class GUI extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			
 			aliadoComprado="";
-			posicionArregloEnemigos=0;
-			arregloAliados=(JLabel[][]) new JLabel[6][10]; 
+		
 			
 			//Creo la ventana del juego
 			ventanaJuego=new JFrame("ventanaJuego");
@@ -144,26 +110,7 @@ public class GUI extends JFrame {
 			panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
 			ventanaJuego.setContentPane(panelJuego);
 			panelJuego.setLayout(null);
-
-            iniciarBotonEnemigos();
-            arregloEnemigos=(JLabel[]) new JLabel[100];
-            
-			//Creo el boton para reproducir musica
-            btnMusica=new JButton("Musica");
-			oyenteBotonMusica oyenteMusica =new oyenteBotonMusica();
-			btnMusica.addActionListener(oyenteMusica);
-			btnMusica.setBounds(1000, 0, 100, 100);
-			ventanaJuego.add(btnMusica);
-			btnMusica.setVisible(true);	
-			reproduciendo=false;
-			
-			//Le relaciono el archivo .wav a la variable musica
-			try {
-				musica = crearClip("C:\\Users\\Matias\\Documents\\GitHub\\Proyecto-TDP\\Canciones\\cancion1.wav");
-			} catch (LineUnavailableException | UnsupportedAudioFileException | IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+           
 			
 			//Creo el boton comprar guerrero y lo agrego a la ventana
 			btnComprarGuerrero=new JButton("Guerrero");
@@ -221,68 +168,6 @@ public class GUI extends JFrame {
 			
 		}
 		
-	}
-	
-	class oyenteBotonEnemigos implements ActionListener{
-		public void actionPerformed(ActionEvent evento) {
-			
-			JButton boton=(JButton) evento.getSource();
-			
-			JLabel EnemigoImagen=new JLabel();
-			EnemigoImagen.setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
-			EnemigoImagen.setBounds(20,boton.getY()-80,100,100);
-			ventanaJuego.add(EnemigoImagen);
-			ventanaJuego.add(mapaImagen);
-			arregloEnemigos[posicionArregloEnemigos]=EnemigoImagen;
-			
-			hilo.start();
-			
-			for(int i=0;i<6;i++) {
-				enemigos[i].setVisible(false);
-			}
-		}
-	}
-	
-	private void iniciarBotonEnemigos() {
-		
-		enemigos=new JButton[6];
-		int y=240;
-		oyenteBotonEnemigos oyenteEnemigos=new oyenteBotonEnemigos();
-		
-		for(int i=0;i<6;i++) {
-			enemigos[i]=new JButton();
-			enemigos[i].setBounds(20, y, 20, 20);
-			enemigos[i].setText(".");
-			enemigos[i].addActionListener(oyenteEnemigos);
-			ventanaJuego.add(enemigos[i]);
-			y+=93;
-		}
-		
-	}
-	
-	private Clip crearClip(String str) throws LineUnavailableException,UnsupportedAudioFileException,IOException{
-		
-		Clip clip;
-		AudioInputStream inputStream;
-		clip = AudioSystem.getClip();
-		inputStream = AudioSystem.getAudioInputStream(new File(str));
-		clip.open (inputStream);
-		return clip;
-		
-	}
-	
-	class oyenteBotonMusica implements ActionListener{
-		public void actionPerformed(ActionEvent evento) {
-			
-			if(!reproduciendo) {
-				musica.start();
-				reproduciendo = true;
-			}else {
-				musica.stop();
-				reproduciendo = false;
-			}
-			
-		}
 	}
 	
 	private void llenarCuadrilla() {
@@ -375,7 +260,7 @@ public class GUI extends JFrame {
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
 			
 			JLabel guerreroImagen=new JLabel();
-			arregloAliados[arregloAuxiliar[2]][arregloAuxiliar[0]]=guerreroImagen;
+			
 			guerreroImagen.setIcon(new ImageIcon("Sprites\\GuerreroAtacando.gif"));
 			guerreroImagen.setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
 			ventanaJuego.add(guerreroImagen);
