@@ -67,6 +67,7 @@ public class GUI extends JFrame {
 	 */
 	public GUI() {
 		
+		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(0, 0, 1200, 800);
@@ -84,7 +85,6 @@ public class GUI extends JFrame {
 		btnJugar.setBounds(this.getWidth()/2,this.getHeight()/2, 220, 168);
 		contentPane.add(btnJugar);
 		gui=this;
-		
 	}
 	
 	public void mover() {
@@ -164,6 +164,7 @@ public class GUI extends JFrame {
 			
 			
 			hilo=new Hilo(gui);
+			hilo.run();
 			
 			
 		}
