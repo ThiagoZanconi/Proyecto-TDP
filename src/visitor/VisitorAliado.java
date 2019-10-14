@@ -15,6 +15,7 @@ public class VisitorAliado extends Visitor {
 		
 	}
 	public void visitarEnemigo(Enemigo e) {
+		e.setEnMovimiento(false);
 		
 	}
 

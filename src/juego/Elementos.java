@@ -34,13 +34,15 @@ public class Elementos {
 		return disparos;
 	}
 	
-	public boolean chequearColision(Elemento e) {
-		boolean toReturn=false;
+	public void chequearColision(Elemento e) {
 		for(int i=0;i<aliados.size();i++) {
+			if(e.getRectangulo().intersects(aliados.get(i).getRectangulo())) {
+				e.aceptar(aliados.get(i).getVisitor());
+			}
 			
 			
 		}
-		return toReturn;
+		
 	}
 	
 	

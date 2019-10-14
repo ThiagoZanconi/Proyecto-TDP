@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public abstract class Elemento {
+	protected boolean enMovimiento;
 	protected Visitor miVisitor;
 	protected int vida;
 	protected final int tamañoAncho=32;
@@ -29,5 +30,17 @@ public abstract class Elemento {
 	public JLabel getGrafico(){
 		
 		return this.graficoActual;
+	}
+	
+	public boolean enMovimiento() {
+		return enMovimiento;
+	}
+	
+	public void setEnMovimiento(boolean x) {
+		enMovimiento=x;
+	}
+	
+	public Visitor getVisitor() {
+		return miVisitor;
 	}
 }

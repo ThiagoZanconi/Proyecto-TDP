@@ -95,16 +95,22 @@ public class GUI extends JFrame {
 	
 	public void mover() {
 		for(int i=0;i<elementos.getEnemigos().size();i++) {
-			JLabel grafico =elementos.getEnemigos().get(i).getGrafico();
-			Rectangle r=elementos.getEnemigos().get(i).getRectangulo();
 			
-			grafico.setBounds(grafico.getX()+10, grafico.getY(), grafico.getWidth(), grafico.getHeight());
-			r.setBounds((int)r.getX()+10,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
+			if(elementos.getEnemigos().get(i).enMovimiento()) {
+				JLabel grafico =elementos.getEnemigos().get(i).getGrafico();
+				Rectangle r=elementos.getEnemigos().get(i).getRectangulo();
 			
-			if(grafico.getX()>1300) {
-				grafico.setBounds(-100, grafico.getY(), grafico.getWidth(), grafico.getHeight());
-				r.setBounds(-100,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
+				grafico.setBounds(grafico.getX()+10, grafico.getY(), grafico.getWidth(), grafico.getHeight());
+				r.setBounds((int)r.getX()+10,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
+			
+				if(grafico.getX()>1300) {
+					grafico.setBounds(-100, grafico.getY(), grafico.getWidth(), grafico.getHeight());
+					r.setBounds(-100,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
+				}
 			}
+			
+			
+			
 		}
 		
 		
@@ -189,9 +195,9 @@ public class GUI extends JFrame {
 			hilo.start();
 			
 			
-			Normal normal=new Normal(-100,373);
+			Normal normal=new Normal(100,-177);
 			elementos.añadirEnemigo(normal);
-			normal.getGrafico().setBounds(-100,373-550,1000,1000);
+			normal.getGrafico().setBounds(100,-177,1000,1000);
 			ventanaJuego.add(normal.getGrafico());
 			ventanaJuego.add(mapaImagen);
 			
