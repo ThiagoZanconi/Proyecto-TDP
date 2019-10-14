@@ -16,7 +16,7 @@ public class Guerrero extends Aliado {
 		this.graficoActual.setIcon(imagenes[0].getIcon());
 		this.graficoActual.setBounds(100, 100, tamañoAncho, tamañoLargo);
 		
-		rectangulo=new Rectangle(x,y,1000,1000);
+		rectangulo=new Rectangle(x,y,100,100);
 		miVisitor=new VisitorAliado();
 	}
 	

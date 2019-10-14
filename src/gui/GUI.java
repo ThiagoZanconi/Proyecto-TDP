@@ -101,14 +101,23 @@ public class GUI extends JFrame {
 			if(elementos.getEnemigos().get(i).enMovimiento()) {
 				JLabel grafico =elementos.getEnemigos().get(i).getGrafico();
 				Rectangle r=elementos.getEnemigos().get(i).getRectangulo();
-			
-				grafico.setBounds(grafico.getX()+10, grafico.getY(), grafico.getWidth(), grafico.getHeight());
+				
 				r.setBounds((int)r.getX()+10,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
-			
-				if(grafico.getX()>1300) {
-					grafico.setBounds(-100, grafico.getY(), grafico.getWidth(), grafico.getHeight());
-					r.setBounds(-100,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
+				
+				if(elementos.chequearColision(elementos.getEnemigos().get(i))) {
+					r.setBounds((int)r.getX()-10,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());
 				}
+				else {
+					grafico.setBounds(grafico.getX()+10, grafico.getY(), grafico.getWidth(), grafico.getHeight());
+				
+					if(grafico.getX()>1300) {
+						grafico.setBounds(-100, grafico.getY(), grafico.getWidth(), grafico.getHeight());
+						r.setBounds(-100,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
+					}
+					
+				}
+			
+				
 			}
 			
 			
