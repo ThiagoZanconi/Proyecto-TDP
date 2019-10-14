@@ -3,7 +3,7 @@ package gui;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
-
+import java.awt.Rectangle;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -12,6 +12,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import aliados.Guerrero;
+import enemigos.Normal;
+import juego.Aliado;
+import juego.Elementos;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,6 +50,7 @@ public class GUI extends JFrame {
 	
 	private Hilo hilo;
 	private GUI gui;
+	private Elementos elementos;
 	
 	/**
 	 * Launch the application.
@@ -66,7 +72,7 @@ public class GUI extends JFrame {
 	 * Create the frame.
 	 */
 	public GUI() {
-		
+		elementos=new Elementos();
 		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,7 +94,23 @@ public class GUI extends JFrame {
 	}
 	
 	public void mover() {
+		for(int i=0;i<elementos.getEnemigos().size();i++) {
+			JLabel grafico =elementos.getEnemigos().get(i).getGrafico();
+			Rectangle r=elementos.getEnemigos().get(i).getRectangulo();
+			
+			grafico.setBounds(grafico.getX()+10, grafico.getY(), grafico.getWidth(), grafico.getHeight());
+			r.setBounds((int)r.getX()+10,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
+			
+			if(grafico.getX()>1300) {
+				grafico.setBounds(-100, grafico.getY(), grafico.getWidth(), grafico.getHeight());
+				r.setBounds(-100,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
+			}
+		}
 		
+		
+		
+		
+		this.repaint();
 		
 		
 	}
@@ -164,6 +186,14 @@ public class GUI extends JFrame {
 			
 			
 			hilo=new Hilo(gui);
+			hilo.start();
+			
+			
+			Normal normal=new Normal(-100,373);
+			elementos.añadirEnemigo(normal);
+			normal.getGrafico().setBounds(-100,373-550,1000,1000);
+			ventanaJuego.add(normal.getGrafico());
+			ventanaJuego.add(mapaImagen);
 			
 			
 		}
@@ -256,14 +286,17 @@ public class GUI extends JFrame {
 	
 	private void generarGuerrero(int x, int y) {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Guerrero guerrero=new Guerrero(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		elementos.añadirAliado(guerrero);
+		
+		
 		
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
 			
-			JLabel guerreroImagen=new JLabel();
 			
-			guerreroImagen.setIcon(new ImageIcon("Sprites\\GuerreroAtacando.gif"));
-			guerreroImagen.setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
-			ventanaJuego.add(guerreroImagen);
+			
+			guerrero.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
+			ventanaJuego.add(guerrero.getGrafico());
 			ventanaJuego.add(mapaImagen);
 		}
 		

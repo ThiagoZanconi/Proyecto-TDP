@@ -13,6 +13,14 @@ public class Elementos {
 		aliados=new LinkedList<Aliado>();
 		disparos=new LinkedList<Disparo>();
 	}
+	
+	public void añadirAliado(Aliado a) {
+		aliados.add(aliados.size(), a);
+	}
+	
+	public void añadirEnemigo(Enemigo e) {
+		enemigos.add(enemigos.size(), e);
+	}
 		
 	public List<Enemigo> getEnemigos() {
 		return enemigos;
@@ -26,8 +34,13 @@ public class Elementos {
 		return disparos;
 	}
 	
-	public void chequearColisiones() {
-		
+	public boolean chequearColision(Elemento e) {
+		boolean toReturn=false;
+		for(int i=0;i<aliados.size();i++) {
+			
+			
+		}
+		return toReturn;
 	}
 	
 	

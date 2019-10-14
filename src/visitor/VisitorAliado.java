@@ -5,6 +5,12 @@ import juego.Disparo;
 import juego.Enemigo;
 
 public class VisitorAliado extends Visitor {
+	
+	public VisitorAliado() {
+		
+	}
+	
+	
 	public void visitarAliado(Aliado a) {
 		
 	}

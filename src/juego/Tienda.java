@@ -16,7 +16,7 @@ public final class Tienda {
 	
 	public ImageIcon crearGuerrero() {
 		System.out.println("arreglo");
-		Guerrero guerrero=new Guerrero();
+		//Guerrero guerrero=new Guerrero();
 		//ImageIcon grafico=guerrero.getImage();
 		//grafico.setBounds(50, 50,guerrero.getAncho()+500 ,guerrero.getLargo()+500);
 		//return grafico;
