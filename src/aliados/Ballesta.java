@@ -8,7 +8,7 @@ import juego.*;
 import visitor.VisitorAliado;
 public class Ballesta extends Aliado {
 	public Ballesta(int x,int y) {
-		super(100,100,100,100);
+		super(200,1000,500,150);
 		this.imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Ballista_Turret.png"));
 		
