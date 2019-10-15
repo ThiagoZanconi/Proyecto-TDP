@@ -1,7 +1,9 @@
 package aliados;
 import java.awt.Rectangle;
+import java.util.List;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import juego.*;
@@ -18,6 +20,7 @@ public class Guerrero extends Aliado {
 		
 		rectangulo=new Rectangle(x,y,100,100);
 		miVisitor=new VisitorAliado();
+		miDisparo=new Disparo(x,y);
 	}
 	
 	public int getAncho() {
@@ -26,6 +29,10 @@ public class Guerrero extends Aliado {
 	
 	public int getLargo() {
 		return tamañoLargo;
+	}
+	
+	public void disparar(List<Disparo> l) {
+		
 	}
 
 }

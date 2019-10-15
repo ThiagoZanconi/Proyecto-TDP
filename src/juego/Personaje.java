@@ -24,5 +24,6 @@ public abstract class Personaje extends Elemento{
 			//matar(); 
 		}
 	}
-
+	
+	
 }

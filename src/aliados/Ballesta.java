@@ -1,12 +1,15 @@
 package aliados;
 import java.awt.Rectangle;
+import java.util.List;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import juego.*;
 import visitor.VisitorAliado;
 public class Ballesta extends Aliado {
+	
 	public Ballesta(int x,int y) {
 		super(200,1000,500,150);
 		this.imagenes[0] = new JLabel();
@@ -18,6 +21,8 @@ public class Ballesta extends Aliado {
 		
 		rectangulo=new Rectangle(x,y,100,100);
 		miVisitor=new VisitorAliado();
+		miDisparo=new Disparo(x,y);
+		
 	}
 	
 	public int getAncho() {
@@ -26,6 +31,13 @@ public class Ballesta extends Aliado {
 	
 	public int getLargo() {
 		return tamañoLargo;
+	}
+	
+	public void disparar(List<Disparo> l,JFrame ventanaJuego) {
+		
+		l.add(l.size(), miDisparo);
+		
+		
 	}
 
 }
