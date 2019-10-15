@@ -21,14 +21,13 @@ public abstract class Elemento {
 		
 	}
 	
+	public abstract void aceptar(Visitor v);
+	
 	public Rectangle getRectangulo() {
 		return rectangulo;
 	}
 	
-	public abstract void aceptar(Visitor v);
-
 	public JLabel getGrafico(){
-		
 		return this.graficoActual;
 	}
 	
