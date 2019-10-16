@@ -216,6 +216,7 @@ public class GUI extends JFrame {
 			
 			Normal normal=new Normal(100,-177);
 			elementos.añadirEnemigo(normal);
+			elementos.añadirElemento(normal);
 			normal.getGrafico().setBounds(100,-177,1000,1000);
 			ventanaJuego.add(normal.getGrafico());
 			ventanaJuego.add(mapaImagen);
@@ -323,6 +324,7 @@ public class GUI extends JFrame {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		Guerrero guerrero=new Guerrero(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
 		elementos.añadirAliado(guerrero);
+		elementos.añadirElemento(guerrero);
 		
 		
 		
@@ -344,6 +346,7 @@ public class GUI extends JFrame {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		Ballesta ballesta=new Ballesta(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
 		elementos.añadirAliado(ballesta);
+		elementos.añadirElemento(ballesta);
 		
 		
 		
