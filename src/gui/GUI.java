@@ -31,12 +31,18 @@ public class GUI extends JFrame {
 	private String aliadoComprado;
 	
 	private JButton btnJugar;
+	
+	
 	private JButton btnComprarGuerrero;
 	private JButton btnComprarBallesta;
 	
-	private JFrame ventanaJuego;
+	private JFrame ventanaNivelUno;
+	private JPanel panelNivelUno;
+	//hay que añadir nivel dos
 	
-	private JPanel panelJuego;
+	private JFrame ventanaElegirNivel;
+	private JPanel panelElegirNivel;
+	
 	private JPanel contentPane;
 	private JPanel cuadrilla;
 	
@@ -86,12 +92,16 @@ public class GUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
+		
 		//Creo el boton jugar y lo agrego al panel de inicio
-		btnJugar=new JButton(new ImageIcon("Sprites\\play.gif"));
+		btnJugar=new JButton(new ImageIcon("Sprites\\medievalbutton\\play-removebg-preview.png"));
 		oyenteJugar oyenteJugar=new oyenteJugar();
 		btnJugar.addActionListener(oyenteJugar);
-		btnJugar.setBounds(this.getWidth()/2,this.getHeight()/2, 220, 168);
+		btnJugar.setBounds(this.getWidth()/2,this.getHeight()/2, 220, 236);
 		contentPane.add(btnJugar);
+		
+		
 		gui=this;
 	}
 	
@@ -132,39 +142,39 @@ public class GUI extends JFrame {
 		
 	}
 	
-	class oyenteJugar implements ActionListener{
+	class oyenteNivelUno implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			
 			aliadoComprado="";
 		
 			
-			//Creo la ventana del juego
-			ventanaJuego=new JFrame("ventanaJuego");
-			ventanaJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			ventanaJuego.setBounds(0, 0, 1200, 800);
-			ventanaJuego.addMouseListener(click);
+			//Creo la ventana del Nivel Uno
+			ventanaNivelUno=new JFrame("ventanaJuego");
+			ventanaNivelUno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			ventanaNivelUno.setBounds(0, 0, 1200, 1000);
+			ventanaNivelUno.addMouseListener(click);
 			
-			//Creo el panel del juego y le agrego la ventana
-			panelJuego=new JPanel();
-			panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
-			ventanaJuego.setContentPane(panelJuego);
-			panelJuego.setLayout(null);
+			//Creo el panel del Nivel Uno y le agrego la ventana
+			panelNivelUno=new JPanel();
+			panelNivelUno.setBorder(new EmptyBorder(5, 5, 5, 5));
+			ventanaNivelUno.setContentPane(panelNivelUno);
+			panelNivelUno.setLayout(null);
            
 			
 			//Creo el boton comprar guerrero y lo agrego a la ventana
 			btnComprarGuerrero=new JButton("Guerrero");
 			oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
 			btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
-			btnComprarGuerrero.setBounds(0, 0, 100, 100);
-			ventanaJuego.add(btnComprarGuerrero);
+			btnComprarGuerrero.setBounds(0, 800, 100, 100);
+			ventanaNivelUno.add(btnComprarGuerrero);
 			btnComprarGuerrero.setVisible(true);
 			
 			//Creo el boton comprar Ballesta y lo agrego a la ventana
 			btnComprarBallesta=new JButton("Ballesta");
 			oyenteComprarBallesta oyenteComprarBallesta =new oyenteComprarBallesta();
 			btnComprarBallesta.addActionListener(oyenteComprarBallesta);
-			btnComprarBallesta.setBounds(100, 0, 100, 100);
-			ventanaJuego.add(btnComprarBallesta);
+			btnComprarBallesta.setBounds(100, 800, 100, 100);
+			ventanaNivelUno.add(btnComprarBallesta);
 			btnComprarBallesta.setVisible(true);
 			
 			//Inicio variables varias
@@ -178,7 +188,7 @@ public class GUI extends JFrame {
 			labelPuntaje.setBorder(BorderFactory.createLineBorder(Color.black));
 			labelPuntaje.setBackground(Color.green);
 			labelPuntaje.setOpaque(true);
-			ventanaJuego.add(labelPuntaje);
+			ventanaNivelUno.add(labelPuntaje);
 			
 			labelCoordenadas=new JLabel();
 			labelCoordenadas.setText("");
@@ -186,7 +196,7 @@ public class GUI extends JFrame {
 			labelCoordenadas.setBorder(BorderFactory.createLineBorder(Color.black));
 			labelCoordenadas.setBackground(Color.green);
 			labelCoordenadas.setOpaque(true);
-			ventanaJuego.add(labelCoordenadas);
+			ventanaNivelUno.add(labelCoordenadas);
 				
 			
 			
@@ -196,7 +206,7 @@ public class GUI extends JFrame {
 			llenarCuadrilla();
 			cuadrilla.setBounds(20,200,1150,560);
 			cuadrilla.setOpaque(false);
-			ventanaJuego.add(cuadrilla);
+			ventanaNivelUno.add(cuadrilla);
 			cuadrilla.setVisible(false);
 			
 			//Creo el mapa y lo agrego a la ventana
@@ -204,8 +214,8 @@ public class GUI extends JFrame {
 			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
 			//mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkLavaM.png"));
 			mapaImagen.setBounds(0, 0, 1200, 800);
-			ventanaJuego.add(mapaImagen);
-			ventanaJuego.setVisible(true);
+			ventanaNivelUno.add(mapaImagen);
+			ventanaNivelUno.setVisible(true);
 			setVisible(false);
 			
 			
@@ -218,10 +228,139 @@ public class GUI extends JFrame {
 			elementos.añadirEnemigo(normal);
 			elementos.añadirElemento(normal);
 			normal.getGrafico().setBounds(100,-177,1000,1000);
-			ventanaJuego.add(normal.getGrafico());
-			ventanaJuego.add(mapaImagen);
+			ventanaNivelUno.add(normal.getGrafico());
+			ventanaNivelUno.add(mapaImagen);
+			
+		}
+		
+	}
+	
+	class oyenteNivelDos implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			
+			aliadoComprado="";
+		
+			
+			//Creo la ventana del juego
+			ventanaNivelUno=new JFrame("ventanaJuego");
+			ventanaNivelUno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			ventanaNivelUno.setBounds(0, 0, 1200, 1000);
+			ventanaNivelUno.addMouseListener(click);
+			
+			//Creo el panel del juego y le agrego la ventana
+			panelNivelUno=new JPanel();
+			panelNivelUno.setBorder(new EmptyBorder(5, 5, 5, 5));
+			ventanaNivelUno.setContentPane(panelNivelUno);
+			panelNivelUno.setLayout(null);
+           
+			
+			//Creo el boton comprar guerrero y lo agrego a la ventana
+			btnComprarGuerrero=new JButton("Guerrero");
+			oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
+			btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
+			btnComprarGuerrero.setBounds(0, 800, 100, 100);
+			ventanaNivelUno.add(btnComprarGuerrero);
+			btnComprarGuerrero.setVisible(true);
+			
+			//Creo el boton comprar Ballesta y lo agrego a la ventana
+			btnComprarBallesta=new JButton("Ballesta");
+			oyenteComprarBallesta oyenteComprarBallesta =new oyenteComprarBallesta();
+			btnComprarBallesta.addActionListener(oyenteComprarBallesta);
+			btnComprarBallesta.setBounds(100, 800, 100, 100);
+			ventanaNivelUno.add(btnComprarBallesta);
+			btnComprarBallesta.setVisible(true);
+			
+			//Inicio variables varias
+			veredicto=false;
+			
+			//Creo el label puntaje y lo inicio en 0
+			labelPuntaje= new JLabel();
+			puntaje= 0;
+			labelPuntaje.setText(String.valueOf(puntaje));
+			labelPuntaje.setBounds(400,30,40,30);
+			labelPuntaje.setBorder(BorderFactory.createLineBorder(Color.black));
+			labelPuntaje.setBackground(Color.green);
+			labelPuntaje.setOpaque(true);
+			ventanaNivelUno.add(labelPuntaje);
+			
+			labelCoordenadas=new JLabel();
+			labelCoordenadas.setText("");
+			labelCoordenadas.setBounds(500, 30, 100, 30);
+			labelCoordenadas.setBorder(BorderFactory.createLineBorder(Color.black));
+			labelCoordenadas.setBackground(Color.green);
+			labelCoordenadas.setOpaque(true);
+			ventanaNivelUno.add(labelCoordenadas);
+				
 			
 			
+			//Crea la cuadrilla
+			cuadrilla=new JPanel();
+			cuadrilla.setLayout(new GridLayout(6,10));
+			llenarCuadrilla();
+			cuadrilla.setBounds(20,200,1150,560);
+			cuadrilla.setOpaque(false);
+			ventanaNivelUno.add(cuadrilla);
+			cuadrilla.setVisible(false);
+			
+			//Creo el mapa y lo agrego a la ventana
+			mapaImagen=new JLabel();
+			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkLavaM.png"));
+			mapaImagen.setBounds(0, 0, 1200, 800);
+			ventanaNivelUno.add(mapaImagen);
+			ventanaNivelUno.setVisible(true);
+			setVisible(false);
+			
+			
+			
+			hilo=new Hilo(gui);
+			hilo.start();
+			
+			
+			Normal normal=new Normal(100,-177);
+			elementos.añadirEnemigo(normal);
+			elementos.añadirElemento(normal);
+			normal.getGrafico().setBounds(100,-177,1000,1000);
+			ventanaNivelUno.add(normal.getGrafico());
+			ventanaNivelUno.add(mapaImagen);
+			
+		}
+		
+	}
+	
+	class oyenteJugar implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			
+			JButton btnNivelUno;
+			JButton btnNivelDos;
+			
+			//Creo la ventana para elegir Nivel
+			ventanaElegirNivel=new JFrame("Elegir Nivel");
+			ventanaElegirNivel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			ventanaElegirNivel.setBounds(500, 250, 400, 300);
+			//ventanaElegirNivel.addMouseListener(click);
+			ventanaElegirNivel.setVisible(true);
+			ventanaElegirNivel.setResizable(false);
+			
+			//Creo el panel para elegir Nivel
+			panelElegirNivel=new JPanel();
+			panelElegirNivel.setBorder(new EmptyBorder(5, 5, 5, 5));
+			ventanaElegirNivel.setContentPane(panelElegirNivel);
+			panelElegirNivel.setLayout(null);
+			
+			//Creo el boton Nivel uno y lo agrego
+			 
+			btnNivelUno=new JButton(new ImageIcon("Sprites\\medievalbutton\\nivel1-removebg-preview.png"));
+			oyenteNivelUno oyenteNivelUno=new oyenteNivelUno();
+			btnNivelUno.addActionListener(oyenteNivelUno);
+			btnNivelUno.setBounds(ventanaElegirNivel.getWidth()/10,ventanaElegirNivel.getHeight()/5, 110, 150);
+			panelElegirNivel.add(btnNivelUno);
+			
+			//Creo el boton Nivel dos y lo agrego
+			btnNivelDos=new JButton(new ImageIcon("Sprites\\medievalbutton\\nivel2-removebg-preview.png"));
+			oyenteNivelDos oyenteNivelDos=new oyenteNivelDos();
+			btnNivelDos.addActionListener(oyenteNivelDos);
+			btnNivelDos.setBounds(ventanaElegirNivel.getWidth()/2+50,ventanaElegirNivel.getHeight()/5, 110, 150);
+			panelElegirNivel.add(btnNivelDos);
 		}
 		
 	}
@@ -333,8 +472,8 @@ public class GUI extends JFrame {
 			
 			
 			guerrero.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
-			ventanaJuego.add(guerrero.getGrafico());
-			ventanaJuego.add(mapaImagen);
+			ventanaNivelUno.add(guerrero.getGrafico());
+			ventanaNivelUno.add(mapaImagen);
 		}
 		
 		cuadrilla.setVisible(false);
@@ -354,8 +493,8 @@ public class GUI extends JFrame {
 			
 			
 			ballesta.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
-			ventanaJuego.add(ballesta.getGrafico());
-			ventanaJuego.add(mapaImagen);
+			ventanaNivelUno.add(ballesta.getGrafico());
+			ventanaNivelUno.add(mapaImagen);
 		}
 		
 		cuadrilla.setVisible(false);

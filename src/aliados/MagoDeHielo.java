@@ -1,10 +1,39 @@
 package aliados;
+import java.awt.Rectangle;
+import java.util.List;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import juego.*;
+import visitor.VisitorAliado;
+
 public class MagoDeHielo extends Aliado {
 
-	public MagoDeHielo(int f, int a,int v,int vp) {
-		super(f,a,v,vp);
-		// TODO Auto-generated constructor stub
+	public MagoDeHielo(int x,int y) {
+		super(100,100,100,100);
+		this.imagenes[0] = new JLabel();
+		imagenes[0].setIcon(new ImageIcon("Sprites\\"));
+		
+		this.graficoActual = new JLabel();
+		this.graficoActual.setIcon(imagenes[0].getIcon());
+		this.graficoActual.setBounds(100, 100, tamañoAncho, tamañoLargo);
+		
+		rectangulo=new Rectangle(x,y,50,20);
+		miVisitor=new VisitorAliado();
+		miDisparo=new Disparo(x,y);
+	}
+	
+	public int getAncho() {
+		return tamañoAncho;
+	}
+	
+	public int getLargo() {
+		return tamañoLargo;
+	}
+	
+	public void disparar(List<Disparo> l) {
+		
 	}
 
 }
