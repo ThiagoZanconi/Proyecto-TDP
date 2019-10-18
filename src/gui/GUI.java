@@ -87,7 +87,7 @@ public class GUI extends JFrame {
 		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(0, 0, 1200, 770);
+		this.setBounds(300, 100, 1200, 770);
 		
 		//Creo el panel de inicio
 		contentPane = new JPanel();
