@@ -337,7 +337,6 @@ public class GUI extends JFrame {
 			ventanaElegirNivel=new JFrame("Elegir Nivel");
 			ventanaElegirNivel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			ventanaElegirNivel.setBounds(500, 250, 400, 300);
-			//ventanaElegirNivel.addMouseListener(click);
 			ventanaElegirNivel.setVisible(true);
 			ventanaElegirNivel.setResizable(false);
 			
