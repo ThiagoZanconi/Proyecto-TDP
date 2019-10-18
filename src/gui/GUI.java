@@ -87,7 +87,7 @@ public class GUI extends JFrame {
 		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(0, 0, 1200, 800);
+		this.setBounds(0, 0, 1200, 770);
 		
 		//Creo el panel de inicio
 		contentPane = new JPanel();
@@ -97,13 +97,45 @@ public class GUI extends JFrame {
 		
 		
 		//Creo el boton jugar y lo agrego al panel de inicio
-		btnJugar=new JButton(new ImageIcon("Sprites\\playy-removebg-preview.png"));
+		btnJugar=new JButton(new ImageIcon("Sprites\\button_elegir-nivel.png"));
 		oyenteJugar oyenteJugar=new oyenteJugar();
 		btnJugar.addActionListener(oyenteJugar);
 		btnJugar.setFocusPainted(false);
-		btnJugar.setBounds(100,this.getHeight()/2-40, 100, 100);
+		btnJugar.setBounds(100, 290, 170, 53);
 		contentPane.add(btnJugar);
 		
+		//Creo el boton opciones y lo agrego al panel de inicio
+		JButton btnOpciones;
+		btnOpciones=new JButton(new ImageIcon("Sprites\\button_opciones.png"));
+		//oyenteOpciones oyenteOpciones=new oyenteOpciones();
+		//btnOpciones.addActionListener(oyenteOpciones);
+		btnOpciones.setFocusPainted(false);
+		btnOpciones.setBounds(100, 370, 170, 53);
+		contentPane.add(btnOpciones);
+		
+		//Creo el boton opciones y lo agrego al panel de inicio
+		JButton btnCreditos;
+		btnCreditos=new JButton(new ImageIcon("Sprites\\button_creditos.png"));
+		//oyenteCreditos oyenteCreditos=new oyenteCreditos();
+		//btnCreditos.addActionListener(oyenteCreditos);
+		btnCreditos.setFocusPainted(false);
+		btnCreditos.setBounds(100, 450, 170, 53);
+		contentPane.add(btnCreditos);
+				
+		//Creo el boton opciones y lo agrego al panel de inicio
+		JButton btnSalir;
+		btnSalir=new JButton(new ImageIcon("Sprites\\button_salir.png"));
+		oyenteSalir oyenteSalir=new oyenteSalir();
+		btnSalir.addActionListener(oyenteSalir);
+		btnSalir.setFocusPainted(false);
+		btnSalir.setBounds(100, 530, 170, 53);
+		contentPane.add(btnSalir);
+		
+		//Label del panel
+		JLabel panel=new JLabel();
+		panel.setIcon(new ImageIcon("Sprites\\panel-removebg-preview.png"));
+		panel.setBounds(50, 250, 300, 400);
+		contentPane.add(panel);
 		
 		//Lluvia
 		///**
@@ -113,9 +145,11 @@ public class GUI extends JFrame {
 		contentPane.add(menuLluvia);
 		//**/
 		
+		
+				
 		//Label del titulo
 		JLabel titulo=new JLabel();
-		titulo.setIcon(new ImageIcon("Sprites\\titulotest.png"));
+		titulo.setIcon(new ImageIcon("Sprites\\titulotest2.png"));
 		titulo.setBounds(300, -25, 690, 200);
 		contentPane.add(titulo);
 				
@@ -167,11 +201,18 @@ public class GUI extends JFrame {
 		
 	}
 	
+	class oyenteSalir implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			System.exit(0);
+		}
+	}
+	
 	class oyenteNivelUno implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			
 			aliadoComprado="";
-		
+			
+			ventanaElegirNivel.setVisible(false);
 			
 			//Creo la ventana del Nivel Uno
 			ventanaNivelUno=new JFrame("ventanaJuego");
@@ -266,7 +307,8 @@ public class GUI extends JFrame {
 			
 			aliadoComprado="";
 		
-			
+			ventanaElegirNivel.setVisible(false);
+						
 			//Creo la ventana del juego
 			ventanaNivelUno=new JFrame("ventanaJuego");
 			ventanaNivelUno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -361,7 +403,6 @@ public class GUI extends JFrame {
 			
 			//Creo la ventana para elegir Nivel
 			ventanaElegirNivel=new JFrame("Elegir Nivel");
-			ventanaElegirNivel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			ventanaElegirNivel.setBounds(500, 250, 400, 300);
 			ventanaElegirNivel.setVisible(true);
 			ventanaElegirNivel.setResizable(false);
