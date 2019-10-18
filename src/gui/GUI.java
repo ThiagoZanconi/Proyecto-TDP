@@ -44,6 +44,9 @@ public class GUI extends JFrame {
 	private JPanel panelElegirNivel;
 	
 	private JPanel contentPane;
+	private JLabel menuImagen;
+	private JLabel menuLluvia;
+		
 	private JPanel cuadrilla;
 	
 	
@@ -93,14 +96,36 @@ public class GUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		
-		
 		//Creo el boton jugar y lo agrego al panel de inicio
-		btnJugar=new JButton(new ImageIcon("Sprites\\medievalbutton\\play-removebg-preview.png"));
+		btnJugar=new JButton(new ImageIcon("Sprites\\playy-removebg-preview.png"));
 		oyenteJugar oyenteJugar=new oyenteJugar();
 		btnJugar.addActionListener(oyenteJugar);
-		btnJugar.setBounds(this.getWidth()/2,this.getHeight()/2, 220, 236);
+		btnJugar.setFocusPainted(false);
+		btnJugar.setBounds(100,this.getHeight()/2-40, 100, 100);
 		contentPane.add(btnJugar);
 		
+		
+		//Lluvia
+		///**
+		menuLluvia=new JLabel();
+		menuLluvia.setIcon(new ImageIcon("Sprites\\rain.gif"));
+		menuLluvia.setBounds(0, -130, 1400, 1000);
+		contentPane.add(menuLluvia);
+		//**/
+		
+		//Label del titulo
+		JLabel titulo=new JLabel();
+		titulo.setIcon(new ImageIcon("Sprites\\titulotest.png"));
+		titulo.setBounds(300, -25, 690, 200);
+		contentPane.add(titulo);
+				
+		
+		//Imagen del menu
+		menuImagen=new JLabel();
+		menuImagen.setIcon(new ImageIcon("Sprites\\menu1.png"));
+		menuImagen.setBounds(0, 0, 1200, 800);
+		contentPane.add(menuImagen);
+				
 		
 		gui=this;
 	}
@@ -200,6 +225,8 @@ public class GUI extends JFrame {
 				
 			
 			
+			
+			
 			//Crea la cuadrilla
 			cuadrilla=new JPanel();
 			cuadrilla.setLayout(new GridLayout(6,10));
@@ -212,7 +239,6 @@ public class GUI extends JFrame {
 			//Creo el mapa y lo agrego a la ventana
 			mapaImagen=new JLabel();
 			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
-			//mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkLavaM.png"));
 			mapaImagen.setBounds(0, 0, 1200, 800);
 			ventanaNivelUno.add(mapaImagen);
 			ventanaNivelUno.setVisible(true);
