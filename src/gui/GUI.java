@@ -403,7 +403,7 @@ public class GUI extends JFrame {
 			
 			//Creo la ventana para elegir Nivel
 			ventanaElegirNivel=new JFrame("Elegir Nivel");
-			ventanaElegirNivel.setBounds(500, 250, 400, 300);
+			ventanaElegirNivel.setBounds(700, 250, 400, 300);
 			ventanaElegirNivel.setVisible(true);
 			ventanaElegirNivel.setResizable(false);
 			
