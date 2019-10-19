@@ -5,17 +5,9 @@ import javax.swing.JPanel;
 
 import aliados.*;
 
-public final class Tienda {
-	private static final Tienda tienda =new Tienda();
+public class Tienda {
 	
-	private  Tienda() {}
-	
-	public static Tienda getTienda() {
-		return tienda;
-	}
-	
-	
-		
+	public Tienda() {}	
 	
 
 }

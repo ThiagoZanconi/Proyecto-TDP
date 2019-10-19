@@ -21,10 +21,19 @@ public class Normal extends Enemigo {
 		
 		rectangulo=new Rectangle(x,y,100,50);
 		miVisitor=new VisitorEnemigo();
+		colisiono=false;
 	}
 
 	public void aceptar(Visitor v) {
 		v.visitarEnemigo(this);
+		
+	}
+	
+	public void avanzar() {
+		if(!colisiono) {
+			rectangulo.setBounds((int)rectangulo.getX()+10,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
+			graficoActual.setBounds((int)graficoActual.getX()+10,(int)graficoActual.getY(),(int)graficoActual.getWidth(),(int)graficoActual.getHeight());
+		}
 		
 	}
 }

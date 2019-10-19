@@ -16,6 +16,14 @@ public class Elementos {
 		elementos=new LinkedList<Elemento>();
 	}
 	
+	public int size() {
+		return elementos.size();
+	}
+	
+	public Elemento getElemento(int i) {
+		return elementos.get(i);
+	}
+	
 	public void añadirElemento(Elemento e) {
 		elementos.add(elementos.size(),e);
 	}
@@ -43,6 +51,13 @@ public class Elementos {
 	public List<Disparo> getDisparos() {
 		return disparos;
 	}
+	
+	public void chequearColision(Elemento e1,Elemento e2) {
+		if(e1.getRectangulo().intersects(e2.getRectangulo())) {
+			e1.aceptar(e2.getVisitor());
+		}
+	}
+	
 	
 	public boolean chequearColision(Elemento e) {
 		boolean toReturn=false;

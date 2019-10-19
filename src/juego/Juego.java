@@ -2,26 +2,36 @@ package juego;
 import gui.*;
 public final class Juego {
 	
-	protected static Tienda tienda;
+	protected Tienda tienda;
 	protected static GUI gui;
 	protected static Elementos elementos;
-	protected static Elemento[][] mapa;
 	protected static final Juego juego=new Juego(gui);
 	
 	private Juego(GUI gui) {
-		mapa=(Elemento[][])new Elemento[1000][1000];
-		 
-		this.gui=gui;
+		tienda=new Tienda();
+		gui=gui;
 		
 	}
 	
-	public static Juego getJuego(Tienda t,GUI g) {
-		tienda=t;
+	public static Juego getJuego(GUI g) {
 		gui=g;
 		elementos=new Elementos();
 		return juego;
-		
-		
 	}
+	/**
+	 * 
+	 */
+	
+	public void mover() {
+		int i=0;
+		while(i<elementos.size()) {
+			for(int j=i;i<elementos.size();i++) {
+				elementos.chequearColision(elementos.getElemento(i),elementos.getElemento(j));
+			}
+		}
+		i++;
+	}
+	
+	
 
 }
