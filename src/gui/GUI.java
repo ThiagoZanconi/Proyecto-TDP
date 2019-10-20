@@ -494,13 +494,11 @@ public class GUI extends JFrame {
 		
 		
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
-			
-			
-			
 			guerrero.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
 			ventanaNivelUno.add(guerrero.getGrafico());
 			ventanaNivelUno.add(mapaImagen);
 		}
+		juego.chequearColision(guerrero);
 		
 		cuadrilla.setVisible(false);
 		
@@ -512,18 +510,15 @@ public class GUI extends JFrame {
 		Ballesta ballesta=new Ballesta(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
 		elementos.añadirElemento(ballesta);
 		
-		
-		
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
-			
-			
 			ballesta.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
 			ventanaNivelUno.add(ballesta.getGrafico());
 			ventanaNivelUno.add(mapaImagen);
 		}
+		juego.chequearColision(ballesta);
+		
 		
 		cuadrilla.setVisible(false);
-		
 		veredicto=false;
 	}
 	

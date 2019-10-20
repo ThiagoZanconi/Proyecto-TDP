@@ -14,7 +14,6 @@ public class VisitorAliado extends Visitor {
 	
 	
 	public void visitarAliado(Aliado a) {
-		System.out.println("checkPoint");
 		a.denegarCreacion();
 		a.getGrafico().setVisible(false);
 		
