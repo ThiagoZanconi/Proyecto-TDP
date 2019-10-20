@@ -82,7 +82,7 @@ public class GUI extends JFrame {
 	 * Create the frame.
 	 */
 	public GUI() {
-		elementos=new Elementos();
+		elementos=elementos.getElementos();
 		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -162,43 +162,6 @@ public class GUI extends JFrame {
 		
 		gui=this;
 		juego=juego.getJuego(this);
-	}
-	
-	public void mover() {
-		for(int i=0;i<elementos.getEnemigos().size();i++) {
-			
-			if(elementos.getEnemigos().get(i).enMovimiento()) {
-				JLabel grafico =elementos.getEnemigos().get(i).getGrafico();
-				Rectangle r=elementos.getEnemigos().get(i).getRectangulo();
-				
-				r.setBounds((int)r.getX()+10,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
-				
-				if(elementos.chequearColision(elementos.getEnemigos().get(i))) {
-					r.setBounds((int)r.getX()-10,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());
-				}
-				else {
-					grafico.setBounds(grafico.getX()+10, grafico.getY(), grafico.getWidth(), grafico.getHeight());
-				
-					if(grafico.getX()>1300) {
-						grafico.setBounds(-100, grafico.getY(), grafico.getWidth(), grafico.getHeight());
-						r.setBounds(-100,(int)r.getY(),(int)r.getWidth(),(int)r.getHeight());	
-					}
-					
-				}
-			
-				
-			}
-			
-			
-			
-		}
-		
-		
-		
-		
-		this.repaint();
-		
-		
 	}
 	
 	class oyenteSalir implements ActionListener{
@@ -290,9 +253,7 @@ public class GUI extends JFrame {
 			hilo=new Hilo(gui,juego);
 			hilo.start();
 			
-			
 			Normal normal=new Normal(100,-177);
-			elementos.añadirEnemigo(normal);
 			elementos.añadirElemento(normal);
 			normal.getGrafico().setBounds(100,-177,1000,1000);
 			ventanaNivelUno.add(normal.getGrafico());
@@ -385,7 +346,7 @@ public class GUI extends JFrame {
 			
 			
 			Normal normal=new Normal(100,-177);
-			elementos.añadirEnemigo(normal);
+
 			elementos.añadirElemento(normal);
 			normal.getGrafico().setBounds(100,-177,1000,1000);
 			ventanaNivelUno.add(normal.getGrafico());
@@ -528,7 +489,6 @@ public class GUI extends JFrame {
 	private void generarGuerrero(int x, int y) {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		Guerrero guerrero=new Guerrero(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
-		elementos.añadirAliado(guerrero);
 		elementos.añadirElemento(guerrero);
 		
 		
@@ -550,7 +510,6 @@ public class GUI extends JFrame {
 	private void generarBallesta(int x, int y) {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		Ballesta ballesta=new Ballesta(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
-		elementos.añadirAliado(ballesta);
 		elementos.añadirElemento(ballesta);
 		
 		

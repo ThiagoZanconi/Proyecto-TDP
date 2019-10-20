@@ -23,11 +23,6 @@ public class Normal extends Enemigo {
 		miVisitor=new VisitorEnemigo(this);
 		colisiono=false;
 	}
-
-	public void aceptar(Visitor v) {
-		v.visitarEnemigo(this);
-		
-	}
 	
 	public void avanzar() {
 		if(!colisiono) {

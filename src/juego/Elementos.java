@@ -3,17 +3,16 @@ package juego;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Elementos {
-	protected List<Elemento> elementos;
-	protected List<Enemigo> enemigos;
-	protected List<Aliado> aliados;
-	protected List<Disparo> disparos;
+public final class Elementos {
+	protected static final Elementos self=new Elementos();
+	protected static List<Elemento> elementos;
 	
-	public Elementos() {
-		enemigos=new LinkedList<Enemigo>();
-		aliados=new LinkedList<Aliado>();
-		disparos=new LinkedList<Disparo>();
+	private Elementos() {
 		elementos=new LinkedList<Elemento>();
+	}
+	
+	public static Elementos getElementos() {
+		return self;
 	}
 	
 	public int size() {
@@ -28,48 +27,15 @@ public class Elementos {
 		elementos.add(elementos.size(),e);
 	}
 	
-	public void añadirAliado(Aliado a) {
-		aliados.add(aliados.size(), a);
-	}
-	
-	public void añadirEnemigo(Enemigo e) {
-		enemigos.add(enemigos.size(), e);
-	}
-	
-	public List<Elemento> getElementos(){
-		return elementos;
-	}
-		
-	public List<Enemigo> getEnemigos() {
-		return enemigos;
-	}
-	
-	public List<Aliado> getAliados() {
-		return aliados;
-	}
-	
-	public List<Disparo> getDisparos() {
-		return disparos;
-	}
-	
 	public void chequearColision(Elemento e1,Elemento e2) {
 		if(e1.getRectangulo().intersects(e2.getRectangulo())) {
-			e1.aceptar(e2.getVisitor());
+			e2.aceptar(e1.getVisitor());
 		}
 	}
 	
-	
-	public boolean chequearColision(Elemento e) {
-		boolean toReturn=false;
-		for(int i=0;i<aliados.size();i++) {
-			if(e.getRectangulo().intersects(aliados.get(i).getRectangulo())) {
-				e.aceptar(aliados.get(i).getVisitor());
-				toReturn=true;
-			}
-			
-			
-		}
-		return toReturn;
+	public void eliminarElemento(Elemento e) {
+		elementos.remove(e);
+		e=null;
 	}
 	
 	

@@ -15,7 +15,7 @@ public final class Juego {
 	
 	public static Juego getJuego(GUI g) {
 		gui=g;
-		elementos=new Elementos();
+		elementos=elementos.getElementos();
 		return juego;
 	}
 	/**
@@ -23,13 +23,12 @@ public final class Juego {
 	 */
 	
 	public void mover() {
-		int i=0;
-		while(i<elementos.size()) {
-			for(int j=i;i<elementos.size();i++) {
+		for(int i=0;i<elementos.size();i++) {
+			for(int j=i+1;j<elementos.size();j++) {
 				elementos.chequearColision(elementos.getElemento(i),elementos.getElemento(j));
 			}
 		}
-		i++;
+		
 	}
 	
 	

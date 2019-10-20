@@ -1,5 +1,7 @@
 package juego;
 
+import java.util.List;
+
 public abstract class Personaje extends Elemento{
 	protected int fuerzaDeImpacto;
 	protected int alcance;
@@ -18,11 +20,14 @@ public abstract class Personaje extends Elemento{
 	}
 	
 	public void recibirDanio(int fuerzaImpacto) {
-		
 		this.vida-=fuerzaImpacto;
 		if(this.vida<=0) {
 			//matar(); 
 		}
+	}
+	
+	public void disparar() {
+		
 	}
 	
 	

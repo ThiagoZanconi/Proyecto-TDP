@@ -1,9 +1,5 @@
 package juego;
 
-import java.util.List;
-
-import javax.swing.JFrame;
-
 import visitor.Visitor;
 
 public abstract class Aliado extends Personaje {
@@ -19,17 +15,13 @@ public abstract class Aliado extends Personaje {
 		
 	}
 	
-	public void disparar(List<Disparo> l) {
-		
-	}
-	
 	public void denegarCreacion() {
 		destruir();
 		//devolverOro();
 	}
 
 	public void destruir() {
-		
+		adaptador.eliminarElemento(this);
 	}
 
 
