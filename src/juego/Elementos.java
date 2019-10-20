@@ -6,9 +6,11 @@ import java.util.List;
 public final class Elementos {
 	protected static final Elementos self=new Elementos();
 	protected static List<Elemento> elementos;
+	protected static List<Elemento> elementosAEliminar;
 	
 	private Elementos() {
 		elementos=new LinkedList<Elemento>();
+		elementosAEliminar=new LinkedList<Elemento>();
 	}
 	
 	public static Elementos getElementos() {
@@ -33,9 +35,19 @@ public final class Elementos {
 		}
 	}
 	
+	public void eliminar() {
+		for(int i=0;i<elementosAEliminar.size();i++) {
+			Elemento aEliminar=elementosAEliminar.get(i);
+			elementos.remove(aEliminar);
+			elementosAEliminar.remove(aEliminar);
+			aEliminar=null;
+		}
+		
+	}
+	
 	public void eliminarElemento(Elemento e) {
-		elementos.remove(e);
-		e=null;
+		elementosAEliminar.add(elementosAEliminar.size(), e);
+		
 	}
 	
 	

@@ -14,14 +14,16 @@ public abstract class Aliado extends Personaje {
 		v.visitarAliado(this);
 		
 	}
-	
+	public void recibirDaño(int daño) {
+		vida=vida-daño;
+		if(vida<=0) {
+			destruir();
+		
+		}
+	}
 	public void denegarCreacion() {
 		destruir();
 		//devolverOro();
-	}
-
-	public void destruir() {
-		adaptador.eliminarElemento(this);
 	}
 
 	public void actividadSinColision() {

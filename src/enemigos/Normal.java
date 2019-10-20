@@ -10,7 +10,7 @@ import visitor.VisitorEnemigo;
 public class Normal extends Enemigo {
 
 	public Normal(int x,int y) {
-		super(100,100,100,100);
+		super(50,100,100,100);
 		enMovimiento=true;
 		this.imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));

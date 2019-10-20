@@ -8,7 +8,7 @@ public class VisitorEnemigo extends Visitor {
 	
 	
 	public void visitarAliado(Aliado a) {
-		
+		a.recibirDaño(miElemento.getFuerzaDeImpacto());
 		
 	}
 	/**

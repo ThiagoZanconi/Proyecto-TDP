@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import adaptador.Adaptador;
 
 public abstract class Elemento {
+	protected int fuerzaDeImpacto;
 	protected boolean enMovimiento;
 	protected Visitor miVisitor;
 	protected int vida;
@@ -46,5 +47,14 @@ public abstract class Elemento {
 	
 	public Visitor getVisitor() {
 		return miVisitor;
+	}
+	
+	public int getFuerzaDeImpacto() {
+		return fuerzaDeImpacto;
+	}
+	
+	public void destruir() {
+		adaptador.eliminarElemento(this);
+		graficoActual.setVisible(false);
 	}
 }

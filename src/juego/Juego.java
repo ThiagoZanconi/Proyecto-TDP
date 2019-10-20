@@ -29,7 +29,8 @@ public final class Juego {
 				chequearColision(elementos.getElemento(j),elementos.getElemento(i));
 			}
 			elementos.getElemento(i).actividadSinColision();
-		}	
+		}
+		elementos.eliminar();
 	}
 	
 	/**
