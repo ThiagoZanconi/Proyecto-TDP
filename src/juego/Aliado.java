@@ -24,5 +24,8 @@ public abstract class Aliado extends Personaje {
 		adaptador.eliminarElemento(this);
 	}
 
+	public void actividadSinColision() {
+		
+	}
 
 }

@@ -26,9 +26,10 @@ public final class Juego {
 		for(int i=0;i<elementos.size();i++) {
 			for(int j=i+1;j<elementos.size();j++) {
 				chequearColision(elementos.getElemento(i),elementos.getElemento(j));
+				chequearColision(elementos.getElemento(j),elementos.getElemento(i));
 			}
-		}
-		
+			elementos.getElemento(i).actividadSinColision();
+		}	
 	}
 	
 	/**

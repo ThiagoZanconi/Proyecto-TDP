@@ -31,5 +31,8 @@ public class Disparo extends Elemento {
 		v.visitarDisparo(this);
 	}
 	
+	public void actividadSinColision() {
+		
+	}
 	
 }

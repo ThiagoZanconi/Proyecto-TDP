@@ -22,6 +22,8 @@ public abstract class Elemento {
 	
 	public abstract void aceptar(Visitor v);
 	
+	public abstract void actividadSinColision();
+	
 	public Adaptador getAdaptador() {
 		return adaptador;
 	}

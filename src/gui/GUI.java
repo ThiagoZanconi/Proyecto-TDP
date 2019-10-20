@@ -1,8 +1,10 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Rectangle;
 
 import javax.swing.BorderFactory;
@@ -244,7 +246,7 @@ public class GUI extends JFrame {
 			mapaImagen=new JLabel();
 			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
 			mapaImagen.setBounds(0, 0, 1200, 800);
-			ventanaNivelUno.add(mapaImagen);
+			//ventanaNivelUno.add(mapaImagen);
 			ventanaNivelUno.setVisible(true);
 			setVisible(false);
 			
@@ -257,7 +259,7 @@ public class GUI extends JFrame {
 			elementos.añadirElemento(normal);
 			normal.getGrafico().setBounds(100,-177,1000,1000);
 			ventanaNivelUno.add(normal.getGrafico());
-			ventanaNivelUno.add(mapaImagen);
+			//ventanaNivelUno.add(mapaImagen);
 			
 		}
 		
@@ -274,6 +276,7 @@ public class GUI extends JFrame {
 			ventanaNivelUno=new JFrame("ventanaJuego");
 			ventanaNivelUno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			ventanaNivelUno.setBounds(0, 0, 1200, 1000);
+			ventanaNivelUno.setLayout(new BorderLayout());
 			ventanaNivelUno.addMouseListener(click);
 			
 			//Creo el panel del juego y le agrego la ventana
@@ -491,12 +494,10 @@ public class GUI extends JFrame {
 		Guerrero guerrero=new Guerrero(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
 		elementos.añadirElemento(guerrero);
 		
-		
-		
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
 			guerrero.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
 			ventanaNivelUno.add(guerrero.getGrafico());
-			ventanaNivelUno.add(mapaImagen);
+			//ventanaNivelUno.add(mapaImagen);
 		}
 		juego.chequearColision(guerrero);
 		
@@ -513,7 +514,7 @@ public class GUI extends JFrame {
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
 			ballesta.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
 			ventanaNivelUno.add(ballesta.getGrafico());
-			ventanaNivelUno.add(mapaImagen);
+			//ventanaNivelUno.add(mapaImagen);
 		}
 		juego.chequearColision(ballesta);
 		

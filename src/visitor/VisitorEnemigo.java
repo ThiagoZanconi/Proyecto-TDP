@@ -9,7 +9,11 @@ public class VisitorEnemigo extends Visitor {
 	
 	public void visitarAliado(Aliado a) {
 		
+		
 	}
+	/**
+	 * Colision enemigo con enemigo no hace nada
+	 */
 	public void visitarEnemigo(Enemigo e) {
 		
 	}
