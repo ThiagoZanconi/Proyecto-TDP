@@ -1,6 +1,12 @@
 package visitor;
 import juego.*;
 public class VisitorEnemigo extends Visitor {
+	
+	public VisitorEnemigo(Elemento e) {
+		miElemento=e;
+	}
+	
+	
 	public void visitarAliado(Aliado a) {
 		
 	}

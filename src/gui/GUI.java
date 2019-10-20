@@ -18,6 +18,7 @@ import aliados.Guerrero;
 import enemigos.Normal;
 import juego.Aliado;
 import juego.Elementos;
+import juego.Juego;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -53,8 +54,6 @@ public class GUI extends JFrame {
 	private boolean veredicto;
 	
 	private int puntaje;
-
-	
 	private JLabel mapaImagen;
 	private JLabel labelPuntaje;
 	private JLabel labelCoordenadas;
@@ -62,7 +61,7 @@ public class GUI extends JFrame {
 	private Hilo hilo;
 	private GUI gui;
 	private Elementos elementos;
-	
+	private Juego juego;
 	/**
 	 * Launch the application.
 	 */
@@ -162,6 +161,7 @@ public class GUI extends JFrame {
 				
 		
 		gui=this;
+		juego=juego.getJuego(this);
 	}
 	
 	public void mover() {
@@ -287,7 +287,7 @@ public class GUI extends JFrame {
 			
 			
 			
-			hilo=new Hilo(gui);
+			hilo=new Hilo(gui,juego);
 			hilo.start();
 			
 			
@@ -380,7 +380,7 @@ public class GUI extends JFrame {
 			
 			
 			
-			hilo=new Hilo(gui);
+			hilo=new Hilo(gui,juego);
 			hilo.start();
 			
 			

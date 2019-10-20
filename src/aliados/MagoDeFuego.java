@@ -17,19 +17,11 @@ public class MagoDeFuego extends Aliado {
 		
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
-		this.graficoActual.setBounds(100, 100, tamañoAncho, tamañoLargo);
+		this.graficoActual.setBounds(100, 100, 50, 50);
 		
 		rectangulo=new Rectangle(x,y,50,20);
-		miVisitor=new VisitorAliado();
+		miVisitor=new VisitorAliado(this);
 		miDisparo=new Disparo(x,y);
-	}
-	
-	public int getAncho() {
-		return tamañoAncho;
-	}
-	
-	public int getLargo() {
-		return tamañoLargo;
 	}
 	
 	public void disparar(List<Disparo> l) {

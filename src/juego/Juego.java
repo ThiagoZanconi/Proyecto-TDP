@@ -2,7 +2,7 @@ package juego;
 import gui.*;
 public final class Juego {
 	
-	protected Tienda tienda;
+	protected static Tienda tienda;
 	protected static GUI gui;
 	protected static Elementos elementos;
 	protected static final Juego juego=new Juego(gui);

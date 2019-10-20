@@ -1,10 +1,14 @@
 package gui;
 
+import juego.Juego;
+
 public class Hilo extends Thread{
 	private GUI gui;
+	private Juego juego;
 	
-	public Hilo(GUI gui) {
+	public Hilo(GUI gui,Juego juego) {
 		this.gui=gui;
+		this.juego=juego;
 		
 	}
 
@@ -15,7 +19,7 @@ public class Hilo extends Thread{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			gui.mover();
+			juego.mover();
 		}
 	}
 }

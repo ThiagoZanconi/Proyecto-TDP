@@ -22,7 +22,15 @@ public abstract class Aliado extends Personaje {
 	public void disparar(List<Disparo> l) {
 		
 	}
+	
+	public void denegarCreacion() {
+		destruir();
+		//devolverOro();
+	}
 
+	public void destruir() {
+		
+	}
 
 
 }

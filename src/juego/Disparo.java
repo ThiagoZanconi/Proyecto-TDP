@@ -23,7 +23,7 @@ public class Disparo extends Elemento {
 		graficoActual.setIcon(new ImageIcon("Sprites\\proyectil.png"));
 		rectangulo=new Rectangle(x,y,100,100);
 		graficoActual.setBounds(rectangulo);
-		miVisitor=new VisitorDisparoAliado();
+		miVisitor=new VisitorDisparoAliado(this);
 		
 	}
 	

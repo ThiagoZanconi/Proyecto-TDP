@@ -6,11 +6,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public abstract class Elemento {
+	protected Elementos elementos;
 	protected boolean enMovimiento;
 	protected Visitor miVisitor;
 	protected int vida;
-	protected final int tamañoAncho=32;
-	protected final int tamañoLargo=32;
 	protected JLabel imagenes[];
 	protected JLabel graficoActual;
 	protected Rectangle rectangulo;
@@ -18,7 +17,6 @@ public abstract class Elemento {
 	public Elemento(int v) {
 		vida=v;
 		imagenes=new JLabel[1];
-		
 	}
 	
 	public abstract void aceptar(Visitor v);

@@ -2,16 +2,19 @@ package visitor;
 
 import juego.Aliado;
 import juego.Disparo;
+import juego.Elemento;
 import juego.Enemigo;
 
 public class VisitorAliado extends Visitor {
 	
-	public VisitorAliado() {
+	public VisitorAliado(Elemento e) {
+		miElemento=e;
 		
 	}
 	
 	
 	public void visitarAliado(Aliado a) {
+		a.denegarCreacion();
 		
 	}
 	public void visitarEnemigo(Enemigo e) {

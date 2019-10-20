@@ -17,10 +17,10 @@ public class Normal extends Enemigo {
 		
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
-		this.graficoActual.setBounds(100, 100, tamañoAncho, tamañoLargo);
+		this.graficoActual.setBounds(100, 100, 50, 50);
 		
 		rectangulo=new Rectangle(x,y,100,50);
-		miVisitor=new VisitorEnemigo();
+		miVisitor=new VisitorEnemigo(this);
 		colisiono=false;
 	}
 
