@@ -19,7 +19,7 @@ public class MagoDeHielo extends Aliado {
 		this.graficoActual.setIcon(imagenes[0].getIcon());
 		this.graficoActual.setBounds(100, 100, 50, 50);
 		
-		rectangulo=new Rectangle(x,y,50,20);
+		rectangulo=new Rectangle(x,y,80,80);
 		miVisitor=new VisitorAliado(this);
 		miDisparo=new Disparo(x,y);
 	}

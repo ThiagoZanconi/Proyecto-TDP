@@ -285,24 +285,24 @@ public class GUI extends JFrame {
 			hilo.start();
 			
 			
-			Normal normal=new Normal(100,-165);
+			Normal normal=new Normal(100,-155);
 			elementos.añadirElemento(normal);
-			normal.getGrafico().setBounds(100,-165,1000,1000);
+			normal.getGrafico().setBounds(100,-155,1000,1000);
 			ventanaNivelUno.add(normal.getGrafico());
 			
-			Rapido rapido=new Rapido(100,-60);
+			Rapido rapido=new Rapido(100,-70);
 			elementos.añadirElemento(rapido);
-			rapido.getGrafico().setBounds(100,-60,1000,1000);
+			rapido.getGrafico().setBounds(100,-70,1000,1000);
 			ventanaNivelUno.add(rapido.getGrafico());
 			
-			Tanque tanque=new Tanque(100,40);
+			Tanque tanque=new Tanque(100,20);
 			elementos.añadirElemento(tanque);
-			tanque.getGrafico().setBounds(100,40,1000,1000);
+			tanque.getGrafico().setBounds(100,20,1000,1000);
 			ventanaNivelUno.add(tanque.getGrafico());
 			
-			Rango rango=new Rango(100,140);
+			Rango rango=new Rango(100,200);
 			elementos.añadirElemento(rango);
-			rango.getGrafico().setBounds(100,140,1000,1000);
+			rango.getGrafico().setBounds(100,200,1000,1000);
 			ventanaNivelUno.add(rango.getGrafico());
 			
 			Curador curador=new Curador(100,-260);
