@@ -1,4 +1,4 @@
-package juego;
+package disparos;
 
 public class DisparoEnemigo extends Disparo{
 

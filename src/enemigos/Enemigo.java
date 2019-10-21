@@ -1,5 +1,7 @@
-package juego;
-import visitor.*;
+package enemigos;
+
+import juego.Personaje;
+import visitor.Visitor;
 
 public class Enemigo extends Personaje {
 	protected boolean enMovimiento;

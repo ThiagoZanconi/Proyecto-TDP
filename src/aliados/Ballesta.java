@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import disparos.Disparo;
 import juego.*;
 import visitor.VisitorAliado;
 public class Ballesta extends Aliado {

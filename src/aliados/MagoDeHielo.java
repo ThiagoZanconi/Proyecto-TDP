@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import disparos.Disparo;
 import juego.*;
 import visitor.VisitorAliado;
 

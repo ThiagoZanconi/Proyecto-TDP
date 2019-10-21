@@ -1,10 +1,11 @@
-package juego;
+package disparos;
 
 import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import juego.Elemento;
 import visitor.Visitor;
 import visitor.VisitorDisparoAliado;
 

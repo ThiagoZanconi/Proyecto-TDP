@@ -26,7 +26,6 @@ import enemigos.Normal;
 import enemigos.Rango;
 import enemigos.Rapido;
 import enemigos.Tanque;
-import juego.Aliado;
 import juego.Elementos;
 import juego.Juego;
 

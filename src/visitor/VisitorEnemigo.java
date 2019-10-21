@@ -1,5 +1,8 @@
 package visitor;
-import juego.*;
+import aliados.Aliado;
+import disparos.Disparo;
+import enemigos.Enemigo;
+import juego.Elemento;
 public class VisitorEnemigo extends Visitor {
 	
 	public VisitorEnemigo(Elemento e) {

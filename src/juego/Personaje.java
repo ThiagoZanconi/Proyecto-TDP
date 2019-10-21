@@ -3,6 +3,8 @@ package juego;
 import java.awt.Rectangle;
 import java.util.List;
 
+import disparos.Disparo;
+
 public abstract class Personaje extends Elemento{
 	protected int alcance;
 	protected int velocidadDeProyectil;
