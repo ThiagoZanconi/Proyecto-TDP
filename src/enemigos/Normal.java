@@ -13,7 +13,7 @@ public class Normal extends Enemigo {
 		super(10,100,100,100);
 		enMovimiento=true;
 		this.imagenes[0] = new JLabel();
-		imagenes[0].setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
+		imagenes[0].setIcon(new ImageIcon("Sprites\\Normal\\NormalAttack.gif"));
 		
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
