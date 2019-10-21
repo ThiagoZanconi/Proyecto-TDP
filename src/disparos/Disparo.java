@@ -21,9 +21,9 @@ public class Disparo extends Elemento {
 		this.daño=50;
 		this.velocidad=200;
 		graficoActual=new JLabel();
-		graficoActual.setIcon(new ImageIcon("Sprites\\BallestaProjectile.gif"));
+		graficoActual.setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaProjectile.gif"));
 		rectangulo=new Rectangle(x,y,100,100);
-		graficoActual.setBounds(rectangulo);
+		graficoActual.setBounds(x,y+450,80,80);
 		miVisitor=new VisitorDisparoAliado(this);
 		
 	}
@@ -33,7 +33,8 @@ public class Disparo extends Elemento {
 	}
 	
 	public void actividadSinColision() {
-		
+		rectangulo.setBounds((int)rectangulo.getX()-50,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
+		graficoActual.setBounds(graficoActual.getX()-50,graficoActual.getY(),graficoActual.getWidth(),graficoActual.getHeight());
 	}
 	
 }

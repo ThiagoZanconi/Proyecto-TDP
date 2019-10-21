@@ -37,10 +37,11 @@ public final class Adaptador {
 	
 	public void añadirDisparo(Disparo d) {
 		elementos.añadirElemento(d);
+		agregarElementoGrafico(d.getGrafico());
 	}
 	
-	protected void añadirElementoGrafico(JLabel j) {
-		
+	protected void agregarElementoGrafico(JLabel j) {
+		gui.agregarElementoGrafico(j);	
 	}
 	
 	

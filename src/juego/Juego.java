@@ -23,10 +23,11 @@ public final class Juego {
 	
 	public void mover() {
 		for(int i=0;i<elementos.size();i++) {
+			elementos.getElemento(i).actividadSinColision();
 			for(int j=i+1;j<elementos.size();j++) {
 				chequearColision(elementos.getElemento(i),elementos.getElemento(j));
 			}
-			elementos.getElemento(i).actividadSinColision();
+			
 			
 		}
 		elementos.eliminar();

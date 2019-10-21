@@ -17,14 +17,14 @@ public class Ballesta extends Aliado {
 		this.graficoActual.setIcon(imagenes[0].getIcon());
 		this.graficoActual.setBounds(100, 100, 50, 50);
 		
-		alcanceDeAtaque=new Rectangle(x,y,700,80);
+		alcanceDeAtaque=new Rectangle(x-700,y,700,10);
 		rectangulo=new Rectangle(x,y,80,80);
 		miVisitor=new VisitorAliado(this);
 		
 	}
 	
 	public void atacar() {
-		Disparo x=new DisparoAliado((int)rectangulo.getX(),(int)rectangulo.getY());
+		Disparo x=new DisparoAliado((int)rectangulo.getX()-20,(int)rectangulo.getY());
 		adaptador.añadirDisparo(x);	
 	}
 
