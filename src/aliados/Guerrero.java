@@ -12,7 +12,7 @@ public class Guerrero extends Aliado {
 	public Guerrero(int x,int y) {
 		super(100,100,100,100);
 		this.imagenes[0] = new JLabel();
-		imagenes[0].setIcon(new ImageIcon("Sprites\\GuerreroAtacando.gif"));
+		imagenes[0].setIcon(new ImageIcon("Sprites\\Guerrero\\GuerreroAttack.gif"));
 		
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());

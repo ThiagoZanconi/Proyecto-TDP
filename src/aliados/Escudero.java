@@ -13,7 +13,7 @@ public class Escudero extends Aliado {
 	public Escudero(int x,int y) {
 		super(100,100,1500,100);
 		this.imagenes[0] = new JLabel();
-		imagenes[0].setIcon(new ImageIcon("Sprites\\"));
+		imagenes[0].setIcon(new ImageIcon("Sprites\\Escudero\\EscuderoAttack.gif"));
 		
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());

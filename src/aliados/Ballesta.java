@@ -13,7 +13,7 @@ public class Ballesta extends Aliado {
 	public Ballesta(int x,int y) {
 		super(200,1000,500,150);
 		this.imagenes[0] = new JLabel();
-		imagenes[0].setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaIdle.gif"));
+		imagenes[0].setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaAttack.gif"));
 		
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
