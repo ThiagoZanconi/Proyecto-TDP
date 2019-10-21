@@ -18,13 +18,12 @@ public class Guerrero extends Aliado {
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
 		this.graficoActual.setBounds(100, 100, 50, 50);
-		
+		alcanceDeAtaque=new Rectangle(x,y,120,80);
 		rectangulo=new Rectangle(x,y,80,80);
 		miVisitor=new VisitorAliado(this);
-		miDisparo=new Disparo(x,y);
 	}
 	
-	public void disparar(List<Disparo> l) {
+	public void atacar() {
 		
 	}
 

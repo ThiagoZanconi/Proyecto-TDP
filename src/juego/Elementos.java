@@ -57,7 +57,7 @@ public final class Elementos {
 		for(int i=0;i<elementos.size();i++) {
 			if(p!=elementos.get(i)) {
 				if(p.getAlcanceDeAtaque().intersects(elementos.get(i).getRectangulo())) {
-					
+					elementos.get(i).aceptar(p.getVisitorAlcance());
 				}
 			}
 		}

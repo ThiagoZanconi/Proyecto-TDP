@@ -22,4 +22,7 @@ public class Rango extends Enemigo {
 		miVisitor=new VisitorEnemigo(this);
 	}
 
+	public void atacar() {
+		
+	}
 }

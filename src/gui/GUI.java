@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.Rectangle;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -34,7 +32,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class GUI extends JFrame {
+public final class GUI extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -71,7 +69,7 @@ public class GUI extends JFrame {
 	private JLabel labelCoordenadas;
 	
 	private Hilo hilo;
-	private GUI gui;
+	private static final GUI gui=new GUI();
 	private Elementos elementos;
 	private Juego juego;
 	/**
@@ -81,8 +79,7 @@ public class GUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI frame = new GUI();
-					frame.setVisible(true);
+					gui.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -93,7 +90,7 @@ public class GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUI() {
+	private GUI() {
 		elementos=elementos.getElementos();
 		
 		getContentPane().setLayout(null);
@@ -170,10 +167,12 @@ public class GUI extends JFrame {
 		menuImagen.setIcon(new ImageIcon("Sprites\\menu1.png"));
 		menuImagen.setBounds(0, 0, 1200, 800);
 		contentPane.add(menuImagen);
-				
 		
-		gui=this;
 		juego=juego.getJuego(this);
+	}
+	
+	public static GUI getGUI() {
+		return gui;	
 	}
 	
 	class oyenteSalir implements ActionListener{
@@ -700,16 +699,13 @@ public class GUI extends JFrame {
 						generarEscudero(evento.getX(), evento.getY());
 						break;	
 				}
-				
-				
+					
 			}
 			
 		}
 		@Override
 		public void mouseReleased(MouseEvent evento) {
-
-				
-			
+	
 		}
 		@Override
 		public void mouseEntered(MouseEvent evento) {

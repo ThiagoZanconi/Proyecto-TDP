@@ -1,14 +1,14 @@
 package juego;
 
 import java.awt.Rectangle;
-import java.util.List;
 
-import disparos.Disparo;
+import visitor.VisitorAlcance;
 
 public abstract class Personaje extends Elemento{
 	protected int alcance;
 	protected int velocidadDeProyectil;
 	protected Rectangle alcanceDeAtaque;
+	protected VisitorAlcance visitorAlcance;
 	
 	public Personaje(int f,int a,int v,int vp) {
 		super(v);
@@ -17,16 +17,14 @@ public abstract class Personaje extends Elemento{
 		velocidadDeProyectil=vp;
 	}
 	
-	public void atacar() {
-		Disparo x=new Disparo(fuerzaDeImpacto,velocidadDeProyectil);		
-	}
-	
-	public void disparar() {
-		
-	}
+	public abstract void atacar();
 	
 	public Rectangle getAlcanceDeAtaque() {
 		return alcanceDeAtaque;
+	}
+	
+	public VisitorAlcance getVisitorAlcance() {
+		return visitorAlcance;
 	}
 	
 }

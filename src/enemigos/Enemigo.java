@@ -3,7 +3,7 @@ package enemigos;
 import juego.Personaje;
 import visitor.Visitor;
 
-public class Enemigo extends Personaje {
+public abstract class Enemigo extends Personaje {
 	protected boolean enMovimiento;
 
 	public Enemigo(int f, int a, int v,int vp) {

@@ -21,5 +21,10 @@ public class Invocador extends Enemigo {
 		rectangulo=new Rectangle(x,y,100,50);
 		miVisitor=new VisitorEnemigo(this);
 	}
+	
+	
+	public void atacar() {
+		
+	}
 
 }
