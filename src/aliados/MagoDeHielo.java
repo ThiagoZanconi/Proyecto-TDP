@@ -13,7 +13,7 @@ public class MagoDeHielo extends Aliado {
 	public MagoDeHielo(int x,int y) {
 		super(100,100,100,100);
 		this.imagenes[0] = new JLabel();
-		imagenes[0].setIcon(new ImageIcon("Sprites\\MagoDeHielo\\MagoHAttack.gif"));
+		imagenes[0].setIcon(new ImageIcon("Sprites\\MagoDeHielo\\MagoHIdle.gif"));
 		
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
