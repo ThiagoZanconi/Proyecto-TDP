@@ -16,7 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import aliados.Ballesta;
+import aliados.Escudero;
 import aliados.Guerrero;
+import aliados.MagoDeFuego;
+import aliados.MagoDeHielo;
 import enemigos.Normal;
 import juego.Aliado;
 import juego.Elementos;
@@ -38,6 +41,9 @@ public class GUI extends JFrame {
 	
 	private JButton btnComprarGuerrero;
 	private JButton btnComprarBallesta;
+	private JButton btnComprarMagoDeHielo;
+	private JButton btnComprarMagoDeFuego;
+	private JButton btnComprarEscudero;
 	
 	private JFrame ventanaNivelUno;
 	private JPanel panelNivelUno;
@@ -207,6 +213,30 @@ public class GUI extends JFrame {
 			btnComprarBallesta.setBounds(100, 800, 100, 100);
 			ventanaNivelUno.add(btnComprarBallesta);
 			btnComprarBallesta.setVisible(true);
+			
+			//Creo el boton comprar Mago de Hielo y lo agrego a la ventana
+			btnComprarMagoDeHielo=new JButton("Mago de Hielo");
+			oyenteComprarMagoDeHielo oyenteComprarMagoDeHielo =new oyenteComprarMagoDeHielo();
+			btnComprarMagoDeHielo.addActionListener(oyenteComprarMagoDeHielo);
+			btnComprarMagoDeHielo.setBounds(200, 800, 100, 100);
+			ventanaNivelUno.add(btnComprarMagoDeHielo);
+			btnComprarMagoDeHielo.setVisible(true);
+			
+			//Creo el boton comprar Mago de Fuego y lo agrego a la ventana
+			btnComprarMagoDeFuego=new JButton("Mago de Fuego");
+			oyenteComprarMagoDeFuego oyenteComprarMagoDeFuego =new oyenteComprarMagoDeFuego();
+			btnComprarMagoDeFuego.addActionListener(oyenteComprarMagoDeFuego);
+			btnComprarMagoDeFuego.setBounds(300, 800, 100, 100);
+			ventanaNivelUno.add(btnComprarMagoDeFuego);
+			btnComprarMagoDeFuego.setVisible(true);
+			
+			//Creo el boton comprar Escudero y lo agrego a la ventana
+			btnComprarEscudero=new JButton("Escudero");
+			oyenteComprarEscudero oyenteComprarEscudero =new oyenteComprarEscudero();
+			btnComprarEscudero.addActionListener(oyenteComprarEscudero);
+			btnComprarEscudero.setBounds(400, 800, 100, 100);
+			ventanaNivelUno.add(btnComprarEscudero);
+			btnComprarEscudero.setVisible(true);
 			
 			//Inicio variables varias
 			veredicto=false;
@@ -423,6 +453,36 @@ public class GUI extends JFrame {
 		}
 	}
 	
+	class oyenteComprarMagoDeHielo implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			
+			veredicto=true;
+			aliadoComprado="MagoDeHielo";
+			cuadrilla.setVisible(true);
+			
+		}
+	}
+	
+	class oyenteComprarMagoDeFuego implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			
+			veredicto=true;
+			aliadoComprado="MagoDeFuego";
+			cuadrilla.setVisible(true);
+			
+		}
+	}
+	
+	class oyenteComprarEscudero implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			
+			veredicto=true;
+			aliadoComprado="Escudero";
+			cuadrilla.setVisible(true);
+			
+		}
+	}
+	
 	private int[] traducirCoordenadas(int x, int y) {
 		int[] arregloDevolver=new int[4];
 		//[0] = x en la matriz
@@ -523,6 +583,57 @@ public class GUI extends JFrame {
 		veredicto=false;
 	}
 	
+	private void generarMagoDeHielo(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		MagoDeHielo MagoDeHielo=new MagoDeHielo(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		elementos.añadirElemento(MagoDeHielo);
+		
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			MagoDeHielo.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
+			ventanaNivelUno.add(MagoDeHielo.getGrafico());
+			//ventanaNivelUno.add(mapaImagen);
+		}
+		juego.chequearColision(MagoDeHielo);
+		
+		
+		cuadrilla.setVisible(false);
+		veredicto=false;
+	}
+	
+	private void generarMagoDeFuego(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		MagoDeFuego MagoDeFuego=new MagoDeFuego(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		elementos.añadirElemento(MagoDeFuego);
+		
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			MagoDeFuego.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
+			ventanaNivelUno.add(MagoDeFuego.getGrafico());
+			//ventanaNivelUno.add(mapaImagen);
+		}
+		juego.chequearColision(MagoDeFuego);
+		
+		
+		cuadrilla.setVisible(false);
+		veredicto=false;
+	}
+	
+	private void generarEscudero(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Escudero Escudero=new Escudero(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		elementos.añadirElemento(Escudero);
+		
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			Escudero.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
+			ventanaNivelUno.add(Escudero.getGrafico());
+			//ventanaNivelUno.add(mapaImagen);
+		}
+		juego.chequearColision(Escudero);
+		
+		
+		cuadrilla.setVisible(false);
+		veredicto=false;
+	}
+	
 	MouseListener click=new MouseListener() {
 		@Override
 		public void mousePressed(MouseEvent evento) {
@@ -536,6 +647,15 @@ public class GUI extends JFrame {
 					case "Ballesta":
 						generarBallesta(evento.getX(), evento.getY());
 						break;
+					case "MagoDeHielo":
+						generarMagoDeHielo(evento.getX(), evento.getY());
+						break;
+					case "MagoDeFuego":
+						generarMagoDeFuego(evento.getX(), evento.getY());
+						break;
+					case "Escudero":
+						generarEscudero(evento.getX(), evento.getY());
+						break;	
 				}
 				
 				

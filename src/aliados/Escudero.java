@@ -11,7 +11,7 @@ import visitor.VisitorAliado;
 public class Escudero extends Aliado {
 
 	public Escudero(int x,int y) {
-		super(100,100,100,100);
+		super(100,100,1500,100);
 		this.imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\"));
 		
