@@ -12,7 +12,7 @@ public class Tanque extends Enemigo {
 		super(10,100,100,100);
 		enMovimiento=true;
 		this.imagenes[0] = new JLabel();
-		imagenes[0].setIcon(new ImageIcon("Sprites\\Tanque\\TanqueAttack.gif"));
+		imagenes[0].setIcon(new ImageIcon("Sprites\\Tanque\\TanqueWalk.gif"));
 		
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());

@@ -20,7 +20,10 @@ import aliados.Escudero;
 import aliados.Guerrero;
 import aliados.MagoDeFuego;
 import aliados.MagoDeHielo;
+import enemigos.Curador;
+import enemigos.Invocador;
 import enemigos.Normal;
+import enemigos.Rango;
 import enemigos.Rapido;
 import enemigos.Tanque;
 import juego.Aliado;
@@ -297,6 +300,21 @@ public class GUI extends JFrame {
 			tanque.getGrafico().setBounds(100,40,1000,1000);
 			ventanaNivelUno.add(tanque.getGrafico());
 			
+			Rango rango=new Rango(100,140);
+			elementos.añadirElemento(rango);
+			rango.getGrafico().setBounds(100,140,1000,1000);
+			ventanaNivelUno.add(rango.getGrafico());
+			
+			Curador curador=new Curador(100,-260);
+			elementos.añadirElemento(curador);
+			curador.getGrafico().setBounds(100,-260,1000,1000);
+			ventanaNivelUno.add(curador.getGrafico());
+			
+			Invocador invocador=new Invocador(300,-260);
+			elementos.añadirElemento(invocador);
+			invocador.getGrafico().setBounds(300,-260,1000,1000);
+			ventanaNivelUno.add(invocador.getGrafico());
+			
 			
 			//ventanaNivelUno.add(mapaImagen);	
 		}
@@ -365,7 +383,7 @@ public class GUI extends JFrame {
 			cuadrilla=new JPanel();
 			cuadrilla.setLayout(new GridLayout(6,10));
 			llenarCuadrilla();
-			cuadrilla.setBounds(20,100,1150,560);
+			cuadrilla.setBounds(20,220,1150,560);
 			cuadrilla.setOpaque(false);
 			ventanaNivelUno.add(cuadrilla);
 			cuadrilla.setVisible(false);
