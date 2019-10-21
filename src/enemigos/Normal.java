@@ -10,7 +10,7 @@ import visitor.VisitorEnemigo;
 public class Normal extends Enemigo {
 
 	public Normal(int x,int y) {
-		super(50,100,100,100);
+		super(10,100,100,100);
 		enMovimiento=true;
 		this.imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\EnemigoCaminando.gif"));
@@ -21,14 +21,7 @@ public class Normal extends Enemigo {
 		
 		rectangulo=new Rectangle(x,y,100,50);
 		miVisitor=new VisitorEnemigo(this);
-		colisiono=false;
 	}
 	
-	public void avanzar() {
-		if(!colisiono) {
-			rectangulo.setBounds((int)rectangulo.getX()+10,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
-			graficoActual.setBounds((int)graficoActual.getX()+10,(int)graficoActual.getY(),(int)graficoActual.getWidth(),(int)graficoActual.getHeight());
-		}
-		
-	}
+	
 }

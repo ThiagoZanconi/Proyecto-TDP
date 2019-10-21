@@ -2,6 +2,11 @@ package juego;
 
 import java.util.LinkedList;
 import java.util.List;
+/**
+ * Clase que contiene a todos los elementos del mapa y se encarga de llevar a cabo las colisiones entre los mismos
+ * @author Usuario Final
+ *
+ */
 
 public final class Elementos {
 	protected static final Elementos self=new Elementos();
@@ -42,12 +47,20 @@ public final class Elementos {
 			elementosAEliminar.remove(aEliminar);
 			aEliminar=null;
 		}
-		
 	}
 	
 	public void eliminarElemento(Elemento e) {
-		elementosAEliminar.add(elementosAEliminar.size(), e);
-		
+		elementosAEliminar.add(elementosAEliminar.size(), e);	
+	}
+	
+	public void chequearColisionDeAtaques(Personaje p) {
+		for(int i=0;i<elementos.size();i++) {
+			if(p!=elementos.get(i)) {
+				if(p.getAlcanceDeAtaque().intersects(elementos.get(i).getRectangulo())) {
+					
+				}
+			}
+		}
 	}
 	
 	

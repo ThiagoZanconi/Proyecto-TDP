@@ -6,10 +6,8 @@ public class VisitorEnemigo extends Visitor {
 		miElemento=e;
 	}
 	
-	
 	public void visitarAliado(Aliado a) {
-		a.recibirDaño(miElemento.getFuerzaDeImpacto());
-		
+		miElemento.aceptar(a.getVisitor());
 	}
 	/**
 	 * Colision enemigo con enemigo no hace nada

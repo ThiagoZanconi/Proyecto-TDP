@@ -2,8 +2,12 @@ package adaptador;
 
 import juego.Elemento;
 import juego.Elementos;
-
-public class Adaptador {
+/**
+ * Se utiliza para comunicar a los elementos con la clase Elementos para que solo tengan acceso a las operaciones necesarias
+ * @author Usuario Final
+ *
+ */
+public final class Adaptador {
 	protected static Elementos elementos;
 	protected static final Adaptador adaptador=new Adaptador();
 	

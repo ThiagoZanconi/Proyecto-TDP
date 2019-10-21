@@ -7,7 +7,6 @@ import adaptador.Adaptador;
 
 public abstract class Elemento {
 	protected int fuerzaDeImpacto;
-	protected boolean enMovimiento;
 	protected Visitor miVisitor;
 	protected int vida;
 	protected JLabel imagenes[];
@@ -35,14 +34,6 @@ public abstract class Elemento {
 	
 	public JLabel getGrafico(){
 		return this.graficoActual;
-	}
-	
-	public boolean enMovimiento() {
-		return enMovimiento;
-	}
-	
-	public void setEnMovimiento(boolean x) {
-		enMovimiento=x;
 	}
 	
 	public Visitor getVisitor() {

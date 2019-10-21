@@ -259,10 +259,6 @@ public class GUI extends JFrame {
 			labelCoordenadas.setOpaque(true);
 			ventanaNivelUno.add(labelCoordenadas);
 				
-			
-			
-			
-			
 			//Crea la cuadrilla
 			cuadrilla=new JPanel();
 			cuadrilla.setLayout(new GridLayout(6,10));
@@ -280,8 +276,6 @@ public class GUI extends JFrame {
 			ventanaNivelUno.setVisible(true);
 			setVisible(false);
 			
-			
-			
 			hilo=new Hilo(gui,juego);
 			hilo.start();
 			
@@ -289,8 +283,7 @@ public class GUI extends JFrame {
 			elementos.añadirElemento(normal);
 			normal.getGrafico().setBounds(100,-177,1000,1000);
 			ventanaNivelUno.add(normal.getGrafico());
-			//ventanaNivelUno.add(mapaImagen);
-			
+			//ventanaNivelUno.add(mapaImagen);	
 		}
 		
 	}
@@ -353,8 +346,6 @@ public class GUI extends JFrame {
 			labelCoordenadas.setOpaque(true);
 			ventanaNivelUno.add(labelCoordenadas);
 				
-			
-			
 			//Crea la cuadrilla
 			cuadrilla=new JPanel();
 			cuadrilla.setLayout(new GridLayout(6,10));
@@ -371,15 +362,12 @@ public class GUI extends JFrame {
 			ventanaNivelUno.add(mapaImagen);
 			ventanaNivelUno.setVisible(true);
 			setVisible(false);
-			
-			
-			
+		
 			hilo=new Hilo(gui,juego);
 			hilo.start();
-			
-			
+					
 			Normal normal=new Normal(100,-177);
-
+			
 			elementos.añadirElemento(normal);
 			normal.getGrafico().setBounds(100,-177,1000,1000);
 			ventanaNivelUno.add(normal.getGrafico());
@@ -475,11 +463,9 @@ public class GUI extends JFrame {
 	
 	class oyenteComprarEscudero implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-			
 			veredicto=true;
 			aliadoComprado="Escudero";
 			cuadrilla.setVisible(true);
-			
 		}
 	}
 	
@@ -549,21 +535,21 @@ public class GUI extends JFrame {
 		return arregloDevolver;
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void generarGuerrero(int x, int y) {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		Guerrero guerrero=new Guerrero(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
 		elementos.añadirElemento(guerrero);
-		
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
 			guerrero.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
 			ventanaNivelUno.add(guerrero.getGrafico());
 			//ventanaNivelUno.add(mapaImagen);
 		}
 		juego.chequearColision(guerrero);
-		
 		cuadrilla.setVisible(false);
 		
 		veredicto=false;
+
 	}
 	
 	private void generarBallesta(int x, int y) {

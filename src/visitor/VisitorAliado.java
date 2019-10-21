@@ -24,7 +24,7 @@ public class VisitorAliado extends Visitor {
 	 * El enemigo colisiona con el aliado por lo que deja de caminar
 	 */
 	public void visitarEnemigo(Enemigo e) {
-		e.setEnMovimiento(false);
+		e.detener();
 	}
 
 	public void visitarDisparo(Disparo d) {

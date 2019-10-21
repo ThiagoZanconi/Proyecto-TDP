@@ -2,17 +2,20 @@ package juego;
 import visitor.*;
 
 public class Enemigo extends Personaje {
-	
-	protected boolean colisiono;
+	protected boolean enMovimiento;
 
 	public Enemigo(int f, int a, int v,int vp) {
 		super(f, a, v,vp);
+		enMovimiento=true;
 	}
 	
 	public void aceptar(Visitor v) {
 		v.visitarEnemigo(this);
 	}
 	
+	public void detener() {
+		enMovimiento=false;
+	}
 	
 	/**
 	 * Caminar

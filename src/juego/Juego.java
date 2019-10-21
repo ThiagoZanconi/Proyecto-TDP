@@ -19,16 +19,16 @@ public final class Juego {
 		return juego;
 	}
 	/**
-	 * 
+	 * Utilizamos dos iteraciones distintas ya que chequear ambas colisiones en un mismo recorrido de lista puede generar problemas
 	 */
 	
 	public void mover() {
 		for(int i=0;i<elementos.size();i++) {
 			for(int j=i+1;j<elementos.size();j++) {
 				chequearColision(elementos.getElemento(i),elementos.getElemento(j));
-				chequearColision(elementos.getElemento(j),elementos.getElemento(i));
 			}
 			elementos.getElemento(i).actividadSinColision();
+			
 		}
 		elementos.eliminar();
 	}
