@@ -1,6 +1,9 @@
 package adaptador;
 
+import javax.swing.JLabel;
+
 import disparos.Disparo;
+import gui.GUI;
 import juego.Elemento;
 import juego.Elementos;
 import juego.Juego;
@@ -11,11 +14,13 @@ import juego.Personaje;
  *
  */
 public final class Adaptador {
+	protected static GUI gui;
 	protected static Elementos elementos;
 	protected static final Adaptador adaptador=new Adaptador();
 	
 	private Adaptador() {
 		elementos=elementos.getElementos();
+		gui=gui.getGUI();
 	}
 	
 	public static Adaptador getAdaptador() {
@@ -32,6 +37,10 @@ public final class Adaptador {
 	
 	public void añadirDisparo(Disparo d) {
 		elementos.añadirElemento(d);
+	}
+	
+	protected void añadirElementoGrafico(JLabel j) {
+		
 	}
 	
 	

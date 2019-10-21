@@ -24,7 +24,6 @@ public class Escudero extends Aliado {
 		miVisitor=new VisitorAliado(this);
 	}
 	
-	
 	public void atacar() {
 		
 	}

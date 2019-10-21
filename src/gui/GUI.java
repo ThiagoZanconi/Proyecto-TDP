@@ -170,11 +170,15 @@ public final class GUI extends JFrame {
 		menuImagen.setBounds(0, 0, 1200, 800);
 		contentPane.add(menuImagen);
 		
-		juego=juego.getJuego(this);
+		juego=juego.getJuego();
 	}
 	
 	public static GUI getGUI() {
 		return gui;	
+	}
+	
+	public void agregarElementoGrafico(JLabel j) {
+		ventanaNivelUno.add(j);
 	}
 	
 	class oyenteSalir implements ActionListener{

@@ -21,7 +21,7 @@ public class Disparo extends Elemento {
 		this.daño=50;
 		this.velocidad=200;
 		graficoActual=new JLabel();
-		graficoActual.setIcon(new ImageIcon("Sprites\\proyectil.png"));
+		graficoActual.setIcon(new ImageIcon("Sprites\\BallestaProjectile.gif"));
 		rectangulo=new Rectangle(x,y,100,100);
 		graficoActual.setBounds(rectangulo);
 		miVisitor=new VisitorDisparoAliado(this);

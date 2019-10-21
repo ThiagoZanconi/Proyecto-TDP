@@ -5,17 +5,16 @@ public final class Juego {
 	protected static Tienda tienda;
 	protected static GUI gui;
 	protected static Elementos elementos;
-	protected static final Juego juego=new Juego(gui);
+	protected static final Juego juego=new Juego();
 	
-	private Juego(GUI gui) {
+	private Juego() {
 		tienda=new Tienda();
-		gui=gui;
+		gui=gui.getGUI();
+		elementos=elementos.getElementos();
 		
 	}
 	
-	public static Juego getJuego(GUI g) {
-		gui=g;
-		elementos=elementos.getElementos();
+	public static Juego getJuego() {
 		return juego;
 	}
 	/**
