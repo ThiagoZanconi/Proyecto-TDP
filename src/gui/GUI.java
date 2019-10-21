@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import aliados.Ballesta;
+import aliados.Barricada;
 import aliados.Escudero;
 import aliados.Guerrero;
 import aliados.MagoDeFuego;
@@ -48,6 +49,7 @@ public class GUI extends JFrame {
 	private JButton btnComprarMagoDeHielo;
 	private JButton btnComprarMagoDeFuego;
 	private JButton btnComprarEscudero;
+	private JButton btnComprarBarricada;
 	
 	private JFrame ventanaNivelUno;
 	private JPanel panelNivelUno;
@@ -241,6 +243,14 @@ public class GUI extends JFrame {
 			btnComprarEscudero.setBounds(400, 800, 100, 100);
 			ventanaNivelUno.add(btnComprarEscudero);
 			btnComprarEscudero.setVisible(true);
+			
+			//Creo el boton comprar Barricada y lo agrego a la ventana
+			btnComprarBarricada=new JButton("Barricada");
+			oyenteComprarBarricada oyenteComprarBarricada =new oyenteComprarBarricada();
+			btnComprarBarricada.addActionListener(oyenteComprarBarricada);
+			btnComprarBarricada.setBounds(500, 800, 100, 100);
+			ventanaNivelUno.add(btnComprarBarricada);
+			btnComprarBarricada.setVisible(true);
 			
 			//Inicio variables varias
 			veredicto=false;
@@ -526,6 +536,15 @@ public class GUI extends JFrame {
 		}
 	}
 	
+	class oyenteComprarBarricada implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			veredicto=true;
+			aliadoComprado="Barricada";
+			cuadrilla.setVisible(true);
+		}
+	}
+	
+	
 	private int[] traducirCoordenadas(int x, int y) {
 		int[] arregloDevolver=new int[4];
 		//[0] = x en la matriz
@@ -677,6 +696,23 @@ public class GUI extends JFrame {
 		veredicto=false;
 	}
 	
+	private void generarBarricada(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Barricada barricada=new Barricada(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		elementos.añadirElemento(barricada);
+		
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			barricada.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
+			ventanaNivelUno.add(barricada.getGrafico());
+			//ventanaNivelUno.add(mapaImagen);
+		}
+		juego.chequearColision(barricada);
+		
+		
+		cuadrilla.setVisible(false);
+		veredicto=false;
+	}
+	
 	MouseListener click=new MouseListener() {
 		@Override
 		public void mousePressed(MouseEvent evento) {
@@ -699,6 +735,9 @@ public class GUI extends JFrame {
 					case "Escudero":
 						generarEscudero(evento.getX(), evento.getY());
 						break;	
+					case "Barricada":
+						generarBarricada(evento.getX(), evento.getY());
+						break;		
 				}
 				
 				
