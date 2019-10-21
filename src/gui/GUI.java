@@ -120,16 +120,16 @@ public class GUI extends JFrame {
 		btnOpciones.setBounds(100, 370, 170, 53);
 		contentPane.add(btnOpciones);
 		
-		//Creo el boton opciones y lo agrego al panel de inicio
+		//Creo el boton creditos y lo agrego al panel de inicio
 		JButton btnCreditos;
 		btnCreditos=new JButton(new ImageIcon("Sprites\\button_creditos.png"));
-		//oyenteCreditos oyenteCreditos=new oyenteCreditos();
-		//btnCreditos.addActionListener(oyenteCreditos);
+		oyenteCreditos oyenteCreditos=new oyenteCreditos();
+		btnCreditos.addActionListener(oyenteCreditos);
 		btnCreditos.setFocusPainted(false);
 		btnCreditos.setBounds(100, 450, 170, 53);
 		contentPane.add(btnCreditos);
 				
-		//Creo el boton opciones y lo agrego al panel de inicio
+		//Creo el boton salir y lo agrego al panel de inicio
 		JButton btnSalir;
 		btnSalir=new JButton(new ImageIcon("Sprites\\button_salir.png"));
 		oyenteSalir oyenteSalir=new oyenteSalir();
@@ -156,7 +156,7 @@ public class GUI extends JFrame {
 				
 		//Label del titulo
 		JLabel titulo=new JLabel();
-		titulo.setIcon(new ImageIcon("Sprites\\titulotest2.png"));
+		titulo.setIcon(new ImageIcon("Sprites\\titulotest3.png"));
 		titulo.setBounds(300, -25, 690, 200);
 		contentPane.add(titulo);
 				
@@ -375,6 +375,31 @@ public class GUI extends JFrame {
 			
 		}
 		
+	}
+	
+	class oyenteCreditos implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			JFrame cred;
+			JLabel panel=new JLabel(new ImageIcon("Sprites\\cred.png"));
+			JPanel credPane=new JPanel();
+					
+			//Creo la ventana de los creditos		
+			cred=new JFrame("Creditos");
+			cred.setBounds(700,400,245,150);
+			cred.setVisible(true);
+			cred.setResizable(false);			
+			
+			//Creo la ventana del panel
+			credPane=new JPanel();
+			credPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+			cred.setContentPane(credPane);
+			credPane.setLayout(null);
+			
+			credPane.add(panel);
+			panel.setBounds(0, 0, 245, 122);
+			panel.setVisible(true);
+			
+		}
 	}
 	
 	class oyenteJugar implements ActionListener{
