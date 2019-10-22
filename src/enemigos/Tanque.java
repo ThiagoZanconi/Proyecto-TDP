@@ -18,7 +18,7 @@ public class Tanque extends Enemigo {
 		this.graficoActual.setIcon(imagenes[0].getIcon());
 		this.graficoActual.setBounds(100, 100, 50, 50);
 		
-		rectangulo=new Rectangle(x,y,100,50);
+		rectangulo=new Rectangle(x,y,100,100);
 		miVisitor=new VisitorEnemigo(this);
 	}
 	

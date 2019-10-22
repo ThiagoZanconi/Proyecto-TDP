@@ -641,9 +641,11 @@ public final class GUI extends JFrame {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		Ballesta ballesta=new Ballesta(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
 		elementos.añadirElemento(ballesta);
+		ventanaNivelUno.add(ballesta.getGrafico());
+		
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
-			ballesta.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
-			ventanaNivelUno.add(ballesta.getGrafico());
+			//ballesta.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
+			//ventanaNivelUno.add(ballesta.getGrafico());
 			//ventanaNivelUno.add(mapaImagen);
 		}
 		juego.chequearColision(ballesta);

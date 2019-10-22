@@ -11,7 +11,13 @@ public class VisitorAlcanceAliado extends VisitorAlcance{
 	}
 	
 	public void visitarEnemigo(Enemigo e) {
+		
 		miPersonaje.atacar();
+		if(miPersonaje.getPuedeAtacar()) {
+			hiloVelocidadAtaque hilo=new hiloVelocidadAtaque(miPersonaje);
+			hilo.start();
+		}
+		
 	}
 	
 	public void visitarAliado(Aliado e) {
