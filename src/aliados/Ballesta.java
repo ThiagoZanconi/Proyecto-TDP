@@ -18,8 +18,8 @@ public class Ballesta extends Aliado {
 		this.graficoActual.setIcon(imagenes[0].getIcon());
 		this.graficoActual.setBounds(x, y, 1000,1000);
 		
-		alcanceDeAtaque=new Rectangle(x-700,y,700,10);
-		rectangulo=new Rectangle(x,y,80,80);
+		alcanceDeAtaque=new Rectangle(x-700,y,700,70);
+		rectangulo=new Rectangle(x,y,80,60);
 		miVisitor=new VisitorAliado(this);
 		
 	}

@@ -18,7 +18,7 @@ public class Rango extends Enemigo {
 		this.graficoActual.setIcon(imagenes[0].getIcon());
 		this.graficoActual.setBounds(x, y, 80, 80);
 		
-		rectangulo=new Rectangle(x,y,80,100);
+		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorEnemigo(this);
 	}
 

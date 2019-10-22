@@ -20,7 +20,7 @@ public class Escudero extends Aliado {
 		this.graficoActual.setIcon(imagenes[0].getIcon());
 		this.graficoActual.setBounds(100, 100, 50, 50);
 		alcanceDeAtaque=new Rectangle(x,y,120,80);
-		rectangulo=new Rectangle(x,y,80,80);
+		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorAliado(this);
 	}
 	
