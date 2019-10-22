@@ -16,7 +16,7 @@ public class Curador extends Enemigo {
 		
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
-		this.graficoActual.setBounds(100, 100, 50, 50);
+		this.graficoActual.setBounds(x, y, 1000, 1000);
 		
 		rectangulo=new Rectangle(x,y,100,50);
 		miVisitor=new VisitorEnemigo(this);

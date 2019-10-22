@@ -22,7 +22,7 @@ public class Disparo extends Elemento {
 		this.velocidad=200;
 		graficoActual=new JLabel();
 		graficoActual.setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaProjectile.gif"));
-		rectangulo=new Rectangle(x,y,100,100);
+		rectangulo=new Rectangle(x,y,80,80);
 		graficoActual.setBounds(x,y+450,80,80);
 		miVisitor=new VisitorDisparoAliado(this);
 		

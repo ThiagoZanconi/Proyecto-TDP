@@ -319,7 +319,6 @@ public final class GUI extends JFrame {
 			
 			Curador curador=new Curador(100,-260);
 			elementos.añadirElemento(curador);
-			curador.getGrafico().setBounds(100,-260,1000,1000);
 			ventanaNivelUno.add(curador.getGrafico());
 			
 			Invocador invocador=new Invocador(300,-260);
@@ -546,7 +545,13 @@ public final class GUI extends JFrame {
 			cuadrilla.setVisible(true);
 		}
 	}
-	
+	private int[] traducirCoordenadas2(int x,int y) {
+		int [] toReturn=new int[2];
+		toReturn[0]=(int) Math.ceil(x/118);
+		toReturn[1]=(int) Math.ceil((y)/56);
+		System.out.println(""+toReturn[0]);
+		return toReturn;
+	}
 	
 	private int[] traducirCoordenadas(int x, int y) {
 		int[] arregloDevolver=new int[4];
@@ -632,10 +637,10 @@ public final class GUI extends JFrame {
 	}
 	
 	private void generarBallesta(int x, int y) {
+		traducirCoordenadas2(x,y);
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		Ballesta ballesta=new Ballesta(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
 		elementos.añadirElemento(ballesta);
-		
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
 			ballesta.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
 			ventanaNivelUno.add(ballesta.getGrafico());
