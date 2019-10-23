@@ -11,7 +11,7 @@ public abstract class Enemigo extends Personaje {
 	public Enemigo(int f, int a, int v,int vp) {
 		super(f, a, v,vp);
 		enMovimiento=true;
-		velocidad=2;
+		velocidad=3;
 	}
 	
 	public void aceptar(Visitor v) {
@@ -22,16 +22,23 @@ public abstract class Enemigo extends Personaje {
 		enMovimiento=false;
 	}
 	
+	
+	public void actividadSinColision() {
+		mover();
+	}
+	
 	/**
 	 * Caminar
 	 */
-	public void actividadSinColision() {
+	public void mover() {
 		if(enMovimiento) {
 			rectangulo.setBounds((int)rectangulo.getX()+velocidad,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
 			graficoActual.setBounds(graficoActual.getX()+velocidad,graficoActual.getY(),graficoActual.getWidth(),graficoActual.getHeight());
+			alcanceDeAtaque.setBounds((int)rectangulo.getX()+velocidad,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
 			if(graficoActual.getX()>1300) {
 				graficoActual.setBounds(0,graficoActual.getY(),graficoActual.getWidth(),graficoActual.getHeight());
 				rectangulo.setBounds(0,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
+				alcanceDeAtaque.setBounds(0,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
 			}	
 		}
 		else {

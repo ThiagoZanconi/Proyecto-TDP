@@ -4,9 +4,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class DisparoBallesta extends DisparoAliado{
-	public DisparoBallesta(int x, int y,int d) {
-		super(x,y,d);
-		graficoActual=new JLabel();
+	public DisparoBallesta(int x, int y,int d,int a) {
+		super(x,y,d,a);
 		graficoActual.setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaProjectile.gif"));
 		graficoActual.setBounds(x,y+450,80,80);
 	}

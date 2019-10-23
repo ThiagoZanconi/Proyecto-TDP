@@ -6,6 +6,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import disparos.Disparo;
+import disparos.DisparoMagoDeFuego;
+import disparos.DisparoMagoDeHielo;
 import juego.*;
 import visitor.VisitorAliado;
 
@@ -19,14 +21,17 @@ public class MagoDeFuego extends Aliado {
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
 		this.graficoActual.setBounds(100, 100, 50, 50);
-		alcanceDeAtaque=new Rectangle(x,y,700,80);
+		alcanceDeAtaque=new Rectangle(x-700,y,700,80);
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorAliado(this);
 
 	}
 	
 	public void atacar() {
-		
+		if(puedeAtacar) {
+			Disparo x=new DisparoMagoDeFuego((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
+			adaptador.añadirDisparo(x);	
+		}
 	}
 
 }

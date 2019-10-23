@@ -14,9 +14,9 @@ public class HiloVelocidadAtaque extends Thread {
 		try {
 			sleep(3000);
 			miPersonaje.setPuedeAtacar(true);
-			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
+	
 }
