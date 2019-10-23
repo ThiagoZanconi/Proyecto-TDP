@@ -12,7 +12,7 @@ public class Disparo extends Elemento {
 	public Disparo(int x,int y,int d) {
 		super(-1);
 		daño=d;
-		this.velocidad=200;
+		velocidad=40;
 		rectangulo=new Rectangle(x,y,80,80);
 	}
 	
@@ -21,8 +21,8 @@ public class Disparo extends Elemento {
 	}
 	
 	public void actividadSinColision() {
-		rectangulo.setBounds((int)rectangulo.getX()-30,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
-		graficoActual.setBounds(graficoActual.getX()-30,graficoActual.getY(),graficoActual.getWidth(),graficoActual.getHeight());
+		rectangulo.setBounds((int)rectangulo.getX()-velocidad,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
+		graficoActual.setBounds(graficoActual.getX()-velocidad,graficoActual.getY(),graficoActual.getWidth(),graficoActual.getHeight());
 	}
 	
 	public int getDaño() {
