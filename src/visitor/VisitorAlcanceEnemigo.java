@@ -6,8 +6,9 @@ import enemigos.Enemigo;
 import juego.Elemento;
 
 public class VisitorAlcanceEnemigo extends VisitorAlcance{
-	public VisitorAlcanceEnemigo(Elemento e) {
-		miElemento=e;	
+	protected Enemigo miEnemigo;
+	public VisitorAlcanceEnemigo(Enemigo e) {
+		miEnemigo=e;	
 	}
 	
 	public void visitarEnemigo(Enemigo e) {

@@ -6,9 +6,10 @@ import enemigos.Enemigo;
 import juego.Elemento;
 
 public class VisitorAliado extends Visitor {
+	protected Aliado miAliado;
 	
-	public VisitorAliado(Elemento e) {
-		miElemento=e;
+	public VisitorAliado(Aliado a) {
+		miAliado=a;
 	}
 	
 	/**

@@ -5,6 +5,8 @@ import visitor.Visitor;
 
 public abstract class Enemigo extends Personaje {
 	protected boolean enMovimiento;
+	protected int puntaje;
+	protected int cantidadMonedas;
 
 	public Enemigo(int f, int a, int v,int vp) {
 		super(f, a, v,vp);

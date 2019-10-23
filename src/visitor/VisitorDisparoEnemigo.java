@@ -2,13 +2,15 @@ package visitor;
 
 import aliados.Aliado;
 import disparos.Disparo;
+import disparos.DisparoEnemigo;
 import enemigos.Enemigo;
-import juego.Elemento;
 
 public class VisitorDisparoEnemigo extends Visitor {
 	
-	public VisitorDisparoEnemigo(Elemento e) {
-		miElemento=e;
+	protected DisparoEnemigo miDisparoEnemigo;
+	
+	public VisitorDisparoEnemigo(DisparoEnemigo d) {
+		miDisparoEnemigo=d;
 	}
 	
 	public void visitarEnemigo(Enemigo e) {

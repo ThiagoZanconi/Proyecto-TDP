@@ -4,13 +4,14 @@ import disparos.Disparo;
 import enemigos.Enemigo;
 import juego.Elemento;
 public class VisitorEnemigo extends Visitor {
+	protected Enemigo miEnemigo;
 	
-	public VisitorEnemigo(Elemento e) {
-		miElemento=e;
+	public VisitorEnemigo(Enemigo e) {
+		miEnemigo=e;
 	}
 	
 	public void visitarAliado(Aliado a) {
-		miElemento.aceptar(a.getVisitor());
+		miEnemigo.aceptar(a.getVisitor());
 	}
 	/**
 	 * Colision enemigo con enemigo no hace nada
@@ -20,6 +21,7 @@ public class VisitorEnemigo extends Visitor {
 	}
 
 	public void visitarDisparo(Disparo d) {
+		miEnemigo.aceptar(d.getVisitor());
 		
 	}
 

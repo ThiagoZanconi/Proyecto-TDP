@@ -3,17 +3,20 @@ package visitor;
 
 import aliados.Aliado;
 import disparos.Disparo;
+import disparos.DisparoAliado;
 import enemigos.Enemigo;
 import juego.Elemento;
 
 public class VisitorDisparoAliado extends Visitor {
+	protected DisparoAliado miDisparoAliado;
 	
-	public VisitorDisparoAliado(Elemento e) {
-		miElemento=e;
+	public VisitorDisparoAliado(DisparoAliado d) {
+		miDisparoAliado=d;
 	}
 	
 	public void visitarEnemigo(Enemigo e) {
-		
+		e.recibirDaño(miDisparoAliado.getDaño());
+		miDisparoAliado.destruir();
 	}
 	public void visitarAliado(Aliado a) {
 		
