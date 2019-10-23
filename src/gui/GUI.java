@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import aliados.Ballesta;
@@ -66,9 +68,16 @@ public final class GUI extends JFrame {
 	private boolean veredicto;
 	
 	private int puntaje;
+	private int monedas;
 	private JLabel mapaImagen;
 	private JLabel labelPuntaje;
+	private JLabel labelMonedas;
+	private JLabel imagenMonedas;
 	private JLabel labelCoordenadas;
+	private JLabel fondoInferior;
+	
+	private JTextArea textoDescripcion;
+	private JLabel fotoDescripcion;
 	
 	private Hilo hilo;
 	private static final GUI gui=new GUI();
@@ -159,7 +168,7 @@ public final class GUI extends JFrame {
 				
 		//Label del titulo
 		JLabel titulo=new JLabel();
-		titulo.setIcon(new ImageIcon("Sprites\\titulotest3.png"));
+		titulo.setIcon(new ImageIcon("Sprites\\titulotest2.png"));
 		titulo.setBounds(300, -25, 690, 200);
 		contentPane.add(titulo);
 				
@@ -246,6 +255,7 @@ public final class GUI extends JFrame {
 			btnComprarEscudero.setBounds(400, 800, 100, 100);
 			ventanaNivelUno.add(btnComprarEscudero);
 			btnComprarEscudero.setVisible(true);
+			btnComprarEscudero.setToolTipText("Daño: una mierda, casi lo eliminamos ");
 			
 			//Creo el boton comprar Barricada y lo agrego a la ventana
 			btnComprarBarricada=new JButton("Barricada");
@@ -254,6 +264,14 @@ public final class GUI extends JFrame {
 			btnComprarBarricada.setBounds(500, 800, 100, 100);
 			ventanaNivelUno.add(btnComprarBarricada);
 			btnComprarBarricada.setVisible(true);
+			
+			//Inicializo descripcion
+			textoDescripcion=new JTextArea();
+			fotoDescripcion=new JLabel();
+			textoDescripcion.setText("");
+			fotoDescripcion.setIcon(null);
+			
+			
 			
 			//Inicio variables varias
 			veredicto=false;
@@ -275,6 +293,23 @@ public final class GUI extends JFrame {
 			labelCoordenadas.setBackground(Color.green);
 			labelCoordenadas.setOpaque(true);
 			ventanaNivelUno.add(labelCoordenadas);
+			
+			//Crea cosas relacionadas a monedas
+			imagenMonedas=new JLabel();
+			imagenMonedas.setIcon(new ImageIcon("Sprites\\monedas.png"));
+			imagenMonedas.setBounds(650, 30, 32, 32);
+			ventanaNivelUno.add(imagenMonedas);
+			monedas=10000;
+			labelMonedas=new JLabel();
+			labelMonedas.setText(String.valueOf(monedas));
+			labelMonedas.setBounds(685,30,40,30);
+			labelMonedas.setBorder(BorderFactory.createLineBorder(Color.black));
+			labelMonedas.setBackground(Color.green);
+			labelMonedas.setOpaque(true);
+			ventanaNivelUno.add(labelMonedas);
+			
+			
+			
 				
 			//Crea la cuadrilla
 			cuadrilla=new JPanel();
@@ -490,12 +525,70 @@ public final class GUI extends JFrame {
 		}
 	}
 	
+	private void descripcion(String nombreAliado, JTextArea texto, JLabel foto) {
+		
+		texto.setEditable(false);
+		texto.setBackground(panelNivelUno.getBackground());
+				
+		
+		switch (aliadoComprado) {
+			case "Guerrero":
+				texto.setText("Guerrero"+"\n"+""+"\n"+"Alcance: Cuerpo a cuerpo"+"\n"+"Daño: Medio"+"\n"+"Vida: Media"+"\n"+"Valor: 200");
+				texto.setBounds(775,810,300,110);
+									
+				foto.setIcon(new ImageIcon("Sprites\\Guerrero\\GuerreroIdle.gif"));
+				foto.setBounds(920, 790, 128, 128);
+				break;
+			case "Ballesta":
+				texto.setText("Ballesta"+"\n"+""+"\n"+"Alcance: ??"+"\n"+"Daño: Medio"+"\n"+"Vida: Baja"+"\n"+"Valor: 500");
+				texto.setBounds(775,810,300,110);
+									
+				foto.setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaIdle.gif"));
+				foto.setBounds(850, 800, 128, 128);
+				break;
+			case "MagoDeHielo":
+				texto.setText("Mago de Hielo"+"\n"+""+"\n"+"Alcance: ??"+"\n"+"Daño: Medio"+"\n"+"Vida: Baja"+"\n"+"Valor: 800"+"\n"+"Ralentiza Enemigos");
+				texto.setBounds(775,810,300,130);
+									
+				foto.setIcon(new ImageIcon("Sprites\\MagoDeHielo\\MagoHIdle.gif"));
+				foto.setBounds(850, 800, 128, 128);
+				break;
+			case "MagoDeFuego":
+				texto.setText("Mago de Fuego"+"\n"+""+"\n"+"Alcance: ??"+"\n"+"Daño: Alto"+"\n"+"Vida: Media"+"\n"+"Valor: 600");
+				texto.setBounds(775,810,300,110);
+									
+				foto.setIcon(new ImageIcon("Sprites\\MagoDeFuego\\MagoFIdle.gif"));
+				foto.setBounds(850, 800, 128, 128);
+				break;
+			case "Escudero":
+				texto.setText("Escudero"+"\n"+""+"\n"+"Alcance: Cuerpo a cuerpo"+"\n"+"Daño: Bajo"+"\n"+"Vida: Alta"+"\n"+"Valor: 400");
+				texto.setBounds(775,810,300,110);
+								
+				foto.setIcon(new ImageIcon("Sprites\\Escudero\\EscuderoIdle.gif"));
+				foto.setBounds(920, 790, 128, 128);
+				break;
+			case "Barricada":
+				texto.setText("Barricada"+"\n"+""+"\n"+"Alcance: Nulo"+"\n"+"Daño: Nulo"+"\n"+"Vida: Alta"+"\n"+"Valor: 200"+"\n"+"Abarca dos casillas en vertical");
+				texto.setBounds(775,810,300,130);
+				
+				foto.setIcon(new ImageIcon("Sprites\\Barricada\\Barricada.png"));
+				foto.setBounds(950, 800, 128, 128);
+				break;	
+		}
+		panelNivelUno.add(foto);
+		panelNivelUno.add(texto);
+	
+	}	
+	
 	class oyenteComprarGuerrero implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			
 			veredicto=true;
 			aliadoComprado="Guerrero";
 			cuadrilla.setVisible(true);
+			
+			descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
+			
 			
 		}
 	}
@@ -507,6 +600,7 @@ public final class GUI extends JFrame {
 			aliadoComprado="Ballesta";
 			cuadrilla.setVisible(true);
 			
+			descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
 		}
 	}
 	
@@ -516,6 +610,8 @@ public final class GUI extends JFrame {
 			veredicto=true;
 			aliadoComprado="MagoDeHielo";
 			cuadrilla.setVisible(true);
+			
+			descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
 			
 		}
 	}
@@ -527,6 +623,8 @@ public final class GUI extends JFrame {
 			aliadoComprado="MagoDeFuego";
 			cuadrilla.setVisible(true);
 			
+			descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
+			
 		}
 	}
 	
@@ -535,6 +633,8 @@ public final class GUI extends JFrame {
 			veredicto=true;
 			aliadoComprado="Escudero";
 			cuadrilla.setVisible(true);
+			
+			descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
 		}
 	}
 	
@@ -543,6 +643,8 @@ public final class GUI extends JFrame {
 			veredicto=true;
 			aliadoComprado="Barricada";
 			cuadrilla.setVisible(true);
+			
+			descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
 		}
 	}
 	private int[] traducirCoordenadas2(int x,int y) {
