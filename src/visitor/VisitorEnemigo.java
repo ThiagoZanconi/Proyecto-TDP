@@ -12,6 +12,7 @@ public class VisitorEnemigo extends Visitor {
 	
 	public void visitarAliado(Aliado a) {
 		miEnemigo.aceptar(a.getVisitor());
+		
 	}
 	/**
 	 * Colision enemigo con enemigo no hace nada

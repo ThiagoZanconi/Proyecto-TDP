@@ -1,6 +1,7 @@
 package enemigos;
 import juego.Personaje;
 import visitor.Visitor;
+import visitor.VisitorAlcanceEnemigo;
 
 public abstract class Enemigo extends Personaje {
 	protected boolean enMovimiento;
@@ -12,6 +13,7 @@ public abstract class Enemigo extends Personaje {
 		super(f, a, v,vp);
 		enMovimiento=true;
 		velocidad=3;
+		visitorAlcance=new VisitorAlcanceEnemigo(this);
 	}
 	
 	public void aceptar(Visitor v) {
@@ -24,6 +26,7 @@ public abstract class Enemigo extends Personaje {
 	
 	
 	public void actividadSinColision() {
+		adaptador.chequearColisionDeAtaques(this);
 		mover();
 	}
 	

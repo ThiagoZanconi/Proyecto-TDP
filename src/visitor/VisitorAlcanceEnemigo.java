@@ -3,12 +3,13 @@ package visitor;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
-import juego.Elemento;
+import gui.HiloVelocidadAtaque;
+import juego.Personaje;
 
 public class VisitorAlcanceEnemigo extends VisitorAlcance{
-	protected Enemigo miEnemigo;
-	public VisitorAlcanceEnemigo(Enemigo e) {
-		miEnemigo=e;	
+	protected Personaje miPersonaje;
+	public VisitorAlcanceEnemigo(Personaje p) {
+		miPersonaje=p;	
 	}
 	
 	public void visitarEnemigo(Enemigo e) {
@@ -16,7 +17,11 @@ public class VisitorAlcanceEnemigo extends VisitorAlcance{
 	}
 	
 	public void visitarAliado(Aliado e) {
-		
+		miPersonaje.atacar();
+		if(miPersonaje.getPuedeAtacar()) {
+			HiloVelocidadAtaque hilo=new HiloVelocidadAtaque(miPersonaje);
+			hilo.start();
+		}
 	}
 	
 	public void visitarDisparo(Disparo d) {
