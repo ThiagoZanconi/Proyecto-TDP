@@ -203,7 +203,7 @@ public final class GUI extends JFrame {
 			
 			ventanaElegirNivel.setVisible(false);
 			
-			//Creo la ventana del Nivel Uno
+			//Creo la ventana del Nivel Uno.
 			ventanaNivelUno=new JFrame("ventanaJuego");
 			ventanaNivelUno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			ventanaNivelUno.setBounds(0, 0, 1200, 1000);
@@ -215,7 +215,6 @@ public final class GUI extends JFrame {
 			ventanaNivelUno.setContentPane(panelNivelUno);
 			panelNivelUno.setLayout(null);
            
-			
 			//Creo el boton comprar guerrero y lo agrego a la ventana
 			btnComprarGuerrero=new JButton("Guerrero");
 			oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
@@ -255,8 +254,7 @@ public final class GUI extends JFrame {
 			btnComprarEscudero.setBounds(400, 800, 100, 100);
 			ventanaNivelUno.add(btnComprarEscudero);
 			btnComprarEscudero.setVisible(true);
-			btnComprarEscudero.setToolTipText("Daño: una mierda, casi lo eliminamos ");
-			
+						
 			//Creo el boton comprar Barricada y lo agrego a la ventana
 			btnComprarBarricada=new JButton("Barricada");
 			oyenteComprarBarricada oyenteComprarBarricada =new oyenteComprarBarricada();
