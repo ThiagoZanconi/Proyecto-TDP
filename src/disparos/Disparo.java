@@ -7,14 +7,12 @@ import javax.swing.JLabel;
 import juego.Elemento;
 import visitor.Visitor;
 
-public class Disparo extends Elemento {
+public abstract class Disparo extends Elemento {
 	
 	protected int velocidad;
 	protected int distanciaRecorrida;
 	protected int daño;
-
 	protected int alcance;
-	
 	
 	public Disparo(int x,int y,int d,int a) {
 		super(-1);
@@ -38,13 +36,6 @@ public class Disparo extends Elemento {
 		return daño;
 	}
 	
-	public void mover() {
-		rectangulo.setBounds((int)rectangulo.getX()-velocidad,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
-		graficoActual.setBounds(graficoActual.getX()-velocidad,graficoActual.getY(),graficoActual.getWidth(),graficoActual.getHeight());
-		distanciaRecorrida+=velocidad;
-		if(distanciaRecorrida>alcance) {
-			destruir();
-		}
-	}
+	public abstract void mover();
 	
 }

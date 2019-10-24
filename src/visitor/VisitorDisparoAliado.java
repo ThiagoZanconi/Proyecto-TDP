@@ -5,7 +5,6 @@ import aliados.Aliado;
 import disparos.Disparo;
 import disparos.DisparoAliado;
 import enemigos.Enemigo;
-import juego.Elemento;
 
 public class VisitorDisparoAliado extends Visitor {
 	protected DisparoAliado miDisparoAliado;

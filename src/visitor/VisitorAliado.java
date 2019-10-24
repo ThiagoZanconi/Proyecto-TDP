@@ -27,7 +27,7 @@ public class VisitorAliado extends Visitor {
 	}
 
 	public void visitarDisparo(Disparo d) {
-		
+		miAliado.aceptar(d.getVisitor());
 	}
 
 }

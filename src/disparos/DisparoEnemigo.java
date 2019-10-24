@@ -7,5 +7,14 @@ public class DisparoEnemigo extends Disparo{
 		super(x,y,d,a);
 		miVisitor=new VisitorDisparoEnemigo(this);
 	}
+	
+	public void mover() {
+		rectangulo.setBounds((int)rectangulo.getX()+velocidad,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
+		graficoActual.setBounds(graficoActual.getX()+velocidad,graficoActual.getY(),graficoActual.getWidth(),graficoActual.getHeight());
+		distanciaRecorrida+=velocidad;
+		if(distanciaRecorrida>alcance) {
+			destruir();
+		}
+	}
 
 }

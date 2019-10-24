@@ -7,7 +7,7 @@ import gui.HiloVelocidadAtaque;
 import juego.Personaje;
 
 public class VisitorAlcanceEnemigo extends VisitorAlcance{
-	protected Personaje miPersonaje;
+	
 	public VisitorAlcanceEnemigo(Personaje p) {
 		miPersonaje=p;	
 	}

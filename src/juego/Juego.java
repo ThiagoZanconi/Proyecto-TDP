@@ -35,8 +35,8 @@ public final class Juego {
 	
 	/**
 	 * Chequea la colision entre dos elementos e1 y e2 (Si hay colision se ejecutan las operaciones correspondientes a la colision en cuestion)
-	 * @param e1
-	 * @param e2
+	 * @param e1 
+	 * @param e2 
 	 */
 	
 	public void chequearColision(Elemento e1,Elemento e2) {

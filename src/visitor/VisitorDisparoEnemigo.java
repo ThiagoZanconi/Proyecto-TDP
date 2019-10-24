@@ -17,6 +17,7 @@ public class VisitorDisparoEnemigo extends Visitor {
 		
 	}
 	public void visitarAliado(Aliado a) {
+		//System.out.println("asdasd");
 		a.recibirDaño(miDisparoEnemigo.getDaño());
 		miDisparoEnemigo.destruir();
 		
