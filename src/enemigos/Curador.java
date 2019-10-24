@@ -9,15 +9,15 @@ import visitor.VisitorEnemigo;
 public class Curador extends Enemigo {
 
 	public Curador(int x, int y) {
-		super(10,100,100,100);
+		super(10,100,1000,100);
 		enMovimiento=true;
 		this.imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Curador\\CuradorWalk.gif"));
 		
-		this.graficoActual = new JLabel();
-		this.graficoActual.setIcon(imagenes[0].getIcon());
-		this.graficoActual.setBounds(x, y, 1000, 1000);
-		
+		graficoActual = new JLabel();
+		graficoActual.setIcon(imagenes[0].getIcon());
+		graficoActual.setBounds(x, y, 1000, 1000);
+		alcanceDeAtaque=new Rectangle(x,y,700,80);
 		rectangulo=new Rectangle(x,y,100,70);
 		miVisitor=new VisitorEnemigo(this);
 	}
