@@ -14,8 +14,8 @@ public class Invocador extends Enemigo {
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
 		this.graficoActual.setBounds(100, 100, 50, 100);
-		alcanceDeAtaque=new Rectangle(x,y,700,80);
-		rectangulo=new Rectangle(x,y,100,70);
+		alcanceDeAtaque=new Rectangle(x,y,80,70);
+		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorEnemigo(this);
 	}
 	

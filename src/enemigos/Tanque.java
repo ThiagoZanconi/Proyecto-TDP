@@ -17,7 +17,7 @@ public class Tanque extends Enemigo {
 		graficoActual = new JLabel();
 		graficoActual.setIcon(imagenes[0].getIcon());
 		graficoActual.setBounds(100, 100, 50, 50);
-		alcanceDeAtaque=new Rectangle(x,y,80,80);
+		alcanceDeAtaque=new Rectangle(x,y,80,70);
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorEnemigo(this);
 		velocidad=2;
@@ -28,6 +28,6 @@ public class Tanque extends Enemigo {
 			Disparo x=new DisparoEnemigo((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
 			adaptador.añadirDisparo(x);
 		}
-		
 	}
+	
 }

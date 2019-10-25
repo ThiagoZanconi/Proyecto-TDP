@@ -2,6 +2,8 @@ package enemigos;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import disparos.Disparo;
+import disparos.DisparoEnemigo;
 import visitor.VisitorEnemigo;
 
 public class Rapido extends Enemigo {
@@ -15,12 +17,15 @@ public class Rapido extends Enemigo {
 		graficoActual = new JLabel();
 		graficoActual.setIcon(imagenes[0].getIcon());
 		graficoActual.setBounds(100, 100, 50, 50);
-		alcanceDeAtaque=new Rectangle(x,y,700,80);
-		rectangulo=new Rectangle(x,y,100,70);
+		alcanceDeAtaque=new Rectangle(x,y,80,70);
+		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorEnemigo(this);
 	}
 	
 	public void atacar() {
-		
+		if(puedeAtacar) {
+			Disparo x=new DisparoEnemigo((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
+			adaptador.añadirDisparo(x);
+		}
 	}
 }
