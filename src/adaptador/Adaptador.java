@@ -17,8 +17,8 @@ public final class Adaptador {
 	protected static final Adaptador adaptador=new Adaptador();
 	
 	private Adaptador() {
-		elementos=elementos.getElementos();
-		gui=gui.getGUI();
+		elementos=Elementos.getElementos();
+		gui=GUI.getGUI();
 	}
 	
 	public static Adaptador getAdaptador() {

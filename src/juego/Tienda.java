@@ -30,8 +30,8 @@ public class Tienda {
 	public Tienda() {
 		crearAliado=false;
 		aliadoComprado="";
-		gui=gui.getGUI();
-		adaptador=adaptador.getAdaptador();
+		gui=GUI.getGUI();
+		adaptador=Adaptador.getAdaptador();
 		
 		//Creo el boton comprar Guerrero y lo agrego a la ventana
 		btnComprarGuerrero=new JButton("Guerrero");

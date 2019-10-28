@@ -1,10 +1,7 @@
 package enemigos;
 import java.awt.Rectangle;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
-import juego.*;
 import visitor.VisitorEnemigo;
 public class Curador extends Enemigo {
 

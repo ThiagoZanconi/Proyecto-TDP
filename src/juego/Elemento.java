@@ -15,7 +15,7 @@ public abstract class Elemento {
 	public Elemento(int v) {
 		vida=v;
 		imagenes=new JLabel[1];
-		adaptador=adaptador.getAdaptador();
+		adaptador=Adaptador.getAdaptador();
 	}
 	
 	public abstract void aceptar(Visitor v);

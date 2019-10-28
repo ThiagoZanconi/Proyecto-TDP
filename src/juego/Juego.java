@@ -1,8 +1,5 @@
 package juego;
 import java.util.Random;
-
-import javax.swing.JLabel;
-
 import enemigos.Curador;
 import enemigos.Invocador;
 import enemigos.Normal;
@@ -21,8 +18,7 @@ public final class Juego {
 	protected static Hilo hiloGeneral;
 	
 	private Juego() {
-		gui=gui.getGUI();
-		elementos=elementos.getElementos();
+		elementos=Elementos.getElementos();
 	}
 	
 	public static Juego getJuego() {
@@ -30,6 +26,7 @@ public final class Juego {
 	}
 	
 	public void iniciarJuego() {
+		gui=GUI.getGUI();
 		tienda=new Tienda();
 		hiloAparicionEnemigos=new HiloAparicionEnemigos(this);
 		hiloGeneral=new Hilo(this);
@@ -76,8 +73,7 @@ public final class Juego {
 	public void generarCurador(int x,int y) {
 		Elemento curador=new Curador(x,y);
 		elementos.añadirElemento(curador);
-		JLabel aInsertar=curador.getGrafico();
-		gui.getVentanaJuego().add(aInsertar);
+		gui.getVentanaJuego().add(curador.getGrafico());
 	}
 	
 	public void generarInvocador(int x, int y) {
@@ -89,34 +85,35 @@ public final class Juego {
 	public void generarNormal(int x, int y) {
 		Normal normal=new Normal(x,y);
 		elementos.añadirElemento(normal);
-		normal.getGrafico();
+		if(GUI.getGUI()==null)
+			System.out.println("La GUI es nula");
+		if(gui==null) {
+			System.out.println("La GUI es nula");
+		}	
 		gui.getVentanaJuego().add(normal.getGrafico());
 	}
 	
 	public void generarRango(int x,int y) {
 		Rango rango=new Rango(x,y);
 		elementos.añadirElemento(rango);
-		rango.getGrafico();
 		gui.getVentanaJuego().add(rango.getGrafico());
 	}
 	
 	public void generarRapido(int x, int y) {
 		Rapido rapido=new Rapido(x,y);
 		elementos.añadirElemento(rapido);
-		rapido.getGrafico();
 		gui.getVentanaJuego().add(rapido.getGrafico());
 	}
 	
 	public void generarTanque(int x, int y) {
 		Tanque tanque=new Tanque(x,y);
 		elementos.añadirElemento(tanque);
-		tanque.getGrafico();
 		gui.getVentanaJuego().add(tanque.getGrafico());
 	}
 	
 	public void generarEnemigoAleatorio() {
 		Random r=new Random();
-		int fila=traducirFila(r.nextInt(6));
+		int fila=traducirFila(r.nextInt(700));
 		int n=r.nextInt(100);
 		if(n<30)
 			generarNormal(-65,fila);

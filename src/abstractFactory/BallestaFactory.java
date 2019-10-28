@@ -1,7 +1,6 @@
 package abstractFactory;
 
 import aliados.Guerrero;
-import juego.Elemento;
 
 public class BallestaFactory implements AbstractFactory {
 

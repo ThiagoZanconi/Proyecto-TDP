@@ -1,7 +1,6 @@
 package disparos;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class DisparoBallesta extends DisparoAliado{
 	public DisparoBallesta(int x, int y,int d,int a) {

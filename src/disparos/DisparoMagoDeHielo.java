@@ -1,7 +1,6 @@
 package disparos;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class DisparoMagoDeHielo extends DisparoAliado{
 	public DisparoMagoDeHielo(int x,int y,int d,int a) {

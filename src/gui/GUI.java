@@ -75,7 +75,7 @@ public final class GUI extends JFrame {
 	 * Create the frame.
 	 */
 	private GUI() {
-		elementos=elementos.getElementos();
+		elementos=Elementos.getElementos();
 		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -148,7 +148,7 @@ public final class GUI extends JFrame {
 		menuImagen.setBounds(0, 0, 1200, 800);
 		contentPane.add(menuImagen);
 		
-		juego=juego.getJuego();
+		juego=Juego.getJuego();
 	}
 	
 	public static GUI getGUI() {
@@ -240,31 +240,6 @@ public final class GUI extends JFrame {
 			//ventanaNivelUno.add(mapaImagen);
 			ventanaNivelUno.setVisible(true);
 			setVisible(false);
-			
-			
-			Normal normal=new Normal(-65,-400);
-			elementos.añadirElemento(normal);
-			ventanaNivelUno.add(normal.getGrafico());
-			
-			Rapido rapido=new Rapido(-65,-300);
-			elementos.añadirElemento(rapido);
-			ventanaNivelUno.add(rapido.getGrafico());
-			
-			Tanque tanque=new Tanque(-65,-200);
-			elementos.añadirElemento(tanque);
-			ventanaNivelUno.add(tanque.getGrafico());
-			
-			Rango rango=new Rango(-65,-100);
-			elementos.añadirElemento(rango);
-			ventanaNivelUno.add(rango.getGrafico());
-			
-			Curador curador=new Curador(-65,0);
-			elementos.añadirElemento(curador);
-			ventanaNivelUno.add(curador.getGrafico());
-			
-			Invocador invocador=new Invocador(-65,100);
-			elementos.añadirElemento(invocador);
-			ventanaNivelUno.add(invocador.getGrafico());
 			
 			juego.iniciarJuego();
 			//ventanaNivelUno.add(mapaImagen);	
