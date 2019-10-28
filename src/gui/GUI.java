@@ -231,10 +231,10 @@ public final class GUI extends JFrame {
 			cuadrilla=new JPanel();
 			cuadrilla.setLayout(new GridLayout(6,10));
 			llenarCuadrilla();
-			cuadrilla.setBounds(20,200,1150,560);
+			cuadrilla.setBounds(0,70,1110,600);
 			cuadrilla.setOpaque(false);
 			ventanaNivelUno.add(cuadrilla);
-			cuadrilla.setVisible(false);
+			cuadrilla.setVisible(true);
 			
 			//Creo el mapa y lo agrego a la ventana
 			mapaImagen=new JLabel();
@@ -248,33 +248,28 @@ public final class GUI extends JFrame {
 			hilo.start();
 			
 			
-			Normal normal=new Normal(100,-155);
+			Normal normal=new Normal(-65,-400);
 			elementos.añadirElemento(normal);
-			normal.getGrafico().setBounds(100,-155,1000,1000);
 			ventanaNivelUno.add(normal.getGrafico());
 			
-			Rapido rapido=new Rapido(100,-70);
+			Rapido rapido=new Rapido(-65,-300);
 			elementos.añadirElemento(rapido);
-			rapido.getGrafico().setBounds(100,-70,1000,1000);
 			ventanaNivelUno.add(rapido.getGrafico());
 			
-			Tanque tanque=new Tanque(100,20);
+			Tanque tanque=new Tanque(-65,-200);
 			elementos.añadirElemento(tanque);
-			tanque.getGrafico().setBounds(100,20,1000,1000);
 			ventanaNivelUno.add(tanque.getGrafico());
 			
-			Rango rango=new Rango(100,200);
+			Rango rango=new Rango(-65,-100);
 			elementos.añadirElemento(rango);
-			rango.getGrafico().setBounds(100,200,1000,1000);
 			ventanaNivelUno.add(rango.getGrafico());
 			
-			Curador curador=new Curador(100,-260);
+			Curador curador=new Curador(-65,0);
 			elementos.añadirElemento(curador);
 			ventanaNivelUno.add(curador.getGrafico());
 			
-			Invocador invocador=new Invocador(300,-260);
+			Invocador invocador=new Invocador(-65,100);
 			elementos.añadirElemento(invocador);
-			invocador.getGrafico().setBounds(300,-260,1000,1000);
 			ventanaNivelUno.add(invocador.getGrafico());
 			
 			juego.iniciarJuego();
@@ -444,7 +439,7 @@ public final class GUI extends JFrame {
 						juego.generarBarricada(evento.getX(), evento.getY());
 						break;		
 				}
-				cuadrilla.setVisible(false);
+				//cuadrilla.setVisible(false);
 	
 			}
 			

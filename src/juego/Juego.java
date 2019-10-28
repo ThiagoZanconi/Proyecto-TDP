@@ -123,6 +123,26 @@ public final class Juego {
 							generarInvocador(0,fila);
 	}
 	
+	private int traducirFila(int y) {
+		int toReturn;
+		if(y<200)
+			toReturn=150;
+		else
+			if(y<300)
+				toReturn=250;
+			else
+				if(y<400)
+					toReturn=350;
+				else
+					if(y<500)
+						toReturn=450;
+					else
+						if(y<600)
+							toReturn=550;
+						else
+							toReturn=650;
+		return toReturn-550;
+	}
 	
 	
 	
