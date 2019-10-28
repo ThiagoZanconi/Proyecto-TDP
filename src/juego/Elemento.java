@@ -2,7 +2,6 @@ package juego;
 import java.awt.Rectangle;
 import visitor.*;
 import javax.swing.JLabel;
-
 import adaptador.Adaptador;
 
 public abstract class Elemento {

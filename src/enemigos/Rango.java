@@ -15,7 +15,7 @@ public class Rango extends Enemigo {
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Rango\\RangoAttack+Walk.gif"));
 		graficoActual = new JLabel();
 		graficoActual.setIcon(imagenes[0].getIcon());
-		graficoActual.setBounds(x, y, 80, 80);
+		graficoActual.setBounds(x, y,1000,1000);
 		alcanceDeAtaque=new Rectangle(x,y, 700,70);
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorEnemigo(this);

@@ -39,13 +39,12 @@ public final class Adaptador {
 	}
 	
 	protected void agregarElementoGrafico(JLabel j) {
-		gui.agregarElementoGrafico(j);	
+		gui.getVentanaJuego().add(j);	
 	}
 	
 	public void chequearColision(Elemento e1,Elemento e2) {
 		elementos.chequearColision(e1,e2);
-	}
-	
+	}	
 	
 	/**
 	 * Chequea la colision de un elemento con todos los otros elementos

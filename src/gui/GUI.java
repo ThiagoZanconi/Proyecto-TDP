@@ -166,10 +166,6 @@ public final class GUI extends JFrame {
 		return panelNivelUno;
 	}
 	
-	public void agregarElementoGrafico(JLabel j) {
-		ventanaNivelUno.add(j);
-	}
-	
 	class oyenteSalir implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			System.exit(0);

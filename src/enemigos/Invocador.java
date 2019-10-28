@@ -13,7 +13,7 @@ public class Invocador extends Enemigo {
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Invocador\\InvocadorWalk.gif"));
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
-		this.graficoActual.setBounds(100, 100, 50, 100);
+		this.graficoActual.setBounds(x,y,1000,1000);
 		alcanceDeAtaque=new Rectangle(x,y,80,70);
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorEnemigo(this);
