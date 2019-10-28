@@ -8,7 +8,6 @@ public final class Juego {
 	protected static final Juego juego=new Juego();
 	
 	private Juego() {
-		tienda=new Tienda();
 		gui=gui.getGUI();
 		elementos=elementos.getElementos();
 		
@@ -16,6 +15,42 @@ public final class Juego {
 	
 	public static Juego getJuego() {
 		return juego;
+	}
+	
+	public void iniciarJuego() {
+		tienda=new Tienda();
+	}
+	
+	public boolean crearAliado() {
+		return tienda.crearAliado();
+	}
+	
+	public String aliadoComprado() {
+		return tienda.aliadoComprado();
+	}
+	
+	public void generarGuerrero(int x, int y) {
+		tienda.generarGuerrero(x,y);
+	}
+	
+	public void generarBallesta(int x, int y) {
+		tienda.generarBallesta(x,y);
+	}
+	
+	public void generarMagoDeHielo(int x, int y) {
+		tienda.generarMagoDeHielo(x, y);
+	}
+	
+	public void generarMagoDeFuego(int x, int y) {
+		tienda.generarMagoDeFuego(x,y);
+	}
+	
+	public void generarEscudero(int x, int y) {
+		tienda.generarEscudero(x, y);
+	}
+	
+	public void generarBarricada(int x, int y) {
+		tienda.generarBarricada(x, y);
 	}
 	/**
 	 * Utilizamos dos iteraciones distintas ya que chequear ambas colisiones en un mismo recorrido de lista puede generar problemas

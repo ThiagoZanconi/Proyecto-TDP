@@ -13,7 +13,7 @@ public class Guerrero extends Aliado {
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Guerrero\\GuerreroAttack.gif"));
 		graficoActual = new JLabel();
 		graficoActual.setIcon(imagenes[0].getIcon());
-		graficoActual.setBounds(100, 100, 50, 50);
+		graficoActual.setBounds(x, y, 1000, 1000);
 		alcanceDeAtaque=new Rectangle(x,y,120,80);
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorAliado(this);

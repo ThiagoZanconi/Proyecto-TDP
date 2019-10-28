@@ -6,7 +6,7 @@ import juego.Elemento;
 public class BallestaFactory implements AbstractFactory {
 
 	@Override
-	public Elemento crearElemento(int x,int y) {
+	public Guerrero crearElemento(int x,int y) {
 		// TODO Auto-generated method stub
 		return new Guerrero(x,y);
 	}

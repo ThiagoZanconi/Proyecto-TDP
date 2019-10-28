@@ -12,7 +12,7 @@ public class Barricada extends Aliado {
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Barricada\\Barricada.png"));
 		this.graficoActual = new JLabel();
 		this.graficoActual.setIcon(imagenes[0].getIcon());
-		this.graficoActual.setBounds(100, 100, 50, 50);
+		this.graficoActual.setBounds(x, y, 1000,1000);
 		alcanceDeAtaque=new Rectangle(x,y,0,0);
 		rectangulo=new Rectangle(x,y,80,160);
 		miVisitor=new VisitorAliado(this);

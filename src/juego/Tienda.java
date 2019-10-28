@@ -2,14 +2,17 @@ package juego;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import adaptador.Adaptador;
+import aliados.Ballesta;
+import aliados.Barricada;
+import aliados.Escudero;
+import aliados.Guerrero;
+import aliados.MagoDeFuego;
+import aliados.MagoDeHielo;
 import gui.GUI;
 
 public class Tienda {
@@ -23,27 +26,146 @@ public class Tienda {
 	private JLabel fotoDescripcion;
 	protected boolean crearAliado;
 	protected String aliadoComprado;
-	protected Adaptador adaptador;
 	protected static GUI gui;
+	protected Adaptador adaptador;
 	
 	public Tienda() {
 		crearAliado=false;
 		aliadoComprado="";
-		adaptador=adaptador.getAdaptador();
 		gui=gui.getGUI();
+		adaptador=adaptador.getAdaptador();
+		
+		//Creo el boton comprar Guerrero y lo agrego a la ventana
+		btnComprarGuerrero=new JButton("Guerrero");
+		oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
+		btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
+		btnComprarGuerrero.setBounds(0, 800, 100, 100);
+		gui.getVentanaJuego().add(btnComprarGuerrero);
+		btnComprarGuerrero.setVisible(true);
+		
+		//Creo el boton comprar Ballesta y lo agrego a la ventana
+		btnComprarBallesta=new JButton("Ballesta");
+		oyenteComprarBallesta oyenteComprarBallesta =new oyenteComprarBallesta();
+		btnComprarBallesta.addActionListener(oyenteComprarBallesta);
+		btnComprarBallesta.setBounds(100, 800, 100, 100);
+		gui.getVentanaJuego().add(btnComprarBallesta);
+		btnComprarBallesta.setVisible(true);
+		
+		//Creo el boton comprar Mago de Hielo y lo agrego a la ventana
+		btnComprarMagoDeHielo=new JButton("Mago de Hielo");
+		oyenteComprarMagoDeHielo oyenteComprarMagoDeHielo =new oyenteComprarMagoDeHielo();
+		btnComprarMagoDeHielo.addActionListener(oyenteComprarMagoDeHielo);
+		btnComprarMagoDeHielo.setBounds(200, 800, 100, 100);
+		gui.getVentanaJuego().add(btnComprarMagoDeHielo);
+		btnComprarMagoDeHielo.setVisible(true);
+		
+		//Creo el boton comprar Mago de Fuego y lo agrego a la ventana
+		btnComprarMagoDeFuego=new JButton("Mago de Fuego");
+		oyenteComprarMagoDeFuego oyenteComprarMagoDeFuego =new oyenteComprarMagoDeFuego();
+		btnComprarMagoDeFuego.addActionListener(oyenteComprarMagoDeFuego);
+		btnComprarMagoDeFuego.setBounds(300, 800, 100, 100);
+		gui.getVentanaJuego().add(btnComprarMagoDeFuego);
+		btnComprarMagoDeFuego.setVisible(true);
+		
+		//Creo el boton comprar Escudero y lo agrego a la ventana
+		btnComprarEscudero=new JButton("Escudero");
+		oyenteComprarEscudero oyenteComprarEscudero =new oyenteComprarEscudero();
+		btnComprarEscudero.addActionListener(oyenteComprarEscudero);
+		btnComprarEscudero.setBounds(400, 800, 100, 100);
+		gui.getVentanaJuego().add(btnComprarEscudero);
+		btnComprarEscudero.setVisible(true);
+		
+		//Creo el boton comprar Barricada y lo agrego a la ventana
+		btnComprarBarricada=new JButton("Barricada");
+		oyenteComprarBarricada oyenteComprarBarricada =new oyenteComprarBarricada();
+		btnComprarBarricada.addActionListener(oyenteComprarBarricada);
+		btnComprarBarricada.setBounds(500, 800, 100, 100);
+		gui.getVentanaJuego().add(btnComprarBarricada);
+		btnComprarBarricada.setVisible(true);
+	
 	}	
 	
-	class oyenteComprarGuerrero implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			
-			crearAliado=true;
-			aliadoComprado="Guerrero";
-			//cuadrilla.setVisible(true);
-			
-			descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
-			
-			
+	public boolean crearAliado() {
+		return crearAliado;
+	}
+	
+	public String aliadoComprado() {
+		return aliadoComprado;
+	}
+	
+	
+	
+	public void generarGuerrero(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Guerrero guerrero=new Guerrero(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		adaptador.añadirElemento(guerrero);
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			gui.getVentanaJuego().add(guerrero.getGrafico());
 		}
+		adaptador.chequearColision(guerrero);
+		//cuadrilla.setVisible(false);
+		crearAliado=false;
+
+	}
+	
+	public void generarBallesta(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Ballesta ballesta=new Ballesta(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		adaptador.añadirElemento(ballesta);
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			gui.getVentanaJuego().add(ballesta.getGrafico());
+		}
+		adaptador.chequearColision(ballesta);	
+		//cuadrilla.setVisible(false);
+		crearAliado=false;
+	}
+	
+	public void generarMagoDeHielo(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		MagoDeHielo MagoDeHielo=new MagoDeHielo(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		adaptador.añadirElemento(MagoDeHielo);
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			gui.getVentanaJuego().add(MagoDeHielo.getGrafico());
+		}
+		adaptador.chequearColision(MagoDeHielo);
+		//cuadrilla.setVisible(false);
+		crearAliado=false;
+	}
+	
+	public void generarMagoDeFuego(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		MagoDeFuego MagoDeFuego=new MagoDeFuego(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		adaptador.añadirElemento(MagoDeFuego);
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			gui.getVentanaJuego().add(MagoDeFuego.getGrafico());
+		}
+		adaptador.chequearColision(MagoDeFuego);
+		//cuadrilla.setVisible(false);
+		crearAliado=false;
+	}
+	
+	public void generarEscudero(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Escudero Escudero=new Escudero(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		adaptador.añadirElemento(Escudero);
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			gui.getVentanaJuego().add(Escudero.getGrafico());
+		}
+		adaptador.chequearColision(Escudero);
+		//cuadrilla.setVisible(false);
+		crearAliado=false;
+	}
+	
+	public void generarBarricada(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Barricada barricada=new Barricada(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
+		adaptador.añadirElemento(barricada);
+		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
+			gui.getVentanaJuego().add(barricada.getGrafico());
+		}
+		adaptador.chequearColision(barricada);
+		//cuadrilla.setVisible(false);
+		crearAliado=false;
 	}
 	
 	private void descripcion(String nombreAliado, JTextArea texto, JLabel foto) {
@@ -51,7 +173,6 @@ public class Tienda {
 		texto.setEditable(false);
 		texto.setBackground(gui.getPanelNivelUno().getBackground());
 				
-		
 		switch (aliadoComprado) {
 			case "Guerrero":
 				texto.setText("Guerrero"+"\n"+""+"\n"+"Alcance: Cuerpo a cuerpo"+"\n"+"Daño: Medio"+"\n"+"Vida: Media"+"\n"+"Valor: 200");
@@ -174,49 +295,65 @@ public class Tienda {
 		return arregloDevolver;
 	}
 	
-	MouseListener click=new MouseListener() {
-		@Override
-		public void mousePressed(MouseEvent evento) {
-			if(crearAliado) {
-				switch (aliadoComprado) {
-					case "Guerrero":
-						//generarGuerrero(evento.getX(), evento.getY());
-						break;
-					case "Ballesta":
-						//generarBallesta(evento.getX(), evento.getY());
-						break;
-					case "MagoDeHielo":
-						//generarMagoDeHielo(evento.getX(), evento.getY());
-						break;
-					case "MagoDeFuego":
-						//generarMagoDeFuego(evento.getX(), evento.getY());
-						break;
-					case "Escudero":
-						//generarEscudero(evento.getX(), evento.getY());
-						break;	
-					case "Barricada":
-						//generarBarricada(evento.getX(), evento.getY());
-						break;		
-				}
-					
-			}
-			
+	class oyenteComprarGuerrero implements ActionListener{
+		
+		public void actionPerformed(ActionEvent e) {
+			crearAliado=true;
+			aliadoComprado="Guerrero";
+			//cuadrilla.setVisible(true);
+			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
 		}
-		@Override
-		public void mouseReleased(MouseEvent evento) {
+		
+	}
 	
+	class oyenteComprarBallesta implements ActionListener{
+		
+		public void actionPerformed(ActionEvent e) {	
+			crearAliado=true;
+			aliadoComprado="Ballesta";
+			//cuadrilla.setVisible(true);
+			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
 		}
-		@Override
-		public void mouseEntered(MouseEvent evento) {
-
-		}
-		@Override
-		public void mouseExited(MouseEvent evento) {
-
-		}
-		@Override
-		public void mouseClicked(MouseEvent evento) {
+		
+	}
+	
+	class oyenteComprarMagoDeHielo implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			
+			crearAliado=true;
+			aliadoComprado="MagoDeHielo";
+			//cuadrilla.setVisible(true);
+			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
 			
 		}
-	};
+	}
+	
+	class oyenteComprarMagoDeFuego implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			
+			crearAliado=true;
+			aliadoComprado="MagoDeFuego";
+			//cuadrilla.setVisible(true);
+			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
+			
+		}
+	}
+	
+	class oyenteComprarEscudero implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			crearAliado=true;
+			aliadoComprado="Escudero";
+			//cuadrilla.setVisible(true);
+			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
+		}
+	}
+	
+	class oyenteComprarBarricada implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			crearAliado=true;
+			aliadoComprado="Barricada";
+			//cuadrilla.setVisible(true);
+			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
+		}
+	}
 }
