@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import aliados.Ballesta;
@@ -184,6 +183,14 @@ public final class GUI extends JFrame {
 	
 	public static GUI getGUI() {
 		return gui;	
+	}
+	
+	public JFrame getVentanaJuego() {
+		return ventanaNivelUno;
+	}
+	
+	public JPanel getPanelNivelUno() {
+		return panelNivelUno;
 	}
 	
 	public void agregarElementoGrafico(JLabel j) {
@@ -793,9 +800,7 @@ public final class GUI extends JFrame {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		Escudero Escudero=new Escudero(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550);
 		elementos.añadirElemento(Escudero);
-		
 		if(arregloAuxiliar[3]!=0 && arregloAuxiliar[0]!=0) {
-			Escudero.getGrafico().setBounds(arregloAuxiliar[1]-65,arregloAuxiliar[3]-550,1000,1000);
 			ventanaNivelUno.add(Escudero.getGrafico());
 			//ventanaNivelUno.add(mapaImagen);
 		}

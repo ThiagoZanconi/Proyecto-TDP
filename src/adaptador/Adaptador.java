@@ -35,9 +35,9 @@ public final class Adaptador {
 		elementos.chequearColisionDeAtaques(p);
 	}
 	
-	public void añadirDisparo(Disparo d) {
-		elementos.añadirElemento(d);
-		agregarElementoGrafico(d.getGrafico());
+	public void añadirElemento(Elemento e) {
+		elementos.añadirElemento(e);
+		agregarElementoGrafico(e.getGrafico());
 	}
 	
 	protected void agregarElementoGrafico(JLabel j) {

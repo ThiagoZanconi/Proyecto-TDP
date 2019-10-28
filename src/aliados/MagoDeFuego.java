@@ -23,7 +23,7 @@ public class MagoDeFuego extends Aliado {
 	public void atacar() {
 		if(puedeAtacar) {
 			Disparo x=new DisparoMagoDeFuego((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
-			adaptador.añadirDisparo(x);	
+			adaptador.añadirElemento(x);	
 		}
 	}
 

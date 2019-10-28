@@ -22,7 +22,7 @@ public class Guerrero extends Aliado {
 	public void atacar() {
 		if(puedeAtacar) {
 			Disparo x=new DisparoAliado((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
-			adaptador.añadirDisparo(x);	
+			adaptador.añadirElemento(x);	
 		}
 	}
 

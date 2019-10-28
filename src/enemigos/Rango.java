@@ -24,7 +24,7 @@ public class Rango extends Enemigo {
 	public void atacar() {
 		if(puedeAtacar) {
 			Disparo x=new DisparoRango((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
-			adaptador.añadirDisparo(x);
+			adaptador.añadirElemento(x);
 		}
 	}
 }
