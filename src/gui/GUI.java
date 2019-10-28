@@ -41,9 +41,7 @@ public final class GUI extends JFrame {
 	private JPanel contentPane;
 	private JLabel menuImagen;
 	private JLabel menuLluvia;
-		
 	private JPanel cuadrilla;
-	
 	private int puntaje;
 	private int monedas;
 	private JLabel mapaImagen;
@@ -55,7 +53,6 @@ public final class GUI extends JFrame {
 	private JTextArea textoDescripcion;
 	private JLabel fotoDescripcion;
 	
-	private Hilo hilo;
 	private static final GUI gui=new GUI();
 	private Elementos elementos;
 	private Juego juego;
@@ -244,9 +241,6 @@ public final class GUI extends JFrame {
 			ventanaNivelUno.setVisible(true);
 			setVisible(false);
 			
-			hilo=new Hilo(gui,juego);
-			hilo.start();
-			
 			
 			Normal normal=new Normal(-65,-400);
 			elementos.añadirElemento(normal);
@@ -329,11 +323,7 @@ public final class GUI extends JFrame {
 			mapaImagen.setBounds(0, 0, 1200, 800);
 			ventanaNivelUno.add(mapaImagen);
 			ventanaNivelUno.setVisible(true);
-			setVisible(false);
-		
-			hilo=new Hilo(gui,juego);
-			hilo.start();
-					
+			setVisible(false);				
 			Normal normal=new Normal(100,-177);
 			
 			elementos.añadirElemento(normal);

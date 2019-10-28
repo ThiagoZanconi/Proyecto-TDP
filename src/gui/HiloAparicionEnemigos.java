@@ -2,12 +2,10 @@ package gui;
 
 import juego.Juego;
 
-public class Hilo extends Thread{
-	private Juego juego;
-	
-	public Hilo(Juego juego) {
-		this.juego=juego;
-		
+public class HiloAparicionEnemigos extends Thread{
+	protected Juego juego;
+	public HiloAparicionEnemigos(Juego j) {
+		juego=j;	
 	}
 
 	public void run() {
@@ -17,7 +15,8 @@ public class Hilo extends Thread{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			juego.mover();
+			juego.generarEnemigoAleatorio();
 		}
 	}
+
 }

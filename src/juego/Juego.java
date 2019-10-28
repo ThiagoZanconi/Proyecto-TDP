@@ -1,6 +1,8 @@
 package juego;
 import java.util.Random;
 
+import javax.swing.JLabel;
+
 import enemigos.Curador;
 import enemigos.Invocador;
 import enemigos.Normal;
@@ -15,6 +17,8 @@ public final class Juego {
 	protected static GUI gui;
 	protected static Elementos elementos;
 	protected static final Juego juego=new Juego();
+	protected static HiloAparicionEnemigos hiloAparicionEnemigos;
+	protected static Hilo hiloGeneral;
 	
 	private Juego() {
 		gui=gui.getGUI();
@@ -27,6 +31,10 @@ public final class Juego {
 	
 	public void iniciarJuego() {
 		tienda=new Tienda();
+		hiloAparicionEnemigos=new HiloAparicionEnemigos(this);
+		hiloGeneral=new Hilo(this);
+		hiloGeneral.start();
+		hiloAparicionEnemigos.start();
 	}
 	
 	public boolean crearAliado() {
@@ -66,9 +74,10 @@ public final class Juego {
 	//Enemigos
 	
 	public void generarCurador(int x,int y) {
-		Curador curador=new Curador(x,y);
+		Elemento curador=new Curador(x,y);
 		elementos.añadirElemento(curador);
-		gui.getVentanaJuego().add(curador.getGrafico());
+		JLabel aInsertar=curador.getGrafico();
+		gui.getVentanaJuego().add(aInsertar);
 	}
 	
 	public void generarInvocador(int x, int y) {
@@ -80,47 +89,51 @@ public final class Juego {
 	public void generarNormal(int x, int y) {
 		Normal normal=new Normal(x,y);
 		elementos.añadirElemento(normal);
+		normal.getGrafico();
 		gui.getVentanaJuego().add(normal.getGrafico());
 	}
 	
 	public void generarRango(int x,int y) {
 		Rango rango=new Rango(x,y);
 		elementos.añadirElemento(rango);
+		rango.getGrafico();
 		gui.getVentanaJuego().add(rango.getGrafico());
 	}
 	
 	public void generarRapido(int x, int y) {
 		Rapido rapido=new Rapido(x,y);
 		elementos.añadirElemento(rapido);
+		rapido.getGrafico();
 		gui.getVentanaJuego().add(rapido.getGrafico());
 	}
 	
 	public void generarTanque(int x, int y) {
 		Tanque tanque=new Tanque(x,y);
 		elementos.añadirElemento(tanque);
+		tanque.getGrafico();
 		gui.getVentanaJuego().add(tanque.getGrafico());
 	}
 	
 	public void generarEnemigoAleatorio() {
 		Random r=new Random();
-		int fila=r.nextInt(6);
+		int fila=traducirFila(r.nextInt(6));
 		int n=r.nextInt(100);
 		if(n<30)
-			generarNormal(0,fila);
+			generarNormal(-65,fila);
 		else
 			if(n<50)
-				generarRapido(0,fila);
+				generarRapido(-65,fila);
 			else
 				if(n<70)
-					generarTanque(0,fila);
+					generarTanque(-65,fila);
 				else
 					if(n<84)
-						generarRango(0,fila);
+						generarRango(-65,fila);
 					else
 						if(n<92)
-							generarCurador(0,fila);
+							generarCurador(-65,fila);
 						else
-							generarInvocador(0,fila);
+							generarInvocador(-65,fila);
 	}
 	
 	private int traducirFila(int y) {
@@ -143,8 +156,6 @@ public final class Juego {
 							toReturn=650;
 		return toReturn-550;
 	}
-	
-	
 	
 	/**
 	 * 
