@@ -3,7 +3,6 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,18 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
-import enemigos.Curador;
-import enemigos.Invocador;
-import enemigos.Normal;
-import enemigos.Rango;
-import enemigos.Rapido;
-import enemigos.Tanque;
-import juego.Elementos;
 import juego.Juego;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public final class GUI extends JFrame {
 	
@@ -41,20 +31,15 @@ public final class GUI extends JFrame {
 	private JPanel contentPane;
 	private JLabel menuImagen;
 	private JLabel menuLluvia;
-	private JPanel cuadrilla;
+	
 	private int puntaje;
-	private int monedas;
 	private JLabel mapaImagen;
 	private JLabel labelPuntaje;
-	private JLabel labelMonedas;
-	private JLabel imagenMonedas;
-	private JLabel labelCoordenadas;
 	
 	private JTextArea textoDescripcion;
 	private JLabel fotoDescripcion;
 	
 	private static final GUI gui=new GUI();
-	private Elementos elementos;
 	private Juego juego;
 	/**
 	 * Launch the application.
@@ -75,8 +60,6 @@ public final class GUI extends JFrame {
 	 * Create the frame.
 	 */
 	private GUI() {
-		elementos=Elementos.getElementos();
-		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(300, 100, 1200, 770);
@@ -178,13 +161,20 @@ public final class GUI extends JFrame {
 			ventanaNivelUno=new JFrame("ventanaJuego");
 			ventanaNivelUno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			ventanaNivelUno.setBounds(0, 0, 1200, 1000);
-			ventanaNivelUno.addMouseListener(click);
 			
 			//Creo el panel del Nivel Uno y le agrego la ventana
 			panelNivelUno=new JPanel();
 			panelNivelUno.setBorder(new EmptyBorder(5, 5, 5, 5));
-			ventanaNivelUno.setContentPane(panelNivelUno);
 			panelNivelUno.setLayout(null);
+			ventanaNivelUno.setContentPane(panelNivelUno);
+			
+			//Creo el mapa y lo agrego a la ventana
+			mapaImagen=new JLabel();
+			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
+			mapaImagen.setBounds(0, 0, 1200, 800);
+			//panelNivelUno.add(mapaImagen);
+			ventanaNivelUno.setVisible(true);
+			setVisible(false);
 			
 			//Inicializo descripcion
 			textoDescripcion=new JTextArea();
@@ -192,57 +182,7 @@ public final class GUI extends JFrame {
 			textoDescripcion.setText("");
 			fotoDescripcion.setIcon(null);
 			
-			//Creo el label puntaje y lo inicio en 0
-			labelPuntaje= new JLabel();
-			puntaje= 0;
-			labelPuntaje.setText(String.valueOf(puntaje));
-			labelPuntaje.setBounds(400,30,40,30);
-			labelPuntaje.setBorder(BorderFactory.createLineBorder(Color.black));
-			labelPuntaje.setBackground(Color.green);
-			labelPuntaje.setOpaque(true);
-			ventanaNivelUno.add(labelPuntaje);
-			
-			labelCoordenadas=new JLabel();
-			labelCoordenadas.setText("");
-			labelCoordenadas.setBounds(500, 30, 100, 30);
-			labelCoordenadas.setBorder(BorderFactory.createLineBorder(Color.black));
-			labelCoordenadas.setBackground(Color.green);
-			labelCoordenadas.setOpaque(true);
-			ventanaNivelUno.add(labelCoordenadas);
-			
-			//Crea cosas relacionadas a monedas
-			imagenMonedas=new JLabel();
-			imagenMonedas.setIcon(new ImageIcon("Sprites\\monedas.png"));
-			imagenMonedas.setBounds(650, 30, 32, 32);
-			ventanaNivelUno.add(imagenMonedas);
-			monedas=10000;
-			labelMonedas=new JLabel();
-			labelMonedas.setText(String.valueOf(monedas));
-			labelMonedas.setBounds(685,30,40,30);
-			labelMonedas.setBorder(BorderFactory.createLineBorder(Color.black));
-			labelMonedas.setBackground(Color.green);
-			labelMonedas.setOpaque(true);
-			ventanaNivelUno.add(labelMonedas);
-				
-			//Crea la cuadrilla
-			cuadrilla=new JPanel();
-			cuadrilla.setLayout(new GridLayout(6,10));
-			llenarCuadrilla();
-			cuadrilla.setBounds(0,70,1110,600);
-			cuadrilla.setOpaque(false);
-			ventanaNivelUno.add(cuadrilla);
-			cuadrilla.setVisible(true);
-			
-			//Creo el mapa y lo agrego a la ventana
-			mapaImagen=new JLabel();
-			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
-			mapaImagen.setBounds(0, 0, 1200, 800);
-			//ventanaNivelUno.add(mapaImagen);
-			ventanaNivelUno.setVisible(true);
-			setVisible(false);
-			
 			juego.iniciarJuego();
-			//ventanaNivelUno.add(mapaImagen);	
 		}
 		
 	}
@@ -257,7 +197,6 @@ public final class GUI extends JFrame {
 			ventanaNivelUno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			ventanaNivelUno.setBounds(0, 0, 1200, 1000);
 			ventanaNivelUno.setLayout(new BorderLayout());
-			ventanaNivelUno.addMouseListener(click);
 			
 			//Creo el panel del juego y le agrego la ventana
 			panelNivelUno=new JPanel();
@@ -275,37 +214,13 @@ public final class GUI extends JFrame {
 			labelPuntaje.setOpaque(true);
 			ventanaNivelUno.add(labelPuntaje);
 			
-			labelCoordenadas=new JLabel();
-			labelCoordenadas.setText("");
-			labelCoordenadas.setBounds(500, 30, 100, 30);
-			labelCoordenadas.setBorder(BorderFactory.createLineBorder(Color.black));
-			labelCoordenadas.setBackground(Color.green);
-			labelCoordenadas.setOpaque(true);
-			ventanaNivelUno.add(labelCoordenadas);
-				
-			//Crea la cuadrilla
-			cuadrilla=new JPanel();
-			cuadrilla.setLayout(new GridLayout(6,10));
-			llenarCuadrilla();
-			cuadrilla.setBounds(20,220,1150,560);
-			cuadrilla.setOpaque(false);
-			ventanaNivelUno.add(cuadrilla);
-			cuadrilla.setVisible(false);
-			
 			//Creo el mapa y lo agrego a la ventana
 			mapaImagen=new JLabel();
 			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkLavaM.png"));
 			mapaImagen.setBounds(0, 0, 1200, 800);
 			ventanaNivelUno.add(mapaImagen);
 			ventanaNivelUno.setVisible(true);
-			setVisible(false);				
-			Normal normal=new Normal(100,-177);
-			
-			elementos.añadirElemento(normal);
-			normal.getGrafico().setBounds(100,-177,1000,1000);
-			ventanaNivelUno.add(normal.getGrafico());
-			ventanaNivelUno.add(mapaImagen);
-			
+			setVisible(false);					
 		}
 		
 	}
@@ -370,60 +285,4 @@ public final class GUI extends JFrame {
 		}
 		
 	}
-	
-	private void llenarCuadrilla() {
-		for(int i=0;i<60;i++) {
-			JLabel labelAuxiliar=new JLabel();
-			labelAuxiliar.setBorder(BorderFactory.createLineBorder(Color.black));
-			cuadrilla.add(labelAuxiliar);
-		}
-	}	
-	
-	MouseListener click=new MouseListener() {
-		@Override
-		public void mousePressed(MouseEvent evento) {
-			labelCoordenadas.setText("X: "+evento.getX()+" Y: "+evento.getY());
-			if(juego.crearAliado()  ) {
-				switch (juego.aliadoComprado()) {
-					case "Guerrero":
-						juego.generarGuerrero(evento.getX(), evento.getY());
-						break;
-					case "Ballesta":
-						juego.generarBallesta(evento.getX(), evento.getY());
-						break;
-					case "MagoDeHielo":
-						juego.generarMagoDeHielo(evento.getX(), evento.getY());
-						break;
-					case "MagoDeFuego":
-						juego.generarMagoDeFuego(evento.getX(), evento.getY());
-						break;
-					case "Escudero":
-						juego.generarEscudero(evento.getX(), evento.getY());
-						break;	
-					case "Barricada":
-						juego.generarBarricada(evento.getX(), evento.getY());
-						break;		
-				}
-				//cuadrilla.setVisible(false);
-	
-			}
-			
-		}
-		@Override
-		public void mouseReleased(MouseEvent evento) {
-	
-		}
-		@Override
-		public void mouseEntered(MouseEvent evento) {
-
-		}
-		@Override
-		public void mouseExited(MouseEvent evento) {
-
-		}
-		@Override
-		public void mouseClicked(MouseEvent evento) {
-			
-		}
-	};
 }

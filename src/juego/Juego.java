@@ -41,71 +41,40 @@ public final class Juego {
 	public String aliadoComprado() {
 		return tienda.aliadoComprado();
 	}
-	
-	//Aliados
-	
-	public void generarGuerrero(int x, int y) {
-		tienda.generarGuerrero(x,y);
-	}
-	
-	public void generarBallesta(int x, int y) {
-		tienda.generarBallesta(x,y);
-	}
-	
-	public void generarMagoDeHielo(int x, int y) {
-		tienda.generarMagoDeHielo(x,y);
-	}
-	
-	public void generarMagoDeFuego(int x, int y) {
-		tienda.generarMagoDeFuego(x,y);
-	}
-	
-	public void generarEscudero(int x, int y) {
-		tienda.generarEscudero(x,y);
-	}
-	
-	public void generarBarricada(int x, int y) {
-		tienda.generarBarricada(x,y);
-	}
-	
+
 	//Enemigos
 	
-	public void generarCurador(int x,int y) {
+	private void generarCurador(int x,int y) {
 		Elemento curador=new Curador(x,y);
 		elementos.añadirElemento(curador);
 		gui.getVentanaJuego().add(curador.getGrafico());
 	}
 	
-	public void generarInvocador(int x, int y) {
+	private void generarInvocador(int x, int y) {
 		Invocador invocador=new Invocador(x,y);
 		elementos.añadirElemento(invocador);
 		gui.getVentanaJuego().add(invocador.getGrafico());
 	}
 	
-	public void generarNormal(int x, int y) {
+	private void generarNormal(int x, int y) {
 		Normal normal=new Normal(x,y);
 		elementos.añadirElemento(normal);
-		if(GUI.getGUI()==null)
-			System.out.println("La GUI es nula");
-		if(gui==null) {
-			System.out.println("La GUI es nula");
-		}	
 		gui.getVentanaJuego().add(normal.getGrafico());
 	}
 	
-	public void generarRango(int x,int y) {
+	private void generarRango(int x,int y) {
 		Rango rango=new Rango(x,y);
 		elementos.añadirElemento(rango);
 		gui.getVentanaJuego().add(rango.getGrafico());
 	}
 	
-	public void generarRapido(int x, int y) {
+	private void generarRapido(int x, int y) {
 		Rapido rapido=new Rapido(x,y);
 		elementos.añadirElemento(rapido);
 		gui.getVentanaJuego().add(rapido.getGrafico());
 	}
 	
-	public void generarTanque(int x, int y) {
+	private void generarTanque(int x, int y) {
 		Tanque tanque=new Tanque(x,y);
 		elementos.añadirElemento(tanque);
 		gui.getVentanaJuego().add(tanque.getGrafico());

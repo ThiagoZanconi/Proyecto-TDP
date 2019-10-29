@@ -3,7 +3,6 @@ package visitor;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
-import juego.Elemento;
 
 public class VisitorAliado extends Visitor {
 	protected Aliado miAliado;

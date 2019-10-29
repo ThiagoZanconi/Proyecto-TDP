@@ -2,7 +2,6 @@ package visitor;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
-import juego.*;
 
 public abstract class Visitor {	
 	public abstract void visitarEnemigo(Enemigo e);
