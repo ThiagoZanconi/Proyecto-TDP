@@ -51,7 +51,7 @@ public class Tienda {
 		btnComprarGuerrero=new JButton("Guerrero");
 		oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
 		btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
-		btnComprarGuerrero.setBounds(0, 800, 100, 100);
+		btnComprarGuerrero.setBounds(0, 670, 100, 100);
 		gui.getVentanaJuego().add(btnComprarGuerrero);
 		btnComprarGuerrero.setVisible(true);
 		
@@ -59,7 +59,7 @@ public class Tienda {
 		btnComprarBallesta=new JButton("Ballesta");
 		oyenteComprarBallesta oyenteComprarBallesta =new oyenteComprarBallesta();
 		btnComprarBallesta.addActionListener(oyenteComprarBallesta);
-		btnComprarBallesta.setBounds(100, 800, 100, 100);
+		btnComprarBallesta.setBounds(100, 670, 100, 100);
 		gui.getVentanaJuego().add(btnComprarBallesta);
 		btnComprarBallesta.setVisible(true);
 		
@@ -67,7 +67,7 @@ public class Tienda {
 		btnComprarMagoDeHielo=new JButton("Mago de Hielo");
 		oyenteComprarMagoDeHielo oyenteComprarMagoDeHielo =new oyenteComprarMagoDeHielo();
 		btnComprarMagoDeHielo.addActionListener(oyenteComprarMagoDeHielo);
-		btnComprarMagoDeHielo.setBounds(200, 800, 100, 100);
+		btnComprarMagoDeHielo.setBounds(200, 670, 100, 100);
 		gui.getVentanaJuego().add(btnComprarMagoDeHielo);
 		btnComprarMagoDeHielo.setVisible(true);
 		
@@ -75,7 +75,7 @@ public class Tienda {
 		btnComprarMagoDeFuego=new JButton("Mago de Fuego");
 		oyenteComprarMagoDeFuego oyenteComprarMagoDeFuego =new oyenteComprarMagoDeFuego();
 		btnComprarMagoDeFuego.addActionListener(oyenteComprarMagoDeFuego);
-		btnComprarMagoDeFuego.setBounds(300, 800, 100, 100);
+		btnComprarMagoDeFuego.setBounds(300, 670, 100, 100);
 		gui.getVentanaJuego().add(btnComprarMagoDeFuego);
 		btnComprarMagoDeFuego.setVisible(true);
 		
@@ -83,7 +83,7 @@ public class Tienda {
 		btnComprarEscudero=new JButton("Escudero");
 		oyenteComprarEscudero oyenteComprarEscudero =new oyenteComprarEscudero();
 		btnComprarEscudero.addActionListener(oyenteComprarEscudero);
-		btnComprarEscudero.setBounds(400, 800, 100, 100);
+		btnComprarEscudero.setBounds(400,670, 100, 100);
 		gui.getVentanaJuego().add(btnComprarEscudero);
 		btnComprarEscudero.setVisible(true);
 		
@@ -91,7 +91,7 @@ public class Tienda {
 		btnComprarBarricada=new JButton("Barricada");
 		oyenteComprarBarricada oyenteComprarBarricada =new oyenteComprarBarricada();
 		btnComprarBarricada.addActionListener(oyenteComprarBarricada);
-		btnComprarBarricada.setBounds(500, 800, 100, 100);
+		btnComprarBarricada.setBounds(500, 670, 100, 100);
 		gui.getVentanaJuego().add(btnComprarBarricada);
 		btnComprarBarricada.setVisible(true);
 		
