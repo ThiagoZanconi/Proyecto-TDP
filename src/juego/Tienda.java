@@ -201,6 +201,8 @@ public class Tienda {
 	
 	public void generarBarricada(int x, int y) {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		if(arregloAuxiliar[1]==150)
+			arregloAuxiliar[1]=250;
 		Barricada barricada=new Barricada(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
 		adaptador.añadirElemento(barricada);
 		gui.getVentanaJuego().add(barricada.getGrafico());
