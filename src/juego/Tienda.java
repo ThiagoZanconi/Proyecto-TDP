@@ -55,6 +55,7 @@ public class Tienda {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//gui.getVentanaJuego().add(btnComprarGuerrero,0);
 =======
 		gui.getVentanaJuego().add(btnComprarGuerrero);
@@ -65,6 +66,9 @@ public class Tienda {
 =======
 		gui.getVentanaJuego().add(btnComprarGuerrero,0);
 >>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
+=======
+		gui.getVentanaJuego().add(btnComprarGuerrero);
+>>>>>>> parent of 1fd95b2... asd
 		btnComprarGuerrero.setVisible(true);
 		
 		//Creo el boton comprar Ballesta y lo agrego a la ventana
@@ -72,6 +76,7 @@ public class Tienda {
 		oyenteComprarBallesta oyenteComprarBallesta =new oyenteComprarBallesta();
 		btnComprarBallesta.addActionListener(oyenteComprarBallesta);
 		btnComprarBallesta.setBounds(100, 670, 100, 100);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -85,6 +90,9 @@ public class Tienda {
 =======
 		gui.getVentanaJuego().add(btnComprarBallesta,0);
 >>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
+=======
+		gui.getVentanaJuego().add(btnComprarBallesta);
+>>>>>>> parent of 1fd95b2... asd
 		btnComprarBallesta.setVisible(true);
 		
 		//Creo el boton comprar Mago de Hielo y lo agrego a la ventana
@@ -92,6 +100,7 @@ public class Tienda {
 		oyenteComprarMagoDeHielo oyenteComprarMagoDeHielo =new oyenteComprarMagoDeHielo();
 		btnComprarMagoDeHielo.addActionListener(oyenteComprarMagoDeHielo);
 		btnComprarMagoDeHielo.setBounds(200, 670, 100, 100);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -105,6 +114,9 @@ public class Tienda {
 =======
 		gui.getVentanaJuego().add(btnComprarMagoDeHielo,0);
 >>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
+=======
+		gui.getVentanaJuego().add(btnComprarMagoDeHielo);
+>>>>>>> parent of 1fd95b2... asd
 		btnComprarMagoDeHielo.setVisible(true);
 		
 		//Creo el boton comprar Mago de Fuego y lo agrego a la ventana
@@ -112,6 +124,7 @@ public class Tienda {
 		oyenteComprarMagoDeFuego oyenteComprarMagoDeFuego =new oyenteComprarMagoDeFuego();
 		btnComprarMagoDeFuego.addActionListener(oyenteComprarMagoDeFuego);
 		btnComprarMagoDeFuego.setBounds(300, 670, 100, 100);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -125,6 +138,9 @@ public class Tienda {
 =======
 		gui.getVentanaJuego().add(btnComprarMagoDeFuego,0);
 >>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
+=======
+		gui.getVentanaJuego().add(btnComprarMagoDeFuego);
+>>>>>>> parent of 1fd95b2... asd
 		btnComprarMagoDeFuego.setVisible(true);
 		
 		//Creo el boton comprar Escudero y lo agrego a la ventana
@@ -132,6 +148,7 @@ public class Tienda {
 		oyenteComprarEscudero oyenteComprarEscudero =new oyenteComprarEscudero();
 		btnComprarEscudero.addActionListener(oyenteComprarEscudero);
 		btnComprarEscudero.setBounds(400,670, 100, 100);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -145,6 +162,9 @@ public class Tienda {
 =======
 		gui.getVentanaJuego().add(btnComprarEscudero,0);
 >>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
+=======
+		gui.getVentanaJuego().add(btnComprarEscudero);
+>>>>>>> parent of 1fd95b2... asd
 		btnComprarEscudero.setVisible(true);
 		
 		//Creo el boton comprar Barricada y lo agrego a la ventana
@@ -152,6 +172,7 @@ public class Tienda {
 		oyenteComprarBarricada oyenteComprarBarricada =new oyenteComprarBarricada();
 		btnComprarBarricada.addActionListener(oyenteComprarBarricada);
 		btnComprarBarricada.setBounds(500, 670, 100, 100);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -165,6 +186,9 @@ public class Tienda {
 =======
 		gui.getVentanaJuego().add(btnComprarBarricada,0);
 >>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
+=======
+		gui.getVentanaJuego().add(btnComprarBarricada);
+>>>>>>> parent of 1fd95b2... asd
 		btnComprarBarricada.setVisible(true);
 		
 		//Creo la cuadrilla
