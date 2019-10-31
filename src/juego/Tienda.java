@@ -67,7 +67,11 @@ public class Tienda {
 		btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
 		btnComprarGuerrero.setBounds(0, 670, 100, 100);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//gui.getVentanaJuego().add(btnComprarGuerrero,0);
+=======
+		gui.getVentanaJuego().add(btnComprarGuerrero);
+>>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
 =======
 		gui.getVentanaJuego().add(btnComprarGuerrero);
 >>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
@@ -79,7 +83,11 @@ public class Tienda {
 		btnComprarBallesta.addActionListener(oyenteComprarBallesta);
 		btnComprarBallesta.setBounds(100, 670, 100, 100);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//gui.getVentanaJuego().add(btnComprarBallesta,0);
+=======
+		gui.getVentanaJuego().add(btnComprarBallesta);
+>>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
 =======
 		gui.getVentanaJuego().add(btnComprarBallesta);
 >>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
@@ -91,7 +99,11 @@ public class Tienda {
 		btnComprarMagoDeHielo.addActionListener(oyenteComprarMagoDeHielo);
 		btnComprarMagoDeHielo.setBounds(200, 670, 100, 100);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//gui.getVentanaJuego().add(btnComprarMagoDeHielo,0);
+=======
+		gui.getVentanaJuego().add(btnComprarMagoDeHielo);
+>>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
 =======
 		gui.getVentanaJuego().add(btnComprarMagoDeHielo);
 >>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
@@ -103,7 +115,11 @@ public class Tienda {
 		btnComprarMagoDeFuego.addActionListener(oyenteComprarMagoDeFuego);
 		btnComprarMagoDeFuego.setBounds(300, 670, 100, 100);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//gui.getVentanaJuego().add(btnComprarMagoDeFuego,0);
+=======
+		gui.getVentanaJuego().add(btnComprarMagoDeFuego);
+>>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
 =======
 		gui.getVentanaJuego().add(btnComprarMagoDeFuego);
 >>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
@@ -115,7 +131,11 @@ public class Tienda {
 		btnComprarEscudero.addActionListener(oyenteComprarEscudero);
 		btnComprarEscudero.setBounds(400,670, 100, 100);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//gui.getVentanaJuego().add(btnComprarEscudero,0);
+=======
+		gui.getVentanaJuego().add(btnComprarEscudero);
+>>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
 =======
 		gui.getVentanaJuego().add(btnComprarEscudero);
 >>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
@@ -127,7 +147,11 @@ public class Tienda {
 		btnComprarBarricada.addActionListener(oyenteComprarBarricada);
 		btnComprarBarricada.setBounds(500, 670, 100, 100);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//gui.getVentanaJuego().add(btnComprarBarricada,0);
+=======
+		gui.getVentanaJuego().add(btnComprarBarricada);
+>>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
 =======
 		gui.getVentanaJuego().add(btnComprarBarricada);
 >>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
