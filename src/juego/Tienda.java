@@ -13,8 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import adaptador.Adaptador;
-import aliadoFactory.AbstractAliadoFactory;
-import aliados.Aliado;
 import aliados.Ballesta;
 import aliados.Barricada;
 import aliados.Escudero;
@@ -31,17 +29,6 @@ public class Tienda {
 	private JButton btnComprarEscudero;
 	private JButton btnComprarBarricada;
 	
-	protected AbstractAliadoFactory btn1;
-	protected AbstractAliadoFactory btn2;
-	protected AbstractAliadoFactory btn3;
-	protected AbstractAliadoFactory btn4;
-	protected AbstractAliadoFactory btn5;
-	protected AbstractAliadoFactory btn6;
-	
-	protected Nivel nivel;
-	
-	protected AbstractAliadoFactory btnClickeado;
-	
 	protected int puntaje;
 	protected int monedas;
 	private JLabel labelPuntaje;
@@ -54,19 +41,18 @@ public class Tienda {
 	protected static GUI gui;
 	protected Adaptador adaptador;
 	
-	public Tienda(Nivel n) {
+	public Tienda() {
 		crearAliado=false;
 		aliadoComprado="";
 		gui=GUI.getGUI();
 		adaptador=Adaptador.getAdaptador();
-		nivel=n;
 		
 		//Creo el boton comprar Guerrero y lo agrego a la ventana
 		btnComprarGuerrero=new JButton("Guerrero");
 		oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
 		btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
 		btnComprarGuerrero.setBounds(0, 670, 100, 100);
-		//gui.getVentanaJuego().add(btnComprarGuerrero,0);
+		gui.getVentanaJuego().add(btnComprarGuerrero,0);
 		btnComprarGuerrero.setVisible(true);
 		
 		//Creo el boton comprar Ballesta y lo agrego a la ventana
@@ -74,7 +60,7 @@ public class Tienda {
 		oyenteComprarBallesta oyenteComprarBallesta =new oyenteComprarBallesta();
 		btnComprarBallesta.addActionListener(oyenteComprarBallesta);
 		btnComprarBallesta.setBounds(100, 670, 100, 100);
-		//gui.getVentanaJuego().add(btnComprarBallesta,0);
+		gui.getVentanaJuego().add(btnComprarBallesta,0);
 		btnComprarBallesta.setVisible(true);
 		
 		//Creo el boton comprar Mago de Hielo y lo agrego a la ventana
@@ -82,7 +68,7 @@ public class Tienda {
 		oyenteComprarMagoDeHielo oyenteComprarMagoDeHielo =new oyenteComprarMagoDeHielo();
 		btnComprarMagoDeHielo.addActionListener(oyenteComprarMagoDeHielo);
 		btnComprarMagoDeHielo.setBounds(200, 670, 100, 100);
-		//gui.getVentanaJuego().add(btnComprarMagoDeHielo,0);
+		gui.getVentanaJuego().add(btnComprarMagoDeHielo,0);
 		btnComprarMagoDeHielo.setVisible(true);
 		
 		//Creo el boton comprar Mago de Fuego y lo agrego a la ventana
@@ -90,7 +76,7 @@ public class Tienda {
 		oyenteComprarMagoDeFuego oyenteComprarMagoDeFuego =new oyenteComprarMagoDeFuego();
 		btnComprarMagoDeFuego.addActionListener(oyenteComprarMagoDeFuego);
 		btnComprarMagoDeFuego.setBounds(300, 670, 100, 100);
-		//gui.getVentanaJuego().add(btnComprarMagoDeFuego,0);
+		gui.getVentanaJuego().add(btnComprarMagoDeFuego,0);
 		btnComprarMagoDeFuego.setVisible(true);
 		
 		//Creo el boton comprar Escudero y lo agrego a la ventana
@@ -98,7 +84,7 @@ public class Tienda {
 		oyenteComprarEscudero oyenteComprarEscudero =new oyenteComprarEscudero();
 		btnComprarEscudero.addActionListener(oyenteComprarEscudero);
 		btnComprarEscudero.setBounds(400,670, 100, 100);
-		//gui.getVentanaJuego().add(btnComprarEscudero,0);
+		gui.getVentanaJuego().add(btnComprarEscudero,0);
 		btnComprarEscudero.setVisible(true);
 		
 		//Creo el boton comprar Barricada y lo agrego a la ventana
@@ -106,25 +92,8 @@ public class Tienda {
 		oyenteComprarBarricada oyenteComprarBarricada =new oyenteComprarBarricada();
 		btnComprarBarricada.addActionListener(oyenteComprarBarricada);
 		btnComprarBarricada.setBounds(500, 670, 100, 100);
-		//gui.getVentanaJuego().add(btnComprarBarricada,0);
+		gui.getVentanaJuego().add(btnComprarBarricada,0);
 		btnComprarBarricada.setVisible(true);
-		
-		AbstractAliadoFactory[] botones=new AbstractAliadoFactory[6];
-		botones[0]=btn1;
-		botones[1]=btn2;
-		botones[2]=btn3;
-		botones[3]=btn4;
-		botones[4]=btn5;
-		botones[5]=btn6;
-		nivel.instanciarBotones(botones);
-		
-		btn1=nivel.instanciarBoton();
-		oyenteComprarAliado oyenteComprarAliado=new oyenteComprarAliado();
-		btn1.addActionListener(oyenteComprarAliado);
-		btn1.setBounds(0, 670, 100, 100);
-		gui.getVentanaJuego().add(btn1,0);
-		btn1.setVisible(true);
-		
 		
 		//Creo la cuadrilla
 		cuadrilla=new JPanel();
@@ -132,7 +101,7 @@ public class Tienda {
 		llenarCuadrilla();
 		cuadrilla.setBounds(0,70,1110,600);
 		cuadrilla.setOpaque(false);
-		gui.getVentanaJuego().add(cuadrilla,0);
+		gui.getVentanaJuego().add(cuadrilla);
 		cuadrilla.setVisible(false);
 		
 		//Monedas
@@ -178,17 +147,6 @@ public class Tienda {
 	
 	public String aliadoComprado() {
 		return aliadoComprado;
-	}
-	
-	public void generarAliado(int x,int y) {
-		int[] arregloAuxiliar=traducirCoordenadas(x,y);
-		Aliado aliado=btnClickeado.crearAliado(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
-		adaptador.añadirElemento(aliado);
-		gui.getVentanaJuego().add(aliado.getGrafico(),0);
-		adaptador.chequearColision(aliado);
-		cuadrilla.setVisible(false);
-		crearAliado=false;
-		
 	}
 	
 	public void generarGuerrero(int x, int y) {
@@ -358,15 +316,6 @@ public class Tienda {
 		return toReturn;
 	}
 	
-	class oyenteComprarAliado implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			cuadrilla.setVisible(true);
-			crearAliado=true;
-			btnClickeado=(AbstractAliadoFactory)e.getSource();
-			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
-		}
-	}
-	
 	class oyenteComprarGuerrero implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			cuadrilla.setVisible(true);
@@ -429,25 +378,24 @@ public class Tienda {
 		@Override
 		public void mousePressed(MouseEvent evento) {
 			if(crearAliado) {
-				generarAliado(evento.getX(), evento.getY());
 				switch (aliadoComprado) {
 					case "Guerrero":
-						//generarGuerrero(evento.getX(), evento.getY());
+						generarGuerrero(evento.getX(), evento.getY());
 						break;
 					case "Ballesta":
-						//generarBallesta(evento.getX(), evento.getY());
+						generarBallesta(evento.getX(), evento.getY());
 						break;
 					case "MagoDeHielo":
-						//generarMagoDeHielo(evento.getX(), evento.getY());
+						generarMagoDeHielo(evento.getX(), evento.getY());
 						break;
 					case "MagoDeFuego":
-						//generarMagoDeFuego(evento.getX(), evento.getY());
+						generarMagoDeFuego(evento.getX(), evento.getY());
 						break;
 					case "Escudero":
-						//generarEscudero(evento.getX(), evento.getY());
+						generarEscudero(evento.getX(), evento.getY());
 						break;	
 					case "Barricada":
-						//generarBarricada(evento.getX(), evento.getY());
+						generarBarricada(evento.getX(), evento.getY());
 						break;		
 				}	
 			}
