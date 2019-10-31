@@ -47,6 +47,7 @@ public class Tienda {
 		adaptador=Adaptador.getAdaptador();
 		nivel=n;
 		
+<<<<<<< HEAD
 		btn1=nivel.instanciarBoton();
 		oyenteComprarAliado oyenteComprarAliado1=new oyenteComprarAliado();
 		btn1.addActionListener(oyenteComprarAliado1);
@@ -88,6 +89,55 @@ public class Tienda {
 		btn6.setBounds(500, 670, 100, 100);
 		gui.getVentanaJuego().add(btn6,0);
 		btn6.setVisible(true);
+=======
+		//Creo el boton comprar Guerrero y lo agrego a la ventana
+		btnComprarGuerrero=new JButton("Guerrero");
+		oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
+		btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
+		btnComprarGuerrero.setBounds(0, 670, 100, 100);
+		gui.getVentanaJuego().add(btnComprarGuerrero);
+		btnComprarGuerrero.setVisible(true);
+		
+		//Creo el boton comprar Ballesta y lo agrego a la ventana
+		btnComprarBallesta=new JButton("Ballesta");
+		oyenteComprarBallesta oyenteComprarBallesta =new oyenteComprarBallesta();
+		btnComprarBallesta.addActionListener(oyenteComprarBallesta);
+		btnComprarBallesta.setBounds(100, 670, 100, 100);
+		gui.getVentanaJuego().add(btnComprarBallesta);
+		btnComprarBallesta.setVisible(true);
+		
+		//Creo el boton comprar Mago de Hielo y lo agrego a la ventana
+		btnComprarMagoDeHielo=new JButton("Mago de Hielo");
+		oyenteComprarMagoDeHielo oyenteComprarMagoDeHielo =new oyenteComprarMagoDeHielo();
+		btnComprarMagoDeHielo.addActionListener(oyenteComprarMagoDeHielo);
+		btnComprarMagoDeHielo.setBounds(200, 670, 100, 100);
+		gui.getVentanaJuego().add(btnComprarMagoDeHielo);
+		btnComprarMagoDeHielo.setVisible(true);
+		
+		//Creo el boton comprar Mago de Fuego y lo agrego a la ventana
+		btnComprarMagoDeFuego=new JButton("Mago de Fuego");
+		oyenteComprarMagoDeFuego oyenteComprarMagoDeFuego =new oyenteComprarMagoDeFuego();
+		btnComprarMagoDeFuego.addActionListener(oyenteComprarMagoDeFuego);
+		btnComprarMagoDeFuego.setBounds(300, 670, 100, 100);
+		gui.getVentanaJuego().add(btnComprarMagoDeFuego);
+		btnComprarMagoDeFuego.setVisible(true);
+		
+		//Creo el boton comprar Escudero y lo agrego a la ventana
+		btnComprarEscudero=new JButton("Escudero");
+		oyenteComprarEscudero oyenteComprarEscudero =new oyenteComprarEscudero();
+		btnComprarEscudero.addActionListener(oyenteComprarEscudero);
+		btnComprarEscudero.setBounds(400,670, 100, 100);
+		gui.getVentanaJuego().add(btnComprarEscudero);
+		btnComprarEscudero.setVisible(true);
+		
+		//Creo el boton comprar Barricada y lo agrego a la ventana
+		btnComprarBarricada=new JButton("Barricada");
+		oyenteComprarBarricada oyenteComprarBarricada =new oyenteComprarBarricada();
+		btnComprarBarricada.addActionListener(oyenteComprarBarricada);
+		btnComprarBarricada.setBounds(500, 670, 100, 100);
+		gui.getVentanaJuego().add(btnComprarBarricada);
+		btnComprarBarricada.setVisible(true);
+>>>>>>> parent of 1fd95b2... asd
 		
 		//Creo la cuadrilla
 		cuadrilla=new JPanel();
@@ -143,12 +193,73 @@ public class Tienda {
 		return aliadoComprado;
 	}
 	
+<<<<<<< HEAD
 	public void generarAliado(int x,int y) {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		Aliado aliado=btnClickeado.crearAliado(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
 		adaptador.añadirElemento(aliado);
 		gui.getVentanaJuego().add(aliado.getGrafico(),0);
 		adaptador.chequearColision(aliado);
+=======
+	public void generarGuerrero(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Guerrero guerrero=new Guerrero(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
+		adaptador.añadirElemento(guerrero);
+		gui.getVentanaJuego().add(guerrero.getGrafico());
+		adaptador.chequearColision(guerrero);
+		cuadrilla.setVisible(false);
+		crearAliado=false;
+	}
+	
+	public void generarBallesta(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Ballesta ballesta=new Ballesta(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
+		adaptador.añadirElemento(ballesta);
+		gui.getVentanaJuego().add(ballesta.getGrafico());
+		adaptador.chequearColision(ballesta);	
+		cuadrilla.setVisible(false);
+		crearAliado=false;
+	}
+	
+	public void generarMagoDeHielo(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		MagoDeHielo MagoDeHielo=new MagoDeHielo(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
+		adaptador.añadirElemento(MagoDeHielo);
+		gui.getVentanaJuego().add(MagoDeHielo.getGrafico());
+		adaptador.chequearColision(MagoDeHielo);
+		cuadrilla.setVisible(false);
+		crearAliado=false;
+	}
+	
+	public void generarMagoDeFuego(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		MagoDeFuego MagoDeFuego=new MagoDeFuego(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
+		adaptador.añadirElemento(MagoDeFuego);
+		gui.getVentanaJuego().add(MagoDeFuego.getGrafico());
+		adaptador.chequearColision(MagoDeFuego);
+		cuadrilla.setVisible(false);
+		crearAliado=false;
+	}
+	
+	public void generarEscudero(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Escudero Escudero=new Escudero(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
+		adaptador.añadirElemento(Escudero);
+		gui.getVentanaJuego().add(Escudero.getGrafico());
+		adaptador.chequearColision(Escudero);
+		cuadrilla.setVisible(false);
+		crearAliado=false;
+	}
+	
+	public void generarBarricada(int x, int y) {
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		if(arregloAuxiliar[1]==150)
+			arregloAuxiliar[1]=250;
+		Barricada barricada=new Barricada(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
+		adaptador.añadirElemento(barricada);
+		gui.getVentanaJuego().add(barricada.getGrafico());
+		adaptador.chequearColision(barricada);
+>>>>>>> parent of 1fd95b2... asd
 		cuadrilla.setVisible(false);
 		crearAliado=false;
 		
