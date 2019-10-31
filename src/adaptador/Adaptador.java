@@ -35,11 +35,7 @@ public final class Adaptador {
 	
 	public void añadirElemento(Elemento e) {
 		elementos.añadirElemento(e);
-		agregarElementoGrafico(e.getGrafico());
-	}
-	
-	protected void agregarElementoGrafico(JLabel j) {
-		gui.getVentanaJuego().add(j);	
+		gui.getVentanaJuego().add(e.getGrafico(),0);
 	}
 	
 	public void chequearColision(Elemento e1,Elemento e2) {
