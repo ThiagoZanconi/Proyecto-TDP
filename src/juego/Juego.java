@@ -16,6 +16,7 @@ public final class Juego {
 	protected static final Juego juego=new Juego();
 	protected static HiloAparicionEnemigos hiloAparicionEnemigos;
 	protected static Hilo hiloGeneral;
+	protected static Nivel nivel;
 	
 	private Juego() {
 		elementos=Elementos.getElementos();
@@ -27,7 +28,8 @@ public final class Juego {
 	
 	public void iniciarJuego() {
 		gui=GUI.getGUI();
-		tienda=new Tienda();
+		nivel=new Nivel();
+		tienda=new Tienda(nivel);
 		hiloAparicionEnemigos=new HiloAparicionEnemigos(this);
 		hiloGeneral=new Hilo(this);
 		hiloGeneral.start();
