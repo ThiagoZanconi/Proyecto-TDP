@@ -49,37 +49,37 @@ public final class Juego {
 	private void generarCurador(int x,int y) {
 		Elemento curador=new Curador(x,y);
 		elementos.añadirElemento(curador);
-		gui.getVentanaJuego().add(curador.getGrafico(),0);
+		gui.getVentanaJuego().add(curador.getGrafico());
 	}
 	
 	private void generarInvocador(int x, int y) {
 		Invocador invocador=new Invocador(x,y);
 		elementos.añadirElemento(invocador);
-		gui.getVentanaJuego().add(invocador.getGrafico(),0);
+		gui.getVentanaJuego().add(invocador.getGrafico());
 	}
 	
 	private void generarNormal(int x, int y) {
 		Normal normal=new Normal(x,y);
 		elementos.añadirElemento(normal);
-		gui.getVentanaJuego().add(normal.getGrafico(),0);
+		gui.getVentanaJuego().add(normal.getGrafico());
 	}
 	
 	private void generarRango(int x,int y) {
 		Rango rango=new Rango(x,y);
 		elementos.añadirElemento(rango);
-		gui.getVentanaJuego().add(rango.getGrafico(),0);
+		gui.getVentanaJuego().add(rango.getGrafico());
 	}
 	
 	private void generarRapido(int x, int y) {
 		Rapido rapido=new Rapido(x,y);
 		elementos.añadirElemento(rapido);
-		gui.getVentanaJuego().add(rapido.getGrafico(),0);
+		gui.getVentanaJuego().add(rapido.getGrafico());
 	}
 	
 	private void generarTanque(int x, int y) {
 		Tanque tanque=new Tanque(x,y);
 		elementos.añadirElemento(tanque);
-		gui.getVentanaJuego().add(tanque.getGrafico(),0);
+		gui.getVentanaJuego().add(tanque.getGrafico());
 	}
 	
 	public void generarEnemigoAleatorio() {

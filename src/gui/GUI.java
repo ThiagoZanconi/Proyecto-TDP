@@ -172,7 +172,7 @@ public final class GUI extends JFrame {
 			mapaImagen=new JLabel();
 			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
 			mapaImagen.setBounds(0, 0, 1200, 800);
-			panelNivelUno.add(mapaImagen);
+			//panelNivelUno.add(mapaImagen);
 			ventanaNivelUno.setVisible(true);
 			setVisible(false);
 			
