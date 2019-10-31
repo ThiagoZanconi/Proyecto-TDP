@@ -8,26 +8,25 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import adaptador.Adaptador;
-import aliados.Ballesta;
-import aliados.Barricada;
-import aliados.Escudero;
-import aliados.Guerrero;
-import aliados.MagoDeFuego;
-import aliados.MagoDeHielo;
+import aliadoFactory.AbstractAliadoFactory;
+import aliados.Aliado;
 import gui.GUI;
 
 public class Tienda {
-	private JButton btnComprarGuerrero;
-	private JButton btnComprarBallesta;
-	private JButton btnComprarMagoDeHielo;
-	private JButton btnComprarMagoDeFuego;
-	private JButton btnComprarEscudero;
-	private JButton btnComprarBarricada;
+	protected AbstractAliadoFactory btn1;
+	protected AbstractAliadoFactory btn2;
+	protected AbstractAliadoFactory btn3;
+	protected AbstractAliadoFactory btn4;
+	protected AbstractAliadoFactory btn5;
+	protected AbstractAliadoFactory btn6;
+	
+	protected NivelUno nivel;
+	
+	protected AbstractAliadoFactory btnClickeado;
 	
 	protected int puntaje;
 	protected int monedas;
@@ -41,155 +40,54 @@ public class Tienda {
 	protected static GUI gui;
 	protected Adaptador adaptador;
 	
-	public Tienda() {
+	public Tienda(NivelUno n) {
 		crearAliado=false;
 		aliadoComprado="";
 		gui=GUI.getGUI();
 		adaptador=Adaptador.getAdaptador();
+		nivel=n;
 		
-		//Creo el boton comprar Guerrero y lo agrego a la ventana
-		btnComprarGuerrero=new JButton("Guerrero");
-		oyenteComprarGuerrero oyenteComprarGuerrero =new oyenteComprarGuerrero();
-		btnComprarGuerrero.addActionListener(oyenteComprarGuerrero);
-		btnComprarGuerrero.setBounds(0, 670, 100, 100);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		//gui.getVentanaJuego().add(btnComprarGuerrero,0);
-=======
-		gui.getVentanaJuego().add(btnComprarGuerrero);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarGuerrero);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarGuerrero,0);
->>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
-=======
-		gui.getVentanaJuego().add(btnComprarGuerrero);
->>>>>>> parent of 1fd95b2... asd
-		btnComprarGuerrero.setVisible(true);
+		btn1=nivel.instanciarBoton();
+		oyenteComprarAliado oyenteComprarAliado1=new oyenteComprarAliado();
+		btn1.addActionListener(oyenteComprarAliado1);
+		btn1.setBounds(0, 670, 100, 100);
+		gui.getVentanaJuego().add(btn1,0);
+		btn1.setVisible(true);
 		
-		//Creo el boton comprar Ballesta y lo agrego a la ventana
-		btnComprarBallesta=new JButton("Ballesta");
-		oyenteComprarBallesta oyenteComprarBallesta =new oyenteComprarBallesta();
-		btnComprarBallesta.addActionListener(oyenteComprarBallesta);
-		btnComprarBallesta.setBounds(100, 670, 100, 100);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		//gui.getVentanaJuego().add(btnComprarBallesta,0);
-=======
-		gui.getVentanaJuego().add(btnComprarBallesta);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarBallesta);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarBallesta,0);
->>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
-=======
-		gui.getVentanaJuego().add(btnComprarBallesta);
->>>>>>> parent of 1fd95b2... asd
-		btnComprarBallesta.setVisible(true);
+		btn2=nivel.instanciarBoton();
+		oyenteComprarAliado oyenteComprarAliado2=new oyenteComprarAliado();
+		btn2.addActionListener(oyenteComprarAliado2);
+		btn2.setBounds(100, 670, 100, 100);
+		gui.getVentanaJuego().add(btn2,0);
+		btn2.setVisible(true);
 		
-		//Creo el boton comprar Mago de Hielo y lo agrego a la ventana
-		btnComprarMagoDeHielo=new JButton("Mago de Hielo");
-		oyenteComprarMagoDeHielo oyenteComprarMagoDeHielo =new oyenteComprarMagoDeHielo();
-		btnComprarMagoDeHielo.addActionListener(oyenteComprarMagoDeHielo);
-		btnComprarMagoDeHielo.setBounds(200, 670, 100, 100);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		//gui.getVentanaJuego().add(btnComprarMagoDeHielo,0);
-=======
-		gui.getVentanaJuego().add(btnComprarMagoDeHielo);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarMagoDeHielo);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarMagoDeHielo,0);
->>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
-=======
-		gui.getVentanaJuego().add(btnComprarMagoDeHielo);
->>>>>>> parent of 1fd95b2... asd
-		btnComprarMagoDeHielo.setVisible(true);
+		btn3=nivel.instanciarBoton();
+		oyenteComprarAliado oyenteComprarAliado3=new oyenteComprarAliado();
+		btn3.addActionListener(oyenteComprarAliado3);
+		btn3.setBounds(200, 670, 100, 100);
+		gui.getVentanaJuego().add(btn3,0);
+		btn3.setVisible(true);
 		
-		//Creo el boton comprar Mago de Fuego y lo agrego a la ventana
-		btnComprarMagoDeFuego=new JButton("Mago de Fuego");
-		oyenteComprarMagoDeFuego oyenteComprarMagoDeFuego =new oyenteComprarMagoDeFuego();
-		btnComprarMagoDeFuego.addActionListener(oyenteComprarMagoDeFuego);
-		btnComprarMagoDeFuego.setBounds(300, 670, 100, 100);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		//gui.getVentanaJuego().add(btnComprarMagoDeFuego,0);
-=======
-		gui.getVentanaJuego().add(btnComprarMagoDeFuego);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarMagoDeFuego);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarMagoDeFuego,0);
->>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
-=======
-		gui.getVentanaJuego().add(btnComprarMagoDeFuego);
->>>>>>> parent of 1fd95b2... asd
-		btnComprarMagoDeFuego.setVisible(true);
+		btn4=nivel.instanciarBoton();
+		oyenteComprarAliado oyenteComprarAliado4=new oyenteComprarAliado();
+		btn4.addActionListener(oyenteComprarAliado4);
+		btn4.setBounds(300, 670, 100, 100);
+		gui.getVentanaJuego().add(btn4,0);
+		btn4.setVisible(true);
 		
-		//Creo el boton comprar Escudero y lo agrego a la ventana
-		btnComprarEscudero=new JButton("Escudero");
-		oyenteComprarEscudero oyenteComprarEscudero =new oyenteComprarEscudero();
-		btnComprarEscudero.addActionListener(oyenteComprarEscudero);
-		btnComprarEscudero.setBounds(400,670, 100, 100);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		//gui.getVentanaJuego().add(btnComprarEscudero,0);
-=======
-		gui.getVentanaJuego().add(btnComprarEscudero);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarEscudero);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarEscudero,0);
->>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
-=======
-		gui.getVentanaJuego().add(btnComprarEscudero);
->>>>>>> parent of 1fd95b2... asd
-		btnComprarEscudero.setVisible(true);
+		btn5=nivel.instanciarBoton();
+		oyenteComprarAliado oyenteComprarAliado5=new oyenteComprarAliado();
+		btn5.addActionListener(oyenteComprarAliado5);
+		btn5.setBounds(400, 670, 100, 100);
+		gui.getVentanaJuego().add(btn5,0);
+		btn5.setVisible(true);
 		
-		//Creo el boton comprar Barricada y lo agrego a la ventana
-		btnComprarBarricada=new JButton("Barricada");
-		oyenteComprarBarricada oyenteComprarBarricada =new oyenteComprarBarricada();
-		btnComprarBarricada.addActionListener(oyenteComprarBarricada);
-		btnComprarBarricada.setBounds(500, 670, 100, 100);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		//gui.getVentanaJuego().add(btnComprarBarricada,0);
-=======
-		gui.getVentanaJuego().add(btnComprarBarricada);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarBarricada);
->>>>>>> parent of 54471c4... Merge branch 'master' of https://github.com/ThiagoZanconi/Proyecto-TDP
-=======
-		gui.getVentanaJuego().add(btnComprarBarricada,0);
->>>>>>> parent of 7d4ff93... Faltan botones, no se asusten
-=======
-		gui.getVentanaJuego().add(btnComprarBarricada);
->>>>>>> parent of 1fd95b2... asd
-		btnComprarBarricada.setVisible(true);
+		btn6=nivel.instanciarBoton();
+		oyenteComprarAliado oyenteComprarAliado6=new oyenteComprarAliado();
+		btn6.addActionListener(oyenteComprarAliado6);
+		btn6.setBounds(500, 670, 100, 100);
+		gui.getVentanaJuego().add(btn6,0);
+		btn6.setVisible(true);
 		
 		//Creo la cuadrilla
 		cuadrilla=new JPanel();
@@ -197,7 +95,7 @@ public class Tienda {
 		llenarCuadrilla();
 		cuadrilla.setBounds(0,70,1110,600);
 		cuadrilla.setOpaque(false);
-		gui.getVentanaJuego().add(cuadrilla);
+		gui.getVentanaJuego().add(cuadrilla,0);
 		cuadrilla.setVisible(false);
 		
 		//Monedas
@@ -245,66 +143,15 @@ public class Tienda {
 		return aliadoComprado;
 	}
 	
-	public void generarGuerrero(int x, int y) {
+	public void generarAliado(int x,int y) {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
-		Guerrero guerrero=new Guerrero(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
-		adaptador.añadirElemento(guerrero);
-		gui.getVentanaJuego().add(guerrero.getGrafico());
-		adaptador.chequearColision(guerrero);
+		Aliado aliado=btnClickeado.crearAliado(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
+		adaptador.añadirElemento(aliado);
+		gui.getVentanaJuego().add(aliado.getGrafico(),0);
+		adaptador.chequearColision(aliado);
 		cuadrilla.setVisible(false);
 		crearAliado=false;
-	}
-	
-	public void generarBallesta(int x, int y) {
-		int[] arregloAuxiliar=traducirCoordenadas(x,y);
-		Ballesta ballesta=new Ballesta(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
-		adaptador.añadirElemento(ballesta);
-		gui.getVentanaJuego().add(ballesta.getGrafico());
-		adaptador.chequearColision(ballesta);	
-		cuadrilla.setVisible(false);
-		crearAliado=false;
-	}
-	
-	public void generarMagoDeHielo(int x, int y) {
-		int[] arregloAuxiliar=traducirCoordenadas(x,y);
-		MagoDeHielo MagoDeHielo=new MagoDeHielo(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
-		adaptador.añadirElemento(MagoDeHielo);
-		gui.getVentanaJuego().add(MagoDeHielo.getGrafico());
-		adaptador.chequearColision(MagoDeHielo);
-		cuadrilla.setVisible(false);
-		crearAliado=false;
-	}
-	
-	public void generarMagoDeFuego(int x, int y) {
-		int[] arregloAuxiliar=traducirCoordenadas(x,y);
-		MagoDeFuego MagoDeFuego=new MagoDeFuego(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
-		adaptador.añadirElemento(MagoDeFuego);
-		gui.getVentanaJuego().add(MagoDeFuego.getGrafico());
-		adaptador.chequearColision(MagoDeFuego);
-		cuadrilla.setVisible(false);
-		crearAliado=false;
-	}
-	
-	public void generarEscudero(int x, int y) {
-		int[] arregloAuxiliar=traducirCoordenadas(x,y);
-		Escudero Escudero=new Escudero(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
-		adaptador.añadirElemento(Escudero);
-		gui.getVentanaJuego().add(Escudero.getGrafico());
-		adaptador.chequearColision(Escudero);
-		cuadrilla.setVisible(false);
-		crearAliado=false;
-	}
-	
-	public void generarBarricada(int x, int y) {
-		int[] arregloAuxiliar=traducirCoordenadas(x,y);
-		if(arregloAuxiliar[1]==150)
-			arregloAuxiliar[1]=250;
-		Barricada barricada=new Barricada(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
-		adaptador.añadirElemento(barricada);
-		gui.getVentanaJuego().add(barricada.getGrafico());
-		adaptador.chequearColision(barricada);
-		cuadrilla.setVisible(false);
-		crearAliado=false;
+		
 	}
 	
 	private void descripcion(String nombreAliado, JTextArea texto, JLabel foto) {
@@ -412,60 +259,11 @@ public class Tienda {
 		return toReturn;
 	}
 	
-	class oyenteComprarGuerrero implements ActionListener{
+	class oyenteComprarAliado implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			cuadrilla.setVisible(true);
 			crearAliado=true;
-			aliadoComprado="Guerrero";
-			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
-		}
-		
-	}
-	
-	class oyenteComprarBallesta implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			cuadrilla.setVisible(true);
-			crearAliado=true;
-			aliadoComprado="Ballesta";
-			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
-		}
-		
-	}
-	
-	class oyenteComprarMagoDeHielo implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			cuadrilla.setVisible(true);
-			crearAliado=true;
-			aliadoComprado="MagoDeHielo";
-			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
-			
-		}
-	}
-	
-	class oyenteComprarMagoDeFuego implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			cuadrilla.setVisible(true);
-			crearAliado=true;
-			aliadoComprado="MagoDeFuego";
-			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
-			
-		}
-	}
-	
-	class oyenteComprarEscudero implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			cuadrilla.setVisible(true);
-			crearAliado=true;
-			aliadoComprado="Escudero";
-			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
-		}
-	}
-	
-	class oyenteComprarBarricada implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			cuadrilla.setVisible(true);
-			crearAliado=true;
-			aliadoComprado="Barricada";
+			btnClickeado=(AbstractAliadoFactory)e.getSource();
 			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
 		}
 	}
@@ -474,28 +272,8 @@ public class Tienda {
 		@Override
 		public void mousePressed(MouseEvent evento) {
 			if(crearAliado) {
-				switch (aliadoComprado) {
-					case "Guerrero":
-						generarGuerrero(evento.getX(), evento.getY());
-						break;
-					case "Ballesta":
-						generarBallesta(evento.getX(), evento.getY());
-						break;
-					case "MagoDeHielo":
-						generarMagoDeHielo(evento.getX(), evento.getY());
-						break;
-					case "MagoDeFuego":
-						generarMagoDeFuego(evento.getX(), evento.getY());
-						break;
-					case "Escudero":
-						generarEscudero(evento.getX(), evento.getY());
-						break;	
-					case "Barricada":
-						generarBarricada(evento.getX(), evento.getY());
-						break;		
-				}	
-			}
-			
+				generarAliado(evento.getX(), evento.getY());	
+			}	
 		}
 		@Override
 		public void mouseReleased(MouseEvent evento) {
@@ -514,4 +292,5 @@ public class Tienda {
 			
 		}
 	};
+	
 }
