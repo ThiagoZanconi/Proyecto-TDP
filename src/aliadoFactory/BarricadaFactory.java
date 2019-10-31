@@ -4,6 +4,9 @@ import aliados.Aliado;
 import aliados.Barricada;
 
 public class BarricadaFactory extends AbstractAliadoFactory{
+	public BarricadaFactory() {
+		super();
+	}
 
 	@Override
 	public Aliado crearAliado(int x, int y) {
