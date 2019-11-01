@@ -63,6 +63,10 @@ public final class Adaptador {
 		}
 	}
 	
+	public void actualizarMonedas(int cantidad) {
+		juego.actualizarMonedas(cantidad);
+	}
+	
 	public void crearDisparoEnemigo(Enemigo e) {
 		
 	}

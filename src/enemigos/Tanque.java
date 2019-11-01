@@ -10,7 +10,8 @@ import visitor.VisitorEnemigo;
 public class Tanque extends Enemigo {
 
 	public Tanque(int x, int y) {
-		super(500,100,2000,100);
+		super(500,100,1000,100);
+		cantidadMonedas=100;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Tanque\\TanqueWalk.gif"));

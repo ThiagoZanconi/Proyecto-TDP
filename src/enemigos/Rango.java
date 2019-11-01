@@ -9,7 +9,8 @@ import visitor.VisitorEnemigo;
 public class Rango extends Enemigo {
 
 	public Rango(int x, int y) {
-		super(100,100,1000,100);
+		super(100,100,750,100);
+		cantidadMonedas=100;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Rango\\RangoAttack+Walk.gif"));

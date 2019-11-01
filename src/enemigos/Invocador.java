@@ -9,7 +9,8 @@ import visitor.VisitorEnemigo;
 public class Invocador extends Enemigo {
 
 	public Invocador(int x, int y) {
-		super(10,100,1000,100);
+		super(10,100,750,100);
+		cantidadMonedas=100;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Invocador\\InvocadorWalk.gif"));

@@ -6,7 +6,8 @@ import visitor.VisitorEnemigo;
 public class Curador extends Enemigo {
 
 	public Curador(int x, int y) {
-		super(10,100,1000,100);
+		super(10,100,650,100);
+		cantidadMonedas=100;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Curador\\CuradorWalk.gif"));

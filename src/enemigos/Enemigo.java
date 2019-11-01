@@ -30,6 +30,16 @@ public abstract class Enemigo extends Personaje {
 		mover();
 	}
 	
+	public void destruir() {
+		adaptador.eliminarElemento(this);
+		graficoActual.setVisible(false);
+		otorgarMonedas();
+	}
+	
+	public void otorgarMonedas() {
+		adaptador.actualizarMonedas(cantidadMonedas);
+	}
+	
 	/**
 	 * Caminar
 	 */

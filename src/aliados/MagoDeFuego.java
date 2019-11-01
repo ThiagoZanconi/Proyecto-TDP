@@ -9,7 +9,7 @@ import visitor.VisitorAliado;
 public class MagoDeFuego extends Aliado {
 
 	public MagoDeFuego(int x,int y) {
-		super(100,100,100,100);
+		super(150,100,500,100);
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\MagoDeFuego\\MagoFAttack.gif"));
 		graficoActual = new JLabel();

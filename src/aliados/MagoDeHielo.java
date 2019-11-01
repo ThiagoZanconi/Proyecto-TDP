@@ -9,7 +9,7 @@ import visitor.VisitorAliado;
 public class MagoDeHielo extends Aliado {
 
 	public MagoDeHielo(int x,int y) {
-		super(100,100,100,100);
+		super(150,100,400,100);
 		this.imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\MagoDeHielo\\MagoHIdle.gif"));
 		this.graficoActual = new JLabel();
