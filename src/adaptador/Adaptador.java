@@ -1,10 +1,10 @@
 package adaptador;
 
-import javax.swing.JLabel;
-
 import gui.GUI;
 import juego.Elemento;
 import juego.Elementos;
+import juego.Juego;
+import juego.Nivel;
 import juego.Personaje;
 /**
  * Se utiliza para comunicar a los elementos con la clase Elementos para que solo tengan acceso a las operaciones necesarias
@@ -12,13 +12,17 @@ import juego.Personaje;
  *
  */
 public final class Adaptador {
+	protected static Juego juego;
 	protected static GUI gui;
 	protected static Elementos elementos;
 	protected static final Adaptador adaptador=new Adaptador();
+	protected Nivel nivel;
 	
 	private Adaptador() {
 		elementos=Elementos.getElementos();
 		gui=GUI.getGUI();
+		juego=Juego.getJuego();
+		nivel=juego.getNivel();
 	}
 	
 	public static Adaptador getAdaptador() {
@@ -51,9 +55,7 @@ public final class Adaptador {
 			if(e1!=elementos.getElemento(i)) {
 				chequearColision(elementos.getElemento(i),e1);
 			}
-			
 		}
 	}
 	
-
 }

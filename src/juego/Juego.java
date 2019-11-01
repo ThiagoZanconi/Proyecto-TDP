@@ -1,11 +1,5 @@
 package juego;
-import java.util.Random;
-import enemigos.Curador;
-import enemigos.Invocador;
-import enemigos.Normal;
-import enemigos.Rango;
-import enemigos.Rapido;
-import enemigos.Tanque;
+import enemigos.Enemigo;
 import gui.*;
 
 public final class Juego {
@@ -36,93 +30,14 @@ public final class Juego {
 		hiloAparicionEnemigos.start();
 	}
 	
-	public boolean crearAliado() {
-		return tienda.crearAliado();
-	}
-	
-	public String aliadoComprado() {
-		return tienda.aliadoComprado();
-	}
-
-	//Enemigos
-	
-	private void generarCurador(int x,int y) {
-		Elemento curador=new Curador(x,y);
-		elementos.añadirElemento(curador);
-		gui.getVentanaJuego().add(curador.getGrafico(),0);
-	}
-	
-	private void generarInvocador(int x, int y) {
-		Invocador invocador=new Invocador(x,y);
-		elementos.añadirElemento(invocador);
-		gui.getVentanaJuego().add(invocador.getGrafico(),0);
-	}
-	
-	private void generarNormal(int x, int y) {
-		Normal normal=new Normal(x,y);
-		elementos.añadirElemento(normal);
-		gui.getVentanaJuego().add(normal.getGrafico(),0);
-	}
-	
-	private void generarRango(int x,int y) {
-		Rango rango=new Rango(x,y);
-		elementos.añadirElemento(rango);
-		gui.getVentanaJuego().add(rango.getGrafico(),0);
-	}
-	
-	private void generarRapido(int x, int y) {
-		Rapido rapido=new Rapido(x,y);
-		elementos.añadirElemento(rapido);
-		gui.getVentanaJuego().add(rapido.getGrafico(),0);
-	}
-	
-	private void generarTanque(int x, int y) {
-		Tanque tanque=new Tanque(x,y);
-		elementos.añadirElemento(tanque);
-		gui.getVentanaJuego().add(tanque.getGrafico(),0);
+	public Nivel getNivel() {
+		return nivel;
 	}
 	
 	public void generarEnemigoAleatorio() {
-		Random r=new Random();
-		int fila=traducirFila(r.nextInt(700));
-		int n=r.nextInt(100);
-		if(n<30)
-			generarNormal(-65,fila);
-		else
-			if(n<50)
-				generarRapido(-65,fila);
-			else
-				if(n<70)
-					generarTanque(-65,fila);
-				else
-					if(n<84)
-						generarRango(-65,fila);
-					else
-						if(n<92)
-							generarCurador(-65,fila);
-						else
-							generarInvocador(-65,fila);
-	}
-	
-	private int traducirFila(int y) {
-		int toReturn;
-		if(y<200)
-			toReturn=150;
-		else
-			if(y<300)
-				toReturn=250;
-			else
-				if(y<400)
-					toReturn=350;
-				else
-					if(y<500)
-						toReturn=450;
-					else
-						if(y<600)
-							toReturn=550;
-						else
-							toReturn=650;
-		return toReturn-550;
+		Enemigo enemigo=nivel.generarEnemigoAleatorio();
+		elementos.añadirElemento(enemigo);
+		gui.getVentanaJuego().add(enemigo.getGrafico(),0);
 	}
 	
 	/**

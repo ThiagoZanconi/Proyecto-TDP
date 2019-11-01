@@ -19,7 +19,17 @@ public class Invocador extends Enemigo {
 		miVisitor=new VisitorEnemigo(this);
 	}
 	
+	public void actividadSinColision(){
+		adaptador.chequearColisionDeAtaques(this);
+		mover();
+		invocar();
+	}
+	
 	public void atacar() {
+		
+	}
+	
+	public void invocar() {
 		
 	}
 

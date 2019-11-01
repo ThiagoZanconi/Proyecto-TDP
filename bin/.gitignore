@@ -1,6 +1,12 @@
+/abstractFactory/
+/adaptador/
+/aliadoFactory/
+/aliados/
 /disparos/
 /enemigos/
 /gui/
 /juego/
 /visitor/
-/aliadoFactory/
+/stateEnemigo/
+/abstractEnemigoFactory/
+/enemigoFactory/

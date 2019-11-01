@@ -1,9 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.EventQueue;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -31,10 +29,8 @@ public final class GUI extends JFrame {
 	private JPanel contentPane;
 	private JLabel menuImagen;
 	private JLabel menuLluvia;
-	
-	private int puntaje;
+
 	private JLabel mapaImagen;
-	private JLabel labelPuntaje;
 	
 	private JTextArea textoDescripcion;
 	private JLabel fotoDescripcion;
@@ -202,17 +198,7 @@ public final class GUI extends JFrame {
 			panelNivelUno=new JPanel();
 			panelNivelUno.setBorder(new EmptyBorder(5, 5, 5, 5));
 			ventanaNivelUno.setContentPane(panelNivelUno);
-			panelNivelUno.setLayout(null);
-			
-			//Creo el label puntaje y lo inicio en 0
-			labelPuntaje= new JLabel();
-			puntaje= 0;
-			labelPuntaje.setText(String.valueOf(puntaje));
-			labelPuntaje.setBounds(400,30,40,30);
-			labelPuntaje.setBorder(BorderFactory.createLineBorder(Color.black));
-			labelPuntaje.setBackground(Color.green);
-			labelPuntaje.setOpaque(true);
-			ventanaNivelUno.add(labelPuntaje);
+			panelNivelUno.setLayout(null);	
 			
 			//Creo el mapa y lo agrego a la ventana
 			mapaImagen=new JLabel();

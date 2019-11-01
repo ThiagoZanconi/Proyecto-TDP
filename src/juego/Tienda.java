@@ -16,15 +16,10 @@ import aliadoFactory.AbstractAliadoFactory;
 import aliados.Aliado;
 import gui.GUI;
 
-public class Tienda {
-	protected AbstractAliadoFactory btn1;
-	protected AbstractAliadoFactory btn2;
-	protected AbstractAliadoFactory btn3;
-	protected AbstractAliadoFactory btn4;
-	protected AbstractAliadoFactory btn5;
-	protected AbstractAliadoFactory btn6;
+public class Tienda {	
+	protected AbstractAliadoFactory []botones;
 	
-	protected NivelUno nivel;
+	protected Nivel nivel;
 	
 	protected AbstractAliadoFactory btnClickeado;
 	
@@ -40,54 +35,41 @@ public class Tienda {
 	protected static GUI gui;
 	protected Adaptador adaptador;
 	
-	public Tienda(NivelUno n) {
+	public Tienda(Nivel n) {
 		crearAliado=false;
 		aliadoComprado="";
 		gui=GUI.getGUI();
 		adaptador=Adaptador.getAdaptador();
 		nivel=n;
 		
-		btn1=nivel.instanciarBoton();
-		oyenteComprarAliado oyenteComprarAliado1=new oyenteComprarAliado();
-		btn1.addActionListener(oyenteComprarAliado1);
-		btn1.setBounds(0, 670, 100, 100);
-		gui.getVentanaJuego().add(btn1,0);
-		btn1.setVisible(true);
+		botones=new AbstractAliadoFactory[6];
+		nivel.instanciarBotones(botones);
+		oyenteComprarAliado oyenteComprarAliado=new oyenteComprarAliado();
 		
-		btn2=nivel.instanciarBoton();
-		oyenteComprarAliado oyenteComprarAliado2=new oyenteComprarAliado();
-		btn2.addActionListener(oyenteComprarAliado2);
-		btn2.setBounds(100, 670, 100, 100);
-		gui.getVentanaJuego().add(btn2,0);
-		btn2.setVisible(true);
+		botones[0].setBounds(0, 670, 100, 100);
+		botones[0].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botones[0],0);
 		
-		btn3=nivel.instanciarBoton();
-		oyenteComprarAliado oyenteComprarAliado3=new oyenteComprarAliado();
-		btn3.addActionListener(oyenteComprarAliado3);
-		btn3.setBounds(200, 670, 100, 100);
-		gui.getVentanaJuego().add(btn3,0);
-		btn3.setVisible(true);
+		botones[1].setBounds(100, 670, 100, 100);
+		botones[1].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botones[1],0);
 		
-		btn4=nivel.instanciarBoton();
-		oyenteComprarAliado oyenteComprarAliado4=new oyenteComprarAliado();
-		btn4.addActionListener(oyenteComprarAliado4);
-		btn4.setBounds(300, 670, 100, 100);
-		gui.getVentanaJuego().add(btn4,0);
-		btn4.setVisible(true);
 		
-		btn5=nivel.instanciarBoton();
-		oyenteComprarAliado oyenteComprarAliado5=new oyenteComprarAliado();
-		btn5.addActionListener(oyenteComprarAliado5);
-		btn5.setBounds(400, 670, 100, 100);
-		gui.getVentanaJuego().add(btn5,0);
-		btn5.setVisible(true);
+		botones[2].setBounds(200, 670, 100, 100);
+		botones[2].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botones[2],0);
 		
-		btn6=nivel.instanciarBoton();
-		oyenteComprarAliado oyenteComprarAliado6=new oyenteComprarAliado();
-		btn6.addActionListener(oyenteComprarAliado6);
-		btn6.setBounds(500, 670, 100, 100);
-		gui.getVentanaJuego().add(btn6,0);
-		btn6.setVisible(true);
+		botones[3].setBounds(300, 670, 100, 100);
+		botones[3].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botones[3],0);
+		
+		botones[4].setBounds(400, 670, 100, 100);
+		botones[4].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botones[4],0);
+		
+		botones[5].setBounds(500, 670, 100, 100);
+		botones[5].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botones[5],0);
 		
 		//Creo la cuadrilla
 		cuadrilla=new JPanel();
