@@ -1,5 +1,6 @@
 package adaptador;
 
+import enemigos.Enemigo;
 import gui.GUI;
 import juego.Elemento;
 import juego.Elementos;
@@ -33,18 +34,22 @@ public final class Adaptador {
 		elementos.eliminarElemento(e);
 	}
 	
-	public void chequearColisionDeAtaques(Personaje p) {
-		elementos.chequearColisionDeAtaques(p);
-	}
-	
 	public void añadirElemento(Elemento e) {
 		elementos.añadirElemento(e);
 		gui.getVentanaJuego().add(e.getGrafico(),0);
 	}
 	
+	public void chequearColisionDeAtaques(Personaje p) {
+		elementos.chequearColisionDeAtaques(p);
+	}
+	
 	public void chequearColision(Elemento e1,Elemento e2) {
 		elementos.chequearColision(e1,e2);
 	}	
+	
+	public Enemigo generarEnemigoAleatorio(int x,int y) {
+		return nivel.generarEnemigoAleatorio(x,y);
+	}
 	
 	/**
 	 * Chequea la colision de un elemento con todos los otros elementos
@@ -56,6 +61,10 @@ public final class Adaptador {
 				chequearColision(elementos.getElemento(i),e1);
 			}
 		}
+	}
+	
+	public void crearDisparoEnemigo(Enemigo e) {
+		
 	}
 	
 }

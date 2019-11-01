@@ -84,7 +84,7 @@ public class Tienda {
 		imagenMonedas=new JLabel();
 		imagenMonedas.setIcon(new ImageIcon("Sprites\\monedas.png"));
 		imagenMonedas.setBounds(650, 30, 32, 32);
-		gui.getVentanaJuego().add(imagenMonedas);
+		gui.getVentanaJuego().add(imagenMonedas,0);
 		monedas=100;
 		labelMonedas=new JLabel();
 		labelMonedas.setText(String.valueOf(monedas));
@@ -92,7 +92,7 @@ public class Tienda {
 		labelMonedas.setBorder(BorderFactory.createLineBorder(Color.black));
 		labelMonedas.setBackground(Color.green);
 		labelMonedas.setOpaque(true);
-		gui.getVentanaJuego().add(labelMonedas);
+		gui.getVentanaJuego().add(labelMonedas,0);
 		
 		//Puntaje
 		puntaje= 0;
@@ -102,7 +102,7 @@ public class Tienda {
 		labelPuntaje.setBorder(BorderFactory.createLineBorder(Color.black));
 		labelPuntaje.setBackground(Color.green);
 		labelPuntaje.setOpaque(true);
-		gui.getVentanaJuego().add(labelPuntaje);
+		gui.getVentanaJuego().add(labelPuntaje,0);
 		
 		//Añado el MouseListener
 		gui.getVentanaJuego().addMouseListener(click);	
@@ -134,6 +134,11 @@ public class Tienda {
 		cuadrilla.setVisible(false);
 		crearAliado=false;
 		
+	}
+	
+	public void actualizarMonedas(int cantidad) {
+		monedas+=cantidad;
+		labelMonedas.setText(String.valueOf(monedas));
 	}
 	
 	private void descripcion(String nombreAliado, JTextArea texto, JLabel foto) {

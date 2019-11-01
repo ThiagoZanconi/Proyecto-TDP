@@ -40,6 +40,9 @@ public final class Juego {
 		gui.getVentanaJuego().add(enemigo.getGrafico(),0);
 	}
 	
+	public void actualizarMonedas(int cantidad) {
+		tienda.actualizarMonedas(cantidad);
+	}
 	/**
 	 * 
 	 */
@@ -51,6 +54,7 @@ public final class Juego {
 			}	
 		}
 		elementos.eliminar();
+		actualizarMonedas(1);
 	}
 
 }

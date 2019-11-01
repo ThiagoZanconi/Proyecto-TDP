@@ -30,7 +30,7 @@ public class Invocador extends Enemigo {
 	}
 	
 	public void invocar() {
-		
+		adaptador.generarEnemigoAleatorio((int)rectangulo.getX() + 100,(int)rectangulo.getY());
 	}
 
 }

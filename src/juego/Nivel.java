@@ -9,6 +9,7 @@ import aliadoFactory.EscuderoFactory;
 import aliadoFactory.GuerreroFactory;
 import aliadoFactory.MagoDeFuegoFactory;
 import aliadoFactory.MagoDeHieloFactory;
+import disparos.DisparoEnemigo;
 import enemigoFactory.AbstractEnemigoFactory;
 import enemigoFactory.CuradorFactory;
 import enemigoFactory.InvocadorFactory;
@@ -39,6 +40,28 @@ public abstract class Nivel {
 		botones[5]=new BarricadaFactory();
 		botones[5].setText("Barricada");
 	}
+	public Enemigo generarEnemigoAleatorio(int x,int y) {
+		Enemigo toReturn=null;
+		Random r=new Random();
+		int n=r.nextInt(100);
+		if(n<30)
+			toReturn=generarNormal(x,y);
+		else
+			if(n<50)
+				toReturn=generarRapido(x,y);
+			else
+				if(n<70)
+					toReturn=generarTanque(x,y);
+				else
+					if(n<84)
+						toReturn=generarRango(x,y);
+					else
+						if(n<92)
+							toReturn=generarCurador(x,y);
+						else
+							toReturn=generarInvocador(x,y);
+		return toReturn;	
+	}
 	
 	public Enemigo generarEnemigoAleatorio() {
 		Enemigo toReturn=null;
@@ -64,43 +87,47 @@ public abstract class Nivel {
 		return toReturn;
 	}
 	
-	private Enemigo generarInvocador(int x, int y) {
+	public DisparoEnemigo crearDisparo(Enemigo e) {
+		return null;
+	}
+	
+	protected Enemigo generarInvocador(int x, int y) {
 		AbstractEnemigoFactory f=new InvocadorFactory();
 		Enemigo toReturn=f.crearEnemigo(x, y);
 		return toReturn;
 	}
 
-	private Enemigo generarCurador(int x, int y) {
+	protected Enemigo generarCurador(int x, int y) {
 		AbstractEnemigoFactory f=new CuradorFactory();
 		Enemigo toReturn=f.crearEnemigo(x, y);
 		return toReturn;
 	}
 
-	private Enemigo generarRango(int x, int y) {
+	protected Enemigo generarRango(int x, int y) {
 		AbstractEnemigoFactory f=new RangoFactory();
 		Enemigo toReturn=f.crearEnemigo(x, y);
 		return toReturn;
 	}
 
-	private Enemigo generarTanque(int x, int y) {
+	protected Enemigo generarTanque(int x, int y) {
 		AbstractEnemigoFactory f=new TanqueFactory();
 		Enemigo toReturn=f.crearEnemigo(x, y);
 		return toReturn;
 	}
 
-	private Enemigo generarRapido(int x, int y) {
+	protected Enemigo generarRapido(int x, int y) {
 		AbstractEnemigoFactory f=new RapidoFactory();
 		Enemigo toReturn=f.crearEnemigo(x, y);
 		return toReturn;
 	}
 
-	private Enemigo generarNormal(int x, int y) {
+	protected Enemigo generarNormal(int x, int y) {
 		AbstractEnemigoFactory f=new NormalFactory();
 		Enemigo toReturn=f.crearEnemigo(x, y);
 		return toReturn;
 	}
 
-	private int traducirFila(int y) {
+	protected int traducirFila(int y) {
 		int toReturn;
 		if(y<200)
 			toReturn=150;
