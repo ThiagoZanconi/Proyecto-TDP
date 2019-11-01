@@ -2,6 +2,8 @@ package enemigos;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import gui.HiloVelocidadAtaque;
 import visitor.VisitorEnemigo;
 
 public class Invocador extends Enemigo {
@@ -30,7 +32,13 @@ public class Invocador extends Enemigo {
 	}
 	
 	public void invocar() {
-		adaptador.generarEnemigoAleatorio((int)rectangulo.getX() + 100,(int)rectangulo.getY());
+		if(puedeAtacar) {
+			Enemigo x=adaptador.generarEnemigoAleatorio((int)rectangulo.getX() + 100,(int)rectangulo.getY());
+			adaptador.añadirElemento(x);
+			HiloVelocidadAtaque hilo=new HiloVelocidadAtaque(this);
+			hilo.start();
+		}
+		
 	}
 
 }
