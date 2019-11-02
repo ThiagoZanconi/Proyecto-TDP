@@ -1,7 +1,6 @@
 package juego;
 
 import java.awt.Rectangle;
-
 import visitor.Visitor;
 import visitor.VisitorElementoDerrota;
 
@@ -10,7 +9,7 @@ public class ElementoDerrota extends Elemento {
 	public ElementoDerrota() {
 		super(-1);
 		rectangulo=new Rectangle();
-		rectangulo.setBounds(1110,100,50,800);//Hay que ajustar colision
+		rectangulo.setBounds(1110,-450,50,800);
 		miVisitor=new VisitorElementoDerrota(this);
 	}
 
@@ -25,7 +24,7 @@ public class ElementoDerrota extends Elemento {
 	}
 	
 	public void derrota() {
-		System.out.println("Derrota");
+		//Abrir ventana Con cartel que muestre la derrota y un boton aceptar para volver al menu principal
 	}
 
 }
