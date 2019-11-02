@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -18,8 +19,8 @@ import gui.GUI;
 
 public class Tienda {	
 	protected AbstractAliadoFactory []botones;
+	protected JButton btnVender;
 	
-	protected Nivel nivel;
 	
 	protected AbstractAliadoFactory btnClickeado;
 	
@@ -31,8 +32,10 @@ public class Tienda {
 	
 	protected JPanel cuadrilla;
 	protected boolean crearAliado;
+	protected boolean vender;
 	protected String aliadoComprado;
 	protected static GUI gui;
+	protected Nivel nivel;
 	protected Adaptador adaptador;
 	
 	public Tienda(Nivel n) {
@@ -44,7 +47,7 @@ public class Tienda {
 		
 		botones=new AbstractAliadoFactory[6];
 		nivel.instanciarBotones(botones);
-		oyenteComprarAliado oyenteComprarAliado=new oyenteComprarAliado();
+		OyenteComprarAliado oyenteComprarAliado=new OyenteComprarAliado();
 		
 		botones[0].setBounds(0, 670, 100, 100);
 		botones[0].addActionListener(oyenteComprarAliado);
@@ -70,6 +73,12 @@ public class Tienda {
 		botones[5].setBounds(500, 670, 100, 100);
 		botones[5].addActionListener(oyenteComprarAliado);
 		gui.getVentanaJuego().add(botones[5],0);
+		
+		btnVender=new JButton("Vender");
+		btnVender.setBounds(600,670,100,100);
+		OyenteBotonVender oyenteVender=new OyenteBotonVender();
+		btnVender.addActionListener(oyenteVender);
+		gui.getVentanaJuego().add(btnVender,0);
 		
 		//Creo la cuadrilla
 		cuadrilla=new JPanel();
@@ -119,6 +128,14 @@ public class Tienda {
 	
 	public boolean crearAliado() {
 		return crearAliado;
+	}
+	
+	public boolean getVender() {
+		return vender;
+	}
+	
+	public void setVender(boolean b) {
+		vender=b;	
 	}
 	
 	public String aliadoComprado() {
@@ -248,7 +265,13 @@ public class Tienda {
 		return toReturn;
 	}
 	
-	class oyenteComprarAliado implements ActionListener{
+	class OyenteBotonVender implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			vender=true;
+		}
+	}
+	
+	class OyenteComprarAliado implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			cuadrilla.setVisible(true);
 			crearAliado=true;
@@ -281,5 +304,7 @@ public class Tienda {
 			
 		}
 	};
+
+	
 	
 }

@@ -13,7 +13,7 @@ public class Invocador extends Enemigo {
 		cantidadMonedas=100;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();
-		imagenes[0].setIcon(new ImageIcon("Sprites\\Invocador\\InvocadorWalk.gif"));
+		imagenes[0].setIcon(new ImageIcon("Sprites\\Invocador\\InvocadorSummon.gif"));
 		graficoActual = new JLabel();
 		graficoActual.setIcon(imagenes[0].getIcon());
 		graficoActual.setBounds(x,y,1000,1000);

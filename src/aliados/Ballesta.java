@@ -16,6 +16,10 @@ public class Ballesta extends Aliado {
 		graficoActual = new JLabel();
 		graficoActual.setIcon(imagenes[0].getIcon());
 		graficoActual.setBounds(x, y, 1000,1000);
+		colisionVenta=new JLabel();
+		colisionVenta.setBounds(x,y,80,60);
+		//OyenteVenderAliado oyenteVender=new OyenteVenderAliado();
+		//graficoActual.addMouseListener( click);       El grafico es muy grande para que tenga un mouselistener
 		alcanceDeAtaque=new Rectangle(x-700,y,700,70);
 		rectangulo=new Rectangle(x,y,80,60);
 		miVisitor=new VisitorAliado(this);

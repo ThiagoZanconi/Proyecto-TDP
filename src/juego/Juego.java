@@ -27,7 +27,7 @@ public final class Juego {
 		Elemento elementoDerrota=new ElementoDerrota();
 		elementos.añadirElemento(elementoDerrota);
 		Adaptador adaptador=Adaptador.getAdaptador();
-		adaptador.instanciarAtributos(elementos,nivel);
+		adaptador.instanciarAtributos(elementos,nivel,tienda);
 	}
 	
 	public void iniciarNivelDos() {

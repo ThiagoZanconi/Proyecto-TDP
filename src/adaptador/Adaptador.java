@@ -7,6 +7,7 @@ import juego.Elementos;
 import juego.Juego;
 import juego.Nivel;
 import juego.Personaje;
+import juego.Tienda;
 /**
  * Se utiliza para comunicar a los elementos con la clase Elementos para que solo tengan acceso a las operaciones necesarias
  * @author Usuario Final
@@ -18,6 +19,7 @@ public final class Adaptador {
 	protected static Elementos elementos;
 	protected static final Adaptador adaptador=new Adaptador();
 	protected Nivel nivel;
+	protected Tienda tienda;
 	
 	private Adaptador() {
 		gui=GUI.getGUI();
@@ -28,9 +30,10 @@ public final class Adaptador {
 		return adaptador;
 	}
 	
-	public void instanciarAtributos(Elementos e,Nivel n) {
+	public void instanciarAtributos(Elementos e,Nivel n,Tienda t) {
 		nivel=n;
 		elementos=e;
+		tienda=t;
 	}
 	
 	public void eliminarElemento(Elemento e) {
@@ -70,10 +73,19 @@ public final class Adaptador {
 		juego.actualizarMonedas(cantidad);
 	}
 	
+	public boolean hayQueVender() {
+		return tienda.getVender();
+	}
+	
+	public void huboVenta(int c) {
+		actualizarMonedas(c);
+		tienda.setVender(false);
+	}
+	
 	public void crearDisparoEnemigo(Enemigo e) {
 		
 	}
-
+	
 	public void terminarJuego() {
 		nivel.detenerJuego();
 	}
