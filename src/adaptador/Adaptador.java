@@ -20,14 +20,17 @@ public final class Adaptador {
 	protected Nivel nivel;
 	
 	private Adaptador() {
-		elementos=Elementos.getElementos();
 		gui=GUI.getGUI();
 		juego=Juego.getJuego();
-		nivel=juego.getNivel();
 	}
 	
 	public static Adaptador getAdaptador() {
 		return adaptador;
+	}
+	
+	public void instanciarAtributos(Elementos e,Nivel n) {
+		nivel=n;
+		elementos=e;
 	}
 	
 	public void eliminarElemento(Elemento e) {
@@ -72,8 +75,9 @@ public final class Adaptador {
 	}
 
 	public void terminarJuego() {
-		nivel.detenerJuego();	
-		//gui.menuPrincipal();
+		nivel.detenerJuego();
+		gui.getVentanaJuego().setVisible(false);
+		gui.menuPrincipal();
 	}
 	
 }

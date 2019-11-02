@@ -8,18 +8,13 @@ import java.util.List;
  *
  */
 
-public final class Elementos {
-	protected static final Elementos self=new Elementos();
-	protected static List<Elemento> elementos;
-	protected static List<Elemento> elementosAEliminar;
+public class Elementos {
+	protected List<Elemento> elementos;
+	protected List<Elemento> elementosAEliminar;
 	
-	private Elementos() {
+	public Elementos() {
 		elementos=new LinkedList<Elemento>();
 		elementosAEliminar=new LinkedList<Elemento>();
-	}
-	
-	public static Elementos getElementos() {
-		return self;
 	}
 	
 	public int size() {

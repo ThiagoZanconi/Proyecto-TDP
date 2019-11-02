@@ -1,19 +1,18 @@
 package juego;
+import adaptador.Adaptador;
 import enemigos.Enemigo;
 import gui.*;
 
 public final class Juego {
 	
+	protected static final Juego juego=new Juego();
 	protected static Tienda tienda;
 	protected static GUI gui;
 	protected static Elementos elementos;
-	protected static final Juego juego=new Juego();
-	protected static HiloAparicionEnemigos hiloAparicionEnemigos;
-	protected static Hilo hiloGeneral;
 	protected static Nivel nivel;
 	
 	private Juego() {
-		elementos=Elementos.getElementos();
+	
 	}
 	
 	public static Juego getJuego() {
@@ -21,11 +20,14 @@ public final class Juego {
 	}
 	
 	public void iniciarNivelUno() {
+		elementos=new Elementos();
 		gui=GUI.getGUI();
 		nivel=new NivelUno(this);
 		tienda=new Tienda(nivel);
 		Elemento elementoDerrota=new ElementoDerrota();
 		elementos.añadirElemento(elementoDerrota);
+		Adaptador adaptador=Adaptador.getAdaptador();
+		adaptador.instanciarAtributos(elementos,nivel);
 	}
 	
 	public void iniciarNivelDos() {
@@ -34,6 +36,10 @@ public final class Juego {
 	
 	public Nivel getNivel() {
 		return nivel;
+	}
+	
+	public Elementos getElementos() {
+		return elementos;
 	}
 	
 	public void generarEnemigoAleatorio() {
