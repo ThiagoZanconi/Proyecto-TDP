@@ -20,16 +20,16 @@ public final class Juego {
 		return juego;
 	}
 	
-	public void iniciarJuego(Nivel n) {
+	public void iniciarNivelUno() {
 		gui=GUI.getGUI();
-		nivel=n;
+		nivel=new NivelUno(this);
 		tienda=new Tienda(nivel);
-		hiloAparicionEnemigos=new HiloAparicionEnemigos(this);
-		hiloGeneral=new Hilo(this);
-		hiloGeneral.start();
-		hiloAparicionEnemigos.start();
 		Elemento elementoDerrota=new ElementoDerrota();
 		elementos.añadirElemento(elementoDerrota);
+	}
+	
+	public void iniciarNivelDos() {
+		
 	}
 	
 	public Nivel getNivel() {

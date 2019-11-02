@@ -19,6 +19,13 @@ import enemigoFactory.TanqueFactory;
 import enemigos.Enemigo;
 
 public abstract class Nivel {
+	protected static Juego juego;
+	
+	public Nivel(Juego j) {
+		juego=j;
+	}
+	
+	public abstract void detenerJuego();
 	
 	public void instanciarBotones(AbstractAliadoFactory []botones) {
 		botones[0]=new GuerreroFactory();

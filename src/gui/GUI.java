@@ -59,6 +59,23 @@ public final class GUI extends JFrame {
 	 * Create the frame.
 	 */
 	private GUI() {
+		menuPrincipal();
+		juego=Juego.getJuego();
+	}
+	
+	public static GUI getGUI() {
+		return gui;	
+	}
+	
+	public JFrame getVentanaJuego() {
+		return ventanaNivelUno;
+	}
+	
+	public JPanel getPanelNivelUno() {
+		return panelNivelUno;
+	}
+	
+	public void menuPrincipal() {
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBounds(300, 100, 1200, 770);
@@ -129,20 +146,7 @@ public final class GUI extends JFrame {
 		menuImagen.setIcon(new ImageIcon("Sprites\\menu1.png"));
 		menuImagen.setBounds(0, 0, 1200, 800);
 		contentPane.add(menuImagen);
-		
-		juego=Juego.getJuego();
-	}
-	
-	public static GUI getGUI() {
-		return gui;	
-	}
-	
-	public JFrame getVentanaJuego() {
-		return ventanaNivelUno;
-	}
-	
-	public JPanel getPanelNivelUno() {
-		return panelNivelUno;
+		setVisible(true);
 	}
 	
 	class oyenteSalir implements ActionListener{
@@ -180,10 +184,8 @@ public final class GUI extends JFrame {
 			fotoDescripcion=new JLabel();
 			textoDescripcion.setText("");
 			fotoDescripcion.setIcon(null);
-			Nivel n=new NivelUno();
-			juego.iniciarJuego(n);
-		}
-		
+			juego.iniciarNivelUno();
+		}	
 	}
 	
 	class oyenteNivelDos implements ActionListener{

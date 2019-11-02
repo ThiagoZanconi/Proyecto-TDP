@@ -70,5 +70,10 @@ public final class Adaptador {
 	public void crearDisparoEnemigo(Enemigo e) {
 		
 	}
+
+	public void terminarJuego() {
+		nivel.detenerJuego();	
+		//gui.menuPrincipal();
+	}
 	
 }
