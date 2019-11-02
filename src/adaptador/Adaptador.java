@@ -76,6 +76,9 @@ public final class Adaptador {
 
 	public void terminarJuego() {
 		nivel.detenerJuego();
+	}
+	
+	public void volverMenuPrincipal() {
 		gui.getVentanaJuego().setVisible(false);
 		gui.menuPrincipal();
 	}

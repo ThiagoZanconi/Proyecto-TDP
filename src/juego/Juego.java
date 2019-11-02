@@ -34,14 +34,6 @@ public final class Juego {
 		
 	}
 	
-	public Nivel getNivel() {
-		return nivel;
-	}
-	
-	public Elementos getElementos() {
-		return elementos;
-	}
-	
 	public void generarEnemigoAleatorio() {
 		Enemigo enemigo=nivel.generarEnemigoAleatorio();
 		elementos.añadirElemento(enemigo);

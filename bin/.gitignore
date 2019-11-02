@@ -1,7 +1,2 @@
-/adaptador/
-/disparoEnemigoFactory/
-/enemigoFactory/
-/enemigos/
 /juego/
-/visitor/
-/gui/
+/adaptador/

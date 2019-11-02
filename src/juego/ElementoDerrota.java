@@ -1,6 +1,8 @@
 package juego;
 
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -8,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import aliadoFactory.AbstractAliadoFactory;
 import visitor.Visitor;
 import visitor.VisitorElementoDerrota;
 
@@ -35,6 +39,10 @@ public class ElementoDerrota extends Elemento {
 		adaptador.terminarJuego();
 		
 		JButton derrButton=new JButton(new ImageIcon("Sprites\\button_volver-al-menu.png"));
+		derrButton.setBounds(115, 110, 170, 53);
+		OyenteVolverMenu oyente=new OyenteVolverMenu();
+		derrButton.addActionListener(oyente);
+		
 		JFrame derrFrame=new JFrame("Derrota");
 		JPanel derrPanel=new JPanel();
 		JLabel derr=new JLabel(new ImageIcon("Sprites\\derrota.png"));
@@ -44,11 +52,6 @@ public class ElementoDerrota extends Elemento {
 		derrFrame.setVisible(true);
 		derrFrame.setResizable(false);
 		derrFrame.setContentPane(derrPanel);
-		
-		
-		
-		
-		derrButton.setBounds(115, 110, 170, 53);
 		
 		derrPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		derrPanel.setLayout(null);
@@ -60,13 +63,13 @@ public class ElementoDerrota extends Elemento {
 		derr2.setBounds(0, -100, 402, 400);
 		derr2.setVisible(true);
 		derrPanel.add(derrButton);
-		derrPanel.add(derr2);
-		
-		
-		
-				
-		
-		
+		derrPanel.add(derr2);	
+	}
+	
+	class OyenteVolverMenu implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			adaptador.volverMenuPrincipal();
+		}
 	}
 
 }
