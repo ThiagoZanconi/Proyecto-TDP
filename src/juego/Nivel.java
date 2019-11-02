@@ -1,7 +1,6 @@
 package juego;
 
 import java.util.Random;
-
 import aliadoFactory.AbstractAliadoFactory;
 import aliadoFactory.BallestaFactory;
 import aliadoFactory.BarricadaFactory;

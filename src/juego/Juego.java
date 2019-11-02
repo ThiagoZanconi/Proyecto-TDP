@@ -10,7 +10,7 @@ public final class Juego {
 	protected static final Juego juego=new Juego();
 	protected static HiloAparicionEnemigos hiloAparicionEnemigos;
 	protected static Hilo hiloGeneral;
-	protected static NivelUno nivel;
+	protected static Nivel nivel;
 	
 	private Juego() {
 		elementos=Elementos.getElementos();
@@ -20,9 +20,9 @@ public final class Juego {
 		return juego;
 	}
 	
-	public void iniciarJuego() {
+	public void iniciarJuego(Nivel n) {
 		gui=GUI.getGUI();
-		nivel=new NivelUno();
+		nivel=n;
 		tienda=new Tienda(nivel);
 		hiloAparicionEnemigos=new HiloAparicionEnemigos(this);
 		hiloGeneral=new Hilo(this);

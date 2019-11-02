@@ -16,7 +16,7 @@ public class ElementoDerrota extends Elemento {
 	public ElementoDerrota() {
 		super(-1);
 		rectangulo=new Rectangle();
-		rectangulo.setBounds(1110,-450,50,800);
+		rectangulo.setBounds(1150,-450,50,800);
 		miVisitor=new VisitorElementoDerrota(this);
 	}
 
@@ -41,6 +41,7 @@ public class ElementoDerrota extends Elemento {
 		derrFrame.setResizable(false);
 		derrPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		derrPanel.setLayout(null);
+		
 		
 		derrPanel.add(derr);
 		derr.setVisible(true);
