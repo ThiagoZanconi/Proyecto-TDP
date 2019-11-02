@@ -2,6 +2,7 @@ package visitor;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
+import juego.ElementoDerrota;
 
 public class VisitorEnemigo extends Visitor {
 	protected Enemigo miEnemigo;
@@ -25,5 +26,8 @@ public class VisitorEnemigo extends Visitor {
 		miEnemigo.aceptar(d.getVisitor());
 		
 	}
-
+	
+	public void visitarElementoDerrota(ElementoDerrota e) {
+		e.derrota();
+	}
 }

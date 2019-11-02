@@ -10,11 +10,12 @@ public class Ballesta extends Aliado {
 	
 	public Ballesta(int x,int y) {
 		super(150,1000,500,150);
-		this.imagenes[0] = new JLabel();
+		costoMonedas=300;
+		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaAttack.gif"));
-		this.graficoActual = new JLabel();
-		this.graficoActual.setIcon(imagenes[0].getIcon());
-		this.graficoActual.setBounds(x, y, 1000,1000);
+		graficoActual = new JLabel();
+		graficoActual.setIcon(imagenes[0].getIcon());
+		graficoActual.setBounds(x, y, 1000,1000);
 		alcanceDeAtaque=new Rectangle(x-700,y,700,70);
 		rectangulo=new Rectangle(x,y,80,60);
 		miVisitor=new VisitorAliado(this);

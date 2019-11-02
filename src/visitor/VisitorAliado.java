@@ -3,6 +3,7 @@ package visitor;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
+import juego.ElementoDerrota;
 
 public class VisitorAliado extends Visitor {
 	protected Aliado miAliado;
@@ -15,7 +16,7 @@ public class VisitorAliado extends Visitor {
 	 * Al momento de insertar un aliado sobre otro aliado se genera una colision que denega la creacion del nuevo aliado
 	 */
 	public void visitarAliado(Aliado a) {
-		a.denegarCreacion();
+		a.setColisiono(true);
 	}
 	
 	/**
@@ -27,6 +28,10 @@ public class VisitorAliado extends Visitor {
 
 	public void visitarDisparo(Disparo d) {
 		miAliado.aceptar(d.getVisitor());
+	}
+	
+	public void visitarElementoDerrota(ElementoDerrota e) {
+		
 	}
 
 }

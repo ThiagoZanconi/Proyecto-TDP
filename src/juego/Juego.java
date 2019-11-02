@@ -28,6 +28,8 @@ public final class Juego {
 		hiloGeneral=new Hilo(this);
 		hiloGeneral.start();
 		hiloAparicionEnemigos.start();
+		Elemento elementoDerrota=new ElementoDerrota();
+		elementos.añadirElemento(elementoDerrota);
 	}
 	
 	public Nivel getNivel() {

@@ -8,6 +8,7 @@ public class Barricada extends Aliado {
 
 	public Barricada(int x,int y) {
 		super(0,0,500,5000);
+		costoMonedas=300;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Barricada\\Barricada.png"));
 		graficoActual = new JLabel();

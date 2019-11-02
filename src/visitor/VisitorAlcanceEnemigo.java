@@ -4,6 +4,7 @@ import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
 import gui.HiloVelocidadAtaque;
+import juego.ElementoDerrota;
 import juego.Personaje;
 
 public class VisitorAlcanceEnemigo extends VisitorAlcance{
@@ -28,5 +29,8 @@ public class VisitorAlcanceEnemigo extends VisitorAlcance{
 		
 	}
 	
+	public void visitarElementoDerrota(ElementoDerrota e) {
+		
+	}
 
 }

@@ -44,10 +44,8 @@ public abstract class Nivel {
 		Enemigo toReturn=null;
 		Random r=new Random();
 		int n=r.nextInt(100);
-		if(n<30) {
+		if(n<30) 
 			toReturn=generarNormal(x,y);
-			//toReturn=generarInvocador(x,y);
-		}
 		else
 			if(n<50)
 				toReturn=generarRapido(x,y);

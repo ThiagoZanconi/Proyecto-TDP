@@ -85,7 +85,7 @@ public class Tienda {
 		imagenMonedas.setIcon(new ImageIcon("Sprites\\monedas.png"));
 		imagenMonedas.setBounds(650, 30, 32, 32);
 		gui.getVentanaJuego().add(imagenMonedas,0);
-		monedas=100;
+		monedas=300;
 		labelMonedas=new JLabel();
 		labelMonedas.setText(String.valueOf(monedas));
 		labelMonedas.setBounds(685,30,40,30);
@@ -128,12 +128,14 @@ public class Tienda {
 	public void generarAliado(int x,int y) {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
 		Aliado aliado=btnClickeado.crearAliado(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
-		adaptador.añadirElemento(aliado);
-		gui.getVentanaJuego().add(aliado.getGrafico(),0);
 		adaptador.chequearColision(aliado);
-		cuadrilla.setVisible(false);
-		crearAliado=false;
-		
+		if(aliado.getCostoMonedas()<=monedas && !aliado.getColisiono()) {
+			monedas-=aliado.getCostoMonedas();
+			adaptador.añadirElemento(aliado);
+			gui.getVentanaJuego().add(aliado.getGrafico(),0);
+			cuadrilla.setVisible(false);
+			crearAliado=false;
+		}
 	}
 	
 	public void actualizarMonedas(int cantidad) {

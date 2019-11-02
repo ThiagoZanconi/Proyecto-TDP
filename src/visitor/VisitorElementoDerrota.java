@@ -14,19 +14,20 @@ public class VisitorElementoDerrota extends Visitor {
 
 	@Override
 	public void visitarEnemigo(Enemigo e) {
-		// TODO Auto-generated method stub
-		
+		miElementoDerrota.aceptar(e.getVisitor());
 	}
 
 	@Override
 	public void visitarAliado(Aliado a) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void visitarDisparo(Disparo d) {
-		// TODO Auto-generated method stub
+		
+	}
+	
+	public void visitarElementoDerrota(ElementoDerrota e) {
 		
 	}
 

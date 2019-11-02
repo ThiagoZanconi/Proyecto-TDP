@@ -4,6 +4,7 @@ import aliados.Aliado;
 import disparos.Disparo;
 import disparos.DisparoEnemigo;
 import enemigos.Enemigo;
+import juego.ElementoDerrota;
 
 public class VisitorDisparoEnemigo extends Visitor {
 	
@@ -25,4 +26,7 @@ public class VisitorDisparoEnemigo extends Visitor {
 		
 	}
 
+	public void visitarElementoDerrota(ElementoDerrota e) {
+		
+	}
 }

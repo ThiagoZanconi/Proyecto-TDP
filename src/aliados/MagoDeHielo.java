@@ -10,11 +10,12 @@ public class MagoDeHielo extends Aliado {
 
 	public MagoDeHielo(int x,int y) {
 		super(150,100,400,100);
-		this.imagenes[0] = new JLabel();
+		costoMonedas=300;
+		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\MagoDeHielo\\MagoHIdle.gif"));
-		this.graficoActual = new JLabel();
-		this.graficoActual.setIcon(imagenes[0].getIcon());
-		this.graficoActual.setBounds(x, y, 1000,1000);
+		graficoActual = new JLabel();
+		graficoActual.setIcon(imagenes[0].getIcon());
+		graficoActual.setBounds(x, y, 1000,1000);
 		alcanceDeAtaque=new Rectangle(x-700,y,700,80);
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorAliado(this);
