@@ -166,8 +166,8 @@ public final class GUI extends JFrame {
 			
 			//Creo el mapa y lo agrego a la ventana
 			mapaImagen=new JLabel();
-			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkGrMtMod.png"));
-			mapaImagen.setBounds(0, 0, 1200, 800);
+			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkSnMt.png"));
+			mapaImagen.setBounds(0, 0, 1300, 1024);
 			panelNivelUno.add(mapaImagen);
 			ventanaNivelUno.setVisible(true);
 			setVisible(false);
