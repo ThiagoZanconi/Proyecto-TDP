@@ -20,6 +20,7 @@ import gui.GUI;
 public class Tienda {	
 	protected AbstractAliadoFactory []botones;
 	protected JButton btnVender;
+	protected JButton cancelarVenta;
 	
 	
 	protected AbstractAliadoFactory btnClickeado;
@@ -79,6 +80,12 @@ public class Tienda {
 		OyenteBotonVender oyenteVender=new OyenteBotonVender();
 		btnVender.addActionListener(oyenteVender);
 		gui.getVentanaJuego().add(btnVender,0);
+		
+		cancelarVenta=new JButton("Cancelar Venta");
+		cancelarVenta.setBounds(700,670,100,100);
+		OyenteCancelarVenta oyenteCancelarVenta=new OyenteCancelarVenta();
+		cancelarVenta.addActionListener(oyenteCancelarVenta);
+		gui.getVentanaJuego().add(cancelarVenta,0);
 		
 		//Creo la cuadrilla
 		cuadrilla=new JPanel();
@@ -149,7 +156,7 @@ public class Tienda {
 		if(aliado.getCostoMonedas()<=monedas && !aliado.getColisiono()) {
 			monedas-=aliado.getCostoMonedas();
 			adaptador.añadirElemento(aliado);
-			//gui.getVentanaJuego().add(aliado.getColisionVenta(),0);
+			gui.getVentanaJuego().add(aliado.getColisionVenta(),0);
 			cuadrilla.setVisible(false);
 			crearAliado=false;
 		}
@@ -271,6 +278,12 @@ public class Tienda {
 		}
 	}
 	
+	class OyenteCancelarVenta implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			vender=false;
+		}
+	}
+	
 	class OyenteComprarAliado implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			cuadrilla.setVisible(true);
@@ -304,7 +317,5 @@ public class Tienda {
 			
 		}
 	};
-
-	
 	
 }

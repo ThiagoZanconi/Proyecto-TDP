@@ -15,7 +15,7 @@ public class Escudero extends Aliado {
 		graficoActual.setIcon(imagenes[0].getIcon());
 		graficoActual.setBounds(x, y, 1000, 1000);
 		colisionVenta=new JLabel();
-		colisionVenta.setBounds(x,y,80,70);
+		colisionVenta.setBounds(x,y+450,100,100);
 		colisionVenta.addMouseListener(click);
 		alcanceDeAtaque=new Rectangle(x,y,80,80);
 		rectangulo=new Rectangle(x,y,80,70);

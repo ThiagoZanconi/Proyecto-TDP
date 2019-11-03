@@ -50,6 +50,12 @@ public abstract class Aliado extends Personaje {
 		destruir();
 	}
 	
+	public void destruir() {
+		adaptador.eliminarElemento(this);
+		graficoActual.setVisible(false);
+		adaptador.eliminarElementoGrafico(colisionVenta);
+	}
+	
 	class OyenteVenderAliado implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {

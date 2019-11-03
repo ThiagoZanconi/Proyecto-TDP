@@ -1,5 +1,7 @@
 package adaptador;
 
+import javax.swing.JLabel;
+
 import enemigos.Enemigo;
 import gui.GUI;
 import juego.Elemento;
@@ -80,6 +82,10 @@ public final class Adaptador {
 	public void huboVenta(int c) {
 		actualizarMonedas(c);
 		tienda.setVender(false);
+	}
+	
+	public void eliminarElementoGrafico(JLabel j) {
+		gui.getVentanaJuego().remove(j);
 	}
 	
 	public void crearDisparoEnemigo(Enemigo e) {
