@@ -10,18 +10,19 @@ public class Ballesta extends Aliado {
 	
 	public Ballesta(int x,int y) {
 		super(150,1000,500,150);
-		costoMonedas=300;
+		costoMonedas=10;
+		rectangulo=new Rectangle(x,y,80,70);
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaAttack.gif"));
 		graficoActual = new JLabel();
 		graficoActual.setIcon(imagenes[0].getIcon());
-		graficoActual.setBounds(x, y, 1000,1000);
+		graficoActual.setBounds(x, y, 1000,1000); //El grafico es muy grande para que tenga un mouselistener
 		colisionVenta=new JLabel();
-		colisionVenta.setBounds(x,y,80,60);
-		//OyenteVenderAliado oyenteVender=new OyenteVenderAliado();
-		//graficoActual.addMouseListener( click);       El grafico es muy grande para que tenga un mouselistener
+		colisionVenta.setBounds(x,y+450,100,100);
+		//colisionVenta.addMouseListener(click);
 		alcanceDeAtaque=new Rectangle(x-700,y,700,70);
-		rectangulo=new Rectangle(x,y,80,60);
+		
+		
 		miVisitor=new VisitorAliado(this);
 	}
 	

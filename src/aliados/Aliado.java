@@ -29,6 +29,10 @@ public abstract class Aliado extends Personaje {
 		return colisiono;
 	}
 	
+	public JLabel getColisionVenta() {
+		return colisionVenta;
+	}
+	
 	public int getCostoMonedas() {
 		return costoMonedas;
 	}
@@ -59,7 +63,8 @@ public abstract class Aliado extends Personaje {
 	
 	MouseListener click=new MouseListener() {
 		@Override
-		public void mousePressed(MouseEvent evento) {
+		public void mousePressed(MouseEvent evento) { 
+			System.out.println("Funciona");
 			if(adaptador.hayQueVender()) {
 				vender();
 			}	

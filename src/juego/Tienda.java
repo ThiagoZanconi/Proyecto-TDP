@@ -149,7 +149,7 @@ public class Tienda {
 		if(aliado.getCostoMonedas()<=monedas && !aliado.getColisiono()) {
 			monedas-=aliado.getCostoMonedas();
 			adaptador.añadirElemento(aliado);
-			gui.getVentanaJuego().add(aliado.getGrafico(),0);
+			//gui.getVentanaJuego().add(aliado.getColisionVenta(),0);
 			cuadrilla.setVisible(false);
 			crearAliado=false;
 		}

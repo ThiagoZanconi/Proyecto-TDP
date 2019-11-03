@@ -7,13 +7,16 @@ import visitor.VisitorAliado;
 public class Barricada extends Aliado {
 
 	public Barricada(int x,int y) {
-		super(0,0,500,5000);
-		costoMonedas=300;
+		super(0,0,50,5000);
+		costoMonedas=30;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Barricada\\Barricada.png"));
 		graficoActual = new JLabel();
 		graficoActual.setIcon(imagenes[0].getIcon());
 		graficoActual.setBounds(x, y-40, 1000,1000);
+		colisionVenta=new JLabel();
+		colisionVenta.setBounds(x,y,80,70);
+		colisionVenta.addMouseListener(click);
 		alcanceDeAtaque=new Rectangle(x,y,0,0);
 		rectangulo=new Rectangle(x,y-70,80,140);
 		miVisitor=new VisitorAliado(this);
