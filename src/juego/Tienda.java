@@ -73,13 +73,13 @@ public class Tienda {
 		botones[5].addActionListener(oyenteComprarAliado);
 		gui.getVentanaJuego().add(botones[5],0);
 		
-		btnVender=new JButton(new ImageIcon(""));
+		btnVender=new JButton("Vender");
 		btnVender.setBounds(600,670,100,100);
 		OyenteBotonVender oyenteVender=new OyenteBotonVender();
 		btnVender.addActionListener(oyenteVender);
 		gui.getVentanaJuego().add(btnVender,0);
 		
-		cancelarActividad=new JButton("Cancelar Venta");
+		cancelarActividad=new JButton("Cancelar");
 		cancelarActividad.setBounds(700,670,100,100);
 		OyenteCancelarActividad oyenteCancelarActividad=new OyenteCancelarActividad();
 		cancelarActividad.addActionListener(oyenteCancelarActividad);

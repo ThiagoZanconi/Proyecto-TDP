@@ -10,8 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import juego.Juego;
-import juego.Nivel;
-import juego.NivelUno;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
