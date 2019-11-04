@@ -12,6 +12,7 @@ public class Ballesta extends Aliado {
 		super(150,1000,50,150);
 		costoMonedas=10;
 		rectangulo=new Rectangle(x,y,80,70);
+		alcanceDeAtaque=new Rectangle(x-700,y,700,70);
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaAttack.gif"));
 		graficoActual = new JLabel();
@@ -20,7 +21,6 @@ public class Ballesta extends Aliado {
 		colisionVenta=new JLabel();
 		colisionVenta.setBounds(x,y+450,100,100); //Hay que ajustar parametros
 		colisionVenta.addMouseListener(click);
-		alcanceDeAtaque=new Rectangle(x-700,y,700,70);
 		miVisitor=new VisitorAliado(this);
 	}
 	

@@ -20,16 +20,14 @@ import gui.GUI;
 public class Tienda {	
 	protected AbstractAliadoFactory []botones;
 	protected JButton btnVender;
-	protected JButton cancelarVenta;
-	
-	
+	protected JButton cancelarActividad;
 	protected AbstractAliadoFactory btnClickeado;
 	
 	protected int puntaje;
 	protected int monedas;
-	private JLabel labelPuntaje;
-	private JLabel labelMonedas;
-	private JLabel imagenMonedas;
+	protected JLabel labelPuntaje;
+	protected JLabel labelMonedas;
+	protected JLabel imagenMonedas;
 	
 	protected JPanel cuadrilla;
 	protected boolean crearAliado;
@@ -75,17 +73,17 @@ public class Tienda {
 		botones[5].addActionListener(oyenteComprarAliado);
 		gui.getVentanaJuego().add(botones[5],0);
 		
-		btnVender=new JButton("Vender");
+		btnVender=new JButton(new ImageIcon(""));
 		btnVender.setBounds(600,670,100,100);
 		OyenteBotonVender oyenteVender=new OyenteBotonVender();
 		btnVender.addActionListener(oyenteVender);
 		gui.getVentanaJuego().add(btnVender,0);
 		
-		cancelarVenta=new JButton("Cancelar Venta");
-		cancelarVenta.setBounds(700,670,100,100);
-		OyenteCancelarVenta oyenteCancelarVenta=new OyenteCancelarVenta();
-		cancelarVenta.addActionListener(oyenteCancelarVenta);
-		gui.getVentanaJuego().add(cancelarVenta,0);
+		cancelarActividad=new JButton("Cancelar Venta");
+		cancelarActividad.setBounds(700,670,100,100);
+		OyenteCancelarActividad oyenteCancelarActividad=new OyenteCancelarActividad();
+		cancelarActividad.addActionListener(oyenteCancelarActividad);
+		gui.getVentanaJuego().add(cancelarActividad,0);
 		
 		//Creo la cuadrilla
 		cuadrilla=new JPanel();
@@ -275,18 +273,21 @@ public class Tienda {
 	class OyenteBotonVender implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			vender=true;
+			crearAliado=false;
 		}
 	}
 	
-	class OyenteCancelarVenta implements ActionListener{
+	class OyenteCancelarActividad implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			vender=false;
+			crearAliado=false;
 		}
 	}
 	
 	class OyenteComprarAliado implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			cuadrilla.setVisible(true);
+			vender=false;
 			crearAliado=true;
 			btnClickeado=(AbstractAliadoFactory)e.getSource();
 			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);

@@ -7,12 +7,16 @@ public final class NivelUno extends Nivel {
 	protected HiloAparicionEnemigos hiloAparicionEnemigos;
 	protected Hilo hiloGeneral;
 	public NivelUno(Juego j) {
-		super(j);
+		super(j);	
 		hiloAparicionEnemigos=new HiloAparicionEnemigos(juego);
 		hiloGeneral=new Hilo(juego);
-		hiloGeneral.start();
-		hiloAparicionEnemigos.start();
 	}
+	
+	public void iniciar() {
+		hiloGeneral.start();
+		hiloAparicionEnemigos.start();	
+	}
+	
 	@Override
 	public void detenerJuego() {
 		hiloGeneral.detenerHilo();

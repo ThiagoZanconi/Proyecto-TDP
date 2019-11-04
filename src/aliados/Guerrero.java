@@ -18,7 +18,7 @@ public class Guerrero extends Aliado {
 		colisionVenta=new JLabel();
 		colisionVenta.setBounds(x,y+450,100,100);
 		colisionVenta.addMouseListener(click);
-		alcanceDeAtaque=new Rectangle(x,y,120,80);
+		alcanceDeAtaque=new Rectangle(x,y,80,70);
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorAliado(this);
 	}

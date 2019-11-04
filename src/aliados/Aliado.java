@@ -51,9 +51,8 @@ public abstract class Aliado extends Personaje {
 	}
 	
 	public void destruir() {
-		adaptador.eliminarElemento(this);
-		graficoActual.setVisible(false);
 		adaptador.eliminarElementoGrafico(colisionVenta);
+		super.destruir();
 	}
 	
 	class OyenteVenderAliado implements ActionListener{
@@ -62,15 +61,12 @@ public abstract class Aliado extends Personaje {
 			if(adaptador.hayQueVender()) {
 				vender();
 			}
-			
 		}
-		
 	}
 	
 	MouseListener click=new MouseListener() {
 		@Override
 		public void mousePressed(MouseEvent evento) { 
-			System.out.println("Funciona");
 			if(adaptador.hayQueVender()) {
 				vender();
 			}	

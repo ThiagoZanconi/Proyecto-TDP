@@ -25,6 +25,8 @@ public abstract class Nivel {
 		juego=j;
 	}
 	
+	public abstract void iniciar();
+	
 	public abstract void detenerJuego();
 	
 	public void instanciarBotones(AbstractAliadoFactory []botones) {

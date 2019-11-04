@@ -24,6 +24,7 @@ public final class Juego {
 		gui=GUI.getGUI();
 		nivel=new NivelUno(this);
 		tienda=new Tienda(nivel);
+		nivel.iniciar();
 		Elemento elementoDerrota=new ElementoDerrota();
 		elementos.añadirElemento(elementoDerrota);
 		Adaptador adaptador=Adaptador.getAdaptador();
