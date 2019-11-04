@@ -1,5 +1,10 @@
-/juego/
 /adaptador/
+/aliadoFactory/
+/aliados/
+/disparoEnemigoFactory/
+/disparos/
+/enemigoFactory/
 /enemigos/
 /gui/
-/aliados/
+/juego/
+/visitor/
