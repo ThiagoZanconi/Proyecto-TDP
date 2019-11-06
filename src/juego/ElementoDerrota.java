@@ -13,6 +13,7 @@ import visitor.Visitor;
 import visitor.VisitorElementoDerrota;
 
 public class ElementoDerrota extends Elemento {
+	protected JFrame derrFrame;
 
 	public ElementoDerrota() {
 		super(-1);
@@ -40,7 +41,7 @@ public class ElementoDerrota extends Elemento {
 		OyenteVolverMenu oyente=new OyenteVolverMenu();
 		derrButton.addActionListener(oyente);
 		
-		JFrame derrFrame=new JFrame("Derrota");
+		derrFrame=new JFrame("Derrota");
 		JPanel derrPanel=new JPanel();
 		JLabel derr=new JLabel(new ImageIcon("Sprites\\derrota.png"));
 		JLabel derr2=new JLabel(new ImageIcon("Sprites\\cred2.png"));
@@ -66,6 +67,7 @@ public class ElementoDerrota extends Elemento {
 	class OyenteVolverMenu implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			adaptador.volverMenuPrincipal();
+			derrFrame.setVisible(false);
 		}
 	}
 

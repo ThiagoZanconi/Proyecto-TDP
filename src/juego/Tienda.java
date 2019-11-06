@@ -281,6 +281,7 @@ public class Tienda {
 		public void actionPerformed(ActionEvent e) {
 			vender=false;
 			crearAliado=false;
+			cuadrilla.setVisible(false);
 		}
 	}
 	
