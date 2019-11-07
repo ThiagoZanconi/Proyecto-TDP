@@ -134,8 +134,8 @@ public final class GUI extends JFrame {
 				
 		//Label del titulo
 		JLabel titulo=new JLabel();
-		titulo.setIcon(new ImageIcon("Sprites\\titulotest2.png"));
-		titulo.setBounds(300, -25, 690, 200);
+		titulo.setIcon(new ImageIcon("Sprites\\titulo.png"));
+		titulo.setBounds(280, -25, 800, 200);
 		contentPane.add(titulo);
 				
 		//Imagen del menu
