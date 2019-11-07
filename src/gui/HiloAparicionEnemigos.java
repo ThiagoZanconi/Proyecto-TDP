@@ -34,8 +34,7 @@ public class HiloAparicionEnemigos extends Thread{
 				cambioOleada=0;
 				proximaOleada+=15;				 //Proxima oleada es mas grande  
 				spawnEnemigos-=2000;             //Enemigos aparecen con mas frecuencia
-				if(proximaOleada==80) {			 //Termina el juego en victoria
-					run=false;  				 
+				if(proximaOleada==80) {			 //Termina el juego en victoria				 
 					juego.victoria();
 				}
 				else {

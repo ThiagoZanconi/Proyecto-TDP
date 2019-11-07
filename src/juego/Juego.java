@@ -71,6 +71,7 @@ public final class Juego {
 	}
 	
 	public void victoria() {
+		nivel.detenerJuego();
 		JButton victButton=new JButton(new ImageIcon("Sprites\\button_volver-al-menu.png"));
 		victButton.setBounds(115, 110, 170, 53);
 		OyenteVolverMenu oyente=new OyenteVolverMenu();
@@ -92,12 +93,11 @@ public final class Juego {
 		victPanel.add(vict);
 		vict.setBounds(0, 0, 402, 105);
 		vict.setVisible(true);
-		
+	
 		vict2.setBounds(0, -100, 402, 400);
 		vict2.setVisible(true);
 		victPanel.add(victButton);
-		victPanel.add(vict2);
-		
+		victPanel.add(vict2);	
 	}
 	
 	class OyenteVolverMenu implements ActionListener{
