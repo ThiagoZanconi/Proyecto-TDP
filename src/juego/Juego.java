@@ -1,18 +1,16 @@
 package juego;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import adaptador.Adaptador;
 import enemigos.Enemigo;
 import gui.*;
-import juego.ElementoDerrota.OyenteVolverMenu;
 
 public final class Juego {
 	
@@ -44,7 +42,15 @@ public final class Juego {
 	}
 	
 	public void iniciarNivelDos() {
-		
+		elementos=new Elementos();
+		gui=GUI.getGUI();
+		nivel=new NivelDos(this);
+		tienda=new Tienda(nivel);
+		nivel.iniciar();
+		Elemento elementoDerrota=new ElementoDerrota();
+		elementos.añadirElemento(elementoDerrota);
+		Adaptador adaptador=Adaptador.getAdaptador();
+		adaptador.instanciarAtributos(elementos,nivel,tienda);
 	}
 	
 	public void generarEnemigoAleatorio() {

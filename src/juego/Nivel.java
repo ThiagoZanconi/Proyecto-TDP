@@ -17,17 +17,27 @@ import enemigoFactory.RangoFactory;
 import enemigoFactory.RapidoFactory;
 import enemigoFactory.TanqueFactory;
 import enemigos.Enemigo;
+import gui.Hilo;
+import gui.HiloAparicionEnemigos;
 
 public abstract class Nivel {
 	protected static Juego juego;
-	
+	protected HiloAparicionEnemigos hiloAparicionEnemigos;
+	protected Hilo hiloGeneral;	
 	public Nivel(Juego j) {
 		juego=j;
+		hiloGeneral=new Hilo(juego);
 	}
 	
-	public abstract void iniciar();
+	public void iniciar() {
+		hiloGeneral.start();
+		hiloAparicionEnemigos.start();	
+	}
 	
-	public abstract void detenerJuego();
+	public void detenerJuego() {
+		hiloGeneral.detenerHilo();
+		hiloAparicionEnemigos.detenerHilo();
+	}
 	
 	public void instanciarBotones(AbstractAliadoFactory []botones) {
 		botones[0]=new GuerreroFactory();

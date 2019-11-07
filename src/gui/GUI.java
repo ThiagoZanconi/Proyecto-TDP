@@ -19,8 +19,8 @@ public final class GUI extends JFrame {
 	
 	private JButton btnJugar;
 
-	private JFrame ventanaNivelUno;
-	private JPanel panelNivelUno;
+	private JFrame ventanaJuego;
+	private JPanel panelJuego;
 	//hay que añadir nivel dos
 	
 	private JFrame ventanaElegirNivel;
@@ -65,11 +65,11 @@ public final class GUI extends JFrame {
 	}
 	
 	public JFrame getVentanaJuego() {
-		return ventanaNivelUno;
+		return ventanaJuego;
 	}
 	
 	public JPanel getPanelNivelUno() {
-		return panelNivelUno;
+		return panelJuego;
 	}
 	
 	public void menuPrincipal() {
@@ -129,8 +129,7 @@ public final class GUI extends JFrame {
 		menuLluvia.setIcon(new ImageIcon("Sprites\\rain.gif"));
 		menuLluvia.setBounds(0, -130, 1400, 1000);
 		contentPane.add(menuLluvia);
-		
-				
+			
 		//Label del titulo
 		JLabel titulo=new JLabel();
 		titulo.setIcon(new ImageIcon("Sprites\\titulo.png"));
@@ -157,22 +156,22 @@ public final class GUI extends JFrame {
 			ventanaElegirNivel.setVisible(false);
 			
 			//Creo la ventana del Nivel Uno.
-			ventanaNivelUno=new JFrame("ventanaJuego");
-			ventanaNivelUno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			ventanaNivelUno.setBounds(0, 0, 1200, 1000);
+			ventanaJuego=new JFrame("ventanaJuego");
+			ventanaJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			ventanaJuego.setBounds(0, 0, 1200, 1000);
 			
 			//Creo el panel del Nivel Uno y le agrego la ventana
-			panelNivelUno=new JPanel();
-			panelNivelUno.setBorder(new EmptyBorder(5, 5, 5, 5));
-			panelNivelUno.setLayout(null);
-			ventanaNivelUno.setContentPane(panelNivelUno);
+			panelJuego=new JPanel();
+			panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
+			panelJuego.setLayout(null);
+			ventanaJuego.setContentPane(panelJuego);
 			
 			//Creo el mapa y lo agrego a la ventana
 			mapaImagen=new JLabel();
 			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkSnMt.png"));
 			mapaImagen.setBounds(0, 0, 1300, 1024);
-			panelNivelUno.add(mapaImagen);
-			ventanaNivelUno.setVisible(true);
+			panelJuego.add(mapaImagen);
+			ventanaJuego.setVisible(true);
 			setVisible(false);
 			
 			//Inicializo descripcion
@@ -190,26 +189,32 @@ public final class GUI extends JFrame {
 			ventanaElegirNivel.setVisible(false);
 						
 			//Creo la ventana del juego
-			ventanaNivelUno=new JFrame("ventanaJuego");
-			ventanaNivelUno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			ventanaNivelUno.setBounds(0, 0, 1200, 1000);
-			ventanaNivelUno.setLayout(new BorderLayout());
+			ventanaJuego=new JFrame("ventanaJuego");
+			ventanaJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			ventanaJuego.setBounds(0, 0, 1200, 1000);
 			
 			//Creo el panel del juego y le agrego la ventana
-			panelNivelUno=new JPanel();
-			panelNivelUno.setBorder(new EmptyBorder(5, 5, 5, 5));
-			ventanaNivelUno.setContentPane(panelNivelUno);
-			panelNivelUno.setLayout(null);	
+			panelJuego=new JPanel();
+			panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
+			ventanaJuego.setContentPane(panelJuego);
+			panelJuego.setLayout(null);	
 			
 			//Creo el mapa y lo agrego a la ventana
 			mapaImagen=new JLabel();
 			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\mapa2.png"));
 			mapaImagen.setBounds(0, 0, 1300, 1024);
-			ventanaNivelUno.add(mapaImagen);
-			ventanaNivelUno.setVisible(true);
-			setVisible(false);					
+			ventanaJuego.add(mapaImagen);
+			ventanaJuego.setVisible(true);
+			setVisible(false);
+			
+			//Inicializo descripcion
+			textoDescripcion=new JTextArea();
+			fotoDescripcion=new JLabel();
+			textoDescripcion.setText("");
+			fotoDescripcion.setIcon(null);
+			
+			juego.iniciarNivelDos();
 		}
-		
 	}
 	
 	class oyenteOpciones implements ActionListener{
@@ -299,8 +304,7 @@ public final class GUI extends JFrame {
 			panelElegirNivel.add(fondo);
 			fondo.setBounds(0,0,400,300);
 			fondo.setVisible(true);
-			
-			
+				
 		}
 		
 	}

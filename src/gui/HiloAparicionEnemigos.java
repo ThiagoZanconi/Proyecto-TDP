@@ -8,11 +8,12 @@ public class HiloAparicionEnemigos extends Thread{
 	protected int cambioOleada;                  //Cantidad de enemigos que aparecen antes de cambiar oleada
 	protected int spawnEnemigos;                 //Aparece un enemigo cada x segundos
 	protected int proximaOleada;                 //Cantidad de enemigos que aparecieron hasta el momento
+	protected int nroOleada;                     //Oleada Actual
+	
 	public HiloAparicionEnemigos(Juego j) {
 		juego=j;
-		spawnEnemigos=7000;
+		nroOleada=0;
 		cambioOleada=0;
-		proximaOleada=20;
 		run=true;
 	}
 	
@@ -32,9 +33,10 @@ public class HiloAparicionEnemigos extends Thread{
 			
 			if(cambioOleada==proximaOleada) {
 				cambioOleada=0;
+				nroOleada++;
 				proximaOleada+=15;				 //Proxima oleada es mas grande  
 				spawnEnemigos-=2000;             //Enemigos aparecen con mas frecuencia
-				if(proximaOleada==80) {			 //Termina el juego en victoria				 
+				if(nroOleada==4) {			     //Termina el juego en victoria				 
 					juego.victoria();
 				}
 				else {
