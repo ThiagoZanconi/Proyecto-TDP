@@ -94,8 +94,8 @@ public final class GUI extends JFrame {
 		//Creo el boton opciones y lo agrego al panel de inicio
 		JButton btnOpciones;
 		btnOpciones=new JButton(new ImageIcon("Sprites\\button_opciones.png"));
-		//oyenteOpciones oyenteOpciones=new oyenteOpciones();
-		//btnOpciones.addActionListener(oyenteOpciones);
+		oyenteOpciones oyenteOpciones=new oyenteOpciones();
+		btnOpciones.addActionListener(oyenteOpciones);
 		btnOpciones.setFocusPainted(false);
 		btnOpciones.setBounds(100, 370, 170, 53);
 		contentPane.add(btnOpciones);
@@ -125,12 +125,11 @@ public final class GUI extends JFrame {
 		contentPane.add(panel);
 		
 		//Lluvia
-		///**
 		menuLluvia=new JLabel();
 		menuLluvia.setIcon(new ImageIcon("Sprites\\rain.gif"));
 		menuLluvia.setBounds(0, -130, 1400, 1000);
 		contentPane.add(menuLluvia);
-		//**/
+		
 				
 		//Label del titulo
 		JLabel titulo=new JLabel();
@@ -204,13 +203,37 @@ public final class GUI extends JFrame {
 			
 			//Creo el mapa y lo agrego a la ventana
 			mapaImagen=new JLabel();
-			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\CmBkLavaM.png"));
-			mapaImagen.setBounds(0, 0, 1200, 800);
+			mapaImagen.setIcon(new ImageIcon("Sprites\\Mapas\\mapa2.png"));
+			mapaImagen.setBounds(0, 0, 1300, 1024);
 			ventanaNivelUno.add(mapaImagen);
 			ventanaNivelUno.setVisible(true);
 			setVisible(false);					
 		}
 		
+	}
+	
+	class oyenteOpciones implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			JFrame opc;
+			JLabel panel=new JLabel(new ImageIcon("Sprites\\opciones.png"));
+			JPanel opcPane=new JPanel();
+					
+			//Creo la ventana de las opciones		
+			opc=new JFrame("Opciones");
+			opc.setBounds(700,400,550,288);
+			opc.setVisible(true);
+			opc.setResizable(false);			
+			
+			//Creo la ventana del panel
+			opcPane=new JPanel();
+			opcPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+			opc.setContentPane(opcPane);
+			opcPane.setLayout(null);
+			
+			opcPane.add(panel);
+			panel.setBounds(0, 0, 550, 274);
+			panel.setVisible(true);
+		}
 	}
 	
 	class oyenteCreditos implements ActionListener{
@@ -243,6 +266,7 @@ public final class GUI extends JFrame {
 			
 			JButton btnNivelUno;
 			JButton btnNivelDos;
+			JLabel fondo;
 			
 			//Creo la ventana para elegir Nivel
 			ventanaElegirNivel=new JFrame("Elegir Nivel");
@@ -257,19 +281,26 @@ public final class GUI extends JFrame {
 			panelElegirNivel.setLayout(null);
 			
 			//Creo el boton Nivel uno y lo agrego
-			 
-			btnNivelUno=new JButton(new ImageIcon("Sprites\\medievalbutton\\nivel1-removebg-preview.png"));
+			btnNivelUno=new JButton(new ImageIcon("Sprites\\nivelUno.png"));
 			oyenteNivelUno oyenteNivelUno=new oyenteNivelUno();
 			btnNivelUno.addActionListener(oyenteNivelUno);
-			btnNivelUno.setBounds(ventanaElegirNivel.getWidth()/10,ventanaElegirNivel.getHeight()/5, 110, 150);
+			btnNivelUno.setBounds(115, 40, 168, 70);
 			panelElegirNivel.add(btnNivelUno);
 			
 			//Creo el boton Nivel dos y lo agrego
-			btnNivelDos=new JButton(new ImageIcon("Sprites\\medievalbutton\\nivel2-removebg-preview.png"));
+			btnNivelDos=new JButton(new ImageIcon("Sprites\\nivelDos.png"));
 			oyenteNivelDos oyenteNivelDos=new oyenteNivelDos();
 			btnNivelDos.addActionListener(oyenteNivelDos);
-			btnNivelDos.setBounds(ventanaElegirNivel.getWidth()/2+50,ventanaElegirNivel.getHeight()/5, 110, 150);
+			btnNivelDos.setBounds(115, 160, 168, 70);
 			panelElegirNivel.add(btnNivelDos);
+			
+			//Creo el fondo
+			fondo=new JLabel(new ImageIcon("Sprites\\elegirNivel.png"));
+			panelElegirNivel.add(fondo);
+			fondo.setBounds(0,0,400,300);
+			fondo.setVisible(true);
+			
+			
 		}
 		
 	}
