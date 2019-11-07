@@ -2,11 +2,17 @@ package juego;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 import adaptador.Adaptador;
 import enemigos.Enemigo;
 import gui.*;
+import juego.ElementoDerrota.OyenteVolverMenu;
 
 public final class Juego {
 	
@@ -65,6 +71,32 @@ public final class Juego {
 	}
 	
 	public void victoria() {
+		JButton victButton=new JButton(new ImageIcon("Sprites\\button_volver-al-menu.png"));
+		victButton.setBounds(115, 110, 170, 53);
+		OyenteVolverMenu oyente=new OyenteVolverMenu();
+		victButton.addActionListener(oyente);
+		
+		victoriaFrame=new JFrame("Victoria");
+		JPanel victPanel=new JPanel();
+		JLabel vict=new JLabel(new ImageIcon("Sprites\\victoria.png"));
+		JLabel vict2=new JLabel(new ImageIcon("Sprites\\cred2.png"));
+		
+		victoriaFrame.setBounds(700,400,405,210);
+		victoriaFrame.setVisible(true);
+		victoriaFrame.setResizable(false);
+		victoriaFrame.setContentPane(victPanel);
+		
+		victPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		victPanel.setLayout(null);
+		
+		victPanel.add(vict);
+		vict.setBounds(0, 0, 402, 105);
+		vict.setVisible(true);
+		
+		vict2.setBounds(0, -100, 402, 400);
+		vict2.setVisible(true);
+		victPanel.add(victButton);
+		victPanel.add(vict2);
 		
 	}
 	

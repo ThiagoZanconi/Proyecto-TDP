@@ -29,6 +29,7 @@ public class HiloAparicionEnemigos extends Thread{
 			}
 			juego.generarEnemigoAleatorio();
 			cambioOleada++;
+			
 			if(cambioOleada==proximaOleada) {
 				cambioOleada=0;
 				proximaOleada+=15;				 //Proxima oleada es mas grande  
