@@ -1,4 +1,9 @@
 package juego;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
 import adaptador.Adaptador;
 import enemigos.Enemigo;
 import gui.*;
@@ -10,6 +15,7 @@ public final class Juego {
 	protected static GUI gui;
 	protected static Elementos elementos;
 	protected static Nivel nivel;
+	protected JFrame victoriaFrame;
 	
 	private Juego() {
 	
@@ -56,6 +62,18 @@ public final class Juego {
 		}
 		elementos.eliminar();
 		actualizarMonedas(1);
+	}
+	
+	public void victoria() {
+		
+	}
+	
+	class OyenteVolverMenu implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			gui.getVentanaJuego().setVisible(false);
+			gui.menuPrincipal();
+			victoriaFrame.setVisible(false);
+		}
 	}
 
 }

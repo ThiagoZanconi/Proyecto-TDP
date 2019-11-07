@@ -21,8 +21,6 @@ public final class NivelUno extends Nivel {
 	public void detenerJuego() {
 		hiloGeneral.detenerHilo();
 		hiloAparicionEnemigos.detenerHilo();
-		//hiloGeneral.interrupt();
-		//hiloAparicionEnemigos.interrupt();
 	}
 	
 
