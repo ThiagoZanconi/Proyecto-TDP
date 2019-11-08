@@ -10,14 +10,22 @@ import juego.ElementoDerrota;
 public class VisitorMagiaTemporal extends Visitor{
 	protected MagiaTemporal miMagia;
 	
+	public VisitorMagiaTemporal(MagiaTemporal mt) {
+		miMagia=mt;
+	}
+	
 	public void visitarEnemigo(Enemigo e) {
-		if(e!=miMagia.getPersonaje() && !miMagia.afectaUsuario())
+		if(miMagia.usar(e)) {
 			miMagia.performStrategy(e);
+			miMagia.destruir();
+		}
 	}
 
 	public void visitarAliado(Aliado a) {
-		if(a!=miMagia.getPersonaje() && !miMagia.afectaUsuario())
-			miMagia.performStrategy(a);		
+		if(miMagia.usar(a)) {
+			miMagia.performStrategy(a);	
+			miMagia.destruir();
+		}
 	}
 
 	public void visitarDisparo(Disparo d) {
