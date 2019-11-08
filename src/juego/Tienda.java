@@ -29,6 +29,9 @@ public class Tienda {
 	protected JLabel labelMonedas;
 	protected JLabel imagenMonedas;
 	
+	protected JTextArea texto;
+	protected JLabel foto;
+	
 	protected JPanel cuadrilla;
 	protected boolean crearAliado;
 	protected boolean vender;
@@ -118,6 +121,11 @@ public class Tienda {
 		labelPuntaje.setOpaque(true);
 		gui.getVentanaJuego().add(labelPuntaje,0);
 		
+		//Descripcion del personaje
+		
+		texto=new JTextArea();
+		foto=new JLabel();
+		
 		//Añado el MouseListener
 		gui.getVentanaJuego().addMouseListener(click);	
 	
@@ -165,10 +173,10 @@ public class Tienda {
 		labelMonedas.setText(String.valueOf(monedas));
 	}
 	
-	private void descripcion(String nombreAliado, JTextArea texto, JLabel foto) {
+	private void descripcion() {
 		
 		texto.setEditable(false);
-		texto.setBackground(gui.getPanelNivelUno().getBackground());
+		texto.setBackground(gui.getVentanaJuego().getBackground());
 				
 		switch (aliadoComprado) {
 			case "Guerrero":
@@ -214,8 +222,8 @@ public class Tienda {
 				foto.setBounds(950, 800, 128, 128);
 				break;	
 		}
-		gui.getPanelNivelUno().add(foto);
-		gui.getPanelNivelUno().add(texto);
+		gui.getVentanaJuego().add(foto,0);
+		gui.getVentanaJuego().add(texto,0);
 	
 	}	
 
@@ -291,7 +299,7 @@ public class Tienda {
 			vender=false;
 			crearAliado=true;
 			btnClickeado=(AbstractAliadoFactory)e.getSource();
-			//descripcion(aliadoComprado,textoDescripcion,fotoDescripcion);
+			descripcion();
 		}
 	}
 	

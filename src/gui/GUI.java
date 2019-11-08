@@ -1,13 +1,11 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import juego.Juego;
 import java.awt.event.ActionEvent;
@@ -31,9 +29,6 @@ public final class GUI extends JFrame {
 	private JLabel menuLluvia;
 
 	private JLabel mapaImagen;
-	
-	private JTextArea textoDescripcion;
-	private JLabel fotoDescripcion;
 	
 	private static final GUI gui=new GUI();
 	private Juego juego;
@@ -66,10 +61,6 @@ public final class GUI extends JFrame {
 	
 	public JFrame getVentanaJuego() {
 		return ventanaJuego;
-	}
-	
-	public JPanel getPanelNivelUno() {
-		return panelJuego;
 	}
 	
 	public void menuPrincipal() {
@@ -174,11 +165,6 @@ public final class GUI extends JFrame {
 			ventanaJuego.setVisible(true);
 			setVisible(false);
 			
-			//Inicializo descripcion
-			textoDescripcion=new JTextArea();
-			fotoDescripcion=new JLabel();
-			textoDescripcion.setText("");
-			fotoDescripcion.setIcon(null);
 			juego.iniciarNivelUno();
 		}	
 	}
@@ -206,12 +192,6 @@ public final class GUI extends JFrame {
 			ventanaJuego.add(mapaImagen);
 			ventanaJuego.setVisible(true);
 			setVisible(false);
-			
-			//Inicializo descripcion
-			textoDescripcion=new JTextArea();
-			fotoDescripcion=new JLabel();
-			textoDescripcion.setText("");
-			fotoDescripcion.setIcon(null);
 			
 			juego.iniciarNivelDos();
 		}
@@ -304,8 +284,7 @@ public final class GUI extends JFrame {
 			panelElegirNivel.add(fondo);
 			fondo.setBounds(0,0,400,300);
 			fondo.setVisible(true);
-				
 		}
-		
 	}
+	
 }
