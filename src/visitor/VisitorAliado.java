@@ -1,5 +1,6 @@
 package visitor;
 
+import Objetos.Obstaculo;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
@@ -31,6 +32,11 @@ public class VisitorAliado extends Visitor {
 	}
 	
 	public void visitarElementoDerrota(ElementoDerrota e) {
+		
+	}
+
+	public void visitarObstaculo(Obstaculo o) {
+		miAliado.aceptar(o.getVisitor());
 		
 	}
 

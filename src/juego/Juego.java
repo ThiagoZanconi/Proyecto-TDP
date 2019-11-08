@@ -2,12 +2,16 @@ package juego;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Objetos.Obstaculo;
 import adaptador.Adaptador;
 import enemigos.Enemigo;
 import gui.*;
@@ -51,6 +55,12 @@ public final class Juego {
 		elementos.añadirElemento(elementoDerrota);
 		Adaptador adaptador=Adaptador.getAdaptador();
 		adaptador.instanciarAtributos(elementos,nivel,tienda);
+	}
+	
+	public void generarObstaculoAleatorio() {
+		Obstaculo obstaculo=nivel.generarObstaculoAleatorio();
+		elementos.añadirElemento(obstaculo);
+		gui.getVentanaJuego().add(obstaculo.getGrafico(),0);
 	}
 	
 	public void generarEnemigoAleatorio() {

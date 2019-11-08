@@ -1,32 +1,42 @@
 package visitor;
 
-import Objetos.MagiaTemporal;
+import Objetos.Obstaculo;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
 import juego.ElementoDerrota;
 
-public class VisitorMagiaTemporal extends Visitor{
-	protected MagiaTemporal miMagia;
-	
+public class VisitorObstaculo extends Visitor{
+
+	@Override
 	public void visitarEnemigo(Enemigo e) {
-		if(e!=miMagia.getPersonaje() && !miMagia.afectaUsuario())
-			miMagia.performStrategy(e);
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void visitarAliado(Aliado a) {
-		if(a!=miMagia.getPersonaje() && !miMagia.afectaUsuario())
-			miMagia.performStrategy(a);		
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void visitarDisparo(Disparo d) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
 	public void visitarElementoDerrota(ElementoDerrota e) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void visitarObstaculo(Obstaculo o) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 
 }

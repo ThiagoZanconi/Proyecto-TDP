@@ -29,6 +29,7 @@ public class HiloAparicionEnemigos extends Thread{
 				e.printStackTrace();
 			}
 			juego.generarEnemigoAleatorio();
+			juego.generarObstaculoAleatorio();
 			cambioOleada++;
 			
 			if(cambioOleada==proximaOleada) {

@@ -1,6 +1,9 @@
 package juego;
 
 import java.util.Random;
+
+import Objetos.Lago;
+import Objetos.Obstaculo;
 import aliadoFactory.AbstractAliadoFactory;
 import aliadoFactory.BallestaFactory;
 import aliadoFactory.BarricadaFactory;
@@ -79,6 +82,14 @@ public abstract class Nivel {
 						else
 							toReturn=generarInvocador(x,y);
 		return toReturn;	
+	}
+	
+	public Obstaculo generarObstaculoAleatorio() {
+		Random r=new Random();
+		int fila=traducirFila(r.nextInt(700));
+		int columna=traducirColumna(r.nextInt(1110));
+		Obstaculo lago=new Lago(columna,fila);
+		return lago;
 	}
 	
 	public Enemigo generarEnemigoAleatorio() {
@@ -164,5 +175,38 @@ public abstract class Nivel {
 						else
 							toReturn=650;
 		return toReturn-550;
+	}
+	
+	protected int traducirColumna(int x) {
+		int toReturn;
+		if(x<120)
+			toReturn=65;
+			else
+				if(x<230)
+					toReturn=175;
+				else
+					if(x<340)
+						toReturn=285;
+					else
+						if(x<450)
+							toReturn=395;
+						else
+							if(x<560)
+								toReturn=505;
+							else
+								if(x<670)
+									toReturn=615;
+								else
+									if(x<780)
+										toReturn=725;
+									else
+										if(x<890)
+											toReturn=835;
+										else
+											if(x<1000)
+												toReturn=945;
+											else
+													toReturn=1055;	
+		return toReturn-65;
 	}
 }

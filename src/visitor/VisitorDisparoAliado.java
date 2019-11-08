@@ -1,6 +1,7 @@
 package visitor;
 
 
+import Objetos.Obstaculo;
 import aliados.Aliado;
 import disparos.Disparo;
 import disparos.DisparoAliado;
@@ -26,6 +27,12 @@ public class VisitorDisparoAliado extends Visitor {
 	}
 
 	public void visitarElementoDerrota(ElementoDerrota e) {
+		
+	}
+
+	@Override
+	public void visitarObstaculo(Obstaculo o) {
+		// TODO Auto-generated method stub
 		
 	}
 }
