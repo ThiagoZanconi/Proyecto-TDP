@@ -61,9 +61,13 @@ public final class Juego {
 	}
 	
 	public void generarObstaculoAleatorio() {
-		Obstaculo obstaculo=nivel.generarObstaculoAleatorio();
-		elementos.añadirElemento(obstaculo);
-		gui.getVentanaJuego().add(obstaculo.getGrafico(),0);
+		Random r=new Random();
+		int probabilidad=r.nextInt(100);
+		if(probabilidad<10) {
+			Obstaculo obstaculo=nivel.generarObstaculoAleatorio();
+			elementos.añadirElemento(obstaculo);
+			gui.getVentanaJuego().add(obstaculo.getGrafico(),0);
+		}
 	}
 	
 	public void generarEnemigoAleatorio() {

@@ -2,7 +2,7 @@ package Objetos;
 
 import visitor.Visitor;
 
-public class ObjetoPrecioso extends Premio{
+public abstract class ObjetoPrecioso extends Premio{
 
 	public ObjetoPrecioso(int v) {
 		super(v);

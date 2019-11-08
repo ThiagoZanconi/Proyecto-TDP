@@ -1,6 +1,6 @@
 package Objetos;
 
-public class ObstaculoConVida extends Obstaculo{
+public abstract class ObstaculoConVida extends Obstaculo{
 
 	public ObstaculoConVida(int v) {
 		super(v);

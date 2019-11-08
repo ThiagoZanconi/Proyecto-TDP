@@ -2,7 +2,7 @@ package Objetos;
 
 import visitor.Visitor;
 
-public class Obstaculo extends Objeto{
+public abstract class Obstaculo extends Objeto{
 
 	public Obstaculo(int v) {
 		super(v);

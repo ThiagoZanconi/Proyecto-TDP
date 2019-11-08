@@ -2,9 +2,6 @@ package adaptador;
 
 import javax.swing.JLabel;
 
-import MagiasTemporalesStrategy.CampoDeProteccion;
-import MagiasTemporalesStrategy.Strategy;
-import Objetos.MagiaTemporal;
 import enemigos.Enemigo;
 import gui.GUI;
 import juego.Elemento;
