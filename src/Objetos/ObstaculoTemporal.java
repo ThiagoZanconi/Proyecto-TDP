@@ -1,5 +1,10 @@
 package Objetos;
 
-public class ObstaculoTemporal {
+public class ObstaculoTemporal extends Obstaculo{
+
+	public ObstaculoTemporal(int v) {
+		super(v);
+		
+	}
 
 }
