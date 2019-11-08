@@ -1,12 +1,3 @@
-/Objetos/
-/adaptador/
-/aliadoFactory/
-/aliados/
-/disparoEnemigoFactory/
-/disparos/
-/enemigoFactory/
-/enemigos/
-/gui/
-/juego/
 /visitor/
 /MagiasTemporalesStrategy/
+/Objetos/
