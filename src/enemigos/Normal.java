@@ -9,7 +9,7 @@ import visitor.VisitorEnemigo;
 public class Normal extends Enemigo {
 
 	public Normal(int x,int y) {
-		super(100,100,750,100);
+		super(300,100,1200,100);
 		cantidadMonedas=100;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();

@@ -73,7 +73,7 @@ public final class Juego {
 			}	
 		}
 		elementos.eliminar();
-		actualizarMonedas(1);
+		actualizarMonedas(2);
 	}
 	
 	public void victoria() {

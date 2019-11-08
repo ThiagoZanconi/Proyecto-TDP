@@ -7,8 +7,8 @@ import visitor.VisitorAliado;
 public class Barricada extends Aliado {
 
 	public Barricada(int x,int y) {
-		super(0,0,50,5000);
-		costoMonedas=30;
+		super(0,0,2500,0);
+		costoMonedas=600;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Barricada\\Barricada.png"));
 		graficoActual = new JLabel();

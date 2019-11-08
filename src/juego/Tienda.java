@@ -101,7 +101,7 @@ public class Tienda {
 		imagenMonedas.setIcon(new ImageIcon("Sprites\\monedas.png"));
 		imagenMonedas.setBounds(650, 30, 32, 32);
 		gui.getVentanaJuego().add(imagenMonedas,0);
-		monedas=300;
+		monedas=700;
 		labelMonedas=new JLabel();
 		labelMonedas.setText(String.valueOf(monedas));
 		labelMonedas.setBounds(685,30,40,30);
@@ -175,42 +175,42 @@ public class Tienda {
 				
 		switch (btnClickeado.getText()) {
 			case "Guerrero":
-				texto.setText("Guerrero"+"\n"+""+"\n"+"Alcance: Cuerpo a cuerpo"+"\n"+"Daño: Medio"+"\n"+"Vida: Media"+"\n"+"Valor: 200");
+				texto.setText("Guerrero"+"\n"+""+"\n"+"Alcance: Cuerpo a cuerpo"+"\n"+"Daño: Medio"+"\n"+"Vida: Alta"+"\n"+"Valor: 300");
 				texto.setBounds(800,670,300,110);
 									
 				foto.setIcon(new ImageIcon("Sprites\\Guerrero\\GuerreroIdle.gif"));
 				foto.setBounds(920, 790, 128, 128);
 				break;
 			case "Ballesta":
-				texto.setText("Ballesta"+"\n"+""+"\n"+"Alcance: ??"+"\n"+"Daño: Medio"+"\n"+"Vida: Baja"+"\n"+"Valor: 500");
+				texto.setText("Ballesta"+"\n"+""+"\n"+"Alcance: Ilimitado"+"\n"+"Daño: Medio"+"\n"+"Vida: Baja"+"\n"+"Valor: 350");
 				texto.setBounds(800,670,300,110);
 									
 				foto.setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaIdle.gif"));
 				foto.setBounds(850, 800, 128, 128);
 				break;
 			case "MagoDeHielo":
-				texto.setText("Mago de Hielo"+"\n"+""+"\n"+"Alcance: ??"+"\n"+"Daño: Medio"+"\n"+"Vida: Baja"+"\n"+"Valor: 800"+"\n"+"Ralentiza Enemigos");
+				texto.setText("Mago de Hielo"+"\n"+""+"\n"+"Alcance: Alto"+"\n"+"Daño: Medio"+"\n"+"Vida: Baja"+"\n"+"Valor: 500"+"\n"+"Ralentiza Enemigos");
 				texto.setBounds(800,670,300,130);
 									
 				foto.setIcon(new ImageIcon("Sprites\\MagoDeHielo\\MagoHIdle.gif"));
 				foto.setBounds(850, 800, 128, 128);
 				break;
 			case "MagoDeFuego":
-				texto.setText("Mago de Fuego"+"\n"+""+"\n"+"Alcance: ??"+"\n"+"Daño: Alto"+"\n"+"Vida: Media"+"\n"+"Valor: 600");
+				texto.setText("Mago de Fuego"+"\n"+""+"\n"+"Alcance: Medio"+"\n"+"Daño: Alto"+"\n"+"Vida: Media"+"\n"+"Valor: 600");
 				texto.setBounds(800,670,300,110);
 									
 				foto.setIcon(new ImageIcon("Sprites\\MagoDeFuego\\MagoFIdle.gif"));
 				foto.setBounds(850, 800, 128, 128);
 				break;
 			case "Escudero":
-				texto.setText("Escudero"+"\n"+""+"\n"+"Alcance: Cuerpo a cuerpo"+"\n"+"Daño: Bajo"+"\n"+"Vida: Alta"+"\n"+"Valor: 400");
+				texto.setText("Escudero"+"\n"+""+"\n"+"Alcance: Cuerpo a cuerpo"+"\n"+"Daño: Bajo"+"\n"+"Vida: Muy Alta"+"\n"+"Valor: 400");
 				texto.setBounds(800,670,300,110);
 								
 				foto.setIcon(new ImageIcon("Sprites\\Escudero\\EscuderoIdle.gif"));
 				foto.setBounds(920, 790, 128, 128);
 				break;
 			case "Barricada":
-				texto.setText("Barricada"+"\n"+""+"\n"+"Alcance: Nulo"+"\n"+"Daño: Nulo"+"\n"+"Vida: Alta"+"\n"+"Valor: 200"+"\n"+"Abarca dos casillas en vertical");
+				texto.setText("Barricada"+"\n"+""+"\n"+"Alcance: Nulo"+"\n"+"Daño: Nulo"+"\n"+"Vida: Muy Alta"+"\n"+"Valor: 600"+"\n"+"Abarca dos casillas en vertical");
 				texto.setBounds(800,670,300,130);
 				
 				foto.setIcon(new ImageIcon("Sprites\\Barricada\\Barricada.png"));

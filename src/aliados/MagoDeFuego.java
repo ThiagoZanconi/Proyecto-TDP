@@ -9,8 +9,8 @@ import visitor.VisitorAliado;
 public class MagoDeFuego extends Aliado {
 
 	public MagoDeFuego(int x,int y) {
-		super(150,100,500,100);
-		costoMonedas=300;
+		super(800,400,900,100);
+		costoMonedas=600;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\MagoDeFuego\\MagoFAttack.gif"));
 		graficoActual = new JLabel();
@@ -19,7 +19,7 @@ public class MagoDeFuego extends Aliado {
 		colisionVenta=new JLabel();
 		colisionVenta.setBounds(x,y+450,100,100);
 		colisionVenta.addMouseListener(click);
-		alcanceDeAtaque=new Rectangle(x-700,y,700,70);
+		alcanceDeAtaque=new Rectangle(x-400,y,400,70);
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorAliado(this);
 	}

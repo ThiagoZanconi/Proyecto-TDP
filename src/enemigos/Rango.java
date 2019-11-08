@@ -9,15 +9,15 @@ import visitor.VisitorEnemigo;
 public class Rango extends Enemigo {
 
 	public Rango(int x, int y) {
-		super(100,100,750,100);
-		cantidadMonedas=100;
+		super(300,100,500,100);
+		cantidadMonedas=200;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Rango\\RangoAttack+Walk.gif"));
 		graficoActual = new JLabel();
 		graficoActual.setIcon(imagenes[0].getIcon());
 		graficoActual.setBounds(x, y,1000,1000);
-		alcanceDeAtaque=new Rectangle(x,y, 700,70);
+		alcanceDeAtaque=new Rectangle(x,y, 500,70);
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorEnemigo(this);
 	}
