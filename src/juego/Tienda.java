@@ -35,7 +35,6 @@ public class Tienda {
 	protected JPanel cuadrilla;
 	protected boolean crearAliado;
 	protected boolean vender;
-	//protected String aliadoComprado;
 	protected static GUI gui;
 	protected Nivel nivel;
 	protected Adaptador adaptador;
@@ -155,7 +154,7 @@ public class Tienda {
 		Aliado aliado=btnClickeado.crearAliado(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
 		adaptador.chequearColision(aliado);
 		if(aliado.getCostoMonedas()<=monedas && !aliado.getColisiono()) {
-			monedas-=aliado.getCostoMonedas();
+			actualizarMonedas(-aliado.getCostoMonedas());
 			adaptador.añadirElemento(aliado);
 			gui.getVentanaJuego().add(aliado.getColisionVenta(),0);
 			cuadrilla.setVisible(false);

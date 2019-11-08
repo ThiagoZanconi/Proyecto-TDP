@@ -3,17 +3,12 @@ package juego;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import MagiasTemporalesStrategy.CampoDeProteccion;
-import MagiasTemporalesStrategy.Strategy;
-import Objetos.MagiaTemporal;
 import Objetos.Obstaculo;
 import adaptador.Adaptador;
 import enemigos.Enemigo;
@@ -72,11 +67,7 @@ public final class Juego {
 	
 	public void generarEnemigoAleatorio() {
 		Enemigo enemigo=nivel.generarEnemigoAleatorio();
-		MagiaTemporal mt=new MagiaTemporal(-1,enemigo);
-		Strategy strategy=new CampoDeProteccion();
-		mt.setStrategy(strategy, false);
 		elementos.añadirElemento(enemigo);
-		elementos.añadirElemento(mt);
 		gui.getVentanaJuego().add(enemigo.getGrafico(),0);
 	}
 	
@@ -94,7 +85,7 @@ public final class Juego {
 			}	
 		}
 		elementos.eliminar();
-		actualizarMonedas(2);
+		actualizarMonedas(0);
 	}
 	
 	public void victoria() {

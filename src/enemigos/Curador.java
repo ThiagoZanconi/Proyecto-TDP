@@ -19,6 +19,7 @@ public class Curador extends Enemigo {
 		miVisitor=new VisitorEnemigo(this);
 	}
 	
+	//Falta Implementar Ataque de curador
 	public void atacar() {
 		
 	}

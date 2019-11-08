@@ -18,7 +18,7 @@ public class MagiaTemporal extends Premio{
 		miVisitor=new VisitorMagiaTemporal(this);
 		miPersonaje=personaje;
 		rectangulo=new Rectangle(miPersonaje.getRectangulo().x+1, miPersonaje.getRectangulo().y, miPersonaje.getRectangulo().width, miPersonaje.getRectangulo().height);
-		graficoActual=new JLabel("");
+		graficoActual=new JLabel("Sprites\\Ballesta\\BallestaAttack.gif");
 	}
 
 	public void setStrategy(Strategy strategy,boolean afecta) {
@@ -40,7 +40,7 @@ public class MagiaTemporal extends Premio{
 	
 	public void actualizarRectangulo(int x,int y, int width, int height) {
 		rectangulo.setBounds(x,y,width,height);
-		graficoActual.setBounds(x,y,width,height);
+		graficoActual.setBounds(x,y,1000,1000);
 	}
 	
 	@Override

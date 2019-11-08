@@ -11,6 +11,7 @@ public abstract class Personaje extends Elemento{
 	protected Rectangle alcanceDeAtaque;
 	protected VisitorAlcance visitorAlcance;
 	protected boolean puedeAtacar;
+	protected int vidaMaxima;
 	
 	public Personaje(int f,int a,int v,int vp) {
 		super(v);
@@ -18,6 +19,7 @@ public abstract class Personaje extends Elemento{
 		alcance=a;
 		velocidadDeProyectil=vp;
 		puedeAtacar=true;
+		vidaMaxima=v;
 	}
 	
 	public abstract void atacar();

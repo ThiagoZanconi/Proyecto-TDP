@@ -46,7 +46,10 @@ public abstract class Aliado extends Personaje {
 	}
 	
 	public void vender() {
-		adaptador.huboVenta(costoMonedas);
+		if(vida!=vidaMaxima)
+			adaptador.huboVenta(costoMonedas/2);	
+		else	
+			adaptador.huboVenta(costoMonedas);
 		destruir();
 	}
 	
