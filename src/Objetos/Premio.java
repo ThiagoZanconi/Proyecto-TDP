@@ -1,5 +1,9 @@
 package Objetos;
 
-public class Premio {
+public abstract class Premio extends Objeto{
+
+	public Premio(int v) {
+		super(v);
+	}
 
 }

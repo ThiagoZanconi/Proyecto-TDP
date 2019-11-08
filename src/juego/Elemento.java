@@ -2,6 +2,8 @@ package juego;
 import java.awt.Rectangle;
 import visitor.*;
 import javax.swing.JLabel;
+
+import Objetos.MagiaTemporal;
 import adaptador.Adaptador;
 
 public abstract class Elemento {
