@@ -1,8 +1,13 @@
 package Objetos;
 
+import java.awt.Rectangle;
+
+import javax.swing.JLabel;
+
 import MagiasTemporalesStrategy.Strategy;
 import juego.Personaje;
 import visitor.Visitor;
+import visitor.VisitorMagiaTemporal;
 
 public class MagiaTemporal extends Premio{
 
@@ -11,9 +16,11 @@ public class MagiaTemporal extends Premio{
 	protected boolean afectaUsuario;
 	
 	public MagiaTemporal(int v,Personaje personaje) {
-		super(-1);
+		super(v);
+		miVisitor=new VisitorMagiaTemporal(this);
 		miPersonaje=personaje;
-		rectangulo.setBounds(miPersonaje.getRectangulo().x-1, miPersonaje.getRectangulo().y, miPersonaje.getRectangulo().width, miPersonaje.getRectangulo().height);
+		rectangulo=new Rectangle(miPersonaje.getRectangulo().x+1, miPersonaje.getRectangulo().y, miPersonaje.getRectangulo().width, miPersonaje.getRectangulo().height);
+		graficoActual=new JLabel();
 	}
 
 	public void setStrategy(Strategy strategy,boolean afecta) {
@@ -33,15 +40,26 @@ public class MagiaTemporal extends Premio{
 		tipoDeMagia.estrategia(p);
 	}
 	
+	public void actualizarRectangulo(int x,int y, int width, int height) {
+		rectangulo.setBounds(x,y,width,height);
+	}
+	
 	@Override
 	public void aceptar(Visitor v) {
 		
 		
 	}
 
+	public boolean usar(Personaje p) {
+		if(p!=miPersonaje && !afectaUsuario) {
+			return true;
+		}else
+			return false;
+	}
+	
 	@Override
 	public void actividadSinColision() {
-		// TODO Auto-generated method stub
+		actualizarRectangulo(miPersonaje.getRectangulo().x+1, miPersonaje.getRectangulo().y, miPersonaje.getRectangulo().width, miPersonaje.getRectangulo().height);
 		
 	}
 }
