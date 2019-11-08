@@ -9,10 +9,10 @@ import visitor.VisitorAliado;
 public class Ballesta extends Aliado {
 	
 	public Ballesta(int x,int y) {
-		super(150,1000,50,150);
-		costoMonedas=10;
+		super(200,1800,500,150);
+		costoMonedas=350;
 		rectangulo=new Rectangle(x,y,80,70);
-		alcanceDeAtaque=new Rectangle(x-700,y,700,70);
+		alcanceDeAtaque=new Rectangle(x-1800,y,1800,70);
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Ballesta\\BallestaAttack.gif"));
 		graficoActual = new JLabel();

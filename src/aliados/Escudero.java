@@ -2,13 +2,16 @@ package aliados;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import disparos.Disparo;
+import disparos.DisparoAliado;
 import visitor.VisitorAliado;
 
 public class Escudero extends Aliado {
 
 	public Escudero(int x,int y) {
-		super(100,100,1500,100);
-		costoMonedas=300;
+		super(250,100,1900,100);
+		costoMonedas=400;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Escudero\\EscuderoAttack.gif"));
 		graficoActual = new JLabel();
@@ -23,7 +26,10 @@ public class Escudero extends Aliado {
 	}
 	
 	public void atacar() {
-		
+		if(puedeAtacar) {
+			Disparo x=new DisparoAliado((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
+			adaptador.añadirElemento(x);	
+		}
 	}
 
 }

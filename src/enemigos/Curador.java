@@ -7,7 +7,7 @@ public class Curador extends Enemigo {
 
 	public Curador(int x, int y) {
 		super(10,100,650,100);
-		cantidadMonedas=100;
+		cantidadMonedas=150;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Curador\\CuradorWalk.gif"));

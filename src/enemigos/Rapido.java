@@ -9,8 +9,8 @@ import visitor.VisitorEnemigo;
 public class Rapido extends Enemigo {
 
 	public Rapido(int x, int y) {
-		super(10,100,500,100);
-		cantidadMonedas=100;
+		super(200,100,650,100);
+		cantidadMonedas=150;
 		velocidad=5;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();

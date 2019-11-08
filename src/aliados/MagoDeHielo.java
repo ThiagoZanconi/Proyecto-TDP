@@ -9,8 +9,8 @@ import visitor.VisitorAliado;
 public class MagoDeHielo extends Aliado {
 
 	public MagoDeHielo(int x,int y) {
-		super(150,100,400,100);
-		costoMonedas=300;
+		super(300,100,800,100);
+		costoMonedas=500;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\MagoDeHielo\\MagoHIdle.gif"));
 		graficoActual = new JLabel();
