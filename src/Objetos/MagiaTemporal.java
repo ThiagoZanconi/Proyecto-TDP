@@ -1,9 +1,7 @@
 package Objetos;
 
 import java.awt.Rectangle;
-
 import javax.swing.JLabel;
-
 import MagiasTemporalesStrategy.Strategy;
 import juego.Personaje;
 import visitor.Visitor;
@@ -20,7 +18,7 @@ public class MagiaTemporal extends Premio{
 		miVisitor=new VisitorMagiaTemporal(this);
 		miPersonaje=personaje;
 		rectangulo=new Rectangle(miPersonaje.getRectangulo().x+1, miPersonaje.getRectangulo().y, miPersonaje.getRectangulo().width, miPersonaje.getRectangulo().height);
-		graficoActual=new JLabel();
+		graficoActual=new JLabel("");
 	}
 
 	public void setStrategy(Strategy strategy,boolean afecta) {
@@ -42,6 +40,7 @@ public class MagiaTemporal extends Premio{
 	
 	public void actualizarRectangulo(int x,int y, int width, int height) {
 		rectangulo.setBounds(x,y,width,height);
+		graficoActual.setBounds(x,y,width,height);
 	}
 	
 	@Override

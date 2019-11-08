@@ -24,6 +24,7 @@ public class Lago extends ObstaculoTemporal{
 		graficoActual.setBounds(x, y, 1000, 1000);
 		rectangulo=new Rectangle(x,y,80,70);
 		duracion=new HiloDuracionObjeto(this,15000);
+		duracion.start();
 	}
 	
 	public void aceptar(Visitor v) {
