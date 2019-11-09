@@ -9,6 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import MagiasTemporalesStrategy.CampoDeProteccion;
+import MagiasTemporalesStrategy.MagiaNula;
+import MagiasTemporalesStrategy.Strategy;
+import Objetos.MagiaTemporal;
 import Objetos.Obstaculo;
 import adaptador.Adaptador;
 import enemigos.Enemigo;
@@ -67,8 +72,16 @@ public final class Juego {
 	
 	public void generarEnemigoAleatorio() {
 		Enemigo enemigo=nivel.generarEnemigoAleatorio();
+		MagiaTemporal mt=new MagiaTemporal(-1,enemigo);
+		Strategy strategy=new MagiaNula();
+		if(Math.floor(Math.random()*100)<10) {
+			strategy=new CampoDeProteccion();
+		}
+		mt.setStrategy(strategy, strategy.afectaUsuario());
 		elementos.añadirElemento(enemigo);
+		elementos.añadirElemento(mt);
 		gui.getVentanaJuego().add(enemigo.getGrafico(),0);
+		gui.getVentanaJuego().add(mt.getGrafico(),0);
 	}
 	
 	public void actualizarMonedas(int cantidad) {

@@ -1,6 +1,8 @@
 package Objetos;
 
 import java.awt.Rectangle;
+
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import MagiasTemporalesStrategy.Strategy;
 import juego.Personaje;
@@ -18,10 +20,13 @@ public class MagiaTemporal extends Premio{
 		miVisitor=new VisitorMagiaTemporal(this);
 		miPersonaje=personaje;
 		rectangulo=new Rectangle(miPersonaje.getRectangulo().x+1, miPersonaje.getRectangulo().y, miPersonaje.getRectangulo().width, miPersonaje.getRectangulo().height);
-		graficoActual=new JLabel("Sprites\\Ballesta\\BallestaAttack.gif");
+		graficoActual=new JLabel();
 	}
 
 	public void setStrategy(Strategy strategy,boolean afecta) {
+		imagenes[0] = new JLabel();
+		imagenes[0].setIcon(new ImageIcon(strategy.obtenerSprite()));
+		graficoActual.setIcon(imagenes[0].getIcon());
 		tipoDeMagia=strategy;
 		afectaUsuario=afecta;
 	}
@@ -59,6 +64,8 @@ public class MagiaTemporal extends Premio{
 	@Override
 	public void actividadSinColision() {
 		actualizarRectangulo(miPersonaje.getRectangulo().x+1, miPersonaje.getRectangulo().y, miPersonaje.getRectangulo().width, miPersonaje.getRectangulo().height);
-		
+		if(!miPersonaje.getGrafico().isVisible()) {
+			this.destruir();
+		}
 	}
 }
