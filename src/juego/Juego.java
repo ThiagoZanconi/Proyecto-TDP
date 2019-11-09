@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import MagiasTemporalesStrategy.Bendicion;
 import MagiasTemporalesStrategy.CampoDeProteccion;
 import MagiasTemporalesStrategy.MagiaNula;
 import MagiasTemporalesStrategy.Strategy;
@@ -76,6 +77,8 @@ public final class Juego {
 		Strategy strategy=new MagiaNula();
 		if(Math.floor(Math.random()*100)<10) {
 			strategy=new CampoDeProteccion();
+		}else if(Math.floor(Math.random()*100)>50){
+			strategy=new Bendicion();
 		}
 		mt.setStrategy(strategy, strategy.afectaUsuario());
 		elementos.añadirElemento(enemigo);

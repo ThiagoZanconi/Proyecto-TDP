@@ -57,8 +57,11 @@ public class MagiaTemporal extends Premio{
 	public boolean usar(Personaje p) {
 		if(p!=miPersonaje && !afectaUsuario) {
 			return true;
-		}else
+		}else if(p==miPersonaje && afectaUsuario) {
+			return true;
+		}else {
 			return false;
+		}
 	}
 	
 	@Override
