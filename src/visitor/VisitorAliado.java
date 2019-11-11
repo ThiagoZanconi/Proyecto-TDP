@@ -1,6 +1,8 @@
 package visitor;
 
 import Objetos.Obstaculo;
+import Objetos.ObstaculoConVida;
+import Objetos.ObstaculoTemporal;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
@@ -35,8 +37,14 @@ public class VisitorAliado extends Visitor {
 		
 	}
 
-	public void visitarObstaculo(Obstaculo o) {
+	public void VisitarObstaculoTemporal(ObstaculoTemporal o) {
 		miAliado.aceptar(o.getVisitor());
+		
+	}
+
+	@Override
+	public void VisitarObstaculoConVida(ObstaculoConVida ov) {
+		// TODO Auto-generated method stub
 		
 	}
 

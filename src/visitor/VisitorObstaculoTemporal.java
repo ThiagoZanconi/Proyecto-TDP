@@ -1,17 +1,18 @@
 package visitor;
 
 import Objetos.Obstaculo;
+import Objetos.ObstaculoConVida;
+import Objetos.ObstaculoTemporal;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
 import juego.ElementoDerrota;
 
-public class VisitorObstaculo extends Visitor{
+public class VisitorObstaculoTemporal extends Visitor{
 
 	@Override
 	public void visitarEnemigo(Enemigo e) {
-		// TODO Auto-generated method stub
-		
+		e.detener();
 	}
 
 	@Override
@@ -33,10 +34,15 @@ public class VisitorObstaculo extends Visitor{
 	}
 
 	@Override
-	public void visitarObstaculo(Obstaculo o) {
+	public void VisitarObstaculoTemporal(ObstaculoTemporal ot) {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+	@Override
+	public void VisitarObstaculoConVida(ObstaculoConVida ov) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

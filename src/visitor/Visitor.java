@@ -1,5 +1,6 @@
 package visitor;
-import Objetos.Obstaculo;
+import Objetos.ObstaculoConVida;
+import Objetos.ObstaculoTemporal;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
@@ -10,5 +11,6 @@ public abstract class Visitor {
 	public abstract void visitarAliado(Aliado a);
 	public abstract void visitarDisparo(Disparo d);
 	public abstract void visitarElementoDerrota(ElementoDerrota e);
-	public abstract void visitarObstaculo(Obstaculo o);
+	public abstract void VisitarObstaculoTemporal(ObstaculoTemporal ot);
+	public abstract void VisitarObstaculoConVida(ObstaculoConVida ov);
 }

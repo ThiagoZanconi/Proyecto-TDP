@@ -1,5 +1,7 @@
 package visitor;
 import Objetos.Obstaculo;
+import Objetos.ObstaculoConVida;
+import Objetos.ObstaculoTemporal;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
@@ -32,9 +34,14 @@ public class VisitorEnemigo extends Visitor {
 		e.derrota();
 	}
 
-	@Override
-	public void visitarObstaculo(Obstaculo o) {
+
+	public void VisitarObstaculoTemporal(ObstaculoTemporal o) {
 		miEnemigo.aceptar(o.getVisitor());
 		
+	}
+
+	@Override
+	public void VisitarObstaculoConVida(ObstaculoConVida ov) {
+		miEnemigo.aceptar(ov.getVisitor());
 	}
 }

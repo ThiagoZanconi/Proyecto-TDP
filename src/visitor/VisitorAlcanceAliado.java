@@ -1,5 +1,7 @@
 package visitor;
 import Objetos.Obstaculo;
+import Objetos.ObstaculoConVida;
+import Objetos.ObstaculoTemporal;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
@@ -34,9 +36,18 @@ public class VisitorAlcanceAliado extends VisitorAlcance{
 	}
 
 	@Override
-	public void visitarObstaculo(Obstaculo o) {
+	public void VisitarObstaculoTemporal(ObstaculoTemporal o) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void VisitarObstaculoConVida(ObstaculoConVida ov) {
+		miPersonaje.atacar();
+		if(miPersonaje.getPuedeAtacar()) {
+			HiloVelocidadAtaque hilo=new HiloVelocidadAtaque(miPersonaje);
+			hilo.start();
+		}
 	}
 
 }

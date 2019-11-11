@@ -4,6 +4,7 @@ import java.util.Random;
 
 import Objetos.Lago;
 import Objetos.Obstaculo;
+import Objetos.Piedra;
 import aliadoFactory.AbstractAliadoFactory;
 import aliadoFactory.BallestaFactory;
 import aliadoFactory.BarricadaFactory;
@@ -87,9 +88,9 @@ public abstract class Nivel {
 	public Obstaculo generarObstaculoAleatorio() {
 		Random r=new Random();
 		int fila=traducirFila(r.nextInt(700));
-		int columna=traducirColumna(r.nextInt(1110));
-		Obstaculo lago=new Lago(columna,fila);
-		return lago;
+		int columna=traducirColumna(r.nextInt(1110));	
+		Piedra obstaculo=new Piedra(2000,columna,fila);
+		return obstaculo;
 	}
 	
 	public Enemigo generarEnemigoAleatorio() {
