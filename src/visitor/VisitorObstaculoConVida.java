@@ -25,7 +25,7 @@ public class VisitorObstaculoConVida extends Visitor{
 	}
 
 	public void visitarAliado(Aliado a) {
-		miObstaculo.destruir();
+		
 	}
 
 	public void visitarDisparo(Disparo d) {

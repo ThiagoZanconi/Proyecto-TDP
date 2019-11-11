@@ -44,7 +44,7 @@ public class VisitorAliado extends Visitor {
 
 	@Override
 	public void VisitarObstaculoConVida(ObstaculoConVida ov) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
