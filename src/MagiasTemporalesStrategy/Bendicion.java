@@ -5,7 +5,8 @@ import juego.Personaje;
 public class Bendicion extends Strategy{
 
 	public void estrategia(Personaje personaje) {
-		personaje.recibirDaño(-10);
+		int daño=-10;
+		personaje.recibirDaño(daño);
 	}
 
 	public boolean afectaUsuario() {

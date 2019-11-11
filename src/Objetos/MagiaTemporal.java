@@ -48,27 +48,25 @@ public class MagiaTemporal extends Premio{
 		graficoActual.setBounds(x,y,1000,1000);
 	}
 	
-	@Override
 	public void aceptar(Visitor v) {
-		
-		
+			
 	}
 
 	public boolean usar(Personaje p) {
-		if(p!=miPersonaje && !afectaUsuario) {
+		if(p.esUn()!=miPersonaje.esUn() && !afectaUsuario) {
 			return true;
-		}else if(p==miPersonaje && afectaUsuario) {
-			return true;
-		}else {
+		}else{
 			return false;
 		}
 	}
 	
-	@Override
 	public void actividadSinColision() {
 		actualizarRectangulo(miPersonaje.getRectangulo().x+1, miPersonaje.getRectangulo().y, miPersonaje.getRectangulo().width, miPersonaje.getRectangulo().height);
 		if(!miPersonaje.getGrafico().isVisible()) {
 			this.destruir();
+		}
+		if(afectaUsuario) {
+			performStrategy(miPersonaje);
 		}
 	}
 }

@@ -24,6 +24,8 @@ public abstract class Elemento {
 	
 	public abstract void actividadSinColision();
 	
+	public abstract String esUn();
+	
 	public Adaptador getAdaptador() {
 		return adaptador;
 	}
@@ -41,6 +43,9 @@ public abstract class Elemento {
 	}
 	
 	public void destruir() {
+		if(this.esUn()=="Enemigo") {
+		
+		}
 		adaptador.eliminarElemento(this);
 		graficoActual.setVisible(false);
 	}

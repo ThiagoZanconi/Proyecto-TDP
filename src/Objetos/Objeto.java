@@ -8,4 +8,8 @@ public abstract class Objeto extends Elemento{
 		super(v);
 	}
 
+	public String esUn() {
+		return "Objeto";
+	}
+	
 }

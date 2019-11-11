@@ -71,4 +71,8 @@ public class ElementoDerrota extends Elemento {
 		}
 	}
 
+	public String esUn() {
+		return "Final";
+	}
+
 }
