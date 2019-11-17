@@ -16,10 +16,6 @@ public abstract class Enemigo extends Personaje {
 		visitorAlcance=new VisitorAlcanceEnemigo(this);
 	}
 	
-	public String esUn() {
-		return "Enemigo";
-	}
-	
 	public void aceptar(Visitor v) {
 		v.visitarEnemigo(this);
 	}
@@ -57,5 +53,6 @@ public abstract class Enemigo extends Personaje {
 			enMovimiento=true;
 		}
 	}
+	
 	
 }

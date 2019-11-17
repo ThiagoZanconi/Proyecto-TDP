@@ -2,6 +2,7 @@ package juego;
 
 import java.awt.Rectangle;
 
+import enemigos.Enemigo;
 import visitor.VisitorAlcance;
 
 public abstract class Personaje extends Elemento{
@@ -49,5 +50,9 @@ public abstract class Personaje extends Elemento{
 		if(vida<=0) {
 			destruir();
 		}
+	}
+	
+	public boolean equals(Personaje e) {
+		return this.rectangulo.equals(e.getRectangulo());
 	}
 }

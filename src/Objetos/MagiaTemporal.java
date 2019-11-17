@@ -53,7 +53,7 @@ public class MagiaTemporal extends Premio{
 	}
 
 	public boolean usar(Personaje p) {
-		if(p.esUn()!=miPersonaje.esUn() && !afectaUsuario) {
+		if(p.equals(this) && !afectaUsuario) {
 			return true;
 		}else{
 			return false;

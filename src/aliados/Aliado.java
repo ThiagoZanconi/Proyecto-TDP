@@ -67,10 +67,6 @@ public abstract class Aliado extends Personaje {
 		}
 	}
 	
-	public String esUn() {
-		return "Aliado";
-	}
-	
 	MouseListener click=new MouseListener() {
 		@Override
 		public void mousePressed(MouseEvent evento) { 

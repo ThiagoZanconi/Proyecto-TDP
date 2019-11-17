@@ -24,9 +24,7 @@ public abstract class Disparo extends Elemento {
 		graficoActual=new JLabel();
 	}
 	
-	public String esUn() {
-		return "Disparo";
-	}
+
 	
 	public void aceptar(Visitor v) {
 		v.visitarDisparo(this);
