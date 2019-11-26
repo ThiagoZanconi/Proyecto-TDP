@@ -1,5 +1,11 @@
-/aliados/
-/disparos/
+/MagiasTemporalesStrategy/
 /Objetos/
-/juego/
+/aliadoFactory/
+/aliados/
+/disparoEnemigoFactory/
+/disparos/
+/enemigoFactory/
 /enemigos/
+/gui/
+/juego/
+/visitor/
