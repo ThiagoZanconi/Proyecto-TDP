@@ -11,7 +11,7 @@ public class Rapido extends Enemigo {
 	public Rapido(int x, int y) {
 		super(200,100,650,100);
 		cantidadMonedas=150;
-		velocidad=5;
+		velocidadNormal=5;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Rapido\\RapidoWalk.gif"));

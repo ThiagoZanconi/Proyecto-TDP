@@ -17,7 +17,7 @@ public class Duna extends ObstaculoTemporal{
 		miVisitor=new VisitorDuna(this);
 		graficoActual = new JLabel();
 		graficoActual.setIcon(new ImageIcon("Sprites\\Obstaculos\\ralentiza.png"));
-		graficoActual.setBounds(x, y, 800, 800);
+		graficoActual.setBounds(x, y+100, 800, 800);
 		rectangulo=new Rectangle(x,y,80,70);
 		duracion=new HiloDuracionObjeto(this,15000);
 		duracion.start();

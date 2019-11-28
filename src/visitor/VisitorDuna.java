@@ -1,8 +1,8 @@
 package visitor;
 
 import Objetos.Duna;
-import aliados.Aliado;
 import enemigos.Enemigo;
+import stateEnemigos.Realentizado;
 
 public class VisitorDuna extends VisitorObstaculoTemporal {
 	protected Duna miDuna;
@@ -12,12 +12,7 @@ public class VisitorDuna extends VisitorObstaculoTemporal {
 	}
 	
 	public void visitarEnemigo(Enemigo e) {
-	
-	}
-	
-	public void visitarAliado(Aliado a) {
-		
-		
+		e.setEstadoVelocidad(new Realentizado(e));
 	}
 
 }

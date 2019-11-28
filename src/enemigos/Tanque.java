@@ -21,7 +21,7 @@ public class Tanque extends Enemigo {
 		alcanceDeAtaque=new Rectangle(x,y,80,70);
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorEnemigo(this);
-		velocidad=2;
+		velocidadNormal=2;
 	}
 	
 	public void generarDisparo() {
