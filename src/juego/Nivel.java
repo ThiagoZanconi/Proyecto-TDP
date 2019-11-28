@@ -2,6 +2,7 @@ package juego;
 
 import java.util.Random;
 
+import Objetos.Cactus;
 import Objetos.Duna;
 import Objetos.Lago;
 import Objetos.Obstaculo;
@@ -94,16 +95,16 @@ public abstract class Nivel {
 		
 		switch(r.nextInt(4)) {
 			case(0):
-				return obstaculo=new Duna(columna,fila);
+				return obstaculo=new Cactus(1500,columna,fila);
 				
 			case(1):
-				return obstaculo=new Duna(columna,fila);
+				return obstaculo=new Cactus(1500,columna,fila);
 				
 			case(2):
-				return obstaculo=new Duna(columna,fila);
+				return obstaculo=new Cactus(1500,columna,fila);
 				
 			case(3):
-				return obstaculo=new Duna(columna,fila);
+				return obstaculo=new Cactus(1500,columna,fila);
 				
 		}
 		return obstaculo;
