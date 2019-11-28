@@ -1,7 +1,6 @@
 package visitor;
 
 import Objetos.MagiaTemporal;
-import Objetos.Obstaculo;
 import Objetos.ObstaculoConVida;
 import Objetos.ObstaculoTemporal;
 import aliados.Aliado;

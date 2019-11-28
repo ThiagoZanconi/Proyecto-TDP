@@ -24,7 +24,7 @@ public class Ballesta extends Aliado {
 		miVisitor=new VisitorAliado(this);
 	}
 	
-	public void atacar() {
+	public void generarDisparo() {
 		if(puedeAtacar) {
 			Disparo x=new DisparoBallesta((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
 			adaptador.añadirElemento(x);	

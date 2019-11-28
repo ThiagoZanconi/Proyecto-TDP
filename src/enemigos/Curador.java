@@ -20,7 +20,7 @@ public class Curador extends Enemigo {
 	}
 	
 	//Falta Implementar Ataque de curador
-	public void atacar() {
+	public void generarDisparo() {
 		
 	}
 }

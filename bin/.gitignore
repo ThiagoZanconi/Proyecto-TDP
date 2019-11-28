@@ -1,5 +1,6 @@
 /MagiasTemporalesStrategy/
 /Objetos/
+/adaptador/
 /aliadoFactory/
 /aliados/
 /disparoEnemigoFactory/
@@ -9,3 +10,4 @@
 /gui/
 /juego/
 /visitor/
+/statePersonajes/

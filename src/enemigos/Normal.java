@@ -22,7 +22,7 @@ public class Normal extends Enemigo {
 		miVisitor=new VisitorEnemigo(this);
 	}
 	
-	public void atacar() {
+	public void generarDisparo() {
 		if(puedeAtacar) {
 			Disparo x=new DisparoEnemigo((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
 			adaptador.añadirElemento(x);

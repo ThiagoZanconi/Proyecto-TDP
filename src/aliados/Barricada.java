@@ -22,7 +22,7 @@ public class Barricada extends Aliado {
 		miVisitor=new VisitorAliado(this);
 	}
 	
-	public void atacar() {
+	public void generarDisparo() {
 		
 	}
 

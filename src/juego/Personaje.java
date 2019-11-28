@@ -2,7 +2,8 @@ package juego;
 
 import java.awt.Rectangle;
 
-import enemigos.Enemigo;
+import statePersonajes.Estado;
+import statePersonajes.EstadoAtacando;
 import visitor.VisitorAlcance;
 
 public abstract class Personaje extends Elemento{
@@ -13,6 +14,7 @@ public abstract class Personaje extends Elemento{
 	protected VisitorAlcance visitorAlcance;
 	protected boolean puedeAtacar;
 	protected int vidaMaxima;
+	protected Estado estado;
 	
 	public Personaje(int f,int a,int v,int vp) {
 		super(v);
@@ -20,10 +22,19 @@ public abstract class Personaje extends Elemento{
 		alcance=a;
 		velocidadDeProyectil=vp;
 		puedeAtacar=true;
+		estado=new EstadoAtacando(this);
 		vidaMaxima=v;
 	}
 	
-	public abstract void atacar();
+	public abstract void generarDisparo();
+	
+	public void atacar() {
+		estado.atacar();
+	}
+	
+	public void setEstado(Estado e) {
+		estado=e;
+	}
 	
 	public Rectangle getAlcanceDeAtaque() {
 		return alcanceDeAtaque;

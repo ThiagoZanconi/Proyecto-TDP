@@ -1,5 +1,4 @@
 package visitor;
-import Objetos.Obstaculo;
 import Objetos.ObstaculoConVida;
 import Objetos.ObstaculoTemporal;
 import aliados.Aliado;
@@ -17,10 +16,6 @@ public class VisitorAlcanceAliado extends VisitorAlcance{
 	
 	public void visitarEnemigo(Enemigo e) {	
 		miPersonaje.atacar();
-		if(miPersonaje.getPuedeAtacar()) {
-			HiloVelocidadAtaque hilo=new HiloVelocidadAtaque(miPersonaje);
-			hilo.start();
-		}
 	}
 	
 	public void visitarAliado(Aliado e) {
@@ -43,7 +38,7 @@ public class VisitorAlcanceAliado extends VisitorAlcance{
 
 	@Override
 	public void VisitarObstaculoConVida(ObstaculoConVida ov) {
-		miPersonaje.atacar();
+		miPersonaje.generarDisparo();
 		if(miPersonaje.getPuedeAtacar()) {
 			HiloVelocidadAtaque hilo=new HiloVelocidadAtaque(miPersonaje);
 			hilo.start();

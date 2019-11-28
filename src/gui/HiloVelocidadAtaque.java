@@ -1,6 +1,7 @@
 package gui;
 
 import juego.Personaje;
+import statePersonajes.EstadoAtacando;
 
 public class HiloVelocidadAtaque extends Thread {
 	protected Personaje miPersonaje;
@@ -10,10 +11,9 @@ public class HiloVelocidadAtaque extends Thread {
 	}
 	
 	public void run() {
-		miPersonaje.setPuedeAtacar(false);
 		try {
 			sleep(3000);
-			miPersonaje.setPuedeAtacar(true);
+			miPersonaje.setEstado(new EstadoAtacando(miPersonaje));
 		}catch (InterruptedException e) {
 			e.printStackTrace();
 		}

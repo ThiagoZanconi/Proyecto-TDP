@@ -25,21 +25,14 @@ public class Invocador extends Enemigo {
 	public void actividadSinColision(){
 		adaptador.chequearColisionDeAtaques(this);
 		mover();
-		invocar();
+		estado.atacar();
 	}
 	
-	public void atacar() {
-		
-	}
-	
-	public void invocar() {
-		if(puedeAtacar) {
-			Enemigo x=adaptador.generarEnemigoAleatorio((int)rectangulo.getX() + 100,(int)rectangulo.getY());
-			adaptador.añadirElemento(x);
-			HiloVelocidadAtaque hilo=new HiloVelocidadAtaque(this);
-			hilo.start();
-		}
-		
+	public void generarDisparo() {//En el caso del invocador no genera disparos, sino enemigos
+		Enemigo x=adaptador.generarEnemigoAleatorio((int)rectangulo.getX() + 100,(int)rectangulo.getY());
+		adaptador.añadirElemento(x);
+		HiloVelocidadAtaque hilo=new HiloVelocidadAtaque(this);
+		hilo.start();
 	}
 
 }

@@ -24,7 +24,7 @@ public class MagoDeFuego extends Aliado {
 		miVisitor=new VisitorAliado(this);
 	}
 	
-	public void atacar() {
+	public void generarDisparo() {
 		if(puedeAtacar) {
 			Disparo x=new DisparoMagoDeFuego((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
 			adaptador.añadirElemento(x);	
