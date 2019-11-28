@@ -4,9 +4,6 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
-import gui.HiloDuracionObjeto;
-import visitor.VisitorLago;
 import visitor.VisitorObstaculoConVida;
 
 public class Piedra extends ObstaculoConVida{

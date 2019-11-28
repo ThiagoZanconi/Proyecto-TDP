@@ -39,11 +39,7 @@ public class VisitorAlcanceEnemigo extends VisitorAlcance{
 
 	@Override
 	public void VisitarObstaculoConVida(ObstaculoConVida ov) {
-		miPersonaje.generarDisparo();
-		if(miPersonaje.getPuedeAtacar()) {
-			HiloVelocidadAtaque hilo=new HiloVelocidadAtaque(miPersonaje);
-			hilo.start();
-		}
+		miPersonaje.atacar();
 	}
 
 }
