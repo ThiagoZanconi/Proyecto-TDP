@@ -88,9 +88,26 @@ public abstract class Nivel {
 	public Obstaculo generarObstaculoAleatorio() {
 		Random r=new Random();
 		int fila=traducirFila(r.nextInt(700));
-		int columna=traducirColumna(r.nextInt(1110));	
-		Piedra obstaculo=new Piedra(2000,columna,fila);
+		int columna=traducirColumna(r.nextInt(1110));
+		Obstaculo obstaculo=new Piedra(2000,columna,fila);
+		
+		switch(r.nextInt(4)) {
+			case(0):
+				return obstaculo=new Piedra(2000,columna,fila);
+				
+			case(1):
+				return obstaculo=new Lago(columna,fila);
+				
+			case(2):
+				return obstaculo=new Lago(columna,fila);
+				
+			case(3):
+				return obstaculo=new Piedra(2000,columna,fila);
+				
+		}
 		return obstaculo;
+		
+		
 	}
 	
 	public Enemigo generarEnemigoAleatorio() {
