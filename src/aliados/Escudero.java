@@ -26,10 +26,9 @@ public class Escudero extends Aliado {
 	}
 	
 	public void generarDisparo() {
-		if(puedeAtacar) {
 			Disparo x=new DisparoAliado((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
 			adaptador.añadirElemento(x);	
-		}
+		
 	}
 
 }

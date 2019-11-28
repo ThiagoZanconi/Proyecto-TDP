@@ -25,10 +25,8 @@ public class Tanque extends Enemigo {
 	}
 	
 	public void generarDisparo() {
-		if(puedeAtacar) {
 			Disparo x=new DisparoEnemigo((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
 			adaptador.añadirElemento(x);
-		}
 	}
 	
 }

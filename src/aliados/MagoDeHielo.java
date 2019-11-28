@@ -25,9 +25,7 @@ public class MagoDeHielo extends Aliado {
 	}
 	
 	public void generarDisparo() {
-		if(puedeAtacar) {
 			Disparo x=new DisparoMagoDeHielo((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
 			adaptador.añadirElemento(x);	
-		}
 	}
 }

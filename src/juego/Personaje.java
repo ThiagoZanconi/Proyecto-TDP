@@ -12,7 +12,6 @@ public abstract class Personaje extends Elemento{
 	protected int velocidadDeProyectil;
 	protected Rectangle alcanceDeAtaque;
 	protected VisitorAlcance visitorAlcance;
-	protected boolean puedeAtacar;
 	protected int vidaMaxima;
 	protected Estado estado;
 	
@@ -21,7 +20,6 @@ public abstract class Personaje extends Elemento{
 		fuerzaDeImpacto=f;
 		alcance=a;
 		velocidadDeProyectil=vp;
-		puedeAtacar=true;
 		estado=new EstadoAtacando(this);
 		vidaMaxima=v;
 	}
@@ -43,17 +41,10 @@ public abstract class Personaje extends Elemento{
 	public VisitorAlcance getVisitorAlcance() {
 		return visitorAlcance;
 	}
-	
-	public boolean getPuedeAtacar() {
-		return puedeAtacar;
-	}
+
 	
 	public int getFuerzaDeImpacto() {
 		return fuerzaDeImpacto;
-	}
-	
-	public void setPuedeAtacar(boolean x) {
-		puedeAtacar=x;
 	}
 	
 	public void recibirDaño(int daño) {

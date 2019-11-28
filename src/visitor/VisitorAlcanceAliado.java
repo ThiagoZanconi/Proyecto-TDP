@@ -4,7 +4,6 @@ import Objetos.ObstaculoTemporal;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
-import gui.HiloVelocidadAtaque;
 import juego.ElementoDerrota;
 import juego.Personaje;
 
