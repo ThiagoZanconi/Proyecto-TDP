@@ -2,6 +2,7 @@ package juego;
 
 import java.util.Random;
 
+import Objetos.Duna;
 import Objetos.Lago;
 import Objetos.Obstaculo;
 import Objetos.Piedra;
@@ -93,16 +94,16 @@ public abstract class Nivel {
 		
 		switch(r.nextInt(4)) {
 			case(0):
-				return obstaculo=new Piedra(2000,columna,fila);
+				return obstaculo=new Duna(columna,fila);
 				
 			case(1):
-				return obstaculo=new Lago(columna,fila);
+				return obstaculo=new Duna(columna,fila);
 				
 			case(2):
-				return obstaculo=new Lago(columna,fila);
+				return obstaculo=new Duna(columna,fila);
 				
 			case(3):
-				return obstaculo=new Piedra(2000,columna,fila);
+				return obstaculo=new Duna(columna,fila);
 				
 		}
 		return obstaculo;
