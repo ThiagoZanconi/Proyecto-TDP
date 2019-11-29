@@ -1,12 +1,12 @@
 package juego;
 
-import gui.HiloAparicionEnemigosNivelUno;
+import gui.HiloAparicionEnemigos;
 
 public final class NivelUno extends Nivel {
 	
 	public NivelUno(Juego j) {
 		super(j);	
-		hiloAparicionEnemigos=new HiloAparicionEnemigosNivelUno(juego);
+		hiloAparicionEnemigos=new HiloAparicionEnemigos(juego,7000,20);
 	}
 
 }

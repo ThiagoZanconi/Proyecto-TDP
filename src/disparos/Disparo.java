@@ -14,7 +14,7 @@ public abstract class Disparo extends Elemento {
 	protected int daño;
 	protected int alcance;
 	
-	public Disparo(int x,int y,int d,int a) {
+	protected Disparo(int x,int y,int d,int a) {
 		super(-1);
 		velocidad=30;
 		distanciaRecorrida=0;

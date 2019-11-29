@@ -15,7 +15,7 @@ public abstract class Personaje extends Elemento{
 	protected int vidaMaxima;
 	protected Estado estado;
 	
-	public Personaje(int f,int a,int v,int vp) {
+	protected Personaje(int f,int a,int v,int vp) {
 		super(v);
 		fuerzaDeImpacto=f;
 		alcance=a;

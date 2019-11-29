@@ -16,12 +16,17 @@ import adaptador.Adaptador;
 import aliadoFactory.AbstractAliadoFactory;
 import aliados.Aliado;
 import gui.GUI;
+import objetoFactory.AbstractObjetoFactory;
 
-public class Tienda {	
-	protected AbstractAliadoFactory []botones;
+public class Tienda {		
 	protected JButton btnVender;
 	protected JButton cancelarActividad;
-	protected AbstractAliadoFactory btnClickeado;
+	
+	protected AbstractAliadoFactory []botonesAliado;
+	protected AbstractAliadoFactory btnAliadoClickeado;
+	
+	protected AbstractObjetoFactory []botonesObjeto;
+	protected AbstractObjetoFactory btnObjetoClickeado;
 	
 	protected int puntaje;
 	protected int monedas;
@@ -34,6 +39,7 @@ public class Tienda {
 	
 	protected JPanel cuadrilla;
 	protected boolean crearAliado;
+	protected boolean crearObjeto;
 	protected boolean vender;
 	protected static GUI gui;
 	protected Nivel nivel;
@@ -41,38 +47,41 @@ public class Tienda {
 	
 	public Tienda(Nivel n) {
 		crearAliado=false;
+		crearObjeto=false;
 		gui=GUI.getGUI();
 		adaptador=Adaptador.getAdaptador();
 		nivel=n;
 		
-		botones=new AbstractAliadoFactory[6];
-		nivel.instanciarBotones(botones);
+		botonesAliado=new AbstractAliadoFactory[6];
+		nivel.instanciarBotonesAliado(botonesAliado);
 		OyenteComprarAliado oyenteComprarAliado=new OyenteComprarAliado();
 		
-		botones[0].setBounds(0, 670, 100, 100);
-		botones[0].addActionListener(oyenteComprarAliado);
-		gui.getVentanaJuego().add(botones[0],0);
+		botonesAliado[0].setBounds(0, 670, 100, 100);
+		botonesAliado[0].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botonesAliado[0],0);
 		
-		botones[1].setBounds(100, 670, 100, 100);
-		botones[1].addActionListener(oyenteComprarAliado);
-		gui.getVentanaJuego().add(botones[1],0);
+		botonesAliado[1].setBounds(100, 670, 100, 100);
+		botonesAliado[1].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botonesAliado[1],0);
 		
 		
-		botones[2].setBounds(200, 670, 100, 100);
-		botones[2].addActionListener(oyenteComprarAliado);
-		gui.getVentanaJuego().add(botones[2],0);
+		botonesAliado[2].setBounds(200, 670, 100, 100);
+		botonesAliado[2].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botonesAliado[2],0);
 		
-		botones[3].setBounds(300, 670, 100, 100);
-		botones[3].addActionListener(oyenteComprarAliado);
-		gui.getVentanaJuego().add(botones[3],0);
+		botonesAliado[3].setBounds(300, 670, 100, 100);
+		botonesAliado[3].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botonesAliado[3],0);
 		
-		botones[4].setBounds(400, 670, 100, 100);
-		botones[4].addActionListener(oyenteComprarAliado);
-		gui.getVentanaJuego().add(botones[4],0);
+		botonesAliado[4].setBounds(400, 670, 100, 100);
+		botonesAliado[4].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botonesAliado[4],0);
 		
-		botones[5].setBounds(500, 670, 100, 100);
-		botones[5].addActionListener(oyenteComprarAliado);
-		gui.getVentanaJuego().add(botones[5],0);
+		botonesAliado[5].setBounds(500, 670, 100, 100);
+		botonesAliado[5].addActionListener(oyenteComprarAliado);
+		gui.getVentanaJuego().add(botonesAliado[5],0);	
+		
+		botonesObjeto=new AbstractObjetoFactory[4];
 		
 		btnVender=new JButton("Vender");
 		btnVender.setBounds(600,670,100,100);
@@ -151,7 +160,7 @@ public class Tienda {
 	
 	public void generarAliado(int x,int y) {
 		int[] arregloAuxiliar=traducirCoordenadas(x,y);
-		Aliado aliado=btnClickeado.crearAliado(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
+		Aliado aliado=btnAliadoClickeado.crearAliado(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
 		adaptador.chequearColision(aliado);
 		if(aliado.getCostoMonedas()<=monedas && !aliado.getColisiono()) {
 			actualizarMonedas(-aliado.getCostoMonedas());
@@ -160,6 +169,10 @@ public class Tienda {
 			cuadrilla.setVisible(false);
 			crearAliado=false;
 		}
+	}
+	
+	public void generarObjeto(int x,int y) {
+		
 	}
 	
 	public void actualizarMonedas(int cantidad) {
@@ -172,7 +185,7 @@ public class Tienda {
 		texto.setEditable(false);
 		texto.setBackground(gui.getVentanaJuego().getBackground());
 				
-		switch (btnClickeado.getText()) {
+		switch (btnAliadoClickeado.getText()) {
 			case "Guerrero":
 				texto.setText("Guerrero"+"\n"+""+"\n"+"Alcance: Cuerpo a cuerpo"+"\n"+"Daño: Medio"+"\n"+"Vida: Alta"+"\n"+"Valor: 300");
 				texto.setBounds(800,670,300,110);
@@ -292,7 +305,7 @@ public class Tienda {
 			cuadrilla.setVisible(true);
 			vender=false;
 			crearAliado=true;
-			btnClickeado=(AbstractAliadoFactory)e.getSource();
+			btnAliadoClickeado=(AbstractAliadoFactory)e.getSource();
 			descripcion();
 		}
 	}
@@ -301,8 +314,11 @@ public class Tienda {
 		@Override
 		public void mousePressed(MouseEvent evento) {
 			if(crearAliado) {
-				generarAliado(evento.getX(), evento.getY());	
+				generarAliado(evento.getX(),evento.getY());	
 			}	
+			if(crearObjeto) {
+				generarObjeto(evento.getX(),evento.getY());
+			}
 		}
 		@Override
 		public void mouseReleased(MouseEvent evento) {

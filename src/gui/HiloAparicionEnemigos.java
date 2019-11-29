@@ -10,8 +10,10 @@ public class HiloAparicionEnemigos extends Thread{
 	protected int proximaOleada;                 //Cantidad de enemigos que aparecieron hasta el momento
 	protected int nroOleada;                     //Oleada Actual
 	
-	public HiloAparicionEnemigos(Juego j) {
+	public HiloAparicionEnemigos(Juego j,int SE,int PO) {
 		juego=j;
+		spawnEnemigos=SE;
+		proximaOleada=PO;
 		nroOleada=0;
 		cambioOleada=0;
 		run=true;

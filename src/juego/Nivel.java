@@ -1,7 +1,6 @@
 package juego;
 
 import java.util.Random;
-
 import Objetos.Cactus;
 import Objetos.Duna;
 import Objetos.Lago;
@@ -25,6 +24,7 @@ import enemigoFactory.TanqueFactory;
 import enemigos.Enemigo;
 import gui.Hilo;
 import gui.HiloAparicionEnemigos;
+import objetoFactory.AbstractObjetoFactory;
 
 public abstract class Nivel {
 	protected static Juego juego;
@@ -45,7 +45,7 @@ public abstract class Nivel {
 		hiloAparicionEnemigos.detenerHilo();
 	}
 	
-	public void instanciarBotones(AbstractAliadoFactory []botones) {
+	public void instanciarBotonesAliado(AbstractAliadoFactory []botones) {
 		botones[0]=new GuerreroFactory();
 		botones[0].setText("Guerrero");
 		
@@ -64,6 +64,11 @@ public abstract class Nivel {
 		botones[5]=new BarricadaFactory();
 		botones[5].setText("Barricada");
 	}
+	
+	public void instanciarBotonesObjeto(AbstractObjetoFactory []botones) {
+		
+	}
+	
 	public Enemigo generarEnemigoAleatorio(int x,int y) {
 		Enemigo toReturn=null;
 		Random r=new Random();

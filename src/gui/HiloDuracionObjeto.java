@@ -1,16 +1,15 @@
 package gui;
 
-import Objetos.ObstaculoTemporal;
-import juego.Elemento;
+import Objetos.Objeto;
 
 public class HiloDuracionObjeto extends Thread{
 	protected boolean run;
 	protected int duracion;
-	protected Elemento miObstaculoTemporal;
+	protected Objeto miObjeto;
 	
-	public HiloDuracionObjeto(ObstaculoTemporal o,int d) {
+	public HiloDuracionObjeto(Objeto o,int d) {
 		run=true;
-		miObstaculoTemporal=o;
+		miObjeto=o;
 		duracion=d;	
 	}
 	
@@ -22,7 +21,7 @@ public class HiloDuracionObjeto extends Thread{
 				e.printStackTrace();
 			}
 			run=false;
-			miObstaculoTemporal.destruir();
+			miObjeto.destruir();
 		}
 	}
 

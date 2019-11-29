@@ -15,7 +15,8 @@ public abstract class Aliado extends Personaje {
 	protected boolean colisiono;
 	protected int costoMonedas;
 	protected JLabel colisionVenta;
-	public Aliado(int f, int a,int v,int vp) {
+	
+	protected Aliado(int f, int a,int v,int vp) {
 		super(f,a,v,vp);
 		visitorAlcance=new VisitorAlcanceAliado(this);
 		colisiono=false;
@@ -72,7 +73,7 @@ public abstract class Aliado extends Personaje {
 		public void mousePressed(MouseEvent evento) { 
 			if(adaptador.hayQueVender()) {
 				vender();
-			}	
+			}
 		}
 		@Override
 		public void mouseReleased(MouseEvent evento) {

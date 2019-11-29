@@ -2,8 +2,6 @@ package juego;
 import java.awt.Rectangle;
 import visitor.*;
 import javax.swing.JLabel;
-
-import Objetos.MagiaTemporal;
 import adaptador.Adaptador;
 
 public abstract class Elemento {
@@ -14,7 +12,7 @@ public abstract class Elemento {
 	protected Rectangle rectangulo;
 	protected Adaptador adaptador;
 	
-	public Elemento(int v) {
+	protected Elemento(int v) {
 		vida=v;
 		imagenes=new JLabel[1];
 		adaptador=Adaptador.getAdaptador();

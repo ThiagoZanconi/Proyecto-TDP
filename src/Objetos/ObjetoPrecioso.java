@@ -4,8 +4,8 @@ import visitor.Visitor;
 
 public abstract class ObjetoPrecioso extends Premio{
 
-	public ObjetoPrecioso(int v) {
-		super(v);
+	public ObjetoPrecioso(int x,int y) {
+		super(x, y);
 	}
 
 	public void aceptar(Visitor v) {

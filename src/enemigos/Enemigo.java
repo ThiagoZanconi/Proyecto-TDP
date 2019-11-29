@@ -1,4 +1,5 @@
 package enemigos;
+import Objetos.Premio;
 import juego.Personaje;
 import stateEnemigos.EstadoVelocidad;
 import stateEnemigos.VelocidadNormal;
@@ -11,13 +12,15 @@ public abstract class Enemigo extends Personaje {
 	protected int cantidadMonedas;
 	protected int velocidadNormal;
 	protected EstadoVelocidad estadoVelocidad;
+	protected Premio premio;
 
-	public Enemigo(int f, int a, int v,int vp) {
+	protected Enemigo(int f, int a, int v,int vp) {
 		super(f, a, v,vp);
 		enMovimiento=true;
 		velocidadNormal=3;
 		visitorAlcance=new VisitorAlcanceEnemigo(this);
 		estadoVelocidad=new VelocidadNormal(this);
+		premio=null;                                   //Por defecto los enemigos no tienen ningun premio
 	}
 	
 	public int getVelocidadNormal() {
