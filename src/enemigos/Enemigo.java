@@ -41,9 +41,6 @@ public abstract class Enemigo extends Personaje {
 		colisionClick=new JLabel();
 		premio="";                                   //Por defecto los enemigos no tienen ningun premio
 		
-		
-		
-		
 		Random r=new Random();
 		switch(r.nextInt(1)) {
 		case(0):
