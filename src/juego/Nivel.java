@@ -95,13 +95,13 @@ public abstract class Nivel {
 		
 		switch(r.nextInt(4)) {
 			case(0):
-				return obstaculo=new Cactus(1500,columna,fila);
+				return obstaculo=new Piedra(2000,columna,fila);
 				
 			case(1):
-				return obstaculo=new Cactus(1500,columna,fila);
+				return obstaculo=new Duna(columna,fila);
 				
 			case(2):
-				return obstaculo=new Cactus(1500,columna,fila);
+				return obstaculo=new Lago(columna,fila);
 				
 			case(3):
 				return obstaculo=new Cactus(1500,columna,fila);

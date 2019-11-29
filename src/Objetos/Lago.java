@@ -13,7 +13,7 @@ public class Lago extends ObstaculoTemporal{
 
 	public Lago(int x,int y) {
 		super(-1);
-		daño=200;
+		daño=40;
 		miVisitor=new VisitorLago(this);
 		graficoActual = new JLabel();
 		graficoActual.setIcon(new ImageIcon("Sprites\\Obstaculos\\lagoasesino.gif"));

@@ -100,7 +100,7 @@ public class Tienda {
 		imagenMonedas.setIcon(new ImageIcon("Sprites\\monedas.png"));
 		imagenMonedas.setBounds(650, 30, 32, 32);
 		gui.getVentanaJuego().add(imagenMonedas,0);
-		monedas=700;
+		monedas=1500;
 		labelMonedas=new JLabel();
 		labelMonedas.setText(String.valueOf(monedas));
 		labelMonedas.setBounds(685,30,40,30);
