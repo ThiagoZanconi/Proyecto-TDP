@@ -92,6 +92,10 @@ public final class Adaptador {
 		return tienda.getAñadirCampo();
 	}
 	
+	public void añadirCampo(boolean b) {
+		tienda.crearCampo(b);
+	}
+	
 	public void setCrearPremio(boolean b) {
 		tienda.setCrearPremio(b);
 		

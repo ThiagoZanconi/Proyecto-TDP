@@ -4,9 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.JLabel;
-
 import Objetos.CampoDeProteccion;
 import juego.Personaje;
 import visitor.Visitor;
@@ -76,7 +74,11 @@ public abstract class Aliado extends Personaje {
 				vender();
 			}
 			if(adaptador.getAñadirCampo()) {
-				añadirCampo(new CampoDeProteccion((int)rectangulo.getX(),(int)rectangulo.getY()));
+				CampoDeProteccion campo=new CampoDeProteccion((int)rectangulo.getX(),(int)rectangulo.getY());
+				añadirCampo(campo);
+				campo.setEntidadDueño(true);
+				adaptador.añadirElemento(campo);
+				adaptador.añadirCampo(false);
 			}
 		}
 		@Override

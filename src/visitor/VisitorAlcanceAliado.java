@@ -37,7 +37,6 @@ public class VisitorAlcanceAliado extends VisitorAlcance{
 
 	@Override
 	public void visitarPremio(Premio p) {
-		miPersonaje.aceptar(p.getVisitor());
 		
 	}
 

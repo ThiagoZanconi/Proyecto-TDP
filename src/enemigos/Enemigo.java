@@ -40,10 +40,12 @@ public abstract class Enemigo extends Personaje {
 		Random r=new Random();
 		switch(r.nextInt(1)) {
 		case(0):
+			premio="CampoDeProteccion";
+			break;
+		case(1):	
 			premio="Tesoro";
+			break;
 		}
-		
-		
 	}
 	
 	public int getVelocidadNormal() {
@@ -93,6 +95,7 @@ public abstract class Enemigo extends Personaje {
 			case("CampoDeProteccion"):
 				iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\campoIcono.gif"));
 				adaptador.setEstadoTienda(new EstadoCrearCampo((int)rectangulo.getX(),(int)rectangulo.getY()));
+				adaptador.añadirCampo(true);
 				break;
 			case("RelojTemporal"):
 				iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\ralentizaIcono.png"));

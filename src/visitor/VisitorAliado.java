@@ -2,7 +2,6 @@ package visitor;
 
 import Objetos.Objeto;
 import Objetos.Obstaculo;
-import Objetos.ObstaculoConVida;
 import Objetos.ObstaculoTemporal;
 import Objetos.Premio;
 import aliados.Aliado;
@@ -52,13 +51,13 @@ public class VisitorAliado extends Visitor {
 
 	@Override
 	public void visitarPremio(Premio p) {
-		// TODO Auto-generated method stub
+		miAliado.aceptar(p.getVisitor());
 		
 	}
 
 	@Override
 	public void visitarObjeto(Objeto o) {
-		// TODO Auto-generated method stub
+		miAliado.aceptar(o.getVisitor());
 		
 	}
 

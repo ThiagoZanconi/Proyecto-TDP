@@ -161,6 +161,11 @@ public class Tienda {
 		return añadirCampo;
 	}
 	
+	public void crearCampo(boolean b) {
+		añadirCampo=b;
+		
+	}
+	
 	public boolean getVender() {
 		return vender;
 	}

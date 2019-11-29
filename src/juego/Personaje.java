@@ -30,15 +30,18 @@ public abstract class Personaje extends Elemento{
 	
 	public void destruir() {
 		if(campo!=null) {
-			campo=null;
-			adaptador.eliminarElementoGrafico(magiaTemporal);
+			adaptador.eliminarElemento(campo);
 		}
 		super.destruir();
 	}
 	
+	public void campoDestruido() {
+		campo=null;
+	}
+	
 	public void añadirCampo(CampoDeProteccion x) {
 		campo=x;
-		magiaTemporal.setIcon(x.getGrafico().getIcon());
+		x.setDueño(this);
 	}
 	
 	public void atacar() {

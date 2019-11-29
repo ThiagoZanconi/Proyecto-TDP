@@ -7,10 +7,4 @@ public class Bomba extends ObjetoPrecioso {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void clickeado() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

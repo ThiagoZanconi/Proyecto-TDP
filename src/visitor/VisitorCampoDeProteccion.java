@@ -2,6 +2,8 @@ package visitor;
 
 import Objetos.CampoDeProteccion;
 import Objetos.Objeto;
+import aliados.Aliado;
+import enemigos.Enemigo;
 
 public class VisitorCampoDeProteccion extends VisitorPremio {
 	protected CampoDeProteccion miCampo;
@@ -13,6 +15,24 @@ public class VisitorCampoDeProteccion extends VisitorPremio {
 	@Override
 	public void visitarObjeto(Objeto o) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void visitarEnemigo(Enemigo e) {
+		if(miCampo.getEntidadDueño()) {
+			e.destruir();
+			miCampo.destruir();
+		}
+
+	}
+
+	@Override
+	public void visitarAliado(Aliado a) {
+		if(!miCampo.getEntidadDueño()) {
+			a.destruir();
+			miCampo.destruir();
+		}
 		
 	}
 

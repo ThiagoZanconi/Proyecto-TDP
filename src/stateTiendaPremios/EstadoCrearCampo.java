@@ -8,7 +8,7 @@ public class EstadoCrearCampo extends EstadoTienda{
 
 	@Override
 	public void crearPremio(int x, int y) {
-		
+		adaptador.setCrearPremio(false);
 	}
 	
 

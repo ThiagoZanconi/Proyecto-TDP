@@ -12,11 +12,6 @@ public class RelojTemporal extends MagiaTemporal {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void clickeado() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void aceptar(Visitor v) {

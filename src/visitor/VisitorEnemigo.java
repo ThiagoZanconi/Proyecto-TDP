@@ -41,13 +41,13 @@ public class VisitorEnemigo extends Visitor {
 
 	@Override
 	public void visitarPremio(Premio p) {
-		// TODO Auto-generated method stub
+		miEnemigo.aceptar(p.getVisitor());
 		
 	}
 
 	@Override
 	public void visitarObjeto(Objeto o) {
-		// TODO Auto-generated method stub
+		miEnemigo.aceptar(o.getVisitor());
 		
 	}
 }
