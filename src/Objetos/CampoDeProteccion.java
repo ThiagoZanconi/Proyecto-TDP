@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 
 import juego.Personaje;
 import visitor.Visitor;
+import visitor.VisitorCampoDeProteccion;
 
 public class CampoDeProteccion extends MagiaTemporal {
 	protected boolean entidadDueño;                  //false=enemigo, true=aliado
@@ -13,8 +14,9 @@ public class CampoDeProteccion extends MagiaTemporal {
 
 	public CampoDeProteccion(int x,int y) {
 		super(x,y);
-		graficoActual.setIcon(new ImageIcon("Sprites\\Campo.png"));
+		graficoActual.setIcon(new ImageIcon("Sprites\\Premios\\campo.png"));
 		rectangulo=new Rectangle(x,y,80,70);
+		miVisitor=new VisitorCampoDeProteccion(this);
 	}
 	
 	public void setEntidadDueño(boolean b) {
