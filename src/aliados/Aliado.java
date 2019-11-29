@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
 
+import Objetos.CampoDeProteccion;
 import juego.Personaje;
 import visitor.Visitor;
 import visitor.VisitorAlcanceAliado;
@@ -73,6 +74,9 @@ public abstract class Aliado extends Personaje {
 		public void mousePressed(MouseEvent evento) { 
 			if(adaptador.hayQueVender()) {
 				vender();
+			}
+			if(adaptador.getAñadirCampo()) {
+				añadirCampo(new CampoDeProteccion((int)rectangulo.getX(),(int)rectangulo.getY()));
 			}
 		}
 		@Override

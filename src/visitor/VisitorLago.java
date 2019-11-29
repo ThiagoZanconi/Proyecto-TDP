@@ -4,7 +4,7 @@ import Objetos.Lago;
 import aliados.Aliado;
 import enemigos.Enemigo;
 
-public class VisitorLago extends VisitorObstaculoTemporal {
+public class VisitorLago extends VisitorObstaculo{
 	protected Lago miLago;
 	
 	public VisitorLago(Lago l) {

@@ -24,7 +24,7 @@ public class Duna extends ObstaculoTemporal{
 	}
 	
 	public void aceptar(Visitor v) {
-		v.VisitarObstaculoTemporal(this);
+		v.VisitarObstaculo(this);
 	}
 	
 	

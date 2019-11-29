@@ -87,6 +87,10 @@ public final class Adaptador {
 		return tienda.getVender();
 	}
 	
+	public boolean getAñadirCampo() {
+		return tienda.getAñadirCampo();
+	}
+	
 	public void huboVenta(int c) {
 		actualizarMonedas(c);
 		tienda.setVender(false);

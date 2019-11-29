@@ -17,7 +17,7 @@ public abstract class ObstaculoConVida extends Obstaculo{
 	}
 	
 	public void aceptar(Visitor v) {
-		v.VisitarObstaculoConVida(this);	
+		v.VisitarObstaculo(this);	
 	}
 	
 }

@@ -1,7 +1,7 @@
 package visitor;
 
+import Objetos.Obstaculo;
 import Objetos.ObstaculoConVida;
-import Objetos.ObstaculoTemporal;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
@@ -34,13 +34,7 @@ public class VisitorElementoDerrota extends Visitor {
 	}
 
 	@Override
-	public void VisitarObstaculoTemporal(ObstaculoTemporal o) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void VisitarObstaculoConVida(ObstaculoConVida ov) {
+	public void VisitarObstaculo(Obstaculo ot) {
 		// TODO Auto-generated method stub
 		
 	}

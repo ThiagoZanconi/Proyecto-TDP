@@ -1,4 +1,5 @@
 package visitor;
+import Objetos.Obstaculo;
 import Objetos.ObstaculoConVida;
 import Objetos.ObstaculoTemporal;
 import aliados.Aliado;
@@ -30,14 +31,8 @@ public class VisitorAlcanceAliado extends VisitorAlcance{
 	}
 
 	@Override
-	public void VisitarObstaculoTemporal(ObstaculoTemporal o) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void VisitarObstaculoConVida(ObstaculoConVida ov) {
-		miPersonaje.atacar();
+	public void VisitarObstaculo(Obstaculo o) {
+		miPersonaje.aceptar(o.getVisitor());
 	}
 
 }

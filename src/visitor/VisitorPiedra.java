@@ -1,43 +1,41 @@
 package visitor;
 
-import Objetos.Cactus;
 import Objetos.Obstaculo;
+import Objetos.Piedra;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
 import juego.ElementoDerrota;
 
-public class VisitorCactus extends VisitorObstaculo{
+public class VisitorPiedra extends VisitorObstaculo {
+	protected Piedra miPiedra;
 	
-	private Cactus miCactus;
-	
-	public VisitorCactus(Cactus c) {
-		miCactus=c;		
+	public VisitorPiedra(Piedra p) {
+		miPiedra=p;
 	}
+
 	
 	public void visitarEnemigo(Enemigo e) {
-		e.atacar();
 		e.detener();
-		miCactus.atacar(e);
+		e.atacar();
 	}
 
 	public void visitarAliado(Aliado a) {
-		miCactus.atacar(a);
+		a.atacar();
 	}
 
 	public void visitarDisparo(Disparo d) {
-		miCactus.recibirDaño(d.getDaño());
+		miPiedra.recibirDaño(d.getDaño());
 		d.destruir();
 	}
 
-	@Override
 	public void visitarElementoDerrota(ElementoDerrota e) {
 		// TODO Auto-generated method stub
+		
 	}
 
-	@Override
 	public void VisitarObstaculo(Obstaculo ot) {
-		miCactus.destruir();
+		miPiedra.destruir();
 	}
 
 }

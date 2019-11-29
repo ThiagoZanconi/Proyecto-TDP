@@ -41,6 +41,7 @@ public class Tienda {
 	protected boolean crearAliado;
 	protected boolean crearObjeto;
 	protected boolean vender;
+	protected boolean añadirCampo;
 	protected static GUI gui;
 	protected Nivel nivel;
 	protected Adaptador adaptador;
@@ -48,6 +49,7 @@ public class Tienda {
 	public Tienda(Nivel n) {
 		crearAliado=false;
 		crearObjeto=false;
+		añadirCampo=false;
 		gui=GUI.getGUI();
 		adaptador=Adaptador.getAdaptador();
 		nivel=n;
@@ -148,6 +150,10 @@ public class Tienda {
 	
 	public boolean crearAliado() {
 		return crearAliado;
+	}
+	
+	public boolean getAñadirCampo() {
+		return añadirCampo;
 	}
 	
 	public boolean getVender() {

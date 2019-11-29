@@ -24,7 +24,7 @@ public class Lago extends ObstaculoTemporal{
 	}
 	
 	public void aceptar(Visitor v) {
-		v.VisitarObstaculoTemporal(this);
+		v.VisitarObstaculo(this);
 	}
 	
 	public void atacar(Personaje p) {

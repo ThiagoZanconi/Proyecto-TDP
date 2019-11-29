@@ -4,7 +4,7 @@ import Objetos.Duna;
 import enemigos.Enemigo;
 import stateEnemigos.Realentizado;
 
-public class VisitorDuna extends VisitorObstaculoTemporal {
+public class VisitorDuna extends VisitorObstaculo {
 	protected Duna miDuna;
 	
 	public VisitorDuna(Duna l) {
