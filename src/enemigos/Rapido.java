@@ -9,7 +9,12 @@ import visitor.VisitorEnemigo;
 public class Rapido extends Enemigo {
 
 	public Rapido(int x, int y) {
-		super(200,100,650,100);
+		super(x,y);
+		fuerzaDeImpacto=200;
+		alcance=1000;
+		vidaMaxima=650;
+		vida=vidaMaxima;
+		velocidadDeProyectil=100;
 		cantidadMonedas=150;
 		velocidadNormal=5;
 		enMovimiento=true;

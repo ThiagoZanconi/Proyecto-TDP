@@ -44,7 +44,15 @@ public final class Adaptador {
 	
 	public void añadirElemento(Elemento e) {
 		elementos.añadirElemento(e);
-		gui.getVentanaJuego().add(e.getGrafico(),0);
+		añadirElementoGrafico(e.getGrafico());
+	}
+	
+	public void añadirElementoGrafico(JLabel j) {
+		gui.getVentanaJuego().add(j,0);
+	}
+	
+	public void eliminarElementoGrafico(JLabel j) {
+		gui.getVentanaJuego().remove(j);
 	}
 	
 	public void chequearColisionDeAtaques(Personaje p) {
@@ -82,10 +90,6 @@ public final class Adaptador {
 	public void huboVenta(int c) {
 		actualizarMonedas(c);
 		tienda.setVender(false);
-	}
-	
-	public void eliminarElementoGrafico(JLabel j) {
-		gui.getVentanaJuego().remove(j);
 	}
 	
 	public void crearDisparoEnemigo(Enemigo e) {

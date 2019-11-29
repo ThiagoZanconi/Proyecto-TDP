@@ -9,8 +9,14 @@ import visitor.VisitorAliado;
 public class Ballesta extends Aliado {
 	
 	public Ballesta(int x,int y) {
-		super(200,1800,500,150);
+		super(x,y);
+		fuerzaDeImpacto=200;
+		alcance=1800;
+		vidaMaxima=500;
+		vida=vidaMaxima;
+		velocidadDeProyectil=150;
 		costoMonedas=350;
+		
 		rectangulo=new Rectangle(x,y,80,70);
 		alcanceDeAtaque=new Rectangle(x-1800,y,1800,70);
 		imagenes[0] = new JLabel();

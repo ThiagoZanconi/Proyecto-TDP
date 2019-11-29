@@ -7,7 +7,12 @@ import visitor.VisitorAliado;
 public class Barricada extends Aliado {
 
 	public Barricada(int x,int y) {
-		super(0,0,2500,0);
+		super(x,y);
+		fuerzaDeImpacto=0;
+		alcance=0;
+		vidaMaxima=2500;
+		vida=vidaMaxima;
+		velocidadDeProyectil=0;
 		costoMonedas=600;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Barricada\\Barricada.png"));

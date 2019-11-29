@@ -1,7 +1,8 @@
 package juego;
 
 import java.awt.Rectangle;
-
+import javax.swing.JLabel;
+import Objetos.CampoDeProteccion;
 import statePersonajes.Estado;
 import statePersonajes.EstadoAtacando;
 import visitor.VisitorAlcance;
@@ -14,17 +15,31 @@ public abstract class Personaje extends Elemento{
 	protected VisitorAlcance visitorAlcance;
 	protected int vidaMaxima;
 	protected Estado estado;
+	protected CampoDeProteccion campo;
+	protected JLabel magiaTemporal;
 	
-	protected Personaje(int f,int a,int v,int vp) {
-		super(v);
-		fuerzaDeImpacto=f;
-		alcance=a;
-		velocidadDeProyectil=vp;
+	protected Personaje(int x,int y) {
+		super();
 		estado=new EstadoAtacando(this);
-		vidaMaxima=v;
+		campo=null;
+		magiaTemporal=new JLabel();
+		magiaTemporal.setBounds(x,y,1000,1000);	
 	}
 	
 	public abstract void generarDisparo();
+	
+	public void destruir() {
+		if(campo!=null) {
+			campo=null;
+			adaptador.eliminarElementoGrafico(magiaTemporal);
+		}
+		super.destruir();
+	}
+	
+	public void añadirCampo(CampoDeProteccion x) {
+		campo=x;
+		magiaTemporal.setIcon(x.getGrafico().getIcon());
+	}
 	
 	public void atacar() {
 		estado.atacar();
@@ -42,7 +57,6 @@ public abstract class Personaje extends Elemento{
 		return visitorAlcance;
 	}
 
-	
 	public int getFuerzaDeImpacto() {
 		return fuerzaDeImpacto;
 	}
@@ -52,9 +66,5 @@ public abstract class Personaje extends Elemento{
 		if(vida<=0) {
 			destruir();
 		}
-	}
-	
-	public boolean equals(Personaje e) {
-		return this.rectangulo.equals(e.getRectangulo());
 	}
 }

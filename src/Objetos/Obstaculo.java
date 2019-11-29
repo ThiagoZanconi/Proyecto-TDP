@@ -4,8 +4,8 @@ import visitor.Visitor;
 
 public abstract class Obstaculo extends Objeto{
 
-	public Obstaculo(int v) {
-		super(v);
+	public Obstaculo() {
+		super();
 	}
 
 	public void aceptar(Visitor v) {

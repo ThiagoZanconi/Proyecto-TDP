@@ -7,8 +7,8 @@ import stateObjetos.EstadoObjetoAtaca;
 public abstract class Objeto extends Elemento{
 	protected EstadoObjeto estado;
 
-	public Objeto(int v) {
-		super(v);
+	public Objeto() {
+		super();
 		estado=new EstadoObjetoAtaca(this);
 	}
 

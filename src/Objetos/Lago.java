@@ -12,7 +12,7 @@ public class Lago extends ObstaculoTemporal{
 	protected int daño;
 
 	public Lago(int x,int y) {
-		super(-1);
+		super();
 		daño=40;
 		miVisitor=new VisitorLago(this);
 		graficoActual = new JLabel();

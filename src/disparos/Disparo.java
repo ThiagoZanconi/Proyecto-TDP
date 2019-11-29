@@ -15,7 +15,8 @@ public abstract class Disparo extends Elemento {
 	protected int alcance;
 	
 	protected Disparo(int x,int y,int d,int a) {
-		super(-1);
+		super();
+		vida=-1;
 		velocidad=30;
 		distanciaRecorrida=0;
 		rectangulo=new Rectangle(x,y,30,80);

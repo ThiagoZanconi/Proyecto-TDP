@@ -8,8 +8,9 @@ import visitor.VisitorObstaculoConVida;
 
 public class Piedra extends ObstaculoConVida{
 
-	public Piedra(int v,int x,int y) {
-		super(v);
+	public Piedra(int x,int y) {
+		super();
+		vida=2000;
 		miVisitor=new VisitorObstaculoConVida(this);
 		graficoActual = new JLabel();
 		graficoActual.setIcon(new ImageIcon("Sprites\\Obstaculos\\piedra.png"));

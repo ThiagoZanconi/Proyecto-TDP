@@ -12,8 +12,7 @@ public abstract class Elemento {
 	protected Rectangle rectangulo;
 	protected Adaptador adaptador;
 	
-	protected Elemento(int v) {
-		vida=v;
+	protected Elemento() {
 		imagenes=new JLabel[1];
 		adaptador=Adaptador.getAdaptador();
 	}

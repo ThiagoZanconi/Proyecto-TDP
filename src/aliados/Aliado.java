@@ -16,8 +16,8 @@ public abstract class Aliado extends Personaje {
 	protected int costoMonedas;
 	protected JLabel colisionVenta;
 	
-	protected Aliado(int f, int a,int v,int vp) {
-		super(f,a,v,vp);
+	protected Aliado(int x,int y) {
+		super(x,y);
 		visitorAlcance=new VisitorAlcanceAliado(this);
 		colisiono=false;
 	}

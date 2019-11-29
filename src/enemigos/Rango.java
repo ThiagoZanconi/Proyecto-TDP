@@ -9,7 +9,12 @@ import visitor.VisitorEnemigo;
 public class Rango extends Enemigo {
 
 	public Rango(int x, int y) {
-		super(300,100,500,100);
+		super(x,y);
+		fuerzaDeImpacto=300;
+		alcance=500;
+		vidaMaxima=500;
+		vida=vidaMaxima;
+		velocidadDeProyectil=100;
 		cantidadMonedas=200;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();

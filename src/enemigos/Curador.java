@@ -6,7 +6,12 @@ import visitor.VisitorEnemigo;
 public class Curador extends Enemigo {
 
 	public Curador(int x, int y) {
-		super(10,100,650,100);
+		super(x,y);
+		fuerzaDeImpacto=10;
+		alcance=100;
+		vidaMaxima=650;
+		vida=vidaMaxima;
+		velocidadDeProyectil=100;
 		cantidadMonedas=150;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();

@@ -10,7 +10,12 @@ import visitor.VisitorAliado;
 public class Escudero extends Aliado {
 
 	public Escudero(int x,int y) {
-		super(250,100,1900,100);
+		super(x,y);
+		fuerzaDeImpacto=250;
+		alcance=100;
+		vidaMaxima=1900;
+		vida=vidaMaxima;
+		velocidadDeProyectil=100;
 		costoMonedas=400;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Escudero\\EscuderoAttack.gif"));

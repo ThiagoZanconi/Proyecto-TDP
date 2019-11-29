@@ -10,7 +10,12 @@ import visitor.VisitorEnemigo;
 public class Tanque extends Enemigo {
 
 	public Tanque(int x, int y) {
-		super(200,100,2000,100);
+		super(x,y);
+		fuerzaDeImpacto=200;
+		alcance=1000;
+		vidaMaxima=2000;
+		vida=vidaMaxima;
+		velocidadDeProyectil=100;
 		cantidadMonedas=300;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();

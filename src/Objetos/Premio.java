@@ -10,7 +10,8 @@ public abstract class Premio extends Objeto{
 	protected JLabel colisionClick;
 	
 	public Premio(int x,int y){
-		super(-1);
+		super();
+		vida=-1;
 		graficoActual=new JLabel();
 		graficoActual.setBounds(x,y,1000,1000);
 		colisionClick=new JLabel();

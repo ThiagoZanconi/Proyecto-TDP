@@ -2,8 +2,8 @@ package Objetos;
 
 public abstract class ObjetoConVida extends Objeto{
 
-	public ObjetoConVida(int v) {
-		super(v);
+	public ObjetoConVida() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 

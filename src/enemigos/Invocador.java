@@ -9,7 +9,12 @@ import visitor.VisitorEnemigo;
 public class Invocador extends Enemigo {
 
 	public Invocador(int x, int y) {
-		super(10,100,450,100);
+		super(x,y);
+		fuerzaDeImpacto=10;
+		alcance=100;
+		vidaMaxima=450;
+		vida=vidaMaxima;
+		velocidadDeProyectil=100;
 		cantidadMonedas=400;
 		enMovimiento=true;
 		imagenes[0] = new JLabel();

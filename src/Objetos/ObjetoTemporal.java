@@ -2,8 +2,9 @@ package Objetos;
 
 public abstract class ObjetoTemporal extends Objeto {
 
-	protected ObjetoTemporal(int v) {
-		super(v);
+	protected ObjetoTemporal() {
+		super();
+		vida=-1;
 		// TODO Auto-generated constructor stub
 	}
 

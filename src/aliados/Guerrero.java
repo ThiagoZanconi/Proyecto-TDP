@@ -8,7 +8,12 @@ import visitor.VisitorAliado;
 
 public class Guerrero extends Aliado {
 	public Guerrero(int x,int y) {
-		super(500,100,1300,100);
+		super(x,y);
+		fuerzaDeImpacto=500;
+		alcance=100;
+		vidaMaxima=1300;
+		vida=vidaMaxima;
+		velocidadDeProyectil=100;
 		costoMonedas=300;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\Guerrero\\GuerreroAttack.gif"));

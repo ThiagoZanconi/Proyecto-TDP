@@ -16,7 +16,8 @@ public class ElementoDerrota extends Elemento {
 	protected JFrame derrFrame;
 
 	public ElementoDerrota() {
-		super(-1);
+		super();
+		vida=-1;
 		rectangulo=new Rectangle();
 		rectangulo.setBounds(1150,-450,50,800);
 		miVisitor=new VisitorElementoDerrota(this);

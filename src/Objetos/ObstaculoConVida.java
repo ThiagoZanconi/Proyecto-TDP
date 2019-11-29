@@ -4,8 +4,8 @@ import visitor.Visitor;
 
 public abstract class ObstaculoConVida extends Obstaculo{
 
-	public ObstaculoConVida(int v) {
-		super(v);
+	public ObstaculoConVida() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 

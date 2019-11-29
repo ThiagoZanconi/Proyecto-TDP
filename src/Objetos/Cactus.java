@@ -11,8 +11,9 @@ import visitor.VisitorCactus;
 public class Cactus extends ObstaculoConVida{
 	protected int daño;
 	
-	public Cactus(int v,int x,int y) {
-		super(v);
+	public Cactus(int x,int y) {
+		super();
+		vida=1500;
 		daño=50;
 		miVisitor=new VisitorCactus(this);
 		graficoActual = new JLabel();

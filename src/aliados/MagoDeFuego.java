@@ -9,7 +9,12 @@ import visitor.VisitorAliado;
 public class MagoDeFuego extends Aliado {
 
 	public MagoDeFuego(int x,int y) {
-		super(800,400,900,100);
+		super(x,y);
+		fuerzaDeImpacto=800;
+		alcance=400;
+		vidaMaxima=900;
+		vida=vidaMaxima;
+		velocidadDeProyectil=100;
 		costoMonedas=600;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\MagoDeFuego\\MagoFAttack.gif"));

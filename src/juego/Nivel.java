@@ -96,11 +96,11 @@ public abstract class Nivel {
 		Random r=new Random();
 		int fila=traducirFila(r.nextInt(700));
 		int columna=traducirColumna(r.nextInt(1110));
-		Obstaculo obstaculo=new Piedra(2000,columna,fila);
+		Obstaculo obstaculo=new Piedra(columna,fila);
 		
 		switch(r.nextInt(4)) {
 			case(0):
-				return obstaculo=new Piedra(2000,columna,fila);
+				return obstaculo=new Piedra(columna,fila);
 				
 			case(1):
 				return obstaculo=new Duna(columna,fila);
@@ -109,7 +109,7 @@ public abstract class Nivel {
 				return obstaculo=new Lago(columna,fila);
 				
 			case(3):
-				return obstaculo=new Cactus(1500,columna,fila);
+				return obstaculo=new Cactus(columna,fila);
 				
 		}
 		return obstaculo;

@@ -9,7 +9,12 @@ import visitor.VisitorAliado;
 public class MagoDeHielo extends Aliado {
 
 	public MagoDeHielo(int x,int y) {
-		super(300,100,800,100);
+		super(x,y);
+		fuerzaDeImpacto=300;
+		alcance=400;
+		vidaMaxima=800;
+		vida=vidaMaxima;
+		velocidadDeProyectil=100;
 		costoMonedas=500;
 		imagenes[0] = new JLabel();
 		imagenes[0].setIcon(new ImageIcon("Sprites\\MagoDeHielo\\MagoHIdle.gif"));

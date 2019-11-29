@@ -14,8 +14,8 @@ public abstract class Enemigo extends Personaje {
 	protected EstadoVelocidad estadoVelocidad;
 	protected Premio premio;
 
-	protected Enemigo(int f, int a, int v,int vp) {
-		super(f, a, v,vp);
+	protected Enemigo(int x,int y) {
+		super(x,y);
 		enMovimiento=true;
 		velocidadNormal=3;
 		visitorAlcance=new VisitorAlcanceEnemigo(this);
