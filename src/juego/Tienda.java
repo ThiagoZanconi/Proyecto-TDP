@@ -314,6 +314,7 @@ public class Tienda {
 			vender=true;
 			crearAliado=false;
 			crearPremio=false;
+			añadirCampo=false;
 		}
 	}
 	
@@ -322,6 +323,7 @@ public class Tienda {
 			vender=false;
 			crearAliado=false;
 			crearPremio=false;
+			añadirCampo=false;
 			cuadrilla.setVisible(false);
 		}
 	}
@@ -331,6 +333,7 @@ public class Tienda {
 			cuadrilla.setVisible(true);
 			vender=false;
 			crearPremio=false;
+			añadirCampo=false;
 			crearAliado=true;
 			btnAliadoClickeado=(AbstractAliadoFactory)e.getSource();
 			descripcion();

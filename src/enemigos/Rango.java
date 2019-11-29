@@ -23,7 +23,6 @@ public class Rango extends Enemigo {
 		graficoActual.setIcon(imagenes[0].getIcon());
 		graficoActual.setBounds(x, y,1000,1000);
 		alcanceDeAtaque=new Rectangle(x,y, 500,70);
-		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorEnemigo(this);
 	}
 

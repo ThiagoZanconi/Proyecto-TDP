@@ -1,10 +1,13 @@
 package enemigos;
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import Objetos.CampoDeProteccion;
 import juego.Personaje;
 import stateEnemigos.EstadoVelocidad;
 import stateEnemigos.VelocidadNormal;
@@ -32,10 +35,14 @@ public abstract class Enemigo extends Personaje {
 		velocidadNormal=3;
 		visitorAlcance=new VisitorAlcanceEnemigo(this);
 		estadoVelocidad=new VelocidadNormal(this);
+		rectangulo=new Rectangle(x,y,80,70);
 		
 		iconoPremio=new JLabel();
 		colisionClick=new JLabel();
 		premio="";                                   //Por defecto los enemigos no tienen ningun premio
+		
+		
+		
 		
 		Random r=new Random();
 		switch(r.nextInt(1)) {
@@ -44,6 +51,15 @@ public abstract class Enemigo extends Personaje {
 			break;
 		case(1):	
 			premio="Tesoro";
+			break;
+		}
+		
+		switch(r.nextInt(1)) {
+		case(0):
+			CampoDeProteccion campo=new CampoDeProteccion((int)rectangulo.getX(),(int)rectangulo.getY());
+			añadirCampo(campo);
+			campo.setEntidadDueño(false);
+			adaptador.añadirElemento(campo);
 			break;
 		}
 	}
@@ -124,6 +140,9 @@ public abstract class Enemigo extends Personaje {
 			rectangulo.setBounds((int)rectangulo.getX()+velocidad(),(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
 			graficoActual.setBounds(graficoActual.getX()+velocidad(),graficoActual.getY(),graficoActual.getWidth(),graficoActual.getHeight());
 			alcanceDeAtaque.setBounds((int)alcanceDeAtaque.getX()+velocidad(),(int)alcanceDeAtaque.getY(),(int)alcanceDeAtaque.getWidth(),(int)alcanceDeAtaque.getHeight());
+			if(campo!=null) {
+				campo.mover(velocidad());
+			}
 		}
 		else {
 			enMovimiento=true;

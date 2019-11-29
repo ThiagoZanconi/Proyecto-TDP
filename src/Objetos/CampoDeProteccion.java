@@ -36,6 +36,11 @@ public class CampoDeProteccion extends MagiaTemporal {
 		super.destruir();
 	}
 	
+	public void mover(int x) {    //Se utiliza cuando un enemigo que posee este campo se mueve             
+		rectangulo.setBounds((int)rectangulo.getX()+x,(int)rectangulo.getY(),(int)rectangulo.getWidth(),(int)rectangulo.getHeight());
+		graficoActual.setBounds(graficoActual.getX()+x,graficoActual.getY(),graficoActual.getWidth(),graficoActual.getHeight());
+	}
+	
 	@Override
 	public void aceptar(Visitor v) {
 		v.visitarPremio(this);
