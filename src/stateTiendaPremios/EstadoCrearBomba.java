@@ -1,5 +1,8 @@
 package stateTiendaPremios;
 
+import Objetos.Bomba;
+import Objetos.Premio;
+
 public class EstadoCrearBomba extends EstadoTienda {
 	
 	public EstadoCrearBomba(int x,int y) {
@@ -8,7 +11,9 @@ public class EstadoCrearBomba extends EstadoTienda {
 
 	@Override
 	public void crearPremio(int x, int y) {
-		// TODO Auto-generated method stub
+		adaptador.setCrearPremio(false);
+		Premio bomba=new Bomba(x,y);
+		adaptador.añadirElemento(bomba);
 		
 	}
 	

@@ -1,7 +1,6 @@
 package juego;
 
 import java.awt.Rectangle;
-import javax.swing.JLabel;
 import Objetos.CampoDeProteccion;
 import statePersonajes.Estado;
 import statePersonajes.EstadoAtacando;
@@ -16,23 +15,19 @@ public abstract class Personaje extends Elemento{
 	protected int vidaMaxima;
 	protected Estado estado;
 	protected CampoDeProteccion campo;
-	protected JLabel magiaTemporal;
 	
 	protected Personaje(int x,int y) {
 		super();
 		estado=new EstadoAtacando(this);
 		campo=null;
-		magiaTemporal=new JLabel();
-		magiaTemporal.setBounds(x,y,1000,1000);	
 	}
 	
 	public abstract void generarDisparo();
 	
-	public void destruir() {
+	public void destruirCampo() {
 		if(campo!=null) {
-			adaptador.eliminarElemento(campo);
+			campo.destruir();
 		}
-		super.destruir();
 	}
 	
 	public void campoDestruido() {
@@ -67,6 +62,7 @@ public abstract class Personaje extends Elemento{
 	public void recibirDaño(int daño) {
 		vida=vida-daño;
 		if(vida<=0) {
+			destruirCampo();
 			destruir();
 		}
 	}

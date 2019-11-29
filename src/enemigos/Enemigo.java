@@ -44,17 +44,21 @@ public abstract class Enemigo extends Personaje {
 		Random r=new Random();
 		switch(r.nextInt(1)) {
 		case(0):
-			premio="CampoDeProteccion";
+			premio="Bomba";
 			break;
 		case(1):	
 			premio="Tesoro";
+			break;
+		case(2):	
+			premio="CampoDeProteccion";
 			break;
 		}
 		
 		switch(r.nextInt(1)) {
 		case(0):
 			CampoDeProteccion campo=new CampoDeProteccion((int)rectangulo.getX(),(int)rectangulo.getY());
-			añadirCampo(campo);
+			this.campo=campo;
+			campo.setDueño(this);
 			campo.setEntidadDueño(false);
 			adaptador.añadirElemento(campo);
 			break;
