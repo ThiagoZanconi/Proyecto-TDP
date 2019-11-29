@@ -17,7 +17,6 @@ public class VisitorObstaculoConVida extends Visitor{
 	public VisitorObstaculoConVida() {
 		
 	}
-	
 
 	public void visitarEnemigo(Enemigo e) {
 		e.detener();

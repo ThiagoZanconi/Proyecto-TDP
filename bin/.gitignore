@@ -1,14 +1,5 @@
-/MagiasTemporalesStrategy/
 /Objetos/
-/adaptador/
-/aliadoFactory/
-/aliados/
-/disparoEnemigoFactory/
-/disparos/
-/enemigoFactory/
-/enemigos/
-/gui/
 /juego/
-/statePersonajes/
 /visitor/
-/stateEnemigos/
+/stateObjetos/
+/gui/

@@ -1,16 +1,19 @@
 package Objetos;
 
 import java.awt.Rectangle;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import juego.Personaje;
+import visitor.Visitor;
 import visitor.VisitorCactus;
 
 public class Cactus extends ObstaculoConVida{
-
+	protected int daño;
+	
 	public Cactus(int v,int x,int y) {
 		super(v);
+		daño=50;
 		miVisitor=new VisitorCactus(this);
 		graficoActual = new JLabel();
 		graficoActual.setIcon(new ImageIcon("Sprites\\Obstaculos\\cactus.png"));
@@ -18,6 +21,12 @@ public class Cactus extends ObstaculoConVida{
 		rectangulo=new Rectangle(x,y,80,70);
 	}
 	
+	public void aceptar(Visitor v) {
+		v.VisitarObstaculoConVida(this);
+	}
 	
+	public void atacar(Personaje p) {
+		estado.atacar(daño, p);
+	}
 
 }
