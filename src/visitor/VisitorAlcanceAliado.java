@@ -1,7 +1,7 @@
 package visitor;
+import Objetos.Objeto;
 import Objetos.Obstaculo;
-import Objetos.ObstaculoConVida;
-import Objetos.ObstaculoTemporal;
+import Objetos.Premio;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
@@ -33,6 +33,18 @@ public class VisitorAlcanceAliado extends VisitorAlcance{
 	@Override
 	public void VisitarObstaculo(Obstaculo o) {
 		miPersonaje.aceptar(o.getVisitor());
+	}
+
+	@Override
+	public void visitarPremio(Premio p) {
+		miPersonaje.aceptar(p.getVisitor());
+		
+	}
+
+	@Override
+	public void visitarObjeto(Objeto o) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

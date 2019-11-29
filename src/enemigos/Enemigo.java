@@ -1,5 +1,11 @@
 package enemigos;
-import Objetos.Premio;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import Objetos.Cactus;
+import Objetos.Duna;
+import Objetos.Lago;
+import Objetos.Piedra;
 import juego.Personaje;
 import stateEnemigos.EstadoVelocidad;
 import stateEnemigos.VelocidadNormal;
@@ -12,7 +18,7 @@ public abstract class Enemigo extends Personaje {
 	protected int cantidadMonedas;
 	protected int velocidadNormal;
 	protected EstadoVelocidad estadoVelocidad;
-	protected Premio premio;
+	protected String premio;
 
 	protected Enemigo(int x,int y) {
 		super(x,y);
@@ -20,7 +26,7 @@ public abstract class Enemigo extends Personaje {
 		velocidadNormal=3;
 		visitorAlcance=new VisitorAlcanceEnemigo(this);
 		estadoVelocidad=new VelocidadNormal(this);
-		premio=null;                                   //Por defecto los enemigos no tienen ningun premio
+		premio="";                                   //Por defecto los enemigos no tienen ningun premio
 	}
 	
 	public int getVelocidadNormal() {
@@ -53,6 +59,25 @@ public abstract class Enemigo extends Personaje {
 		adaptador.eliminarElemento(this);
 		graficoActual.setVisible(false);
 		otorgarMonedas();
+		JLabel iconoPremio=new JLabel();
+		switch(premio) {
+		case("Tesoro"):
+			iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\Monedas.gif"));
+			break;
+		case("Bomba"):
+			iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\bomba.png"));
+			break;
+		case("CampoDeProteccion"):
+			iconoPremio.setIcon(new ImageIcon(""));
+			break;
+		case("RelojTemporal"):
+			iconoPremio.setIcon(new ImageIcon(""));
+			break;
+		case("Barricada"):
+			iconoPremio.setIcon(new ImageIcon(""));
+			break;
+			
+	}
 	}
 	
 	public void otorgarMonedas() {

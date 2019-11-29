@@ -1,7 +1,9 @@
 package visitor;
 
+import Objetos.Objeto;
 import Objetos.Obstaculo;
 import Objetos.Piedra;
+import Objetos.Premio;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
@@ -36,6 +38,20 @@ public class VisitorPiedra extends VisitorObstaculo {
 
 	public void VisitarObstaculo(Obstaculo ot) {
 		miPiedra.destruir();
+	}
+
+
+	@Override
+	public void visitarPremio(Premio p) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void visitarObjeto(Objeto o) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

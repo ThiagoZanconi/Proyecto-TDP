@@ -1,7 +1,9 @@
 package visitor;
 
 import Objetos.Cactus;
+import Objetos.Objeto;
 import Objetos.Obstaculo;
+import Objetos.Premio;
 import aliados.Aliado;
 import disparos.Disparo;
 import enemigos.Enemigo;
@@ -22,6 +24,7 @@ public class VisitorCactus extends VisitorObstaculo{
 	}
 
 	public void visitarAliado(Aliado a) {
+		a.atacar();
 		miCactus.atacar(a);
 	}
 
@@ -38,6 +41,18 @@ public class VisitorCactus extends VisitorObstaculo{
 	@Override
 	public void VisitarObstaculo(Obstaculo ot) {
 		miCactus.destruir();
+	}
+
+	@Override
+	public void visitarPremio(Premio p) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void visitarObjeto(Objeto o) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
