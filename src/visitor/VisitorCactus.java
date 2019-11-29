@@ -15,7 +15,6 @@ public class VisitorCactus extends VisitorObstaculoConVida{
 	
 	public void visitarEnemigo(Enemigo e) {
 		super.visitarEnemigo(e);
-		System.out.println("Funciona");
 		miCactus.atacar(e);
 	}
 
