@@ -1,14 +1,18 @@
 package enemigos;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Random;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
-import Objetos.Cactus;
-import Objetos.Duna;
-import Objetos.Lago;
-import Objetos.Piedra;
 import juego.Personaje;
 import stateEnemigos.EstadoVelocidad;
 import stateEnemigos.VelocidadNormal;
+import stateTiendaPremios.EstadoCrearBarricada;
+import stateTiendaPremios.EstadoCrearBomba;
+import stateTiendaPremios.EstadoCrearCampo;
+import stateTiendaPremios.EstadoCrearReloj;
+import stateTiendaPremios.EstadoCrearTesoro;
 import visitor.Visitor;
 import visitor.VisitorAlcanceEnemigo;
 
@@ -19,6 +23,8 @@ public abstract class Enemigo extends Personaje {
 	protected int velocidadNormal;
 	protected EstadoVelocidad estadoVelocidad;
 	protected String premio;
+	protected JLabel iconoPremio;
+	protected JLabel colisionClick;
 
 	protected Enemigo(int x,int y) {
 		super(x,y);
@@ -26,7 +32,18 @@ public abstract class Enemigo extends Personaje {
 		velocidadNormal=3;
 		visitorAlcance=new VisitorAlcanceEnemigo(this);
 		estadoVelocidad=new VelocidadNormal(this);
+		
+		iconoPremio=new JLabel();
+		colisionClick=new JLabel();
 		premio="";                                   //Por defecto los enemigos no tienen ningun premio
+		
+		Random r=new Random();
+		switch(r.nextInt(1)) {
+		case(0):
+			premio="Tesoro";
+		}
+		
+		
 	}
 	
 	public int getVelocidadNormal() {
@@ -59,25 +76,37 @@ public abstract class Enemigo extends Personaje {
 		adaptador.eliminarElemento(this);
 		graficoActual.setVisible(false);
 		otorgarMonedas();
-		JLabel iconoPremio=new JLabel();
-		switch(premio) {
-		case("Tesoro"):
-			iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\Monedas.gif"));
-			break;
-		case("Bomba"):
-			iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\bomba.png"));
-			break;
-		case("CampoDeProteccion"):
-			iconoPremio.setIcon(new ImageIcon(""));
-			break;
-		case("RelojTemporal"):
-			iconoPremio.setIcon(new ImageIcon(""));
-			break;
-		case("Barricada"):
-			iconoPremio.setIcon(new ImageIcon(""));
-			break;
-			
-	}
+		
+		if(!premio.equals("")) {
+			iconoPremio.setBounds((int)rectangulo.getX(),(int)rectangulo.getY(),1000,1000);
+			colisionClick.setBounds((int)rectangulo.getX(),(int)rectangulo.getY()+450,100,100);
+			colisionClick.addMouseListener(click);
+			switch(premio) {
+			case("Tesoro"):
+				iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\Monedas.gif"));
+				adaptador.setEstadoTienda(new EstadoCrearTesoro((int)rectangulo.getX(),(int)rectangulo.getY()));
+				break;
+			case("Bomba"):
+				iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\bomba.png"));
+				adaptador.setEstadoTienda(new EstadoCrearBomba((int)rectangulo.getX(),(int)rectangulo.getY()));
+				break;
+			case("CampoDeProteccion"):
+				iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\campoIcono.gif"));
+				adaptador.setEstadoTienda(new EstadoCrearCampo((int)rectangulo.getX(),(int)rectangulo.getY()));
+				break;
+			case("RelojTemporal"):
+				iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\ralentizaIcono.png"));
+				adaptador.setEstadoTienda(new EstadoCrearReloj((int)rectangulo.getX(),(int)rectangulo.getY()));
+				break;
+			case("Barricada"):
+				iconoPremio.setIcon(new ImageIcon(""));
+				adaptador.setEstadoTienda(new EstadoCrearBarricada((int)rectangulo.getX(),(int)rectangulo.getY()));
+				break;		
+			}
+			adaptador.añadirElementoGrafico(colisionClick);
+			adaptador.añadirElementoGrafico(iconoPremio);
+		}
+		
 	}
 	
 	public void otorgarMonedas() {
@@ -97,6 +126,31 @@ public abstract class Enemigo extends Personaje {
 			enMovimiento=true;
 		}
 	}
+	
+	MouseListener click=new MouseListener() {
+		@Override
+		public void mousePressed(MouseEvent evento) { 
+			adaptador.setCrearPremio(true);
+			adaptador.eliminarElementoGrafico(colisionClick);
+			adaptador.eliminarElementoGrafico(iconoPremio);
+		}
+		@Override
+		public void mouseReleased(MouseEvent evento) {
+	
+		}
+		@Override
+		public void mouseEntered(MouseEvent evento) {
+
+		}
+		@Override
+		public void mouseExited(MouseEvent evento) {
+
+		}
+		@Override
+		public void mouseClicked(MouseEvent evento) {
+			
+		}
+	};
 	
 	
 }

@@ -17,6 +17,7 @@ import aliadoFactory.AbstractAliadoFactory;
 import aliados.Aliado;
 import gui.GUI;
 import objetoFactory.AbstractObjetoFactory;
+import stateTiendaPremios.EstadoTienda;
 
 public class Tienda {		
 	protected JButton btnVender;
@@ -27,6 +28,8 @@ public class Tienda {
 	
 	protected AbstractObjetoFactory []botonesObjeto;
 	protected AbstractObjetoFactory btnObjetoClickeado;
+	
+	protected EstadoTienda estado;
 	
 	protected int puntaje;
 	protected int monedas;
@@ -42,6 +45,7 @@ public class Tienda {
 	protected boolean crearObjeto;
 	protected boolean vender;
 	protected boolean añadirCampo;
+	protected boolean crearPremio;
 	protected static GUI gui;
 	protected Nivel nivel;
 	protected Adaptador adaptador;
@@ -50,6 +54,7 @@ public class Tienda {
 		crearAliado=false;
 		crearObjeto=false;
 		añadirCampo=false;
+		crearPremio=false;
 		gui=GUI.getGUI();
 		adaptador=Adaptador.getAdaptador();
 		nivel=n;
@@ -162,6 +167,14 @@ public class Tienda {
 	
 	public void setVender(boolean b) {
 		vender=b;	
+	}
+	
+	public void setEstado(EstadoTienda e) {
+		estado=e;
+	}
+	
+	public void setCrearPremio(boolean b) {
+		crearPremio=b;
 	}
 	
 	public void generarAliado(int x,int y) {
@@ -295,6 +308,7 @@ public class Tienda {
 		public void actionPerformed(ActionEvent e) {
 			vender=true;
 			crearAliado=false;
+			crearPremio=false;
 		}
 	}
 	
@@ -302,6 +316,7 @@ public class Tienda {
 		public void actionPerformed(ActionEvent e) {
 			vender=false;
 			crearAliado=false;
+			crearPremio=false;
 			cuadrilla.setVisible(false);
 		}
 	}
@@ -310,6 +325,7 @@ public class Tienda {
 		public void actionPerformed(ActionEvent e) {
 			cuadrilla.setVisible(true);
 			vender=false;
+			crearPremio=false;
 			crearAliado=true;
 			btnAliadoClickeado=(AbstractAliadoFactory)e.getSource();
 			descripcion();
@@ -324,6 +340,9 @@ public class Tienda {
 			}	
 			if(crearObjeto) {
 				generarObjeto(evento.getX(),evento.getY());
+			}
+			if(crearPremio) {
+				estado.crearPremio(evento.getX(),evento.getY());
 			}
 		}
 		@Override

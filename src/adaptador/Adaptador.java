@@ -10,6 +10,7 @@ import juego.Juego;
 import juego.Nivel;
 import juego.Personaje;
 import juego.Tienda;
+import stateTiendaPremios.EstadoTienda;
 /**
  * Se utiliza para comunicar a los elementos con la clase Elementos para que solo tengan acceso a las operaciones necesarias
  * @author Usuario Final
@@ -80,7 +81,7 @@ public final class Adaptador {
 	}
 	
 	public void actualizarMonedas(int cantidad) {
-		juego.actualizarMonedas(cantidad);
+		tienda.actualizarMonedas(cantidad);
 	}
 	
 	public boolean hayQueVender() {
@@ -91,13 +92,18 @@ public final class Adaptador {
 		return tienda.getAñadirCampo();
 	}
 	
+	public void setCrearPremio(boolean b) {
+		tienda.setCrearPremio(b);
+		
+	}
+	
 	public void huboVenta(int c) {
 		actualizarMonedas(c);
 		tienda.setVender(false);
 	}
 	
-	public void crearDisparoEnemigo(Enemigo e) {
-		
+	public void setEstadoTienda(EstadoTienda e) {
+		tienda.setEstado(e);
 	}
 	
 	public void terminarJuego() {
