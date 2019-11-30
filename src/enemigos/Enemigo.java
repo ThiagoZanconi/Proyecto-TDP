@@ -44,13 +44,16 @@ public abstract class Enemigo extends Personaje {
 		Random r=new Random();
 		switch(r.nextInt(1)) {
 		case(0):
-			premio="Bomba";
+			premio="RelojTemporal";
 			break;
 		case(1):	
 			premio="Tesoro";
 			break;
 		case(2):	
 			premio="CampoDeProteccion";
+			break;
+		case(3):
+			premio="Bomba";
 			break;
 		}
 		

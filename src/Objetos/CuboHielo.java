@@ -13,13 +13,13 @@ public class CuboHielo extends ObjetoTemporal{
 		super();
 		miVisitor=new VisitorCuboHielo(this);
 		vida=-1;
-		costoMonedas=250;
+		costoMonedas=350;
 		graficoActual=new JLabel();
 		graficoActual.setIcon(new ImageIcon("Sprites\\Objetos\\congelacion.gif"));
-		graficoActual.setBounds(0,0,1000,1000);
+		graficoActual.setBounds(400,-100,1000,1000);
 		rectangulo=new Rectangle(0,-800,2000,2000);
 		colisiono=false;
-		HiloDuracionObjeto hilo=new HiloDuracionObjeto(this,1000);
+		HiloDuracionObjeto hilo=new HiloDuracionObjeto(this,2000);
 		hilo.start();
 	}
 
