@@ -58,7 +58,7 @@ public final class Juego {
 	public void generarObstaculoAleatorio() {
 		Random r=new Random();
 		int probabilidad=r.nextInt(100);
-		if(probabilidad<100) {
+		if(probabilidad<12) {
 			Obstaculo obstaculo=nivel.generarObstaculoAleatorio();
 			elementos.añadirElemento(obstaculo);
 			gui.getVentanaJuego().add(obstaculo.getGrafico(),0);

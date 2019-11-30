@@ -42,7 +42,7 @@ public abstract class Enemigo extends Personaje {
 		premio="";                                   //Por defecto los enemigos no tienen ningun premio
 		
 		Random r=new Random();
-		switch(r.nextInt(1)) {
+		switch(r.nextInt(20)) {
 		case(0):
 			premio="Pared";
 			break;
@@ -59,7 +59,7 @@ public abstract class Enemigo extends Personaje {
 			premio="RelojTemporal";
 		}
 		
-		switch(r.nextInt(1)) {
+		switch(r.nextInt(10)) {
 		case(0):
 			CampoDeProteccion campo=new CampoDeProteccion((int)rectangulo.getX(),(int)rectangulo.getY());
 			this.campo=campo;
