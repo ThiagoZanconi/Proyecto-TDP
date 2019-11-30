@@ -23,7 +23,7 @@ public class VisitorBomba extends VisitorPremio{
 
 	@Override
 	public void visitarObjeto(Objeto o) {
-		// TODO Auto-generated method stub
+		miBomba.aceptar(o.getVisitor());
 		
 	}
 	

@@ -45,7 +45,7 @@ public class VisitorAlcanceEnemigo extends VisitorAlcance{
 
 	@Override
 	public void visitarObjeto(Objeto o) {
-		// TODO Auto-generated method stub
+		miPersonaje.aceptar(o.getVisitor());
 		
 	}
 

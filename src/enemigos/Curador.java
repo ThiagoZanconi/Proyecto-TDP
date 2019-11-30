@@ -2,6 +2,9 @@ package enemigos;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import disparos.Disparo;
+import disparos.DisparoRango;
 import visitor.VisitorEnemigo;
 public class Curador extends Enemigo {
 
@@ -25,6 +28,7 @@ public class Curador extends Enemigo {
 	
 	//Falta Implementar Ataque de curador
 	public void generarDisparo() {
-		
+		Disparo x=new DisparoRango((int)rectangulo.getX(),(int)rectangulo.getY(),this.getFuerzaDeImpacto(),(int)alcanceDeAtaque.getWidth());
+		adaptador.añadirElemento(x);
 	}
 }

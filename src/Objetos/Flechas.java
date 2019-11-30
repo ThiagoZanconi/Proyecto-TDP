@@ -15,14 +15,15 @@ public class Flechas extends ObjetoTemporal {
 	public Flechas(int x,int y) {
 		super();
 		miVisitor=new VisitorFlechas(this);
-		daño=2000;
-		costoMonedas=200;
+		vida=-1;
+		daño=30;
+		costoMonedas=350;
 		graficoActual=new JLabel();
 		graficoActual.setIcon(new ImageIcon("Sprites\\Objetos\\lluviaDeFlechas.gif"));
-		graficoActual.setBounds(x,y,1000,1000);
-		rectangulo=new Rectangle(x,y,300,300);
+		graficoActual.setBounds(x-90,y-110,1000,1000);
+		rectangulo=new Rectangle(x-50,y-50,200,200);
 		colisiono=false;
-		HiloDuracionObjeto hilo=new HiloDuracionObjeto(this,900);
+		HiloDuracionObjeto hilo=new HiloDuracionObjeto(this,1700);
 		hilo.start();
 	}
 	

@@ -14,7 +14,7 @@ public class VisitorCampoDeProteccion extends VisitorPremio {
 
 	@Override
 	public void visitarObjeto(Objeto o) {
-		// TODO Auto-generated method stub
+		miCampo.aceptar(o.getVisitor());
 		
 	}
 	

@@ -26,4 +26,8 @@ public abstract class Objeto extends Elemento{
 		return colisiono;
 	}
 	
+	public void setColisiono(boolean b) {
+		colisiono=b;
+	}
+	
 }
