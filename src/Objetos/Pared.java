@@ -14,8 +14,9 @@ public class Pared extends ObjetoPrecioso{
 		vida=1200;
 		miVisitor=new VisitorPared(this);
 		graficoActual.setIcon(new ImageIcon("Sprites\\Premios\\pared.png"));
-		graficoActual.setBounds(x,y+450, 1000, 1000);
-		rectangulo=new Rectangle(x,y,80,70);
+		int[] coordenadas=adaptador.traducirCoordenadas(x, y); 
+		graficoActual.setBounds(coordenadas[0]-65,coordenadas[1]-550, 1000, 1000);
+		rectangulo=new Rectangle(coordenadas[0]-65,coordenadas[1]-550,80,70);
 	}
 	
 	public void aceptar(Visitor v) {

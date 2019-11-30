@@ -84,6 +84,10 @@ public final class Adaptador {
 		tienda.actualizarMonedas(cantidad);
 	}
 	
+	public int[] traducirCoordenadas(int x,int y) {
+		return tienda.traducirCoordenadas(x, y);
+	}
+	
 	public boolean hayQueVender() {
 		return tienda.getVender();
 	}

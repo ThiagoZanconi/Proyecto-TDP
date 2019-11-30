@@ -287,7 +287,7 @@ public class Tienda {
 	
 	}	
 
-	private int[] traducirCoordenadas(int x,int y) {
+	public int[] traducirCoordenadas(int x,int y) {
 		int[]toReturn=new int[2];
 		//Traducir coordenada X
 		if(x<120)
