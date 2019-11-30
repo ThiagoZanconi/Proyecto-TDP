@@ -7,7 +7,6 @@ import visitor.Visitor;
 import visitor.VisitorBomba;
 
 public class Bomba extends ObjetoPrecioso {
-	protected int daño;
 
 	public Bomba(int x,int y) {
 		super(x,y);
@@ -18,10 +17,6 @@ public class Bomba extends ObjetoPrecioso {
 		graficoActual.setBounds(0, 0, 1000, 1000);
 		HiloDuracionObjeto hilo=new HiloDuracionObjeto(this,1650);
 		hilo.start();
-	}
-	
-	public int getDaño() {
-		return daño;
 	}
 
     public void aceptar(Visitor v) {

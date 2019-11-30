@@ -3,6 +3,7 @@ package Objetos;
 import javax.swing.JLabel;
 
 public abstract class Premio extends Objeto{
+	protected int daño;
 	
 	public Premio(int x,int y){
 		super();
@@ -11,4 +12,7 @@ public abstract class Premio extends Objeto{
 		graficoActual.setBounds(x,y,1000,1000);
 	}
 	
+	public int getDaño() {
+		return daño;
+	}
 }

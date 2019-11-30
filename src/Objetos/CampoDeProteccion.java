@@ -14,6 +14,7 @@ public class CampoDeProteccion extends MagiaTemporal {
 
 	public CampoDeProteccion(int x,int y) {
 		super(x,y);
+		daño=0;
 		graficoActual.setIcon(new ImageIcon("Sprites\\Premios\\campo.png"));
 		rectangulo=new Rectangle(x,y,80,70);
 		miVisitor=new VisitorCampoDeProteccion(this);

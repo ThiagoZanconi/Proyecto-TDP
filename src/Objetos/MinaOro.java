@@ -19,6 +19,12 @@ public class MinaOro extends ObjetoConVida{
 		rectangulo=new Rectangle(x,y,80,70);
 		colisiono=false;
 	}
+	
+	public void recibirDaño(int d) {
+		vida-=d;
+		if(vida<0)
+			destruir();
+	}
 
 	@Override
 	public void aceptar(Visitor v) {

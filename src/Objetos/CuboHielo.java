@@ -22,6 +22,10 @@ public class CuboHielo extends ObjetoTemporal{
 		HiloDuracionObjeto hilo=new HiloDuracionObjeto(this,2000);
 		hilo.start();
 	}
+	
+	public boolean getColisiono() {
+		return false;
+	}
 
 	@Override
 	public void aceptar(Visitor v) {

@@ -12,6 +12,7 @@ public class RelojRealentizador extends MagiaTemporal{
 	public RelojRealentizador(int x, int y) {
 		super(x, y);
 		vida=-1;
+		daño=0;
 		graficoActual.setIcon(new ImageIcon("Sprites\\Premios\\Ralentiza.gif"));
 		graficoActual.setBounds(550,-100,1000,1000);
 		rectangulo=new Rectangle(0,-800,2000,2000);

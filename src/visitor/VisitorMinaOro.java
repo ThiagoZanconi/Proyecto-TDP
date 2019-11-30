@@ -1,6 +1,7 @@
 package visitor;
 
 import Objetos.MinaOro;
+import Objetos.Objeto;
 import Objetos.Premio;
 import aliados.Aliado;
 import disparos.Disparo;
@@ -30,7 +31,11 @@ public class VisitorMinaOro extends VisitorObjeto {
 	}
 	
 	public void visitarPremio(Premio p) {
-		miMina.destruir();
+		miMina.recibirDaño(p.getDaño());
+	}
+	
+	public void visitarObjeto(Objeto o) {
+		o.setColisiono(true);
 	}
 
 }
