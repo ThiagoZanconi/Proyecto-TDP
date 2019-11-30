@@ -45,7 +45,7 @@ public class VisitorAlcanceEnemigo extends VisitorAlcance{
 
 	@Override
 	public void visitarObjeto(Objeto o) {
-		miPersonaje.aceptar(o.getVisitor());
+		miPersonaje.atacar();
 		
 	}
 
