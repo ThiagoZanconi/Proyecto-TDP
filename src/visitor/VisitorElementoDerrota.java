@@ -2,7 +2,6 @@ package visitor;
 
 import Objetos.Objeto;
 import Objetos.Obstaculo;
-import Objetos.ObstaculoConVida;
 import Objetos.Premio;
 import aliados.Aliado;
 import disparos.Disparo;
