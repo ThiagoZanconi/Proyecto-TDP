@@ -25,6 +25,10 @@ import enemigos.Enemigo;
 import gui.Hilo;
 import gui.HiloAparicionEnemigos;
 import objetoFactory.AbstractObjetoFactory;
+import objetoFactory.CuboHieloFactory;
+import objetoFactory.DummyFactory;
+import objetoFactory.FlechasFactory;
+import objetoFactory.MinaOroFactory;
 
 public abstract class Nivel {
 	protected static Juego juego;
@@ -66,7 +70,17 @@ public abstract class Nivel {
 	}
 	
 	public void instanciarBotonesObjeto(AbstractObjetoFactory []botones) {
-		
+		botones[0]=new CuboHieloFactory();
+		botones[0].setText("CuboHielo");
+				
+		botones[1]=new DummyFactory();
+		botones[1].setText("Dummy");
+				
+		botones[2]=new FlechasFactory();
+		botones[2].setText("Flechas");
+				
+		botones[3]=new MinaOroFactory();
+		botones[3].setText("MinaOroFactory");		
 	}
 	
 	public Enemigo generarEnemigoAleatorio(int x,int y) {

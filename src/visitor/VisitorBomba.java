@@ -14,15 +14,11 @@ public class VisitorBomba extends VisitorPremio{
 	@Override
 	public void visitarEnemigo(Enemigo e) {
 		e.recibirDaño(miBomba.getDaño());
-		System.out.println("ASDASD");
-		
 	}
 
 	@Override
 	public void visitarAliado(Aliado a) {
-		a.recibirDaño(miBomba.getDaño());
-		System.out.println("ASDASD");
-		
+		a.recibirDaño(miBomba.getDaño());	
 	}
 
 	@Override

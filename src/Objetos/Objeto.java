@@ -6,18 +6,24 @@ import stateObjetos.EstadoObjetoAtaca;
 
 public abstract class Objeto extends Elemento{
 	protected EstadoObjeto estado;
+	protected int costoMonedas;
+	protected boolean colisiono;
 
 	public Objeto() {
 		super();
 		estado=new EstadoObjetoAtaca(this);
 	}
-
-	public String esUn() {
-		return "Objeto";
-	}
 	
+	public int getCostoMonedas() {
+		return costoMonedas;
+	}
+
 	public void setEstadoObjeto(EstadoObjeto e) {
 		estado=e;
+	}
+	
+	public boolean getColisiono() {
+		return colisiono;
 	}
 	
 }

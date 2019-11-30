@@ -12,6 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
+import Objetos.Objeto;
 import adaptador.Adaptador;
 import aliadoFactory.AbstractAliadoFactory;
 import aliados.Aliado;
@@ -89,6 +91,24 @@ public class Tienda {
 		gui.getVentanaJuego().add(botonesAliado[5],0);	
 		
 		botonesObjeto=new AbstractObjetoFactory[4];
+		nivel.instanciarBotonesObjeto(botonesObjeto);
+		OyenteComprarObjeto oyenteComprarObjeto=new OyenteComprarObjeto();
+		
+		botonesObjeto[0].setBounds(0,770,100,100);
+		botonesObjeto[0].addActionListener(oyenteComprarObjeto);
+		gui.getVentanaJuego().add(botonesObjeto[0],0);
+		
+		botonesObjeto[1].setBounds(100,770,100,100);
+		botonesObjeto[1].addActionListener(oyenteComprarObjeto);
+		gui.getVentanaJuego().add(botonesObjeto[1],0);
+		
+		botonesObjeto[2].setBounds(200,770,100,100);
+		botonesObjeto[2].addActionListener(oyenteComprarObjeto);
+		gui.getVentanaJuego().add(botonesObjeto[2],0);
+		
+		botonesObjeto[3].setBounds(300,770,100,100);
+		botonesObjeto[3].addActionListener(oyenteComprarObjeto);
+		gui.getVentanaJuego().add(botonesObjeto[3],0);
 		
 		btnVender=new JButton("Vender");
 		btnVender.setBounds(600,670,100,100);
@@ -196,7 +216,16 @@ public class Tienda {
 	}
 	
 	public void generarObjeto(int x,int y) {
-		
+		int[] arregloAuxiliar=traducirCoordenadas(x,y);
+		Objeto objeto=btnObjetoClickeado.crearObjeto(arregloAuxiliar[0]-65,arregloAuxiliar[1]-550);
+		adaptador.chequearColision(objeto);
+		if(objeto.getCostoMonedas()<=monedas && !objeto.getColisiono()) {
+			actualizarMonedas(-objeto.getCostoMonedas());
+			adaptador.añadirElemento(objeto);
+			//gui.getVentanaJuego().add(objeto.getColisionVenta(),0);
+			cuadrilla.setVisible(false);
+			crearObjeto=false;
+		}
 	}
 	
 	public void actualizarMonedas(int cantidad) {
@@ -334,9 +363,22 @@ public class Tienda {
 			vender=false;
 			crearPremio=false;
 			añadirCampo=false;
+			crearObjeto=false;
 			crearAliado=true;
 			btnAliadoClickeado=(AbstractAliadoFactory)e.getSource();
 			descripcion();
+		}
+	}
+	
+	class OyenteComprarObjeto implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			cuadrilla.setVisible(true);
+			vender=false;
+			crearPremio=false;
+			añadirCampo=false;
+			crearAliado=false;
+			crearObjeto=true;
+			btnObjetoClickeado=(AbstractObjetoFactory)e.getSource();
 		}
 	}
 	
