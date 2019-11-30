@@ -13,9 +13,10 @@ public class RelojRealentizador extends MagiaTemporal{
 		super(x, y);
 		vida=-1;
 		graficoActual.setIcon(new ImageIcon("Sprites\\Premios\\Ralentiza.gif"));
+		graficoActual.setBounds(550,-100,1000,1000);
 		rectangulo=new Rectangle(0,-800,2000,2000);
 		miVisitor=new VisitorRelojRealentizador(this);
-		HiloDuracionObjeto hilo=new HiloDuracionObjeto(this,1000);
+		HiloDuracionObjeto hilo=new HiloDuracionObjeto(this,4500);
 		hilo.start();
 	}
 

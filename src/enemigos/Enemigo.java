@@ -44,7 +44,7 @@ public abstract class Enemigo extends Personaje {
 		Random r=new Random();
 		switch(r.nextInt(1)) {
 		case(0):
-			premio="RelojTemporal";
+			premio="Pared";
 			break;
 		case(1):	
 			premio="Tesoro";
@@ -55,6 +55,8 @@ public abstract class Enemigo extends Personaje {
 		case(3):
 			premio="Bomba";
 			break;
+		case(4):
+			premio="RelojTemporal";
 		}
 		
 		switch(r.nextInt(1)) {
@@ -121,8 +123,8 @@ public abstract class Enemigo extends Personaje {
 				iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\ralentizaIcono.png"));
 				adaptador.setEstadoTienda(new EstadoCrearReloj((int)rectangulo.getX(),(int)rectangulo.getY()));
 				break;
-			case("Barricada"):
-				iconoPremio.setIcon(new ImageIcon(""));
+			case("Pared"):
+				iconoPremio.setIcon(new ImageIcon("Sprites\\Premios\\paredIcono.png"));
 				adaptador.setEstadoTienda(new EstadoCrearBarricada((int)rectangulo.getX(),(int)rectangulo.getY()));
 				break;		
 			}
