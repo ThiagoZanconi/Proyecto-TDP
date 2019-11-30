@@ -3,20 +3,17 @@ package stateEnemigos;
 import enemigos.Enemigo;
 import gui.HiloVolverEstadoNormal;
 
-public class Realentizado extends EstadoVelocidad {
+public class Congelado extends EstadoVelocidad {
 
-	public Realentizado(Enemigo e) {
+	public Congelado(Enemigo e) {
 		super(e);
 		HiloVolverEstadoNormal hilo=new HiloVolverEstadoNormal(e);
 		hilo.start();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public int velocidad() {
-		return miEnemigo.getVelocidadNormal()-1;
-		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 
 }

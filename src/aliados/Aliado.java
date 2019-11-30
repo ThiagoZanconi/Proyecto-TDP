@@ -50,6 +50,7 @@ public abstract class Aliado extends Personaje {
 			adaptador.huboVenta(costoMonedas/2);	
 		else	
 			adaptador.huboVenta(costoMonedas);
+		destruirCampo();
 		destruir();
 	}
 	

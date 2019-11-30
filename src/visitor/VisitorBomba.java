@@ -24,7 +24,6 @@ public class VisitorBomba extends VisitorPremio{
 	@Override
 	public void visitarObjeto(Objeto o) {
 		miBomba.aceptar(o.getVisitor());
-		
 	}
 	
 

@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import visitor.Visitor;
 import visitor.VisitorMinaOro;
 
-public class MinaOro extends Objeto {
+public class MinaOro extends ObjetoConVida{
 	
 	public MinaOro(int x,int y) {
 		super();
